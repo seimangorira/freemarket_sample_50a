@@ -1,24 +1,109 @@
-# README
+## Usersテーブル
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+|Column|Type|Options|
+|------|----|-------|
+|nickname|string|null: false|
+|first_name|string|null: false|
+|first_name_kana|string|null: false|
+|last_name|string|null: false|
+|last_name_kana|string|null: false|
+|postal_cord|integer|null: false|
+|municipalities|string|null: false|
+|address|string|null: false|
+|building_name|string|-|
+|birthday|date||
+|user_image|text|-|
+|introduction|text|-|
+|e-mail|string|null: false, unique: true|
+|password|string|null: false|
+|phone_number|integer|unique: true|
+|prefecture_id|references|null: false, foreign_key: true|
 
-Things you may want to cover:
+### Association
+- has_many :items
+- has_many :comments
+- has_one :credit
+- belongs_to :prefecture
+- has_many :buyer_items, foreign_key: "buyer_id", class_name: "Item"
+- has_many :saling_items, -> { where("buyer_id is NULL")}, foreign_key: "salier_id", class_name: "Item"
+- has_many :sold_items, -> { where("buyer_id is NULL")}, foreign_key: "salier_id", class_name: "Item"
 
-* Ruby version
 
-* System dependencies
+## prefecturesテーブル
 
-* Configuration
+|Column|Type|Options|
+|------|----|-------|
+|prefecture_name|string|null: false|
 
-* Database creation
+### Association
+- has_many :users
+- has_many :items
 
-* Database initialization
 
-* How to run the test suite
+## Creditsテーブル
 
-* Services (job queues, cache servers, search engines, etc.)
+|Column|Type|Options|
+|------|----|-------|
+|card_number|integer|null: false, unique: true|
+|expiration_date|date|null: false|
+|pin|integer|null: false, unique: true|
+|user_id|references|null: false, foreign_key: true|
 
-* Deployment instructions
+### Association
+- belongs_to :user
 
-* ...
+
+## Itemsテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|item_name|string|null: false, index: true|
+|price|integer|null: false|
+|item_state|string|null: false|
+|introduction|text|null: false|
+|parent_category|string|null: false, index: true|
+|child_category|string|null: false, index: true|
+|grandchild_category|string|null: false, index: true|
+|brand|string||
+|status|integer|null: false|
+|size|integer||
+|delivery_fee|integer||
+|city|string|null: false|
+|delivery_days|date|null: false|
+|saler_id|references|null: false, foreign_key: true|
+|buyer_id|references|null: false, foreign_key: true|
+|prefecture_id|references|null: false, foreign_key: true|
+|user_id|references|null: false, foreign_key: true|
+
+### Association
+- belongs_to :user
+- belongs_to :saler, class_name: "User"
+- belongs_to :buyer, class_name: "User"
+- has_many :comments
+- has_many :images
+- belongs_to :prefecture
+
+
+## Imagesテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|image|text|null: false|
+|item_id|references|null: false, foreign_key: true|
+
+### Association
+- belongs_to :item
+
+
+## Commentsテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|text|text||
+|user_id|references|null: false, foreign_key: true|
+|item_id|references|null: false, foreign_key: true|
+
+### Association
+- belongs_to :user
+- belongs_to :item
+
