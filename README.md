@@ -12,7 +12,7 @@
 |address|string|null: false|
 |building_name|string|-|
 |birthday|date||
-|user_image|text|-|
+|avatar|text|-|
 |introduction|text|-|
 |e-mail|string|null: false, unique: true|
 |password|string|null: false|
@@ -23,21 +23,9 @@
 - has_many :items
 - has_many :comments
 - has_one :credit
-- belongs_to :prefecture
 - has_many :buyer_items, foreign_key: "buyer_id", class_name: "Item"
 - has_many :saling_items, -> { where("buyer_id is NULL")}, foreign_key: "salier_id", class_name: "Item"
 - has_many :sold_items, -> { where("buyer_id is NULL")}, foreign_key: "salier_id", class_name: "Item"
-
-
-## prefecturesテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|prefecture_name|string|null: false|
-
-### Association
-- has_many :users
-- has_many :items
 
 
 ## Creditsテーブル
@@ -57,9 +45,9 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|item_name|string|null: false, index: true|
+|name|string|null: false, index: true|
 |price|integer|null: false|
-|item_state|string|null: false|
+|state|integer|null: false|
 |introduction|text|null: false|
 |parent_category|string|null: false, index: true|
 |child_category|string|null: false, index: true|
@@ -72,7 +60,6 @@
 |delivery_days|date|null: false|
 |saler_id|references|null: false, foreign_key: true|
 |buyer_id|references|null: false, foreign_key: true|
-|prefecture_id|references|null: false, foreign_key: true|
 |user_id|references|null: false, foreign_key: true|
 
 ### Association
@@ -81,7 +68,6 @@
 - belongs_to :buyer, class_name: "User"
 - has_many :comments
 - has_many :images
-- belongs_to :prefecture
 
 
 ## Imagesテーブル
