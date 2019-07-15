@@ -17,7 +17,6 @@
 |e-mail|string|null: false, unique: true|
 |password|string|null: false|
 |phone_number|integer|unique: true|
-|prefecture_id|references|null: false, foreign_key: true|
 
 ### Association
 - has_many :items
