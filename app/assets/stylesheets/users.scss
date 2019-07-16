@@ -1,7 +1,15 @@
 .bread-crumbs {
-  background-color: grey;
   height: 49px;
   width: 100%;
+  font-size: 14px;
+  ul {
+    margin: 0 210px;
+    padding: 16px 0;
+    li {
+      display: inline;
+    }
+  }
+  
 }
 .l-container {
   background-color: black;
