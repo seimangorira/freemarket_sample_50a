@@ -1,3 +1,10 @@
-// Place all the styles related to the users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.bread-crumbs {
+  background-color: grey;
+  height: 49px;
+  width: 100%;
+}
+.l-container {
+  background-color: black;
+  height: calc(100vh - 49px);
+  width: 100%;
+}
