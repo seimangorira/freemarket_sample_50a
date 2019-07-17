@@ -1,4 +1,4 @@
-%nav.bread-crumbs
+.pankuzu
   %ul
     %li{:itemscope => "", :itemtype => "http://data-vocabulary.org/Breadcrumb"}
       %a{:href => "https://www.mercari.com/jp/", :itemprop => "url"}
@@ -6,4 +6,92 @@
       %i.icon-arrow-right
     %li{:itemscope => "", :itemtype => "http://data-vocabulary.org/Breadcrumb"}
       %span{:itemprop => "title"} マイページ
-%main.l-container
+.main
+  %main.l-container.clearfix
+    .l-content
+      %section.mypage-user-icon
+        %a{:href => "https://www.mercari.com/jp/u/634836807/"}
+          %figure
+            %img{:alt => "", :height => "60", :src => "//static.mercdn.net/thumb/members/634836807.jpg?1563285356", :width => "60"}/
+          %h2.bold yuk
+          .mypage-number
+            %div
+              評価
+              %span.bold 3
+            %div
+              出品数
+              %span.bold 1
+
+      %section.mypage-tab-container-notification-todo
+        %ul.mypage-tabs
+          %li.active
+            %h3
+              %a{"data-toggle" => "tab", :href => "#mypage-tab-notification"}
+                お知らせ
+          %li
+            %h3
+              %a{"data-toggle" => "tab", :href => "#mypage-tab-todo"}
+                やることリスト
+        .tab-content
+          %ul#mypage-tab-notification.mypage-item-list.tab-pane.active
+            %li
+              %a.mypage-item-link{:href => "https://www.mercari.com/jp/mypage/news/"}
+                %figure
+                  %img.lazyloaded{:alt => "", "data-src" => "//static.mercdn.net/images/mercari_profile.png", :src => "//static.mercdn.net/images/mercari_profile.png"}/
+
+    %div.l-side
+      %ul.mypage-nav-list
+        %li
+          %a.mypage-nav-list-item.active{:href => "/jp/mypage/"}
+            マイページ
+        %li
+          %a.mypage-nav-list-item{:href => "/jp/mypage/notification/"}
+            お知らせ
+        %li
+          %a.mypage-nav-list-item{:href => "/jp/mypage/todo/"}
+            やることリスト
+            %i.icon-arrow-right
+        %li
+          %a.mypage-nav-list-item{:href => "/jp/mypage/like/history/"}
+            いいね！一覧
+            %i.icon-arrow-right
+        %li
+          %a.mypage-nav-list-item{:href => "/jp/sell/"}
+            出品する
+            %i.icon-arrow-right
+        %li
+          %a.mypage-nav-list-item{:href => "/jp/mypage/listings/listing/"}
+            出品した商品 - 出品中
+            %i.icon-arrow-right
+        %li
+          %a.mypage-nav-list-item{:href => "/jp/mypage/listings/in_progress/"}
+            出品した商品 - 取引中
+            %i.icon-arrow-right
+        %li
+          %a.mypage-nav-list-item{:href => "/jp/mypage/listings/completed/"}
+            出品した商品 - 売却済み
+            %i.icon-arrow-right
+        %li
+          %a.mypage-nav-list-item{:href => "/jp/mypage/purchase/"}
+            購入した商品 - 取引中
+            %i.icon-arrow-right
+        %li
+          %a.mypage-nav-list-item{:href => "/jp/mypage/purchased/"}
+            購入した商品 - 過去の取引
+            %i.icon-arrow-right
+        %li
+          %a.mypage-nav-list-item{:href => "/jp/mypage/news/"}
+            ニュース一覧
+            %i.icon-arrow-right
+        %li
+          %a.mypage-nav-list-item{:href => "/jp/mypage/review/history/"}
+            評価一覧
+            %i.icon-arrow-right
+        %li
+          %a.mypage-nav-list-item{:href => "/jp/help_center/"}
+            ガイド
+            %i.icon-arrow-right
+        %li
+          %a.mypage-nav-list-item{:href => "/jp/mypage/support/"}
+            お問い合わせ
+            %i.icon-arrow-right
