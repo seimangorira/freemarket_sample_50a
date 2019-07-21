@@ -13,9 +13,7 @@
 .contents-main{
   height: 1991px;
   width: 100%;
-}
-
-.contents-main__head{
+  &__head{
   width: 100%;
   height: 39px;
   padding-top: 40px;
@@ -23,23 +21,24 @@
   font-size: 28px;
   font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
   font-weight: bold;
-}
+  }
+ }
+
 
 .contents-main__center{
   width: 100%;
   height: 442px;
   margin: 0 auto;
-}
-
-.contents-main__text{
-  width: 100%;
-  height: 22px;
-  margin: 26px auto;
-  text-align: center;
-  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
-  font-size: 22px;
-  color: #0099e8;
-  font-weight: bold;
+  &__text{
+    width: 100%;
+    height: 22px;
+    margin: 26px auto;
+    text-align: center;
+    font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+    font-size: 22px;
+    color: #0099e8;
+    font-weight: bold;
+  }
 }
 
 .contents-item{
