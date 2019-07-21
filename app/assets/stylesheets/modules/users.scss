@@ -25,12 +25,14 @@
   padding: 40px 210px 0;
   .l-container {
     .l-content {
-      background: url(/assets/user-bg.jpg);
+      overflow: scroll;
+      // background: url(/assets/user-bg.jpg);
       font-weight: bold;
       width: 700px;
       float: right;
       background-color: #ffffff;
       .mypage-user-icon {
+        background: url(/assets/user-bg.jpg);
         padding: 26px;
         a {
           margin: 0;
@@ -78,7 +80,7 @@
             text-align:center;
           }
           a {
-            text-decoration: none ;
+            text-decoration: none;
             font-weight: bold;
             text-align: center;
             color: #333333;
@@ -128,9 +130,46 @@
               }
             }
           }
+          .mypage-go-list {
+            padding: 16px;
+            a {
+              display: block;
+              height: 56px;
+              margin: 0 auto;
+              background: #eee;
+              color: #333;
+              line-height: 56px;
+              text-align: center;
+            }
+          }
         }
+      }
+      .mypage-tab-container {
+        margin: 40px 0 0;
+        background-color: #ffffff;
+        .mypage-tab-head {
+          font-weight: bold;
+          color: #333333;
+          padding: 0 16px;
+          background: #fafafa;
+          font-size: 16px;
+          line-height: 72px;
+        }
+        .mypage-tabs {
+          font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+        }
+          .mypage-item-list {
+            .mypage-item-not-found.bold {
+              background-position: center 40px;
+              background-size: 78px 85px;
+              text-align: center;
+              font-size: 16px;
+              color: #ccc;
+              font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+            }
+          }
+      }
     }
-  }
 
   
     .l-side {
