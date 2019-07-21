@@ -1,0 +1,81 @@
+.contents-main{
+    height: 1991px;
+    width: 100%;
+  }
+  
+  .contents-main__head{
+    width: 100%;
+    height: 39px;
+    padding-top: 40px;
+    text-align: center;
+    font-size: 28px;
+    font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+    font-weight: bold;
+  }
+  
+  .contents-main__center{
+    width: 100%;
+    height: 442px;
+    margin: 0 auto;
+  }
+  
+  .contents-main__text{
+    width: 100%;
+    height: 22px;
+    margin: 26px auto;
+    text-align: center;
+    font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+    font-size: 22px;
+    color: #0099e8;
+    font-weight: bold;
+  }
+  
+  .contents-item{
+    width: 940px;
+    height: 330px;
+    display: flex;
+    margin: auto;
+    &__box{
+      margin-left: 20px;
+      width: 213px;
+      height: 330px;
+    }
+  }
+  
+  .contents-image{
+    width: 213px;
+    height: 220px;
+    &__text{
+      width: 181px;
+      height: 78px;
+      padding: 16px;
+      background-color: white;
+    }
+  }
+  
+  .text-box{
+    width: 181px;
+    height: 48px;
+    &__price{
+      width: 181px;
+      height: 17px;
+    }
+  }
+  
+  .contents-all{
+    width: 940.3px;
+    height: 64px;
+    margin: 0 auto;
+    &__item{
+      color: #0099e8;
+      width: 99.5%;
+      height: 14px;
+      padding: 20px 0 30px;
+      &__box{
+        width: 126px;
+        height: 18px;
+        margin-left: 85%;
+        font-size: 14px;
+      } 
+    }
+  }
