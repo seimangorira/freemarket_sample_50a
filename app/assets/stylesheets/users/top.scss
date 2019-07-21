@@ -12,24 +12,31 @@
   background-color: rgb(245, 245, 245);
   font-size: 14px;
   color: #333;
+  line-height: 1;
   margin: 0;
   padding: 0;
   background-repeat: no-repeat;
   font-size: inherit;
   line-height: inherit;
+  -webkit-box-sizing: inherit;
+  box-sizing: inherit;
+  border-style: solid;
+  border-width: 0;
 
   :before {
     box-sizing: inherit;
     border-style: solid;
     border-width: 0;
     text-decoration: inherit;
+    vertical-align: inherit;
   }
 
   :after {
     box-sizing: inherit;
     border-style: solid;
     border-width: 0;
-    text-decoration: inherit
+    text-decoration: inherit;
+    vertical-align: inherit;
   }
 
   ::selection {
@@ -53,7 +60,7 @@
     padding: 0 0 250px;
     box-sizing: border-box;
 
-      // ヘッダー部分
+    // ヘッダー部分
     .new-user-top-header {
       height: 128px;
       text-align: center;
@@ -78,6 +85,98 @@
 
             &:hover {
               opacity: 0.8;
+            }
+          }
+        }
+      }
+    }
+
+    // メイン部分
+    .new-user-top-main {
+      display: block;
+
+      .new-user-top-main-container {
+        width: 700px;
+        margin: 0 auto;
+        background-color: #fff;
+
+        .new-user-top-main-logo {
+          padding: 24px 8px;
+          font-size: 18px;
+          line-height: 1.5;
+          font-weight: bold;
+          text-align: center;
+        }
+        
+        .new-user-top-main-inners {
+          padding: 40px 40px 64px;
+          border-top: 1px solid #f5f5f5;
+
+          &__inner {
+            margin: 0 auto;
+            max-width: 343px;
+
+            a:hover {
+              opacity: 0.8;
+            }
+
+            &--btn-mail {
+              border-radius: 4px;
+              display: block;
+              width: 100%;
+              line-height: 48px;
+              font-size: 14px;
+              border: 1px solid transparent;
+              -webkit-transition: all ease-out .3s;
+              transition: all ease-out .3s;
+              cursor: pointer;
+              text-align: center;
+              background-image: initial;
+              background-position-x: initial;
+              background-position-y: initial;
+              background-size: initial;
+              background-repeat: initial;
+              background-attachment: initial;
+              background-origin: initial;
+              background-clip: initial;
+              background-color: rgb(245, 245, 245);
+              color: #fff;
+              background-color: #ea352d;
+              position: relative;
+            }
+
+            &__btn-sns {
+              border-radius: 4px;
+              display: block;
+              width: 100%;
+              line-height: 48px;
+              font-size: 14px;
+              border: 1px solid transparent;
+              -webkit-transition: all ease-out .3s;
+              transition: all ease-out .3s;
+              cursor: pointer;
+              text-align: center;
+              position: relative;
+              margin: 16px 0 0;
+              background: #385185;
+              color: #fff;
+            }
+
+            &__btn-sns-google {
+              border-radius: 4px;
+              display: block;
+              width: 100%;
+              line-height: 48px;
+              font-size: 14px;
+              border: 1px solid transparent;
+              -webkit-transition: all ease-out .3s;
+              transition: all ease-out .3s;
+              cursor: pointer;
+              text-align: center;
+              margin: 16px 0 0;
+              background: #fff url("/jp/assets/img/common/common/google.svg") no-repeat 3px top;
+              border: #979797 solid 1px;
+              color: #333;
             }
           }
         }
