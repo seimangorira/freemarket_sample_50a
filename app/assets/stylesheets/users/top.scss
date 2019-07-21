@@ -1,3 +1,15 @@
+@mixin reset {
+  margin: 0;
+  padding: 0;
+  background-repeat: no-repeat;
+  font-size: inherit;
+  line-height: inherit;
+  -webkit-box-sizing: inherit;
+  box-sizing: inherit;
+  border-style: solid;
+  border-width: 0;
+}
+
 .new-user-top {
   height: 100%;
   display: block;
@@ -13,10 +25,6 @@
   font-size: 14px;
   color: #333;
   line-height: 1;
-  margin: 0;
-  padding: 0;
-  background-repeat: no-repeat;
-  font-size: inherit;
   line-height: inherit;
   -webkit-box-sizing: inherit;
   box-sizing: inherit;
@@ -180,6 +188,52 @@
             }
           }
         }
+      }
+    }
+
+    // フッター部分
+    .new-user-top-footer {
+      width: 456px;
+      height: 250px;
+      margin: 0 auto;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 1;
+      padding: 40px 0;
+      text-align: center;
+
+      .new-user-top-nav {
+        display: block;
+
+        &__lists--list{
+          font-size: 0;
+          margin-left: 16px;
+          display: inline-block;
+          font-size: 12px;
+
+          &--link {
+            display: block;
+            color: #333;
+            text-decoration: none;
+
+            &:hover {
+              opacity: 0.8;
+              text-decoration: underline;
+            }
+          }
+        } 
+      }
+
+      &__logo img{
+        width: 80px;
+        height: 65px;
+        margin: 40px auto 0;
+      }
+
+      &__under-logo small{
+        font-size: 13px;
       }
     }
   }
