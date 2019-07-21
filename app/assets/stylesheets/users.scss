@@ -25,12 +25,15 @@
   padding: 40px 210px 0;
   .l-container {
     .l-content {
+      background: url(/assets/user-bg.jpg);
+      font-weight: bold;
       width: 700px;
       float: right;
       background-color: #ffffff;
       .mypage-user-icon {
         padding: 26px;
         a {
+          margin: 0;
           figure {
             margin: 0;
           }
@@ -40,7 +43,6 @@
           text-align:center;
           height: 200px;
           padding: 20px;
-          background: url(/jp/assets/img/mypage/user-bg.jpg?28249796);
           text-align: center;
           .mypage-number {
             display: flex;
@@ -58,7 +60,9 @@
         background: #eee;
         font-size: 16px;
         font-weight: bold;
+        }
         .mypage-tabs {
+          padding: 0;
           li {
             width: 50%;
             text-align: center;
@@ -82,14 +86,48 @@
           }
         }
       }
+      .mypage-tabs {
+        background-color: #ffffff;
+        padding: 16px;
+        min-height: 80px;
+        font-size: 14px;
+      }
+      .tab-content {
+        margin: 0;
+        padding: 0;
+        .mypage-tab-notification.mypage-item-list.tab-pane.active {
+          figure {
+            margin: 0;
+          }
+          li
+            .mypage-item-link {
+              padding: 16px;
+              figure {
+                height: 48px;
+                width: 48px;
+                margin: 0;
+              }
+              .mypage-item-body {
+                margin: 0 40px 0 68px;
+                .mypage-item-text {
+                time
+                  .icon-time
+                  span {
+                    color: #888888;
+                  }
+                }
+              }
+            }
+      }
     }
   }
+
+  
     .l-side {
       background-color: #f5f5f5;
       height: 100;
       margin: 0 40px 0 0;
       width: 280px;
-      // float: left;
       .mypage-nav-list {
         width: 280px;
         background-color: white;
