@@ -1,0 +1,17 @@
+.header {
+  position: relative;
+  background-color: white
+}
+
+.header-inner {
+  width: 700px;
+  margin: 0 auto;
+  padding: 8px 0 0;
+}
+
+.header-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+

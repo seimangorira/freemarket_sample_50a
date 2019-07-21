@@ -1,0 +1,18 @@
+.app-banner {
+  margin:0;
+  padding:0;
+  width:100%;
+  background: url(/jp/assets/img/common/jp/top/download_bg_pc.jpg?72295318);
+  background-position: center;
+  background-size: cover;
+}
+
+.app-banner-pc {
+  display: block;
+  overflow: hidden;
+  position: relative;
+  width: 750px;
+  height: 260px;
+  margin: 0 auto;
+  color: #fff;
+}
