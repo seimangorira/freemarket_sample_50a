@@ -93,23 +93,32 @@
         font-size: 14px;
       }
       .tab-content {
-        margin: 0;
-        padding: 0;
-        .mypage-tab-notification.mypage-item-list.tab-pane.active {
-          figure {
-            margin: 0;
-          }
-          li
+        background-color: #ffffff;
+        img {
+          height: 48px;
+          width: 48px;
+        }
+        #mypage-tab-notification.mypage-item-list.tab-pane.active {
+          li {
             .mypage-item-link {
+              display: block;
+              min-height: 80px;
               padding: 16px;
+              color: #333;
               figure {
-                height: 48px;
-                width: 48px;
                 margin: 0;
+                display: flex;
+                .img {
+                  float: left;
+                }
               }
               .mypage-item-body {
+                width: 450px;
                 margin: 0 40px 0 68px;
+                font-size: 14px;
+                float: right;
                 .mypage-item-text {
+                  color: #888888;
                 time
                   .icon-time
                   span {
@@ -118,7 +127,8 @@
                 }
               }
             }
-      }
+          }
+        }
     }
   }
 
