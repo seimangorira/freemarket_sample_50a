@@ -78,4 +78,5 @@ gem 'mini_magick'
 gem 'fog-aws'
 gem 'font-awesome-sass', '~> 5.9.0'
 gem 'devise'
+gem 'jquery-rails'
 gem "recaptcha"
