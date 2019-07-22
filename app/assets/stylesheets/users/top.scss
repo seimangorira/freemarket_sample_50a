@@ -1,4 +1,4 @@
-@mixin reset {
+@mixin all-reset {
   margin: 0;
   padding: 0;
   background-repeat: no-repeat;
@@ -10,7 +10,7 @@
   border-width: 0;
 }
 
-.new-user-top {
+@mixin contents-reset {
   height: 100%;
   display: block;
   background-image: initial;
@@ -25,13 +25,14 @@
   font-size: 14px;
   color: #333;
   line-height: 1;
-  line-height: inherit;
-  -webkit-box-sizing: inherit;
-  box-sizing: inherit;
-  border-style: solid;
-  border-width: 0;
+}
+
+.new-user-top {
+  @include all-reset;
+  @include contents-reset;
 
   :before {
+    @include all-reset;
     box-sizing: inherit;
     border-style: solid;
     border-width: 0;
@@ -40,6 +41,7 @@
   }
 
   :after {
+    @include all-reset;
     box-sizing: inherit;
     border-style: solid;
     border-width: 0;
@@ -48,6 +50,7 @@
   }
 
   ::selection {
+    @include all-reset;
     color: currentColor;
     background: #b3d4fc;
     color: #fff;
@@ -55,6 +58,7 @@
   }
 
   :root {
+    @include all-reset;
     background-color: #fff;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
@@ -63,6 +67,7 @@
   }
 
   &__container{
+    @include all-reset;
     position: relative;
     min-height: 100vh;
     padding: 0 0 250px;
@@ -70,14 +75,17 @@
 
     // ヘッダー部分
     .new-user-top-header {
+      @include all-reset;
       height: 128px;
       text-align: center;
 
       &__logo {
+        @include all-reset;
         margin: 40px 0 0;
         display: inline-block;
 
         &__link {
+          @include all-reset;
           text-decoration: none;
           width: 185px;
           height: 49px;
@@ -87,11 +95,13 @@
           touch-action: manipulation;
 
           img{
+            @include all-reset;
             width: 185px;
             height: 49px;
             vertical-align: middle;
 
             &:hover {
+              @include all-reset;
               opacity: 0.8;
             }
           }
@@ -101,14 +111,17 @@
 
     // メイン部分
     .new-user-top-main {
+      @include all-reset;
       display: block;
 
       .new-user-top-main-container {
+        @include all-reset;
         width: 700px;
         margin: 0 auto;
         background-color: #fff;
 
         .new-user-top-main-logo {
+          @include all-reset;
           padding: 24px 8px;
           font-size: 18px;
           line-height: 1.5;
@@ -117,10 +130,12 @@
         }
         
         .new-user-top-main-inners {
+          @include all-reset;
           padding: 40px 40px 64px;
           border-top: 1px solid #f5f5f5;
 
           &__inner {
+            @include all-reset;
             margin: 0 auto;
             max-width: 343px;
 
@@ -129,6 +144,7 @@
             }
 
             &--btn-mail {
+              @include all-reset;
               border-radius: 4px;
               display: block;
               width: 100%;
@@ -154,6 +170,7 @@
             }
 
             &__btn-sns {
+              @include all-reset;
               border-radius: 4px;
               display: block;
               width: 100%;
@@ -171,6 +188,7 @@
             }
 
             &__btn-sns-google {
+              @include all-reset;
               border-radius: 4px;
               display: block;
               width: 100%;
@@ -193,6 +211,7 @@
 
     // フッター部分
     .new-user-top-footer {
+      @include all-reset;
       width: 456px;
       height: 250px;
       margin: 0 auto;
@@ -205,20 +224,29 @@
       text-align: center;
 
       .new-user-top-nav {
+        @include all-reset;
         display: block;
 
+
         &__lists--list{
+          @include all-reset;
           font-size: 0;
           margin-left: 16px;
           display: inline-block;
           font-size: 12px;
 
+          &:first-child {
+            margin: 0;
+          }
+
           &--link {
+            @include all-reset;
             display: block;
             color: #333;
             text-decoration: none;
 
             &:hover {
+              @include all-reset;
               opacity: 0.8;
               text-decoration: underline;
             }
@@ -227,12 +255,23 @@
       }
 
       &__logo img{
+        @include all-reset;
         width: 80px;
         height: 65px;
         margin: 40px auto 0;
+
+        &:hover {
+          opacity: 0.8;
+        }
+      }
+
+      &__under-logo {
+        margin: 8px 0 0;
+
       }
 
       &__under-logo small{
+        @include all-reset;
         font-size: 13px;
       }
     }
