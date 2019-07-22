@@ -1,0 +1,100 @@
+@import "./users/_mixin-file.scss";
+// メイン部分
+.new-user-top-main {
+  @include all-reset;
+  display: block;
+
+  .new-user-top-main-container {
+    @include all-reset;
+    width: 700px;
+    margin: 0 auto;
+    background-color: #fff;
+
+    .new-user-top-main-logo {
+      @include all-reset;
+      padding: 24px 8px;
+      font-size: 18px;
+      line-height: 1.5;
+      font-weight: bold;
+      text-align: center;
+    }
+    
+    .new-user-top-main-inners {
+      @include all-reset;
+      padding: 40px 40px 64px;
+      border-top: 1px solid #f5f5f5;
+
+      &__inner {
+        @include all-reset;
+        margin: 0 auto;
+        max-width: 343px;
+
+        a:hover {
+          opacity: 0.8;
+        }
+
+        &--btn-mail {
+          @include all-reset;
+          border-radius: 4px;
+          display: block;
+          width: 100%;
+          line-height: 48px;
+          font-size: 14px;
+          border: 1px solid transparent;
+          -webkit-transition: all ease-out .3s;
+          transition: all ease-out .3s;
+          cursor: pointer;
+          text-align: center;
+          background-image: initial;
+          background-position-x: initial;
+          background-position-y: initial;
+          background-size: initial;
+          background-repeat: initial;
+          background-attachment: initial;
+          background-origin: initial;
+          background-clip: initial;
+          background-color: rgb(245, 245, 245);
+          color: #fff;
+          background-color: #ea352d;
+          position: relative;
+        }
+
+        &__btn-sns {
+          @include all-reset;
+          border-radius: 4px;
+          display: block;
+          width: 100%;
+          line-height: 48px;
+          font-size: 14px;
+          border: 1px solid transparent;
+          -webkit-transition: all ease-out .3s;
+          transition: all ease-out .3s;
+          cursor: pointer;
+          text-align: center;
+          position: relative;
+          margin: 16px 0 0;
+          background: #385185;
+          color: #fff;
+        }
+
+        &__btn-sns-google {
+          @include all-reset;
+          border-radius: 4px;
+          display: block;
+          width: 100%;
+          line-height: 48px;
+          font-size: 14px;
+          border: 1px solid transparent;
+          -webkit-transition: all ease-out .3s;
+          transition: all ease-out .3s;
+          cursor: pointer;
+          text-align: center;
+          margin: 16px 0 0;
+          background: #fff url("/jp/assets/img/common/common/google.svg") no-repeat 3px top;
+          border: #979797 solid 1px;
+          color: #333;
+        }
+      }
+    }
+  }
+}
