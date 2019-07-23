@@ -103,9 +103,19 @@
           cursor: pointer;
           text-align: center;
           margin: 16px 0 0;
-          background: #fff url("google_logo.jpg") no-repeat 3px top;
+          background: #fff no-repeat 3px top;
           border: #979797 solid 1px;
           color: #333;
+          position: relative;
+
+            img {
+            @include all-reset;
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            height: 16px;
+            width: 16px;
+           }
         }
       }
     }
