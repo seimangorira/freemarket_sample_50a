@@ -13,7 +13,7 @@
     .new-user-top-main-logo {
       @include all-reset;
       padding: 24px 8px;
-      font-size: 18px;
+      font-size: 22px;
       line-height: 1.5;
       font-weight: bold;
       text-align: center;
@@ -57,6 +57,13 @@
           color: #fff;
           background-color: #ea352d;
           position: relative;
+
+          i {
+            @include all-reset;
+            position: absolute;
+            left: 16px;
+            font-size: 16px;
+          }
         }
 
         &__btn-sns {
@@ -75,6 +82,12 @@
           margin: 16px 0 0;
           background: #385185;
           color: #fff;
+          i {
+            @include all-reset;
+            position: absolute;
+            left: 16px;
+            font-size: 16px;
+          }
         }
 
         &__btn-sns-google {
@@ -90,7 +103,7 @@
           cursor: pointer;
           text-align: center;
           margin: 16px 0 0;
-          background: #fff url("/jp/assets/img/common/common/google.svg") no-repeat 3px top;
+          background: #fff url("google_logo.jpg") no-repeat 3px top;
           border: #979797 solid 1px;
           color: #333;
         }
