@@ -1,0 +1,145 @@
+// Place all the styles related to the items controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+*{
+  margin: 0;
+  padding: 0;
+  // height: 4800px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+a{
+  text-decoration: none;
+  color: #0099e8;
+}
+
+div{
+  display: block;
+}
+
+.main-body{
+  position: relative;
+  min-height: 100%;
+  font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+  font-size: 14px;
+  color: rgb(51,52,53);
+  line-height: 1;
+  background: rgb(245, 245, 245);
+  box-sizing: border-box;
+}
+
+.header-form{
+  position: relative;
+  z-index: 10;
+  background: #fff;
+  min-width: 768px;
+  height: 100px;
+}
+
+.pankuzu{
+  position: relative;
+  border-top: 1px solid #eee;
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.16);
+  background: #fff;
+  height: 50px;
+}
+
+section{
+  display: block;
+}
+
+.item-box{
+  width: 700px;
+  padding: 24px 40px 40px;
+  margin: 40px auto 0;
+  height: 1995px;
+  background: #fff;
+    &__item-name{
+      font-size: 24px;
+      text-align: center;
+      line-height: 1.4;
+      word-wrap: break-word;
+      height: 60px;
+      width: 620px;
+      background: white;
+    }
+    &__item-main{
+      margin: 16px 0 0;
+      height: 420px;
+      width: 620px;
+      background: white;
+    }
+    &__item-price{
+      height: 50px;
+      text-align: center;
+      margin: 24px 0 0;
+      width: 620px;
+      background: white;
+    }
+    &__item-btn{
+      height: 60px;
+      line-height: 60px;
+      display: block;
+      color: #fff;
+      background: red;
+      text-align: center;
+      font-weight: 600;
+      margin: 16px 0 0;
+      transition: all ease-out .3s;
+      font-size: 24px;
+      width: 620px;
+    }
+    &__item-description{
+      font-size: 18px;
+      height: 1250px;
+      padding: 32px 0 0;
+      line-height: 1.5;
+      width: 620px;
+        &--text{
+          white-space: pre-wrap;
+          height: 1218px;
+          background: white;
+        }
+    }
+    &__item-icon{
+      height: 30px;
+      margin: 16px 0 0;
+      width: 620px;
+      background: white;
+        &--left{
+          height: 30px;
+          display: inline-block;
+          width: 320px;
+        }
+          &--link{
+            width: 120px;
+          }
+          &--report{
+            width: 180px;
+            margin: 0 0 0 16px;
+          }
+        &--right{
+          height: 15px;
+          width: 230px;
+          float: right;
+        }
+    }
+}
+
+.detail-message{
+  height: 260px;
+  width: 700px;
+  margin: 8px auto;
+    .message-content{
+      height: 260px;
+      background: lightgray
+    }
+}
+
+.item-link{
+  width: 700px;
+  margin: 24px auto 0;
+  height: 14px;
+  background: lightgray
+}
