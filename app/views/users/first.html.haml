@@ -1,5 +1,5 @@
-%html
-  %body
+%div.html
+  %div.body
     .single-container
       / ヘッダー部分
       %header.single-header
@@ -32,7 +32,7 @@
               .form-group
                 %label{:for => "nickname"} ニックネーム
                 %span.form-require 必須
-                %input.input-default{:placeholder => "例）メルカリ太郎", :type => "text"}/
+                %input.input-default{:placeholder => "例）メルカリ太郎", :type => "text"}
               .form-group
                 %label{:for => "email"} メールアドレス
                 %span.form-require 必須
@@ -65,7 +65,6 @@
               .form-group
                 %label{"for-" => "birthday"} 生年月日
                 %span.form-require 必須
-                br&gt;
                 .birthday-select-wrap
                   .select-wrap
                     %i.icon-arrow-bottom
