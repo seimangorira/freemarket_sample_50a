@@ -1,17 +1,70 @@
-.header {
+.pc-header {
   position: relative;
-  background-color: white
+  background-color: white;
+  display: block;
+  .pc-header-inner{
+    width: 1020px;
+    height: 100px;
+    margin: 0 auto;
+    padding: 8px 0 0;
+    font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+    color: black;
+    .pc-header-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .pc-header-form{ 
+        position: relative;
+        margin-left: 45px;
+        width: 100%;
+        .input-default{
+          background: #f5f5f5;
+          border-radius: 4px;
+          padding: 0 42px 0 10px;
+          width: 100%;
+          height: 40px;
+        }
+        .icon-search {
+          position: absolute;
+          top: 0;
+          right: 0;
+          align-items: center;
+          justify-content: center;
+          width: 40px;
+          height: 40px;
+        }
+      }
+    }
+    .pc-header-nav-box {
+      margin: 8px 0 0;
+      padding: 0;
+      a {
+        display: block;
+        color: #333;
+        .pc-header-cat-brand-icon {
+          color: #ea352d;
+          font-size: 12px;
+          margin-right: 4px;
+        }
+      }
+      .l-left{
+        float: left;
+        .pc-header-nav{
+          ul {
+            font-size: 14px;
+            font-weight: 400;
+            li {
+            position: relative;
+            display: inline-block;
+            padding: 0 11px;
+            cursor: pointer;
+            }
+          }
+        }
+      }
+      .l-right {
+        float: right;
+      }
+    }
+  }
 }
-
-.header-inner {
-  width: 700px;
-  margin: 0 auto;
-  padding: 8px 0 0;
-}
-
-.header-top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
