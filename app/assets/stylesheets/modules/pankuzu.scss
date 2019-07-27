@@ -1,0 +1,35 @@
+.pankuzu {
+  border-top: 1px solid #eee;
+  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+  height: 49px;
+  width: 100%;
+  font-size: 14px;
+  box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
+  background-color: #ffffff;
+  position:relative;
+  z-index:2;
+  ul {
+    margin: 0 210px;
+    padding: 16px 0;
+    li {
+      display: inline-block;
+      font-size: 14px;
+      line-height: 1.2;
+      a {
+        text-decoration: none;
+        //  span {}
+      }
+      a:visited {
+        color: #333333;
+      }
+      a:hover{
+        text-decoration: underline;
+      }
+      .fa.fa-chevron-right {
+        margin: 0 8px;
+        font-size: 9px;
+        color: #888;
+      }
+    }
+  }
+}
