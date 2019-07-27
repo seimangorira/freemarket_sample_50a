@@ -7,4 +7,7 @@ class UsersController < ApplicationController
 
   def second
   end
+
+  def third
+  end
 end
