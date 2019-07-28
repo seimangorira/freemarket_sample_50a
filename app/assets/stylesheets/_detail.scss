@@ -12,24 +12,7 @@
   cursor: pointer;
 }
 
-*{
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-a{
-  text-decoration: none;
-  color: #0099e8;
-  cursor: pointer;
-}
-
-div{
-  display: block;
-}
-
-.main-body{
+.main{
   position: relative;
   min-height: 100%;
   font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
@@ -38,34 +21,40 @@ div{
   line-height: 1;
   background: rgb(245, 245, 245);
   box-sizing: border-box;
-}
-
-.header-form{
-  position: relative;
-  z-index: 10;
-  background: #fff;
-  min-width: 768px;
-  height: 100px;
-}
-
-.pankuzu{
-  position: relative;
-  border-top: 1px solid #eee;
-  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.16);
-  background: #fff;
-  height: 50px;
-}
-
-section{
-  display: block;
-}
-
-.item-box{
-  width: 700px;
-  padding: 24px 40px 40px;
-  margin: 40px auto 0;
-  height: 1995px;
-  background: #fff;
+  *{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  a{
+    text-decoration: none;
+    color: #0099e8;
+    cursor: pointer;
+  }
+  &__header-form{
+    position: relative;
+    z-index: 10;
+    background: #fff;
+    min-width: 768px;
+    height: 100px;
+  }
+  &__pankuzu{
+    position: relative;
+    border-top: 1px solid #eee;
+    box-shadow: 0 3px 0 rgba(0, 0, 0, 0.16);
+    background: #fff;
+    height: 50px;
+  }
+  section{
+    display: block;
+  }
+  &__item-box{
+    width: 700px;
+    padding: 24px 40px 40px;
+    margin: 40px auto 0;
+    height: 1995px;
+    background: #fff;
     &__item-name{
       font-size: 24px;
       text-align: center;
@@ -80,7 +69,7 @@ section{
       height: 420px;
       width: 620px;
       background: white;
-      .main-content{
+      &__content{
         float: left;
         min-width: 300px;
         max-width: 300px;
@@ -88,14 +77,14 @@ section{
         position: relative;
         margin: 0 auto;
         background: lightgray;
-         &__detail-table{
-           float: right;
-           max-width: 300px;
-           height: 420px;
-           margin: 0 auto;
-           background: lightgray;
-         }
-       }
+      &__detail-table{
+        float: right;
+        max-width: 300px;
+        height: 420px;
+        margin: 0 auto;
+        background: lightgray;
+      }
+      }
     }
     &__item-price{
       height: 50px;
@@ -124,32 +113,32 @@ section{
       padding: 32px 0 0;
       line-height: 1.5;
       width: 620px;
-        &--text{
-          white-space: pre-wrap;
-          height: 1218px;
-          background: white;
-        }
-    }
+      &--text{
+        white-space: pre-wrap;
+        height: 1218px;
+        background: white;
+      }
+      }
     &__item-icon{
       height: 30px;
       margin: 16px 0 0;
       width: 620px;
       background: white;
-        &--left{
+        &__left{
           height: 30px;
           display: inline-block;
           width: 320px;
-        }
-          &--like{
+          &__like{
             @include btn;
             width: 120px;
           }
-          &--report{
+          &__report{
             @include btn;
             width: 180px;
             margin: 0 0 0 16px;
           }
-        &--right{
+        }
+        &__right{
           height: 15px;
           width: 230px;
           float: right;
@@ -160,24 +149,23 @@ section{
           }
           .a{
             font-size: 14px;
-          }
         }
+      }
     }
-}
-
-.detail-message{
-  height: 260px;
-  width: 700px;
-  margin: 8px auto;
-    .message-content{
-      height: 260px;
-      background: lightgray
-    }
-}
-
-.item-link{
-  width: 700px;
-  margin: 24px auto 0;
-  height: 14px;
-  background: lightgray
+  }
+  &__detail-message{
+    height: 260px;
+    width: 700px;
+    margin: 8px auto;
+      &--content{
+        height: 260px;
+        background: lightgray
+      }
+  }
+  &__item-link{
+    width: 700px;
+    margin: 24px auto 0;
+    height: 14px;
+    background: lightgray
+  }
 }

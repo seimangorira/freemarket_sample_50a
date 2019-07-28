@@ -1,84 +1,85 @@
-%body.main-body
-  .main
-    .header-form
-      -# 佐々木くんがマークアップ中
-    %nav.pankuzu
-      -# 池田さんがマークアップ中
-    %section.item-box
-      %h1.item-box__item-name 極美品 オールドコーチ 0502 レザー 2way 大型ボストンバッグ D818
-      .item-box__item-main
-        .main-content.clearfix
-          .main-content__photo
-            .main-content__photo__image-box
-              .main-content__photo--head
-              .main-content__photo--foot
-        %table.main-content__detail-table
-      .item-box__item-price ¥ 26,000 (税込) 送料込み
-      .item-box__item-btn 購入画面に進む
-      .item-box__item-description
-        %p.item-box__item-description--text
-          ご覧いただきありがとうございます。
-          極美品 オールドコーチ 0502 レザー 2way 大型ボストンバッグ D818の出品です♪
-          /
-          【ブランド】
-          COACH/コーチ
-          /
-          【コンディション】
-          若干の擦れはございますが全体的にかなり綺麗な状態です(*^^*)
-          詳細は画像にてご確認ください。
-          /
-          【サイズ】
-          縦横 約24cm×54cm
-          マチ 約23cm
-          持ち手 約10cm
-          ショルダー 約35cm
-          ※記載している持ち手(ショルダー)の長さは
-          バッグ上部から持ち手(ショルダー)のトップまでの長さを測っております。
-          /
-          【重さ】
-          約1638g
-          /
-          【カラー】
-          ブラウン
-          /
-          【素材】
-          レザー
-          /
-          【付属品】
-          画像のもので全てになります。
-          /
-          /
-          【梱包、配送について】
-          梱包はプチプチに包みダンボール、
-          または簡易梱包資材に入れての発送になります。
-          厳重に梱包しますので破損の心配は不要です(^^)
-          全国送料無料です。
-          /
-          ☆ご購入前にはプロフィールに目を通していただきますよう
-          お願い致します(^^)/ 
-          /
-          1.2#bag#ブランドバッグ#レディース#バッグ#カバン#ファッション#ハンドバッグ #ショルダーバッグ
-      .item-box__item-icon
-        .item-box__item-icon--left
-          %button.item-box__item-icon--like 
-            %i.fa.fa-heart-o
-              %span いいね!
-              %span.item-box__item-icon--like-count 17
-          %button.item-box__item-icon--report 不適切な商品の報告
-        .item-box__item-icon--right
-          = link_to "/messages/detail" do
-            %i.fa.fa-lock
-              %span あんしん・あんぜんへの取り組み
-    .detail-message
-      .message-content
-    %ul.item-link
-      %li.item-link__previous
-      %li.item-link__next
-    .media-box
-      .media-text
-      %ul.media-icon
-    .user-item
-      %section.user-item-box
-      %section.user-item-box
-    %aside.app-banner
-    .footer
+.main
+  .main__header-form
+    -# 佐々木くんがマークアップ中
+  %nav.main__pankuzu
+    -# 池田さんがマークアップ中
+  %section.main__item-box
+    %h1.main__item-box__item-name 極美品 オールドコーチ 0502 レザー 2way 大型ボストンバッグ D818
+    .main__item-box__item-main
+      .main__item-box__item-main__content.clearfix
+        .main__item-box__item-main__content__photo
+          .main__item-box__item-main__content__photo__image-box
+            .main__item-box__item-main__content__photo__image-box--head
+            .main__item-box__item-main__content__photo__image-box--foot
+      %table.main__item-box__item-main__content__detail-table
+    .main__item-box__item-price ¥ 26,000 (税込) 送料込み
+    .main__item-box__item-btn 購入画面に進む
+    .main__item-box__item-description
+      %p.main__item-box__item-description--text
+        ご覧いただきありがとうございます。
+        極美品 オールドコーチ 0502 レザー 2way 大型ボストンバッグ D818の出品です♪
+        /
+        【ブランド】
+        COACH/コーチ
+        /
+        【コンディション】
+        若干の擦れはございますが全体的にかなり綺麗な状態です(*^^*)
+        詳細は画像にてご確認ください。
+        /
+        【サイズ】
+        縦横 約24cm×54cm
+        マチ 約23cm
+        持ち手 約10cm
+        ショルダー 約35cm
+        ※記載している持ち手(ショルダー)の長さは
+        バッグ上部から持ち手(ショルダー)のトップまでの長さを測っております。
+        /
+        【重さ】
+        約1638g
+        /
+        【カラー】
+        ブラウン
+        /
+        【素材】
+        レザー
+        /
+        【付属品】
+        画像のもので全てになります。
+        /
+        /
+        【梱包、配送について】
+        梱包はプチプチに包みダンボール、
+        または簡易梱包資材に入れての発送になります。
+        厳重に梱包しますので破損の心配は不要です(^^)
+        全国送料無料です。
+        /
+        ☆ご購入前にはプロフィールに目を通していただきますよう
+        お願い致します(^^)/ 
+        /
+        1.2#bag#ブランドバッグ#レディース#バッグ#カバン#ファッション#ハンドバッグ #ショルダーバッグ
+    .main__item-box__item-icon
+      .main__item-box__item-icon__left
+        %button.main__item-box__item-icon__left__like 
+          %i.fa.fa-heart
+            %span いいね!
+            %span.main__item-box__item-icon__left__like__count 17
+        %button.main__item-box__item-icon__left__report
+          %i.fa.fa-flag
+            %span 不適切な商品の報告
+      .main__item-box__item-icon__right
+        = link_to "/messages/detail" do
+          %i.fa.fa-lock
+            %span あんしん・あんぜんへの取り組み
+  .main__detail-message
+    .main__detail-message--content
+  %ul.main__detail-message__item-link
+    %li.main__detail-message__item-link__previous
+    %li.main__detail-message__item-link__next
+  .main__media-box
+    .main__media-box--text
+    %ul.main__media-box__media-icon
+  .main__user-item
+    %section.main__user-item__user-item-box
+    %section.user-item-box
+  %aside.app-banner
+  .main__footer
