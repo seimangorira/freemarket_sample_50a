@@ -3,7 +3,7 @@
 $(document).on("turbolinks:load", function(){
   $(function() {
     $('.slider').slick({
-      // autoplay: true,
+      autoplay: true,
       autoplaySpeed: 7000,
       prevArrow: '<img src="/carousel-prev.png" class="prev-arrow">',
       nextArrow: '<img src="/carousel-next.png" class="next-arrow">',
