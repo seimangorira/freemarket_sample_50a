@@ -5,8 +5,14 @@
     %nav.pankuzu
       -# 池田さんがマークアップ中
     %section.item-box
-      %h1.item-box__item-name 商品名
+      %h1.item-box__item-name 極美品 オールドコーチ 0502 レザー 2way 大型ボストンバッグ D818
       .item-box__item-main
+        .main-content.clearfix
+          .main-content__photo
+            .main-content__photo__image-box
+              .main-content__photo--head
+              .main-content__photo--foot
+        %table.main-content__detail-table
       .item-box__item-price ¥ 26,000 (税込) 送料込み
       .item-box__item-btn 購入画面に進む
       .item-box__item-description
@@ -54,11 +60,15 @@
           1.2#bag#ブランドバッグ#レディース#バッグ#カバン#ファッション#ハンドバッグ #ショルダーバッグ
       .item-box__item-icon
         .item-box__item-icon--left
-          %button.item-box__item-icon--link いいね
+          %button.item-box__item-icon--like 
+            %i.fa.fa-heart-o
+              %span いいね!
+              %span.item-box__item-icon--like-count 17
           %button.item-box__item-icon--report 不適切な商品の報告
         .item-box__item-icon--right
-          %i.fa.fa-lock.fa-lg
-          =link_to 'あんしん・あんぜんへの取り組み', "/items/detail"
+          = link_to "/messages/detail" do
+            %i.fa.fa-lock
+              %span あんしん・あんぜんへの取り組み
     .detail-message
       .message-content
     %ul.item-link
