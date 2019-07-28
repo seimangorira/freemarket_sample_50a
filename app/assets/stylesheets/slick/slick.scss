@@ -40,13 +40,14 @@
 }
 
 .slick-track {
+    width: 100%;
     position: relative;
     left: 0;
     top: 0;
     display: block;
-    margin-left: auto;
-    margin-right: auto;
-
+    // margin-left: auto;
+    // margin-right: auto;
+    margin:0;
     &:before,
     &:after {
         content: "";
@@ -98,3 +99,5 @@
 .slick-arrow.slick-hidden {
     display: none;
 }
+
+

@@ -1,17 +1,21 @@
+
+
+
 !!!
 %html
   %head
-    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{content: "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %title FreemarketSample50a
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-
-    %link{:href => "js/slick-theme.css", :rel => "stylesheet", :type => "text/css"}/
-    %link{:href => "js/slick.css", :rel => "stylesheet", :type => "text/css"}/
-    %script{:src => "https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"}
-    %script{:src => "js/slick.min.js", :type => "text/javascript"}
-
+    %link{href: "https://use.fontawesome.com/releases/v5.6.1/css/all.css", rel:"stylesheet"}/
+    -# %link{href: "slick.css", media: "screen", rel:"stylesheet", type: "text/css"}/
+    -# %link{href: "slick-theme.css", media: "screen", rel:"stylesheet", type: "text/css"}/
+    %script{src: "https://code.jquery.com/jquery-3.2.1.min.js"}
+    -# %script{src: "slick.min.js"}
+    %link{href: "//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css", rel:"stylesheet", type: "text/css"}/
+    %script{src: "//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js", type: "text/javascript"}
   %body
     = yield
