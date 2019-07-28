@@ -83,7 +83,6 @@
           width: 50%;
           border-top: 2px solid #ea352d;
           h3 {
-            // %a{"data-toggle": "tab", href: "#mypage-tab-notification"}
             a#mypage-tab-notification {
               border-top: 2px solid #ea352d;
               position: relative;
@@ -91,22 +90,15 @@
               color: #333;
               font-size: 16px;
               line-height: 72px;
-              // span {}
             }
           }
         }
         li {
           width: 50%;
-          h3 {
-            // %a{"data-toggle": "tab", href: "#mypage-tab-todo"}
-            // #mypage-tab-todo {
-            // }
-          }
         }
       }
       &__content {
         border-bottom: 1px solid #eee;
-        // position: relative;
         &__link {
           border-bottom: 1px solid #eee;
           min-height: 60px;
@@ -114,15 +106,12 @@
           color: #333;
           position: relative;
           figure {
-            // display: flex;
             margin: 0;
-            // position: relative;
             overflow: hidden;
             float: left;
             width: 48px;
             height: 48px;
             img {
-              // position: relative;
               top: 0;
               right: 0;
               bottom: 0;
@@ -136,7 +125,6 @@
             text-align: left;
             font-size: 14px;
             margin: 0 40px 0 68px;
-            // display: flex;
             &__text {
               overflow: hidden;
               max-height: 4.4em;
@@ -144,10 +132,8 @@
               -webkit-box-orient: vertical;
               text-overflow: ellipsis;
               line-height: 1.5;
-              // display: inline;
             }
             time {
-              // display: flex;
               color: #888;
               .fa.fa-clock {
                 margin: 0 8px 0 0;
@@ -208,8 +194,6 @@
         font-size: 16px;
         background: #fff;
         text-align: center;
-        // position: relative;
-        // display: block;
         font-size: 16px;
         line-height: 72px;
         a {
@@ -224,12 +208,6 @@
           background: #fff;
           width: 50%;
           border-top: 2px solid #ea352d;
-          h3 {
-            a#mypage-tab-transaction-now {
-              
-            }
-            #mypage-tab-transaction-old {}
-          }
         }
         li {
           background-color: #eeeeee;
@@ -242,11 +220,6 @@
         font-size: 16px;
         color: #cccccc;
         #mypage-tab-transaction-now.mypage-item-list.tab-pane.active {
-          // padding: 160px 0 60px;
-          // background-image: url("/assets/logo-gray-icon.svg");
-          // background-repeat:  no-repeat;
-          // background-position: center 40px;
-          // background-size: 78px 85px;
           .mypage-item-not-found.bold {
             padding: 160px 0 60px;
             background-image: url("/assets/logo-gray-icon.svg");
