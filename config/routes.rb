@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
   root 'tops#index'
-  get 'users/index' => 'users#index'
+  get 'users/show' => 'users#show'
 end
