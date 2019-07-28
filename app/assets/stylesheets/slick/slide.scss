@@ -79,7 +79,6 @@
   top:44%;
   z-index:100;
   left:4.2%;
-  // background: image-url("carousel-prev.png")
   }
 
 .next-arrow{
@@ -89,9 +88,10 @@
   top:44%;
   z-index:100;
   right:4.2%;
-  // background: image-url("carousel-next.png")
 }
 
 .slider-main.slick-slide.slick-current.slick-active{
   width: 100%;
 }
+
+
