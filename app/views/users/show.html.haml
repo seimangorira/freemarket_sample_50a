@@ -1,0 +1,91 @@
+= render 'shared/pankuzu'
+.whole.clearfix
+  .whole__migigawa
+    .whole__migigawa__header
+      =link_to "https://www.mercari.com/jp/u/634836807/" do
+        %figure
+          =image_tag "//static.mercdn.net/thumb/members/634836807.jpg?1563285356", height: "60", width: "60", alt: ""
+        %h2.bold#username yuk
+        .whole__migigawa__header__number
+          %div#exhibit
+            評価
+            %span.bold 3
+          %div#evaluation
+            出品数
+            %span.bold 1
+    .whole__migigawa__todo
+      .whole__migigawa__todo__tabs
+        %li.active
+          %h3
+            =link_to "お知らせ", "#mypage-tab-notification" "tab"
+        %li
+          %h3
+            =link_to "やることリスト", "#mypage-tab-todo" "tab"
+      .whole__migigawa__todo__content
+        %ul#mypage-tab-notification.mypage-item-list.tab-pane.active
+          %li
+            .whole__migigawa__todo__content__link{"data-modal": "banner", "data-open": "modal", href: ""}
+              %figure
+                =image_tag "//static.mercdn.net/images/mercari_profile.png", alt: "", "data-src": "//static.mercdn.net/images/mercari_profile.png"
+              .whole__migigawa__todo__content__link__body
+                .whole__migigawa__todo__content__link__body__text ハロハロ果実氷白桃が"320円→140円"で買える！ミニストップで使えるクーポンはこちらから
+                %time
+                  %i.fa.fa-clock
+                  %span 1 日前
+              %i.fa.fa-chevron-right
+          %li
+            .whole__migigawa__todo__content__link{"data-modal": "banner", "data-open": "modal", href: ""}
+              %figure
+                =image_tag "//static.mercdn.net/images/mercari_profile.png", alt: "", "data-src": "//static.mercdn.net/images/mercari_profile.png"
+              .whole__migigawa__todo__content__link__body
+                .whole__migigawa__todo__content__link__body__text 《今だけ最大”P1,500”》売るor買うほどお得なキャンペーン実施中！今すぐ参加しよう♪
+                %time
+                  %i.fa.fa-clock
+                  %span 2 日前
+              %i.fa.fa-chevron-right
+          %li
+            .whole__migigawa__todo__content__link{href: "https://www.mercari.com/jp/mypage/news/"}
+              %figure
+                =image_tag "//static.mercdn.net/images/mercari_profile.png", alt: "", "data-src": "//static.mercdn.net/images/mercari_profile.png"
+              .whole__migigawa__todo__content__link__body
+                .whole__migigawa__todo__content__link__body__text 事務局から個別メッセージ「ログイン通知」
+                %time
+                  %i.fa.fa-clock
+                  %span 4 日前
+              %i.fa.fa-chevron-right
+          %li
+            .whole__migigawa__todo__content__link{"data-modal": "banner", "data-open": "modal", href: ""}
+              %figure
+                =image_tag "//static.mercdn.net/images/mercari_profile.png", alt: "", "data-src": "//static.mercdn.net/images/mercari_profile.png"
+              .whole__migigawa__todo__content__link__body
+                .whole__migigawa__todo__content__link__body__text 《本日最終日！》ハロハロ果実氷温州みかんが"320円→140円"で買える！ミニストップで使えるクーポンはこちらから！
+                %time
+                  %i.fa.fa-clock
+                  %span 5 日前
+              %i.fa.fa-chevron-right
+          %li
+            .whole__migigawa__todo__content__link{"data-modal": "banner", "data-open": "modal", href: ""}
+              %figure
+                =image_tag "//static.mercdn.net/images/mercari_profile.png", alt: "", "data-src": "//static.mercdn.net/images/mercari_profile.png"
+              .whole__migigawa__todo__content__link__body
+                .whole__migigawa__todo__content__link__body__text 《明日まで！》セブン-イレブンで20%ポイント還元！5,000円分のお買い物まで対象
+                %time
+                  %i.fa.fa-clock
+                  %span 5 日前
+              %i.fa.fa-chevron-right
+          %li.whole__migigawa__todo__content__go
+            =link_to "一覧を見る", "/jp/mypage/notification/"
+    .whole__migigawa__footer
+      .whole__migigawa__footer__head 購入した商品
+      .whole__migigawa__footer__tabs
+        %li.active
+          %h3
+            =link_to "取引中", "data-toggle": "tab", href: "#mypage-tab-transaction-now"
+        %li
+          %h3
+            =link_to "過去の取引", "data-toggle": "tab", href: "#mypage-tab-transaction-old"
+      .whole__migigawa__footer__content
+        %ul#mypage-tab-transaction-now.mypage-item-list.tab-pane.active
+          %li.mypage-item-not-found.bold 取引中の商品がありません
+
+  = render 'shared/mypage-leftside'
