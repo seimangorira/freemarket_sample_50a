@@ -71,15 +71,27 @@
           %i.fa.fa-lock
             %span あんしん・あんぜんへの取り組み
   .main__detail-message
-    .main__detail-message--content
-  %ul.main__detail-message__item-link
-    %li.main__detail-message__item-link__previous
-    %li.main__detail-message__item-link__next
+    .main__detail-message__container
+      .main__detail-message__container__content
+        %form.main__detail-message__container__content__form
+          %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+          %textarea
+          %button.main__detail-message__container__content__form--btn-gray
+            %span コメントする
+  %ul.main__item-link
+    %li.main__item-link__previous
+      = link_to "/messages/detail" do
+        %i.fa.fa-chevron-left 
+        AUX PARADIS サボン 空瓶
+    %li.main__item-link__next
+      = link_to "/messages/detail" do
+        ハーバリウム.:*:・'°☆ヘリクリサム
+        %i.fa.fa-chevron-right
   .main__media-box
     .main__media-box--text
     %ul.main__media-box__media-icon
   .main__user-item
     %section.main__user-item__user-item-box
     %section.user-item-box
-  %aside.app-banner
+  %aside.main__app-banner
   .main__footer

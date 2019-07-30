@@ -11,26 +11,51 @@
   display: inline-block;
   cursor: pointer;
 }
+@mixin link{
+  width: 45%;
+  height: 14px;
+  position: relative;
+  word-wrap: break-word;
+  font-size: 12px;
+}
+@mixin chevron {
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+@mixin link-a {
+  font-size: 14px;
+}
+@mixin a {
+  text-decoration: none;
+  color: #0099e8;
+  cursor: pointer;
+  touch-action: manipulation;
+}
 
 .main{
   position: relative;
   min-height: 100%;
-  font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
   font-size: 14px;
   color: rgb(51,52,53);
   line-height: 1;
   background: rgb(245, 245, 245);
-  box-sizing: border-box;
+  box-sizing: inherit;
   *{
     margin: 0;
     padding: 0;
     width: 100%;
     box-sizing: border-box;
   }
+  :root{
+    font: 66.66667% sans-serif;
+  }
   a{
-    text-decoration: none;
-    color: #0099e8;
-    cursor: pointer;
+    @include a;
+  }
+  ul{
+    list-style: none;
   }
   &__header-form{
     position: relative;
@@ -157,15 +182,86 @@
     height: 260px;
     width: 700px;
     margin: 8px auto;
-      &--content{
+    &__container{
+      height: 260px;
+      background: #fff;
+      &__content{
+        padding: 24px;
         height: 260px;
-        background: lightgray
+        &__form{
+          height: 212px;
+          p{
+            padding: 8px;
+            font-size: 14px;
+            background: #fff6de;
+          }
+          textarea{
+            margin: 8px 0 0;
+            display: block;
+            width: 100%;
+            max-width: 100%;
+            min-height: 104px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background: #fff;
+            font-size: 16px;
+            line-height: 1.5;
+          }
+          &--btn-gray{
+            width: 100%;
+            height: 50px;
+            margin: 8px 0 0;
+            font-size: 0;
+            text-align: center;
+            background: #aaa;
+            border: 1px solid #aaa;
+            color: #fff;
+            cursor: pointer;
+            span{
+              font-size: 14px;
+              vertical-align: middle;
+            }
+          }
+        }
       }
+    }
   }
   &__item-link{
     width: 700px;
     margin: 24px auto 0;
     height: 14px;
-    background: lightgray
+    &__previous{
+      @include link;
+      float: left;
+      padding: 0 0 0 14px;
+      .fa.fa-chevron-left{
+        @include chevron;
+        left: 0;
+      }
+      a{
+        @include link-a;
+      }
+    }
+    &__next{
+      @include link;
+      float: right;
+      padding: 0 14px 0 0;
+      text-align: right;
+      .fa.fa-chevron-right{
+        @include chevron;
+        right: 0;
+      }
+      a{
+        @include link-a;
+      }
+    }
+  }
+  &__media-box{
+    width: 700px;
+    height: 138px;
+    margin: 24px auto;
+    padding: 32px 0 24px;
+    background: #fff;
   }
 }
+
