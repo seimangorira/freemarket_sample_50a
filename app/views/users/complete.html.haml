@@ -1,0 +1,37 @@
+
+.html
+  .body
+    .single-container
+      / ヘッダー部分
+      %header.single-header
+        %h1
+          %a{:href => "#"}
+            = image_tag "mercari2.png"
+        %nav.progress-bar
+          %ol.clearfix
+            %li.through
+              会員情報
+              .progress-status
+            %li.through
+              電話番号認証
+              .progress-status
+            %li.through
+              お届け先住所入力
+              .progress-status
+            %li.through
+              支払い方法
+              .progress-status
+            %li.active
+              完了
+              .progress-status
+      / メイン部分
+      %main.single-main
+        %section.I-single-container
+          %h2.I-chapter-head.registration 会員登録完了
+          %form.I-single-inner.registration-form{:action => "/users/top"}
+            .I-single-content
+              %p.sucsess
+                ありがとうございます。
+                会員登録が完了しました。
+              %button.btn-default.btn-red{:type => "submit"}
+                メルカリをはじめる

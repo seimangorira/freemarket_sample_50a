@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   get "users/second" => "users#second"
   get "users/third" => "users#third"
   get "users/credit" => "users#credit"
+  get "users/complete" => "users#complete"
 end
