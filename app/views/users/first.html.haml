@@ -70,14 +70,16 @@
                     %i.icon-arrow-bottom
                     %select.select-default
                       %option{:value => ""} --
-                      %option{:value => "2019"} 2019
-                      %option{:value => "2018"} 2018
+                      -i = 2019
+                      = while i >= 1900
+                        %option{:value => "#{i}"} #{i}
+                        -i -= 1
                   %span 年
                   .select-wrap
                     %i.icon-arrow-bottom
                     %select.select-default
                       %option{:value => ""} --
-                      - for i in 12..01
+                      - for i in 1..12
                         %option{:value => "#{i}"} #{i}
                   %span 月
                   .select-wrap
