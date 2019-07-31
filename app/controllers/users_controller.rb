@@ -10,4 +10,7 @@ class UsersController < ApplicationController
 
   def third
   end
+
+  def credit
+  end
 end

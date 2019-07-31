@@ -1,0 +1,61 @@
+.html
+  .body
+    .single-container
+      / ヘッダー部分
+      %header.single-header
+        %h1
+          %a{:href => "#"}
+            = image_tag "mercari2.png"
+        %nav.progress-bar
+          %ol.clearfix
+            %li.through
+              会員情報
+              .progress-status
+            %li.through
+              電話番号認証
+              .progress-status
+            %li.through
+              お届け先住所入力
+              .progress-status
+            %li.active
+              支払い方法
+              .progress-status
+            %li
+              完了
+              .progress-status
+      / メイン部分
+      %main.single-main
+        %section.I-single-container
+          %h2.I-chapter-head.registration 支払い方法
+          %form.I-single-inner.registration-form
+            .I-single-content
+              .form-group
+                %label{:for => "card-num"} カード番号
+                %span.form-require 必須
+                %input.input-default{:placeholder => "半角数字のみ", :type => "text"}/
+              .form-group
+                %div
+                  %label 有効期限
+                  %span.form-require 必須
+                %select.input-default.half.card
+                  %option{:value => "01"} 01
+                  %option{:value => "02"} 02
+                %span.month 月
+                %select.input-default.half.card
+                  %option{:value => "19"} 19
+                  %option{:value => "20"} 20
+                %span.year 年
+              .form-group
+                %label{:for => "code"} セキュリティコード
+                %span.form-require 必須
+                %input.input-default{:placeholder => "カード背面4桁もしくは3桁の番号"}/
+              .form-group.text-right
+                %p
+                  %a{:href => "#"}
+                    カード裏面の番号とは？
+                    %i.icon-arrow-right
+              %button.btn-default.btn-red{:type => "submit"}
+                次へ進む
+
+      / フッター部分
+      = render 'users/footer'
