@@ -13,7 +13,7 @@
             =link_to "本人確認書類のアップロードについて", "/jp/help_center/article/495/"
             -# %a{href: "/jp/help_center/article/495/", target: "_blank"}
             -#   本人確認書類のアップロードについて
-              %i.icon-arrow-right
+              %i.fa.fa-chevron-right
         .whole__identification__header__form-group
           %label お名前
           %p 池田 ゆか
@@ -93,12 +93,12 @@
           %label{:for => "address2_label"} 建物名
           %span.form-arbitrary 任意
           %input.input-default{name: "address2", placeholder: "例) 柳ビル103", type: "text", value: "08044843496"}/
-        %button.btn-default.btn-red{:type => "submit"} 登録する
+        %button.btn-default.btn-red{type: "submit"} 登録する
         .whole__identification__header__form-group.text-right
           %p
             =link_to "本人情報の登録について", "/jp/help_center/article/423/"
             %a{href: "/jp/help_center/article/423/", target: "_blank"}
-              %i.icon-arrow-right
+              %i.fa.fa-icon-arrow-right
         %input{name: "__csrf_value", type: "hidden", value: "4fe50019f8a35515078af98e33124f88f26c4a8f12e3ad25e083544b81ee79b1e60d44039b0a1c9518ad73c79f44a4cb318b2e09081084c822b2318582a46b5f0"}/
 
   = render 'shared/mypage-leftside'
