@@ -40,10 +40,20 @@
                 %select.input-default.half.card
                   %option{:value => "01"} 01
                   %option{:value => "02"} 02
+                  %option{:value => "02"} 03
+                  %option{:value => "02"} 04
+                  %option{:value => "02"} 05
+                  %option{:value => "02"} 06
+                  %option{:value => "02"} 07
+                  %option{:value => "02"} 08
+                  %option{:value => "02"} 09
+                  %option{:value => "02"} 10
+                  %option{:value => "02"} 11
+                  %option{:value => "02"} 12
                 %span.month 月
                 %select.input-default.half.card
-                  %option{:value => "19"} 19
-                  %option{:value => "20"} 20
+                  - for i in 19..29
+                    %option{:value => "#{i}"} #{i}
                 %span.year 年
               .form-group
                 %label{:for => "code"} セキュリティコード
