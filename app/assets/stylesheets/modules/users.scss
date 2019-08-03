@@ -1,27 +1,235 @@
-// Place all the styles related to the users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
-
-.new-user-top {
-  height: 100%;
-  width: 100%;
+.whole {
+  margin: 0 auto;
+  padding: 40px 210px 0;
+  width: 1020px;
+  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
   background-color: #f5f5f5;
-  min-height: 732px;
-  .header {
-    height: 128px;
-    a{
-      height: 49px;
-      width: 185px;
+  &__migigawa {
+    float: right;
+    width: 700px;
+    &__header {
+      height: 160px;
+      position: relative;
+      background: url(/assets/user-bg.jpg);
+      background-size: cover;
+      padding: 20px;
+      text-align: center;
+      a {
+        text-decoration:none;
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        font-size: 14px;
+        -webkit-transform: translate(0, -50%);
+        transform: translate(0, -50%);
+        color: #333;
+        figure {
+          overflow: hidden;
+          width: 60px;
+          height: 60px;
+          margin: 0 auto;
+          border-radius: 50%;
+        }
+      }
+      a:hover {
+        opacity: 0.75;
+        h2.bold#username {
+          text-decoration:underline;
+        }
+      }
+      a:visited {
+        color: #333333;
+      }
+      #username {
+        margin: 8px 0 0;
+      }
+      &__number {
+        justify-content: center;
+        margin: 8px 0 0;
+        font-weight: normal;
+        display: flex;
+        span {
+          margin: 0 0 0 8px;
+        }
+        #evaluation {
+          margin: 0 0 0 16px;
+        }
+      }
+      
     }
-      img {
-        margin: 40px auto 0;
-        height: 49px;
-        width: 185px;
+    &__todo {
+      background: #fff;
+      list-style: none;
+      text-align: center;
+      position: relative;
+      display: block;
+      font-size: 16px;
+      line-height: 72px;
+      a {
+        text-decoration: none;
+        color: #333;
+        font-weight: bold;
+      }
+      a:hover {
+        opacity: 0.75;
+      }
+      &__tabs {
+        display: flex;
+        background: #eee;
+        font-size: 16px;
+        li.active {
+          background: #fff;
+          width: 50%;
+          border-top: 2px solid #ea352d;
+          h3 {
+            a#mypage-tab-notification {
+              border-top: 2px solid #ea352d;
+              position: relative;
+              display: block;
+              color: #333;
+              font-size: 16px;
+              line-height: 72px;
+            }
+          }
+        }
+        li {
+          width: 50%;
+        }
+      }
+      &__content {
+        border-bottom: 1px solid #eee;
+        &__link {
+          border-bottom: 1px solid #eee;
+          min-height: 60px;
+          padding: 16px;
+          color: #333;
+          position: relative;
+          figure {
+            margin: 0;
+            overflow: hidden;
+            float: left;
+            width: 48px;
+            height: 48px;
+            img {
+              top: 0;
+              right: 0;
+              bottom: 0;
+              left: 0;
+              z-index: 1;
+              width: 100%;
+            }
+          }
+          &__body {
+            line-height: 1;
+            text-align: left;
+            font-size: 14px;
+            margin: 0 40px 0 68px;
+            &__text {
+              overflow: hidden;
+              max-height: 4.4em;
+              -webkit-line-clamp: 3;
+              -webkit-box-orient: vertical;
+              text-overflow: ellipsis;
+              line-height: 1.5;
+            }
+            time {
+              color: #888;
+              .fa.fa-clock {
+                margin: 0 8px 0 0;
+                -webkit-font-smoothing: antialiased;
+                display: inline-block;
+                font-style: normal;
+                font-variant: normal;
+                text-rendering: auto;
+                line-height: 1;
+              }
+              span {
+                vertical-align: middle;
+              }
+            }
+          }
+          .fa.fa-chevron-right {
+            position: absolute;
+            display: inline-block;
+            top: 50%;
+            right: 16px;
+            top: 50%;
+            transform: translate(0, -50%);
+          }
+        }
+        &__go {
+          padding: 16px;
+          a {
+            font-weight: normal;
+            font-size: 14px;
+            display: block;
+            height: 56px;
+            margin: 0 auto;
+            background: #eee;
+            color: #333;
+            line-height: 56px;
+            text-align: center;
+          }
+        }
+      }
+    }
+    &__footer {
+      margin: 40px 0 0;
+      background: #fff;
+      &__head {
+        padding: 0 16px;
+        background: #fafafa;
+        font-size: 16px;
+        line-height: 72px;
+        display: block;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        font-weight: bold;
+      }
+      &__tabs {
+        list-style: none;
+        display: flex;
+        background: #eee;
+        font-size: 16px;
+        background: #fff;
+        text-align: center;
+        font-size: 16px;
+        line-height: 72px;
+        a {
+          text-decoration: none;
+          color: #333;
+          font-weight: bold;
+        }
+        h3:hover {
+          opacity: 0.75;
+        }
+        li.active {
+          background: #fff;
+          width: 50%;
+          border-top: 2px solid #ea352d;
+        }
+        li {
+          background-color: #eeeeee;
+          width: 50%;
+        }
+      }
+      &__content {
+        font-weight: bold;
+        text-align: center;
+        font-size: 16px;
+        color: #cccccc;
+        #mypage-tab-transaction-now.mypage-item-list.tab-pane.active {
+          .mypage-item-not-found.bold {
+            padding: 160px 0 60px;
+            background-image: url("/assets/logo-gray-icon.svg");
+            background-repeat:  no-repeat;
+            background-position: center 40px;
+            background-size: 78px 85px;
+          }
+        }
+      }
     }
   }
 }

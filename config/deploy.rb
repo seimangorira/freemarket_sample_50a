@@ -5,7 +5,7 @@ set :application, "freemarket_sample_50a"
 set :repo_url, "git@github.com:seimangorira/freemarket_sample_50a.git"
 
 # Default branch is :master
-# ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
+ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 # Default deploy_to directory is /var/www/my_app_name
 # set :deploy_to, "/var/www/my_app_name"
@@ -58,7 +58,8 @@ set :keep_releases, 5
 after 'deploy:publishing', 'deploy:restart'
 namespace :deploy do
   task :restart do
-    invoke 'unicorn:restart'
+    invoke 'unicorn:stop'
+    invoke 'unicorn:start'
   end
 
   desc 'upload secrets.yml'
@@ -73,12 +74,3 @@ namespace :deploy do
   before :starting, 'deploy:upload'
   after :finishing, 'deploy:cleanup'
 end
-
-set :default_env, {
-  rbenv_root: "/usr/local/rbenv",
-  path: "/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH",
-  AWS_ACCESS_KEY_ID: ENV["AWS_ACCESS_KEY_ID"],
-  AWS_SECRET_ACCESS_KEY: ENV["AWS_SECRET_ACCESS_KEY"],
-  BASIC_AUTH_USER: ENV["BASIC_AUTH_USER"],
-  BASIC_AUTH_PASSWORD: ENV["BASIC_AUTH_PASSWORD"]
-}
