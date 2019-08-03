@@ -1,0 +1,66 @@
+@import "./users/_mixin-file.scss";
+// フッター部分
+.new-user-top-footer {
+  @include all-reset;
+  width: 456px;
+  margin: 0 auto;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  padding: 40px 0;
+  text-align: center;
+
+  .new-user-top-nav {
+    @include all-reset;
+    display: block;
+
+
+    &__lists--list{
+      @include all-reset;
+      font-size: 0;
+      margin-left: 16px;
+      display: inline-block;
+      font-size: 12px;
+
+      &:first-child {
+        margin: 0;
+      }
+
+      &--link {
+        @include all-reset;
+        display: block;
+        color: #333;
+        text-decoration: none;
+
+        &:hover {
+          @include all-reset;
+          opacity: 0.8;
+          text-decoration: underline;
+        }
+      }
+    } 
+  }
+
+  &__logo img{
+    @include all-reset;
+    width: 80px;
+    height: 65px;
+    margin: 40px auto 0;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  &__under-logo {
+    margin: 8px 0 0;
+
+  }
+
+  &__under-logo small{
+    @include all-reset;
+    font-size: 13px;
+  }
+}

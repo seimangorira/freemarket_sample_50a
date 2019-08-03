@@ -1,0 +1,230 @@
+@import "mixin";
+@import "variables";
+
+.new-item-page {
+  padding: 0 0 220px;
+  background: #f5f5f5;
+  color: #333333;
+  font-size: 14px;
+  * {
+    box-sizing: border-box;
+    font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+    line-height: 1;
+  }
+  // ヘッダー部のSCSS(render後削除)
+  &__header{
+    height: 128px;
+    text-align: center;
+    }
+  // 商品情報入力部のSCSS
+  .container {
+    background-color: #fff;
+    width: 700px;
+    margin: 0 auto;
+    height: auto;
+    &__head {
+      padding: 32px 16px;
+      font-size: 22px;
+      line-height: 1.5;
+      text-align: center;
+      font-weight: bold;
+    }
+    &__form {
+      border-top: 1px solid #eee;
+      &__content {
+        border-top: 1px solid #eee;
+        padding: 40px;
+      }
+      label {
+        display: inline-block;
+        font-weight: 600;
+      }
+      .form-require {
+        @include formRequire
+      }
+      .form-group {
+        margin: 40px 0 0;
+      }
+      .form-group:first-child {
+        margin: 0;
+      }
+      .form-sub-title {
+        color: #888;
+        font-weight: bold;
+      }
+      .form-right-box {
+        width: 400px;
+      }
+      .fa-angle-down {
+        @include formSelectBoxArrowIcon;
+      }
+      .select-wrap {
+        @include formSelectWrap;
+        &__input {
+          @include formSelectBox;
+        }
+      }
+
+      .upload-images {
+        width: 620px;
+        padding: 40px;
+        @include clearfix;
+        &__label {
+          font-size: 16px;
+        }
+        &__addition {
+          margin: 8px 0 0;
+          line-height: 1.5;
+          font-size: 14px;
+        }
+        &__container {
+          margin: 16px auto 0;
+          width: 620px;
+          &__box {
+            background-color: #f5f5f5;
+            border: 1px dashed #ccc;
+            cursor: pointer;
+            float: right;
+            font-size: 0;
+            min-height: 162px;
+            padding: 40px;
+            position: relative;
+            transition: box-shadow ease-out .3s;
+            width: 100%;
+            input {
+              border: 0;
+              outline: 0;
+              touch-action: manipulation;
+            }
+            pre {
+              display: block;
+              font-family: monospace;
+              position: absolute;
+              top: 50%;
+              left: 16px;
+              right: 16px;
+              text-align: center;
+              font-size: 14px;
+              line-height: 1.5;
+              transform: translate(0, -50%);
+              pointer-events: none;
+              white-space: pre-wrap;
+              word-wrap: break-word;
+            }
+          }
+        }
+      }
+
+      .item-about {
+        &__name--input {
+          border: 1px solid #ccc;
+          height: 48px;
+          padding: 10px 16px 8px;
+          border-radius: 4px;
+          line-height: 1.5;
+          font-size: 16px;
+          width: 100%;
+          margin: 8px 0 0;
+        }
+        &__description--input {
+          overflow: auto;
+          border: 1px solid #ccc;
+          display: block;
+          font-size: 16px;
+          line-height: 1.5;
+          margin: 8px 0 0;
+          min-height: 104px;
+          padding: 10px;
+          width: 100%;
+          max-width: 100%;
+        }
+      }
+
+      .item-detail {
+        @include flexBoxForForm;
+      }
+
+      .delivery-setting {
+        @include flexBoxForForm;
+      }
+
+      .selling-item {
+        @include flexBoxForForm;
+        li:first-child {
+          padding: 0 0 24px;
+          border: 0;
+        }
+        li {
+          @include flexBoxForForm;
+          padding: 24px 0;
+          border-top: 1px solid #ccc;
+        }
+        &__price {
+          @include flexBoxForForm;
+          &__inner-left {
+            line-height: 48px;
+            width: 50%;
+          }
+          &__inner-right {
+            text-align: right;
+            width: 50%;
+            &--input {
+              display: inline-block;
+              width: 80%;
+              margin: 0 0 0 5%;
+              input {
+                outline: 0;
+                text-align: right;
+                height: 48px;
+                border-radius: 4px;
+                padding: 10px 16px 8px;
+                border: 1px solid #ccc;
+                line-height: 1.5;
+                font-size: 16px;
+                width: 160px;
+              }
+            }
+          }
+        }
+        &__profit {
+          font-weight: bold;
+          &--title {
+            font-size: 16px;
+          }
+          &--result {
+            font-size: 34px;
+          }
+        }
+      }
+      .confirmation-box {
+        // width: 100%;
+        p {
+          line-height: 1.5;
+        }
+        .btn {
+          color: #fff;
+          display: block;
+          line-height: 48px;
+          font-size: 14px;
+          transition: all;
+          cursor: pointer;
+          text-align: center;
+          min-height: 1.5em;
+          overflow: visible;
+        }
+        .btn-red {
+          margin: 40px 0 0;
+          background-color: $exhibition-red;
+          border: $exhibition-red;
+          width: 100%;
+        }
+        .btn-gray {
+          background-color: #aaa;
+          border: 1px solid #aaa;
+          margin: 24px auto 0;
+          width: 45%;
+        }
+      }
+    }
+  }
+}

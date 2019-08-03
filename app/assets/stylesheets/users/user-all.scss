@@ -1,0 +1,429 @@
+/* 全体部分 */
+@import "./users/mixin-file";
+
+.registration-html {
+  @include user-all-reset;
+  height: 100%;
+  overflow-y: auto;
+  overflow-y: scroll;
+}
+
+.registration-body {
+  @include user-all-reset;
+  position: relative;
+  min-height: 100%;
+  background: #f5f5f5;
+  font-family: "Source Sans Pro", Helvetica , Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
+  font-size: 14px;
+  color: #333;
+  line-height: 1;
+}
+
+.registration-all {
+  @include user-all-reset;
+
+  .registration-all__a {
+    @include a;
+  }
+
+  &__container {
+    position: relative;
+    min-height: 100vh;
+    padding-bottom: 220px;
+    box-sizing: border-box;
+  }
+
+  /* ヘッダー部分 */
+  /* ロゴ */
+  &__header {
+    height: 128px;
+    text-align: center;
+
+    &--h1 {
+      margin-top: 40px;
+      display: inline-block;
+    }
+    &--a {
+      @include a;
+      width: 185px;
+      height: 49px;
+      line-height: 49px;
+      display: inline-block;
+      margin-right: 8px;
+    }
+
+    img {
+      @include img;
+      width: 185px;
+      height: 49px;
+    }
+  }
+
+  /* プログレスバー */
+  &__bar {
+    padding: 40px 0 0 44px;
+    border: 0;
+    display: inline-block;
+    vertical-align: top;
+    font-size: 0px;
+    text-align: center;
+
+    &--ol {
+      margin: 0;
+      list-style: none;
+    }
+
+    &--li {
+      @include li;
+
+      .progress-status {
+        @include progress-status;
+
+        &::after {
+          @include before-after;
+          @include prog-before-after;
+          left: 50%;
+        }
+
+        &::before{
+          @include before-after;
+          @include prog-before-after;
+          right: 50%;
+        }
+      }
+    }
+
+    &--active-first {
+      @include li;
+      font-weight: 600;
+      color: #ea352d;
+
+      .progress-status {
+        @include progress-status;
+        background: #ea352d;
+
+        &::after {
+          @include before-after;
+          @include prog-before-after;
+          left: 50%;
+        }
+      }
+    }
+
+    &--active-last {
+      @include li;
+      font-weight: 600;
+      color: #ea352d;
+
+      .progress-status {
+        @include progress-status;
+        background: #ea352d;
+
+        &::before {
+          @include before-after;
+          @include prog-before-after;
+          right: 50%;
+          background: #ea352d;
+        }
+      }
+    }
+
+    &--active {
+      @include li;
+      font-weight: 600;
+      color: #ea352d;
+
+      .progress-status {
+        @include progress-status;
+        background: #ea352d;
+
+        &::before {
+          @include before-after;
+          @include prog-before-after;
+          right: 50%;
+          background: #ea352d;
+        }
+
+        &::after {
+          @include before-after;
+          @include prog-before-after;
+          left: 50%;
+        }
+      }
+    }
+
+    &--through {
+      @include li;
+
+      .progress-status {
+        @include progress-status;
+        background: #ea352d;
+
+        &::after {
+          @include before-after;
+          @include prog-before-after;
+          left: 50%;
+          background: #ea352d;
+        }
+      }
+    }
+
+    &--through-through {
+      @include li;
+
+      .progress-status {
+        @include progress-status;
+        background: #ea352d;
+
+        &::before {
+          @include before-after;
+          @include prog-before-after;
+          right: 50%;
+          background: #ea352d;
+        }
+
+        &::after {
+          @include before-after;
+          @include prog-before-after;
+          left: 50%;
+          background: #ea352d;
+        }
+      }
+    }
+
+    &--last {
+      @include li;
+
+      .progress-status {
+        @include progress-status;
+
+        &::before {
+          @include before-after;
+          @include prog-before-after;
+          right: 50%;
+        }
+      }
+    }
+  }
+
+  /* メイン部分 */
+  &__main {
+    @include main;
+    width: 700px;
+    margin: 0 auto;
+    background: #fff;
+  }
+
+  &__single-head {
+    padding: 32px 16px;
+    font-size: 22px;
+    line-height: 1.5;
+    text-align: center;
+    font-size: 22px;
+    padding: 32px;
+  }
+
+  &__chapter-head {
+    font-size: 24px;
+    padding: 8px 24px;
+    border-bottom: 1px solid #f5f5f5;
+    text-align: center;
+    font-size: 22px;
+    padding: 32px;
+  }
+
+  &__inner {
+    border-top: 1px solid #f5f5f5;
+    padding: 40px 40px 64px;
+  }
+
+  &__content {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 343px;
+
+    &--text {
+      margin-top: 8px;
+      padding: 0;
+      line-height: 1.5;
+    }
+
+    .sucsess {
+      text-align: center;
+      font-weight: 550;
+      font-size: 15px;
+    }
+  }
+
+  &__form-group {
+    margin-top: 40px;
+
+    &:first-child {
+      margin:0;
+    }
+
+    &--label {
+      @include label;
+      font-weight: 600;
+    }
+
+    .input-default {
+      width: 100%;
+      margin-top: 8px;
+      box-sizing: border-box;
+    }
+
+    .text-right {
+      text-align: right;
+    }
+
+    .fas {
+      color: #0099e8;
+    }
+
+    .month {
+      margin-left: 8px;
+      margin-right: 8px;
+    }
+
+    .year {
+      margin-left: 8px;
+    }
+  }
+
+  &__require {
+    background: #ea352d;
+    margin-left: 8px;
+    padding: 2px 4px;
+    border-radius: 2px;
+    color: #fff;
+    font-size: 12px;
+    vertical-align: top;
+  }
+
+  .input-default {
+    height: 48px;
+    padding: 10px 16px 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background: #fff;
+    line-height: 1.5;
+    font-size: 16px;
+  }
+
+  .input-default.harf {
+    height: 48px;
+    padding: 10px 16px 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background: #fff;
+    line-height: 1.5;
+    font-size: 16px;
+    width: calc(50% - 6px);
+
+    &:first-of-type {
+      margin-right: 8px;
+    }
+  }
+
+  &__sub-head {
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  &__birthday-select {
+
+    &__select {
+      width: 76px;
+      display: inline-block;
+      margin-top: 8px;
+      position: relative;
+      background: #fff;
+
+      &:first-of-type {
+        width: 76px;
+      }
+
+      &--default {
+        width: 100%;
+        padding: 0 10px;
+        position: relative;
+        z-index: 2;
+        height: 48px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        background: 0;
+        font-size: 16px;
+        line-height: 1.5;
+        cursor: pointer;
+      }
+    }
+  }
+
+  &__content--text-gray {
+    margin-top: 8px;
+    padding: 0;
+    line-height: 1.5;
+    color: #888;
+  }
+
+  &__content--text-center {
+    margin-top: 8px;
+    padding: 0;
+    line-height: 1.5;
+    text-align: center;
+  }
+
+  &__btn-red {
+    @include button;
+    display: block;
+    width: 100%;
+    line-height: 48px;
+    font-size: 14px;
+    transition: all ease-out .3s;
+    cursor: pointer;
+    text-align: center;
+    margin-top: 32px;
+    background: #ea352d;
+    border: 1px solid #ea352d;
+    color: #fff;
+  }
+
+  &__state {
+    margin-top: 8px;
+    padding: 0 10px;
+    position: relative;
+    z-index: 2;
+    height: 48px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background: 0;
+    font-size: 16px;
+    line-height: 1.5;
+    cursor: pointer;
+  }
+
+  .registration-all__require.gray {
+    background: silver;
+  }
+
+  .input-default.half.card {
+    width: calc(50% - 32px);
+  }
+
+  .registration-all__cards {
+    list-style: none;
+    margin: 8px;
+    font-size: 0px;
+
+    &--card {
+      display: inline-block;
+      margin-right: 8px;
+      vertical-align: middle;
+
+      &:first-child {
+        margin: 0;
+      }
+    }
+  }
+}

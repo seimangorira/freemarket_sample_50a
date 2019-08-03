@@ -1,0 +1,37 @@
+@import "./users/_mixin-file.scss";
+
+// ヘッダー部分
+.new-user-top-header {
+  @include all-reset;
+  height: 128px;
+  text-align: center;
+
+  &__logo {
+    @include all-reset;
+    margin: 40px 0 0;
+    display: inline-block;
+
+    &__link {
+      @include all-reset;
+      text-decoration: none;
+      width: 185px;
+      height: 49px;
+      line-height: 49px;
+      display: inline-block;
+      margin: 0 8px 0 0;
+      touch-action: manipulation;
+
+      img{
+        @include all-reset;
+        width: 185px;
+        height: 49px;
+        vertical-align: middle;
+
+        &:hover {
+          @include all-reset;
+          opacity: 0.8;
+        }
+      }
+    }
+  }
+}

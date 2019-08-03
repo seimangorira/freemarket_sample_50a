@@ -1,0 +1,57 @@
+.user_identification_page
+  = render 'shared/pankuzu'
+  .zentai.clearfix
+    .zentai__identification
+      .zentai__identification__header
+        %h2.zentai__identification__header__head 本人情報の登録
+        %form.zentai__identification__header__inner{action: "https://www.mercari.com/jp/mypage/identification/save/", method: "POST", novalidate: ""}
+          %div
+            %p
+              お客さまの本人情報をご登録ください。
+              %br>/
+              登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
+            %p.text-right
+              =link_to "本人確認書類のアップロードについて", href: "/jp/help_center/article/495/", target: "_blank"
+              %i.fa.fa-chevron-right
+          .zentai__identification__header__form-group
+            %label お名前
+            %p 池田 ゆか
+          .zentai__identification__header__form-group
+            %label お名前カナ
+            %p イケダ ユカ
+          .zentai__identification__header__form-group
+            %label{:for => "birthday"} 生年月日
+            %p 1995/07/29
+          .zentai__identification__header__form-group
+            %label{:for => "zip_code"} 郵便番号
+            %span.form-arbitrary 任意
+            %input.input-default{name: "zip_code", placeholder: "例）1234567", type: "text", value: ""}/
+          .zentai__identification__header__form-group
+            %label{for: "prefecture"} 都道府県
+            %span.form-arbitrary 任意
+            .zentai__identification__header__form-group__wrap
+              %i.fa.fa-chevron-down
+              %select.select-default{name: "prefecture", placeholder: "Source Type"}
+                %option{value: ""} ---
+                - Prefecture.all.each do |ele|
+                  %option{value: ele.name}= ele.name
+          .zentai__identification__header__form-group
+            %label{for: "city"} 市区町村
+            %span.form-arbitrary 任意
+            %input.input-default{name: "city", placeholder: "例) 横浜市緑区", type: "text", value: ""}/
+          .zentai__identification__header__form-group
+            %label{for: "address1_label"} 番地
+            %span.form-arbitrary 任意
+            %input.input-default{name: "address1", placeholder: "例) 青山1−1−1", type: "text", value: ""}/
+          .zentai__identification__header__form-group
+            %label{:for => "address2_label"} 建物名
+            %span.form-arbitrary 任意
+            %input.input-default{name: "address2", placeholder: "例) 柳ビル103", type: "text", value: ""}/
+          %button.btn-default.btn-red{type: "submit"} 登録する
+          .zentai__identification__header__form-group.text-right
+            %p
+              =link_to "本人情報の登録について", "/jp/help_center/article/423/", target: "_blank"
+              %i.fa.fa-chevron-right
+          %input{name: "__csrf_value", type: "hidden", value: "4fe50019f8a35515078af98e33124f88f26c4a8f12e3ad25e083544b81ee79b1e60d44039b0a1c9518ad73c79f44a4cb318b2e09081084c822b2318582a46b5f0"}/
+
+    = render 'shared/mypage-leftside'
