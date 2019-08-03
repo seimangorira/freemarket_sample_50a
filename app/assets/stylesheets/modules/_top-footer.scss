@@ -4,8 +4,12 @@
   background: image-url('mercari-footer.jpg');
   background-position: center;
   background-size: cover;
+  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
   position: relative;
   min-height: 100%;
+  .clearfix {
+    @include clearfix;
+  }
   .banner {
     position: relative;
     width: 750px;
@@ -26,24 +30,25 @@
       top: 20%;
       h2 {
         font-size: 24px;
+        height: 24px;
         width: 420px;
-        height: 33px;
       }
       p {
         font-size: 35px;
         margin: 10px 0 0;
         width: 420px;
-        height: 35px;
       }
       &__icon {
         margin: 20px 0 0;
-        figure {
+        &--logo {
           float: left;
         }
         ul {
+          display: block;
           float: left;
-          margin: 0 0 0 24px;
-          line-height: 68px;
+          margin-block-start: 1em;
+          margin-block-end: 1em;
+          padding-inline-start: 12px;
         }
         li {
           float: left;
