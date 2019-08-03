@@ -1,22 +1,24 @@
+@import "mixin";
+@import "variables";
+
 .top-header {
   position: relative;
   background-color: white;
   display: block;
+  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
   a {
     text-decoration: none;
   }
-  .top-header-inner{
+    &__inner{
     width: 1020px;
     height: 100px;
     margin: 0 auto;
     padding: 8px 0 0;
-    font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
-    color: black;
-    .top-header-top {
+    &__top {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      .top-header-form{ 
+      &--form{ 
         position: relative;
         margin-left: 45px;
         width: 100%;
@@ -26,81 +28,82 @@
           padding: 0 42px 0 10px;
           width: 100%;
           height: 40px;
+          border: 1px solid #ccc;
+          line-height: 1.5;
         }
-        .icon-search {
+        .fa-search {
           position: absolute;
           top: 0;
           right: 0;
+          display: flex;
           align-items: center;
           justify-content: center;
           width: 40px;
           height: 40px;
+          cursor: pointer;
         }
       }
     }
-    .top-header-nav-box {
+    &__nav {
       margin: 8px 0 0;
       padding: 0;
       a {
         display: block;
         color: #333;
         .top-header-cat-brand-icon {
-          color: #ea352d;
+          color: $exhibition-red;
           font-size: 12px;
           margin-right: 4px;
         }
       }
-      .l-left{
+      .top-navbar-left {
         float: left;
-        .top-header-nav{
+        &__wrapper {
           font-size: 0;
           font-size: 14px;
           font-weight: 400;
           li {
-          position: relative;
-          display: inline-block;
-          padding: 0 11px;
-          cursor: pointer;
+            position: relative;
+            display: inline-block;
+            padding: 0 11px;
+            cursor: pointer;
           }
-          .top-header-nav-root {
+          &--list {
             font-weight: bold;
             position: relative;
             height: 44px;
             line-height: 32px;
-            i{
-              font-family: 'icon-font';
-              .top-header-cat-brand-icon {
-                color: #ea352d;
-                font-size: 12px;
-                margin-right: 4px;
-              }
+            .fas {
+              color: $exhibition-red;
+              font-size: 12px;
+              margin-right: 4px;
             }
           }
         }
       }
-      .l-right {
-        .top-header-login-nav{
-          float: right;
-          li {
-            display: inline-block;
-            margin: 0 0 0 8px;
-          }
-          .btn-red {
-            background: #ea352d;
-            border: 1px solid #ea352d;
-            color: #fff;
-          }
-          .header-login {
-            display: block;
-            border: 1px solid #0099e8;
-            background: #fff;
-            color: #0099e8;
-          }
-          .sp-header-btn {
-            padding: 0 10px;
-            line-height: 30px;
-            border-radius: 4px;
-          }
+      .top-navbar-right {
+        float: right;
+        font-size: 15px;
+        li {
+          display: inline-block;
+          margin: 0 0 0 8px;
+        }
+        .btn-red {
+          background: $exhibition-red;
+          border: 1px solid $exhibition-red;
+          color: #fff;
+        }
+        .nav-btn {
+          padding: 0 10px;
+          line-height: 30px;
+          border-radius: 4px;
+          text-align: center;
+        }
+        &__login {
+          display: block;
+          border: 1px solid #0099e8;
+          background: #fff;
+          color: #0099e8;
         }
       }
     }
