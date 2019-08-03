@@ -1,453 +1,453 @@
-* {
-  background-repeat: no-repeat;
-  margin: 0;
-  padding: 0;
-  font-size: inherit;
-  line-height: inherit;
-}
-
-*,
-::before,
-::after {
-  box-sizing: inherit;
-  border-style: solid;
-  border-width: 0;
-}
-
-::before,
-::after {
-  text-decoration: inherit;
-  vertical-align: inherit;
-}
-
-.html {
-  height: 100%;
-  overflow-y: auto;
-  overflow-y: scroll;
-}
-
-.body {
-  position: relative;
-  min-height: 100%;
-  background: #f5f5f5;
-  font-family: "Source Sans Pro", Helvetica , Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
-  font-size: 14px;
-  color: #333;
-  line-height: 1;
-}
-
-a {
-  color: #0099e8;
-  text-decoration: none;
-}
-
-img {
-  vertical-align: middle;
-}
-
-h2 {
-  font-size: 22px;
-  line-height: 1.4;
-}
-
-h3 {
-  font-size: 22px;
-}
-
-main {
-  display: block;
-}
-
-label {
-  display: inline-block;
-}
-
-input {
-  border: 0;
-  outline: 0;
-  font-family: inherit;
-  display: inline-block;
-  text-align: start;
-}
-
-button {
-  border: 0;
-  outline: 0;
-  cursor: pointer;
-}
-
-
-button,
-input,
-select,
-textarea {
-  color: inherit;
-  font-family: inherit;
-  font-style: inherit;
-  font-weight: inherit;
-  background-color: transparent;
-}
-
-/* ヘッダー部分 */
-.single-container {
-  padding: 0 0 220px;
-}
-
-.single-header {
-  height: 128px;
-  text-align: center;
-}
-
-.single-header h1 {
-  margin: 40px 0 0;
-  display: inline-block;
-}
-
-.single-header a {
-  width: 185px;
-  height: 49px;
-  line-height:49px;
-  display: inline-block;
-  margin-right: 8px;
-}
-
-.single-header img {
-  width: 185px;
-  height: 49px;
-}
-
-.progress-bar {
-  padding: 40px 0 0 44px;
-  border: 0;
-  display: inline-block;
-  vertical-align: top;
-  font-size: 0px;
-  text-align: center;
-}
-
-
-
-.progress-bar ol {
-  margin: 0;
-  list-style: none;
-}
-
-.progress-bar ol::after {
-  content: "";
-  display: block;
-  clear: both;
-}
-
-.progress-bar li {
-  margin-right: 40px;
-  min-width: 60px;
-  position: relative;
-  z-index: 1;
-  display: inline-block;
-  font-size: 12px;
-  color: #888;
-}
-
-.progress-bar li:last-child {
-  margin: 0;
-}
-
-.progress-bar li.active {
-  font-weight: 600;
-  color: #ea352d;
-}
-
-.progress-status {
-  width: 12px;
-  height: 12px;
-  margin: 8px auto 0;
-  background: #ccc;
-  border-radius: 50%;
-}
-
-.progress-status::before,
-.progress-status::after {
-  position: absolute;
-  bottom: 5px;
-  z-index: -1;
-  display: block;
-  content: "";
-  width: 100%;
-  height: 2px;
-  background: #ccc;
-}
-
-.progress-status::after {
-  left: 50%;
-}
-
-.progress-status::before {
-  right: 50%;
-}
-
-.progress-bar li.through .progress-status {
-  background: #ea352d;
-}
-
-.progress-bar li.through .progress-status::before,
-.progress-bar li.through .progress-status::after {
-  background: #ea352d;
-}
-
-.progress-bar li.active .progress-status {
-  background: #ea352d;
-}
-
-.progress-bar li.active .progress-status::before {
-  background: #ea352d;
-}
-
-.progress-bar li:first-child .progress-status::before {
-  display: none;
-}
-
-.progress-bar li:last-child .progress-status::after {
-  display: none;
-}
-
-/* メイン部分 */
-.I-single-container {
-  width: 700px;
-  margin: 0 auto;
-  background: #fff;
-}
-
-.I-single-head {
-  padding: 32px 16px;
-  font-size: 22px;
-  line-height: 1.5;
-  text-align: center;
-}
-
-.I-chapter-head {
-  font-size: 24px;
-  padding: 8px 24px;
-  border-bottom: 1px solid #f5f5f5;
-  text-align: center;
-}
-
-.I-single-head.registration,
-.I-chapter-head.registration {
-  font-size: 22px;
-  padding: 32px;
-}
-
-.I-single-inner {
-  border-top : 1px solid #f5f5f5;
-}
-
-.I-single-inner p{
-  margin-top: 8px;
-  line-height: 1.5;
-}
-
-.I-single-inner.registration-form {
-  padding: 40px 40px 64px;
-}
-
-.I-single-content {
-  margin: 0 auto;
-}
-
-.I-single-content p {
-  margin-top: 8px;
-  line-height: 1.5;
-}
-
-.I-single-content p.sucsess {
-  text-align: center;
-  font-weight: 550;
-  font-size: 15px;
-}
-
-.I-single-content p:first-child {
-  margin: 0;
-  padding: 0;
-}
-
-.text-center {
-  text-align: center;
-}
-
-.I-single-inner.registration-form .I-single-content {
-  width: 100%;
-  max-width: 343px;
-}
-
-.form-group {
-  margin-top: 40px;
-}
-
-.form-group select {
-  width: 100%;
-}
-
-:first-child.form-group {
-  margin: 0;
-}
-
-.form-group label {
-  font-weight: 600;
-}
-
-.form-require {
-  background: #ea352d;
-  margin-left: 8px;
-  padding: 2px 4px;
-  border-radius: 2px;
-  color: #fff;
-  font-size: 12px;
-  vertical-align: top;
-}
-
-.form-require.gray {
-  background: silver;
-}
-
-.form-group .input-default {
-  width: 100%;
-  margin-top: 8px;
-  box-sizing: border-box;
-}
-
-.input-default {
-  height: 48px;
-  padding: 10px 16px 8px;
-  border-radius: 4px;
-  border: 1px solid #ccc;
-  background: #fff;
-  line-height: 1.5;
-  font-size: 16px;
-}
-
-.l-single-inner.registration-form :not(:first-of-type).form-group, .l-single-inner.registration-form .btn-red {
-    margin-top: 32px;
-}
-
-.I-chapter-sub-head {
-  font-size: 16px;
-}
-
-.I-single-content p.I-single-text {
-  margin-top: 8px;
-  padding: 0;
-}
-
-:first-of-type.input-default.half {
-  margin-right: 8px;
-}
-
-.input-default.half {
-  width: calc(50% - 6px);
-}
-
-.input-default.half.card {
-  width: calc(50% - 32px);
-}
-
-.birthday-select-wrap :first-of-type.select-wrap {
-  width: 76px;
-}
-
-.birthday-select-wrap .select-wrap {
-  width: 76px;
-  display: inline-block;
-  margin-top: 8px;
-  position: relative;
-  background: #fff;
-}
-
-.birthday-select-wrap .select-wrap span {
-  width: 76px;
-  display: inline-block;
-  margin-top: 8px;
-  position: relative;
-  background: #fff;
-  margin: 0 2px;
-}
-
-.birthday-select-wrap .select-wrap .icon-arrow-bottom {
-  right: 12px;
-  position: absolute;
-  top: 50%;
-  z-index: 2;
-  color: #888;
-  font-size: 8px;
-  transform: translate(0, -50%);
-}
-
-.birthday-select-wrap .select-wrap .select-default {
-  padding: 0 10px;
-  position: relative;
-  z-index: 2;
-  height: 48px;
-  border-radius: 4px;
-  border: 1px solid #ccc;
-  background: 0;
-  font-size: 16px;
-  line-height: 1.5;
-  cursor: pointer;
-}
-
-.state.select-default {
-  margin-top: 8px;
-  padding: 0 10px;
-  position: relative;
-  z-index: 2;
-  height: 48px;
-  border-radius: 4px;
-  border: 1px solid #ccc;
-  background: 0;
-  font-size: 16px;
-  line-height: 1.5;
-  cursor: pointer;
-}
-
-.birthday-select-wrap .select-wrap + span {
-  margin: 0 2px;
-}
-
-.form-info-text {
-  margin-top: 8px;
-  color: #888;
-  line-height: 1.5;
-}
-
-.signup-recaptcha {
-  transform: none;
-  transform-origin: 0 0;
-}
-
-.form-group span.month {
-  margin-right: 8px;
-}
-
-.form-group span.year{
-  margin-left: 8px;
-}
-
-.btn-default {
-  display: block;
-  width:100%;
-  line-height: 48px;
-  font-size: 14px;
-  transition: all ease-out .3s;
-  cursor: pointer;
-  text-align: center;
-}
-
-.btn-red {
-  margin-top: 32px;
-  background: #ea352d;
-  border: 1px solid #ea352d;
-  color: #fff;
-}
-
-.text-right {
-  text-align: right;
-}
+// * {
+//   background-repeat: no-repeat;
+//   margin: 0;
+//   padding: 0;
+//   font-size: inherit;
+//   line-height: inherit;
+// }
+
+// *,
+// ::before,
+// ::after {
+//   box-sizing: inherit;
+//   border-style: solid;
+//   border-width: 0;
+// }
+
+// ::before,
+// ::after {
+//   text-decoration: inherit;
+//   vertical-align: inherit;
+// }
+
+// .html {
+//   height: 100%;
+//   overflow-y: auto;
+//   overflow-y: scroll;
+// }
+
+// .body {
+//   position: relative;
+//   min-height: 100%;
+//   background: #f5f5f5;
+//   font-family: "Source Sans Pro", Helvetica , Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
+//   font-size: 14px;
+//   color: #333;
+//   line-height: 1;
+// }
+
+// a {
+//   color: #0099e8;
+//   text-decoration: none;
+// }
+
+// img {
+//   vertical-align: middle;
+// }
+
+// h2 {
+//   font-size: 22px;
+//   line-height: 1.4;
+// }
+
+// h3 {
+//   font-size: 22px;
+// }
+
+// main {
+//   display: block;
+// }
+
+// label {
+//   display: inline-block;
+// }
+
+// input {
+//   border: 0;
+//   outline: 0;
+//   font-family: inherit;
+//   display: inline-block;
+//   text-align: start;
+// }
+
+// button {
+//   border: 0;
+//   outline: 0;
+//   cursor: pointer;
+// }
+
+
+// button,
+// input,
+// select,
+// textarea {
+//   color: inherit;
+//   font-family: inherit;
+//   font-style: inherit;
+//   font-weight: inherit;
+//   background-color: transparent;
+// }
+
+// /* ヘッダー部分 */
+// .single-container {
+//   padding: 0 0 220px;
+// }
+
+// .single-header {
+//   height: 128px;
+//   text-align: center;
+// }
+
+// .single-header h1 {
+//   margin: 40px 0 0;
+//   display: inline-block;
+// }
+
+// .single-header a {
+//   width: 185px;
+//   height: 49px;
+//   line-height:49px;
+//   display: inline-block;
+//   margin-right: 8px;
+// }
+
+// .single-header img {
+//   width: 185px;
+//   height: 49px;
+// }
+
+// .progress-bar {
+//   padding: 40px 0 0 44px;
+//   border: 0;
+//   display: inline-block;
+//   vertical-align: top;
+//   font-size: 0px;
+//   text-align: center;
+// }
+
+
+
+// .progress-bar ol {
+//   margin: 0;
+//   list-style: none;
+// }
+
+// .progress-bar ol::after {
+//   content: "";
+//   display: block;
+//   clear: both;
+// }
+
+// .progress-bar li {
+//   margin-right: 40px;
+//   min-width: 60px;
+//   position: relative;
+//   z-index: 1;
+//   display: inline-block;
+//   font-size: 12px;
+//   color: #888;
+// }
+
+// .progress-bar li:last-child {
+//   margin: 0;
+// }
+
+// .progress-bar li.active {
+//   font-weight: 600;
+//   color: #ea352d;
+// }
+
+// .progress-status {
+//   width: 12px;
+//   height: 12px;
+//   margin: 8px auto 0;
+//   background: #ccc;
+//   border-radius: 50%;
+// }
+
+// .progress-status::before,
+// .progress-status::after {
+//   position: absolute;
+//   bottom: 5px;
+//   z-index: -1;
+//   display: block;
+//   content: "";
+//   width: 100%;
+//   height: 2px;
+//   background: #ccc;
+// }
+
+// .progress-status::after {
+//   left: 50%;
+// }
+
+// .progress-status::before {
+//   right: 50%;
+// }
+
+// .progress-bar li.through .progress-status {
+//   background: #ea352d;
+// }
+
+// .progress-bar li.through .progress-status::before,
+// .progress-bar li.through .progress-status::after {
+//   background: #ea352d;
+// }
+
+// .progress-bar li.active .progress-status {
+//   background: #ea352d;
+// }
+
+// .progress-bar li.active .progress-status::before {
+//   background: #ea352d;
+// }
+
+// .progress-bar li:first-child .progress-status::before {
+//   display: none;
+// }
+
+// .progress-bar li:last-child .progress-status::after {
+//   display: none;
+// }
+
+// /* メイン部分 */
+// .I-single-container {
+//   width: 700px;
+//   margin: 0 auto;
+//   background: #fff;
+// }
+
+// .I-single-head {
+//   padding: 32px 16px;
+//   font-size: 22px;
+//   line-height: 1.5;
+//   text-align: center;
+// }
+
+// .I-chapter-head {
+//   font-size: 24px;
+//   padding: 8px 24px;
+//   border-bottom: 1px solid #f5f5f5;
+//   text-align: center;
+// }
+
+// .I-single-head.registration,
+// .I-chapter-head.registration {
+//   font-size: 22px;
+//   padding: 32px;
+// }
+
+// .I-single-inner {
+//   border-top : 1px solid #f5f5f5;
+// }
+
+// .I-single-inner p{
+//   margin-top: 8px;
+//   line-height: 1.5;
+// }
+
+// .I-single-inner.registration-form {
+//   padding: 40px 40px 64px;
+// }
+
+// .I-single-content {
+//   margin: 0 auto;
+// }
+
+// .I-single-content p {
+//   margin-top: 8px;
+//   line-height: 1.5;
+// }
+
+// .I-single-content p.sucsess {
+//   text-align: center;
+//   font-weight: 550;
+//   font-size: 15px;
+// }
+
+// .I-single-content p:first-child {
+//   margin: 0;
+//   padding: 0;
+// }
+
+// .text-center {
+//   text-align: center;
+// }
+
+// .I-single-inner.registration-form .I-single-content {
+//   width: 100%;
+//   max-width: 343px;
+// }
+
+// .form-group {
+//   margin-top: 40px;
+// }
+
+// .form-group select {
+//   width: 100%;
+// }
+
+// :first-child.form-group {
+//   margin: 0;
+// }
+
+// .form-group label {
+//   font-weight: 600;
+// }
+
+// .form-require {
+//   background: #ea352d;
+//   margin-left: 8px;
+//   padding: 2px 4px;
+//   border-radius: 2px;
+//   color: #fff;
+//   font-size: 12px;
+//   vertical-align: top;
+// }
+
+// .form-require.gray {
+//   background: silver;
+// }
+
+// .form-group .input-default {
+//   width: 100%;
+//   margin-top: 8px;
+//   box-sizing: border-box;
+// }
+
+// .input-default {
+//   height: 48px;
+//   padding: 10px 16px 8px;
+//   border-radius: 4px;
+//   border: 1px solid #ccc;
+//   background: #fff;
+//   line-height: 1.5;
+//   font-size: 16px;
+// }
+
+// .l-single-inner.registration-form :not(:first-of-type).form-group, .l-single-inner.registration-form .btn-red {
+//     margin-top: 32px;
+// }
+
+// .I-chapter-sub-head {
+//   font-size: 16px;
+// }
+
+// .I-single-content p.I-single-text {
+//   margin-top: 8px;
+//   padding: 0;
+// }
+
+// :first-of-type.input-default.half {
+//   margin-right: 8px;
+// }
+
+// .input-default.half {
+//   width: calc(50% - 6px);
+// }
+
+// .input-default.half.card {
+//   width: calc(50% - 32px);
+// }
+
+// .birthday-select-wrap :first-of-type.select-wrap {
+//   width: 76px;
+// }
+
+// .birthday-select-wrap .select-wrap {
+//   width: 76px;
+//   display: inline-block;
+//   margin-top: 8px;
+//   position: relative;
+//   background: #fff;
+// }
+
+// .birthday-select-wrap .select-wrap span {
+//   width: 76px;
+//   display: inline-block;
+//   margin-top: 8px;
+//   position: relative;
+//   background: #fff;
+//   margin: 0 2px;
+// }
+
+// .birthday-select-wrap .select-wrap .icon-arrow-bottom {
+//   right: 12px;
+//   position: absolute;
+//   top: 50%;
+//   z-index: 2;
+//   color: #888;
+//   font-size: 8px;
+//   transform: translate(0, -50%);
+// }
+
+// .birthday-select-wrap .select-wrap .select-default {
+//   padding: 0 10px;
+//   position: relative;
+//   z-index: 2;
+//   height: 48px;
+//   border-radius: 4px;
+//   border: 1px solid #ccc;
+//   background: 0;
+//   font-size: 16px;
+//   line-height: 1.5;
+//   cursor: pointer;
+// }
+
+// .state.select-default {
+//   margin-top: 8px;
+//   padding: 0 10px;
+//   position: relative;
+//   z-index: 2;
+//   height: 48px;
+//   border-radius: 4px;
+//   border: 1px solid #ccc;
+//   background: 0;
+//   font-size: 16px;
+//   line-height: 1.5;
+//   cursor: pointer;
+// }
+
+// .birthday-select-wrap .select-wrap + span {
+//   margin: 0 2px;
+// }
+
+// .form-info-text {
+//   margin-top: 8px;
+//   color: #888;
+//   line-height: 1.5;
+// }
+
+// .signup-recaptcha {
+//   transform: none;
+//   transform-origin: 0 0;
+// }
+
+// .form-group span.month {
+//   margin-right: 8px;
+// }
+
+// .form-group span.year{
+//   margin-left: 8px;
+// }
+
+// .btn-default {
+//   display: block;
+//   width:100%;
+//   line-height: 48px;
+//   font-size: 14px;
+//   transition: all ease-out .3s;
+//   cursor: pointer;
+//   text-align: center;
+// }
+
+// .btn-red {
+//   margin-top: 32px;
+//   background: #ea352d;
+//   border: 1px solid #ea352d;
+//   color: #fff;
+// }
+
+// .text-right {
+//   text-align: right;
+// }

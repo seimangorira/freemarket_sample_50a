@@ -1,112 +1,114 @@
-.html
-  .body
-    .single-container
-      / ヘッダー部分
-      %header.single-header
-        %h1
-          %a{:href => "#"}
-            = image_tag "mercari2.png"
-        %nav.progress-bar
-          %ol.clearfix
-            %li.active
-              会員情報
-              .progress-status
-            %li
-              電話番号認証
-              .progress-status
-            %li
-              お届け先住所入力
-              .progress-status
-            %li
-              支払い方法
-              .progress-status
-            %li
-              完了
-              .progress-status
-      / メイン部分
-      %main.single-main
-        %section.I-single-container
-          %h2.I-single-head.registration 会員情報入力
-          %form.I-single-inner.registration-form{:action => "/users/second"}
-            .I-single-content
-              .form-group
-                %label{:for => "nickname"} ニックネーム
-                %span.form-require 必須
-                %input.input-default{:placeholder => "例）メルカリ太郎", :type => "text"}
-              .form-group
-                %label{:for => "email"} メールアドレス
-                %span.form-require 必須
-                %input.input-default{:placeholder => "PC・携帯どちらでも可", :type => "email"}/
-              .form-group
-                %label{:for => "password"} パスワード
-                %span.form-require 必須
-                %input.input-default{:placeholder => "6文字以上", :type => "password"}/
-              .form-group
-                %label{:for => "password"} パスワード（確認）
-                %span.form-require 必須
-                %input.input-default{:placeholder => "6文字以上", :type => "password"}/
-              .form-group
-                %h3.text-left.I-chapter-sub-head 本人確認
-                %p.I-single-text
-                  安心・安全にご利用いただくために、お客様の本人情報の登録に
-                  ご協力ください。他のお客さまに公開されることはありません。
-              .form-group
-                %div
-                  %label お名前(全角)
-                  %span.form-require 必須
-                %input.input-default.half{:placeholder => "例）山田", :type => "text"}/
-                %input.input-default.half{:placeholder => "例）彩", :type => "text"}/
-              .form-group
-                %div
-                  %label お名前カナ(全角)
-                  %span.form-require 必須
-                %input.input-default.half{:placeholder => "例）ヤマダ", :type => "text"}/
-                %input.input-default.half{:placeholder => "例）アヤ", :type => "text"}/
-              .form-group
-                %label{"for-" => "birthday"} 生年月日
-                %span.form-require 必須
-                .birthday-select-wrap
-                  .select-wrap
-                    %i.icon-arrow-bottom
-                    %select.select-default
-                      %option{:value => ""} --
-                      -i = 2019
-                      = while i >= 1900
-                        %option{:value => "#{i}"} #{i}
-                        -i -= 1
-                  %span 年
-                  .select-wrap
-                    %i.icon-arrow-bottom
-                    %select.select-default
-                      %option{:value => ""} --
-                      - for i in 01..12
-                        %option{:value => "#{i}"} #{i}
-                  %span 月
-                  .select-wrap
-                    %i.icon-arrow-bottom
-                    %select.select-default
-                      %option{:value => ""} --
-                  %span 日
-                %p.form-info-text
-                  ※ 本人情報は正しく入力してください。会員登録後、修正するには
-                  お時間を頂く場合があります。
-              .I-single-content
-                .form-group
-                  .g-recaptcha.signup-recaptcha
-                    %div{:style => "width: 304px; height: 78px;"}
-                      %div
-                        %iframe{:frameborder => "0", :height => "78", :name => "a-mkmk6jkic1h2", :role => "presentation", :sandbox => "allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation", :scrolling => "no", :src => "https://www.google.com/recaptcha/api2/anchor?ar=1&k=6LfZGCYTAAAAAHoK-s7Lg5OdYg5Fq4susvALmZoc&co=aHR0cHM6Ly93d3cubWVyY2FyaS5jb206NDQz&hl=ja&v=v1563777128698&size=normal&cb=i3am7gn33cqe", :width => "304"}
-                        %textarea#g-recaptcha-response.g-recaptcha-response{:name => "g-recaptcha-response", :style => "margin: 10px 25px; padding: 0px; border: 1px solid rgb(193, 193, 193); border-image: none; width: 250px; height: 40px; display: none;"}
-                .form-group
-                  %p.I-single-text.text-center
-                    「次へ進む」のボタンを押すことにより、
-                    %a{:href => "#"} 利用規約
-                    に同意したものとみなします
-                %button.btn-default.btn-red{:type => "submit"}
-                  次へ進む
-                .form-group.text-right
-                  %p
-                    %a{:href => "#"}
+.ragistration-html
+  .ragistration-body
+    .ragistration-all
+      .ragistration-all__container
+        / ヘッダー部分
+        %header.ragistration-all__header
+          %h1.ragistration-all__header--h1
+            %a.ragistration-all__header--a{:href => "#"}
+              = image_tag "mercari2.png"
+          %nav.ragistration-all__bar
+            %ol.ragistration-all__bar--ol
+              %li.ragistration-all__bar--active
+                会員情報
+                .progress-status
+              %li.ragistration-all__bar--li
+                電話番号認証
+                .progress-status
+              %li.ragistration-all__bar--li
+                お届け先住所入力
+                .progress-status
+              %li.ragistration-all__bar--li
+                支払い方法
+                .progress-status
+              %li.ragistration-all__bar--last
+                完了
+                .progress-status
+        / メイン部分
+        %main.ragistration-all__main
+          %section.ragistration-all__main-container
+            %h2.ragistration-all__single-head 会員情報入力
+            %form.ragistration-all__inner{:action => "/users/second"}
+              .ragistration-all__content
+                .ragistration-all__form-group
+                  %label.ragistration-all__form-group--label{:for => "nickname"} ニックネーム
+                  %span.ragistration-all__require 必須
+                  %input.input-default{:placeholder => "例）メルカリ太郎", :type => "text"}
+                .ragistration-all__form-group
+                  %label.ragistration-all__form-group--label{:for => "email"} メールアドレス
+                  %span.ragistration-all__require 必須
+                  %input.input-default{:placeholder => "PC・携帯どちらでも可", :type => "email"}/
+                .ragistration-all__form-group
+                  %label.ragistration-all__form-group--label{:for => "password"} パスワード
+                  %span.ragistration-all__require 必須
+                  %input.input-default{:placeholder => "6文字以上", :type => "password"}/
+                .ragistration-all__form-group
+                  %label.ragistration-all__form-group--label{:for => "password"} パスワード（確認）
+                  %span.ragistration-all__require 必須
+                  %input.input-default{:placeholder => "6文字以上", :type => "password"}/
+                .ragistration-all__form-group
+                  %h3.ragistration-all__sub-head 本人確認
+                  %p.ragistration-all__content--text
+                    安心・安全にご利用いただくために、お客様の本人情報の登録に
+                    ご協力ください。他のお客さまに公開されることはありません。
+                .ragistration-all__form-group
+                  %div
+                    %label.ragistration-all__form-group--label お名前(全角)
+                    %span.ragistration-all__require 必須
+                  %input.input-default.harf{:placeholder => "例）山田", :type => "text"}/
+                  %input.input-default.harf{:placeholder => "例）彩", :type => "text"}/
+                .ragistration-all__form-group
+                  %div
+                    %label.ragistration-all__form-group--label お名前カナ(全角)
+                    %span.ragistration-all__require 必須
+                  %input.input-default.harf{:placeholder => "例）ヤマダ", :type => "text"}/
+                  %input.input-default.harf{:placeholder => "例）アヤ", :type => "text"}/
+                .ragistration-all__form-group
+                  %label.ragistration-all__form-group--label{"for-" => "birthday"} 生年月日
+                  %span.ragistration-all__require 必須
+                  .ragistration-all__birthday-select
+                    .ragistration-all__birthday-select__select
+                      %i.icon-arrow-bottom
+                      %select.ragistration-all__birthday-select__select--default
+                        %option{:value => ""} --
+                        -i = 2019
+                        = while i >= 1900
+                          %option{:value => "#{i}"} #{i}
+                          -i -= 1
+                    %span 年
+                    .ragistration-all__birthday-select__select
+                      %i.icon-arrow-bottom
+                      %select.ragistration-all__birthday-select__select--default
+                        %option{:value => ""} --
+                        - for i in 01..12
+                          %option{:value => "#{i}"} #{i}
+                    %span 月
+                    .ragistration-all__birthday-select__select
+                      %i.icon-arrow-bottom
+                      %select.ragistration-all__birthday-select__select--default
+                        %option{:value => ""} --
+                    %span 日
+                  %p.ragistration-all__content--text-gray
+                    ※ 本人情報は正しく入力してください。会員登録後、修正するには
+                    お時間を頂く場合があります。
+                .ragistration-all__content
+                  .ragistration-all__form-group
+                    .g-recaptcha.signup-recaptcha
+                      %div{:style => "width: 304px; height: 78px;"}
+                        %div
+                          %iframe{:frameborder => "0", :height => "78", :name => "a-mkmk6jkic1h2", :role => "presentation", :sandbox => "allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation", :scrolling => "no", :src => "https://www.google.com/recaptcha/api2/anchor?ar=1&k=6LfZGCYTAAAAAHoK-s7Lg5OdYg5Fq4susvALmZoc&co=aHR0cHM6Ly93d3cubWVyY2FyaS5jb206NDQz&hl=ja&v=v1563777128698&size=normal&cb=i3am7gn33cqe", :width => "304"}
+                          %textarea#g-recaptcha-response.g-recaptcha-response{:name => "g-recaptcha-response", :style => "margin: 10px 25px; padding: 0px; border: 1px solid rgb(193, 193, 193); border-image: none; width: 250px; height: 40px; display: none;"}
+                  .ragistration-all__form-group
+                    %p.ragistration-all__content--text-center
+                      「次へ進む」のボタンを押すことにより、
+                      %a.ragistration-all__a{:href => "#"} 利用規約
+                      に同意したものとみなします
+                  %button.ragistration-all__btn-red{:type => "submit"}
+                    次へ進む
+                  .ragistration-all__form-group
+                    %p.text-right
+                      %a.ragistration-all__a{:href => "#"} 本人情報の登録について
+                      %i.fas.fa-chevron-right
 
 
       / フッター部分
