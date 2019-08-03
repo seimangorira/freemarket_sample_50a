@@ -24,5 +24,20 @@
                 ドラッグアンドドロップ
                 またはクリックしてファイルをアップロード
 
+        .container__form__content.item-about.clearfix
+          .form-group
+            %label.item-about__name 
+              商品名
+              %span.form-require 
+                必須
+            %input.item-about__name--input{type: "text", placeholder: "商品名（必須 40文字まで)"}
+          .form-group
+            %label.item-about__description 
+              商品の説明
+              %span.form-require 
+                必須
+            %textarea.item-about__description--input{placeholder: "商品の説明（必須1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"}
+              
+
   %footer.new-item-page__footer
     -#  TODO:フッターは部分テンプレートを使用
