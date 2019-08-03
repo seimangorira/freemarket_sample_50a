@@ -29,6 +29,10 @@
         margin: 0 auto;
         max-width: 343px;
 
+        a{
+          text-decoration: none;
+        }
+
         a:hover {
           opacity: 0.8;
         }

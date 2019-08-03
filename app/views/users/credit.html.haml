@@ -1,71 +1,72 @@
-.html
-  .body
-    .single-container
-      / ヘッダー部分
-      %header.single-header
-        %h1
-          %a{:href => "#"}
-            = image_tag "mercari2.png"
-        %nav.progress-bar
-          %ol.clearfix
-            %li.through
-              会員情報
-              .progress-status
-            %li.through
-              電話番号認証
-              .progress-status
-            %li.through
-              お届け先住所入力
-              .progress-status
-            %li.active
-              支払い方法
-              .progress-status
-            %li
-              完了
-              .progress-status
-      / メイン部分
-      %main.single-main
-        %section.I-single-container
-          %h2.I-chapter-head.registration 支払い方法
-          %form.I-single-inner.registration-form{:action => "/users/complete"}
-            .I-single-content
-              .form-group
-                %label{:for => "card-num"} カード番号
-                %span.form-require 必須
-                %input.input-default{:placeholder => "半角数字のみ", :type => "text"}/
-              .form-group
-                %div
-                  %label 有効期限
-                  %span.form-require 必須
-                %select.input-default.half.card
-                  %option{:value => "01"} 01
-                  %option{:value => "02"} 02
-                  %option{:value => "02"} 03
-                  %option{:value => "02"} 04
-                  %option{:value => "02"} 05
-                  %option{:value => "02"} 06
-                  %option{:value => "02"} 07
-                  %option{:value => "02"} 08
-                  %option{:value => "02"} 09
-                  %option{:value => "02"} 10
-                  %option{:value => "02"} 11
-                  %option{:value => "02"} 12
-                %span.month 月
-                %select.input-default.half.card
-                  - for i in 19..29
-                    %option{:value => "#{i}"} #{i}
-                %span.year 年
-              .form-group
-                %label{:for => "code"} セキュリティコード
-                %span.form-require 必須
-                %input.input-default{:placeholder => "カード背面4桁もしくは3桁の番号"}/
-              .form-group.text-right
-                %p
-                  %a{:href => "#"}
-                    カード裏面の番号とは？
-                    %i.icon-arrow-right
-              %button.btn-default.btn-red{:type => "submit"}
-                次へ進む
+.ragistration-html
+  .ragistration-body
+    .ragistration-all
+      .ragistration-all__container
+        / ヘッダー部分
+        %header.ragistration-all__header
+          %h1.ragistration-all__header--h1
+            %a{:href => "#"}
+              = image_tag "mercari2.png"
+          %nav.ragistration-all__bar
+            %ol.ragistration-all__bar--ol
+              %li.ragistration-all__bar--through
+                会員情報
+                .progress-status
+              %li.ragistration-all__bar--through-through
+                電話番号認証
+                .progress-status
+              %li.ragistration-all__bar--through-through
+                お届け先住所入力
+                .progress-status
+              %li.ragistration-all__bar--active
+                支払い方法
+                .progress-status
+              %li.ragistration-all__bar--last
+                完了
+                .progress-status
+        / メイン部分
+        %main.ragistration-all__main
+          %section.ragistration-all__main-container
+            %h2.ragistration-all__chapter-head 支払い方法
+            %form.ragistration-all__inner{:action => "/users/complete"}
+              .ragistration-all__content
+                .ragistration-all__form-group
+                  %label.ragistration-all__form-group--label{:for => "card-num"} カード番号
+                  %span.ragistration-all__require 必須
+                  %input.input-default{:placeholder => "半角数字のみ", :type => "text"}/
+                .ragistration-all__form-group
+                  %div
+                    %label.ragistration-all__form-group--label 有効期限
+                    %span.ragistration-all__require 必須
+                  %select.input-default.half.card
+                    %option{:value => "01"} 01
+                    %option{:value => "02"} 02
+                    %option{:value => "02"} 03
+                    %option{:value => "02"} 04
+                    %option{:value => "02"} 05
+                    %option{:value => "02"} 06
+                    %option{:value => "02"} 07
+                    %option{:value => "02"} 08
+                    %option{:value => "02"} 09
+                    %option{:value => "02"} 10
+                    %option{:value => "02"} 11
+                    %option{:value => "02"} 12
+                  %span.month 月
+                  %select.input-default.half.card
+                    - for i in 19..29
+                      %option{:value => "#{i}"} #{i}
+                  %span.year 年
+                .ragistration-all__form-group
+                  %label.ragistration-all__form-group--label{:for => "code"} セキュリティコード
+                  %span.ragistration-all__require 必須
+                  %input.input-default{:placeholder => "カード背面4桁もしくは3桁の番号"}/
+                .ragistration-all__form-group
+                  %p.text-right
+                    %a.ragistration-all__a{:href => "#"}
+                      カード裏面の番号とは？
+                      %i.fas.fa-chevron-right
+                %button.ragistration-all__btn-red{:type => "submit"}
+                  次へ進む
 
-      / フッター部分
-      = render 'users/footer'
+        / フッター部分
+        = render 'users/footer'
