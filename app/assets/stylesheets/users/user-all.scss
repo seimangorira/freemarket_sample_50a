@@ -27,7 +27,10 @@
   }
 
   &__container {
+    position: relative;
+    min-height: 100vh;
     padding-bottom: 220px;
+    box-sizing: border-box;
   }
 
   /* ヘッダー部分 */
