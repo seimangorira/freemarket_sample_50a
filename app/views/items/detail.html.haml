@@ -66,7 +66,7 @@
           %i.fa.fa-flag
             %span 不適切な商品の報告
       .main__item-box__item-icon__right
-        = link_to "/messages/detail" do
+        = link_to "/items/detail" do
           %i.fa.fa-lock
             %span あんしん・あんぜんへの取り組み
   .main__detail-message
@@ -79,16 +79,25 @@
             %span コメントする
   %ul.main__item-link
     %li.main__item-link__previous
-      = link_to "/messages/detail" do
+      = link_to "/items/detail" do
         %i.fa.fa-chevron-left 
         AUX PARADIS サボン 空瓶
     %li.main__item-link__next
-      = link_to "/messages/detail" do
+      = link_to "/items/detail" do
         ハーバリウム.:*:・'°☆ヘリクリサム
         %i.fa.fa-chevron-right
   .main__media-box
     .main__media-box--text
     %ul.main__media-box__media-icon
+      %li
+        = link_to "/items/detail" do
+          %i.fab.fa-facebook-square
+      %li
+        =link_to "/items/detail" do
+          %i.fab.fa-twitter-square
+      %li
+        = link_to "/items/detail" do
+          %i.fab.fa-pinterest-square
   .main__user-item
     %section.main__user-item__user-item-box
     %section.user-item-box
