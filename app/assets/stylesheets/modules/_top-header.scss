@@ -1,22 +1,22 @@
-.pc-header {
+.top-header {
   position: relative;
   background-color: white;
   display: block;
   a {
     text-decoration: none;
   }
-  .pc-header-inner{
+  .top-header-inner{
     width: 1020px;
     height: 100px;
     margin: 0 auto;
     padding: 8px 0 0;
     font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
     color: black;
-    .pc-header-top {
+    .top-header-top {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      .pc-header-form{ 
+      .top-header-form{ 
         position: relative;
         margin-left: 45px;
         width: 100%;
@@ -38,13 +38,13 @@
         }
       }
     }
-    .pc-header-nav-box {
+    .top-header-nav-box {
       margin: 8px 0 0;
       padding: 0;
       a {
         display: block;
         color: #333;
-        .pc-header-cat-brand-icon {
+        .top-header-cat-brand-icon {
           color: #ea352d;
           font-size: 12px;
           margin-right: 4px;
@@ -52,7 +52,7 @@
       }
       .l-left{
         float: left;
-        .pc-header-nav{
+        .top-header-nav{
           font-size: 0;
           font-size: 14px;
           font-weight: 400;
@@ -62,14 +62,14 @@
           padding: 0 11px;
           cursor: pointer;
           }
-          .pc-header-nav-root {
+          .top-header-nav-root {
             font-weight: bold;
             position: relative;
             height: 44px;
             line-height: 32px;
             i{
               font-family: 'icon-font';
-              .pc-header-cat-brand-icon {
+              .top-header-cat-brand-icon {
                 color: #ea352d;
                 font-size: 12px;
                 margin-right: 4px;
@@ -79,7 +79,7 @@
         }
       }
       .l-right {
-        .pc-header-login-nav{
+        .top-header-login-nav{
           float: right;
           li {
             display: inline-block;
