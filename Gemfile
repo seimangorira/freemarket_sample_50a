@@ -80,3 +80,4 @@ gem 'fog-aws'
 gem 'devise'
 gem 'jquery-rails'
 gem "recaptcha"
+gem 'active_hash'
