@@ -196,6 +196,35 @@
           }
         }
       }
+      .confirmation-box {
+        // width: 100%;
+        p {
+          line-height: 1.5;
+        }
+        .btn {
+          color: #fff;
+          display: block;
+          line-height: 48px;
+          font-size: 14px;
+          transition: all;
+          cursor: pointer;
+          text-align: center;
+          min-height: 1.5em;
+          overflow: visible;
+        }
+        .btn-red {
+          margin: 40px 0 0;
+          background-color: $exhibition-red;
+          border: $exhibition-red;
+          width: 100%;
+        }
+        .btn-gray {
+          background-color: #aaa;
+          border: 1px solid #aaa;
+          margin: 24px auto 0;
+          width: 45%;
+        }
+      }
     }
   }
 }

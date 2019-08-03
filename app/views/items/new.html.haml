@@ -109,6 +109,29 @@
             %li.selling-item__profit.clearfix
               %p.selling-item__profit--title 販売利益
               %p.selling-item__profit--result -
+        
+        .container__form__content.confirmation-box.clearfix
+          .confirmation-box__description
+            %p<>
+              = link_to "禁止されている出品", "#"
+              、
+              = link_to "行為", "#"
+              を必ずご確認ください。
+              %br
+                またブランド品でシリアルナンバー等がある場合はご記載ください。
+                = link_to "偽ブランドの販売", "#"
+                は犯罪であり処罰される可能性があります。
+                %br 
+                  また、出品をもちまして
+                  = link_to "加盟店規約", "#"
+                  に同意したことになります。
+          .confirmation-box__btn
+            .confirmation-box__btn--exhibition
+              -# TODO:form_forで修正時に、submitで置き換え？
+              = button_to '出品する', root_path, method: :get, class: "btn btn-red"
+            .confirmation-box__btn--back
+              -# TODO:仮でroot_pathに設定。後日、ユーザーマイページへリンクを書き換える必要あり
+              = button_to 'もどる', root_path, method: :get, class: "btn btn-gray"
 
   %footer.new-item-page__footer
     -#  TODO:フッターは部分テンプレートを使用
