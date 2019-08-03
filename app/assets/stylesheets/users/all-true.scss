@@ -64,16 +64,16 @@
   background-color: transparent;
 }
 
-// @mixin button {
-//   border: 0;
-//   outline: 0;
-//   cursor: pointer;
-//   color: inherit;
-//   font-family: inherit;
-//   font-style: inherit;
-//   font-weight: inherit;
-//   background-color: transparent;
-// }
+@mixin button {
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+  color: inherit;
+  font-family: inherit;
+  font-style: inherit;
+  font-weight: inherit;
+  background-color: transparent;
+}
 
 @mixin li {
   margin-right: 40px;
@@ -124,12 +124,6 @@
 
 .ragistration-all {
   @include all-reset;
-  // @include h2;
-  // @include h3;
-  // @include main;
-  // @include label;
-  // @include input;
-  // @include button;
 
   .ragistration-all__a {
     @include a;
@@ -177,13 +171,6 @@
     &--ol {
       margin: 0;
       list-style: none;
-
-      // &::after {
-      //   @include before-after;
-      //   content: "";
-      //   display: block;
-      //   clear: both;
-      // }
     }
 
     &--li {
@@ -204,33 +191,9 @@
           right: 50%;
         }
       }
-
-      // &:first-child {
-      //   .progress-status {
-      //     @include progress-status;
-
-      //     &:first-child {
-      //       display: none;
-      //     }
-      //   }
-      // }
-
-      // &:last-child {
-      //   margin: 0;
-
-      //   .progress-stasus {
-      //     @include progress-status;
-
-      //     &::before {
-      //       @include before-after;
-      //       @include prog-before-after;
-      //       display: none;
-      //     }
-      //   }
-      // }
     }
 
-    &--active {
+    &--active-first {
       @include li;
       font-weight: 600;
       color: #ea352d;
@@ -243,6 +206,46 @@
           @include before-after;
           @include prog-before-after;
           left: 50%;
+        }
+      }
+    }
+
+    &--active {
+      @include li;
+      font-weight: 600;
+      color: #ea352d;
+
+      .progress-status {
+        @include progress-status;
+        background: #ea352d;
+
+        &::before {
+          @include before-after;
+          @include prog-before-after;
+          right: 50%;
+          background: #ea352d;
+        }
+
+        &::after {
+          @include before-after;
+          @include prog-before-after;
+          left: 50%;
+        }
+      }
+    }
+
+    &--through {
+      @include li;
+
+      .progress-status {
+        @include progress-status;
+        background: #ea352d;
+
+        &::after {
+          @include before-after;
+          @include prog-before-after;
+          left: 50%;
+          background: #ea352d;
         }
       }
     }
@@ -260,28 +263,6 @@
         }
       }
     }
-
-    // &--through {
-    //   @include li;
-
-    //   &.progress-status {
-    //     @include progress-status;
-    //     background: #ea352d;
-
-    //     &::before {
-    //       @include before-after;
-    //       @include prog-before-after;
-    //       background: #ea352d;
-    //     }
-
-
-    //     &::after {
-    //       @include before-after;
-    //       @include prog-before-after;
-    //       background: #ea352d;
-    //     }
-    //   }
-    // }
   }
 
   /* メイン部分 */
@@ -438,6 +419,7 @@
   }
 
   &__btn-red {
+    @include button;
     display: block;
     width: 100%;
     line-height: 48px;
