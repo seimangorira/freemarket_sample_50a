@@ -89,5 +89,26 @@
                 %select.select-wrap__input
                   %option{value: ""} ---
 
+        .container__form__content.selling-item.clearfix
+          .selling-item__title.form-sub-title
+            販売価格(300〜9,999,999)
+          %ul.selling-item__right-box.form-right-box
+            %li.form-group.selling-item__price
+              .selling-item__price__inner-left
+                %label.selling-item__price--setting
+                  価格
+                  %span.form-require 
+                    必須
+              .selling-item__price__inner-right
+                ¥
+                .selling-item__price__inner-right--input
+                  %input{placeholder: "例)  300", value: ""}
+            %li.selling-item__fee.clearfix
+              %p 販売手数料(10%)
+              %p -
+            %li.selling-item__profit.clearfix
+              %p.selling-item__profit--title 販売利益
+              %p.selling-item__profit--result -
+
   %footer.new-item-page__footer
     -#  TODO:フッターは部分テンプレートを使用

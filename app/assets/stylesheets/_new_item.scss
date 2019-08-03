@@ -147,7 +147,55 @@
       .delivery-setting {
         @include flexBoxForForm;
       }
-      
+
+      .selling-item {
+        @include flexBoxForForm;
+        li:first-child {
+          padding: 0 0 24px;
+          border: 0;
+        }
+        li {
+          @include flexBoxForForm;
+          padding: 24px 0;
+          border-top: 1px solid #ccc;
+        }
+        &__price {
+          @include flexBoxForForm;
+          &__inner-left {
+            line-height: 48px;
+            width: 50%;
+          }
+          &__inner-right {
+            text-align: right;
+            width: 50%;
+            &--input {
+              display: inline-block;
+              width: 80%;
+              margin: 0 0 0 5%;
+              input {
+                outline: 0;
+                text-align: right;
+                height: 48px;
+                border-radius: 4px;
+                padding: 10px 16px 8px;
+                border: 1px solid #ccc;
+                line-height: 1.5;
+                font-size: 16px;
+                width: 160px;
+              }
+            }
+          }
+        }
+        &__profit {
+          font-weight: bold;
+          &--title {
+            font-size: 16px;
+          }
+          &--result {
+            font-size: 34px;
+          }
+        }
+      }
     }
   }
 }
