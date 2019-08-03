@@ -5,7 +5,7 @@
         / ヘッダー部分
         %header.registration-all__header
           %h1.registration-all__header--h1
-            %a.registration-all__header--a{:href => "#"}
+            = link_to "/", class: "registration-all__header--a" do
               = image_tag "mercari2.png"
           %nav.registration-all__bar
             %ol.registration-all__bar--ol
@@ -101,13 +101,13 @@
                   .registration-all__form-group
                     %p.registration-all__content--text-center
                       「次へ進む」のボタンを押すことにより、
-                      %a.registration-all__a{:href => "#"} 利用規約
+                      = link_to "利用規約", "/", class: "registration-all__a"
                       に同意したものとみなします
                   %button.registration-all__btn-red{:type => "submit"}
                     次へ進む
                   .registration-all__form-group
                     %p.text-right
-                      %a.registration-all__a{:href => "#"} 本人情報の登録について
+                      = link_to "本人情報の登録について", "/", class: "registration-all__a"
                       %i.fas.fa-chevron-right
 
 

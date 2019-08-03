@@ -13,7 +13,7 @@
 
         .new-user-top-main-inners
           .new-user-top-main-inners__inner
-            %a.new-user-top-main-inners__inner--btn-mail{ href: "/users/first" }
+            = link_to "/users/first", class: "new-user-top-main-inners__inner--btn-mail" do
               %i.fa.fa-envelope
               メールアドレスで登録する
             %button.new-user-top-main-inners__inner__btn-sns

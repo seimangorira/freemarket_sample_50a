@@ -5,7 +5,7 @@
         / ヘッダー部分
         %header.registration-all__header
           %h1.registration-all__header--h1
-            %a{:href => "#"}
+            = link_to "/", class: "registration-all__header--a" do
               = image_tag "mercari2.png"
           %nav.registration-all__bar
             %ol.registration-all__bar--ol
@@ -34,6 +34,23 @@
                   %label.registration-all__form-group--label{:for => "card-num"} カード番号
                   %span.registration-all__require 必須
                   %input.input-default{:placeholder => "半角数字のみ", :type => "text"}/
+
+                  %ul.registration-all__cards
+                    %li.registration-all__cards--card
+                      = image_tag "visa.png"
+                    %li.registration-all__cards--card
+                      = image_tag "mastercard.png"
+                    %li.registration-all__cards--card
+                      = image_tag "saison-card.png"
+                    %li.registration-all__cards--card
+                      = image_tag "jcb.png"
+                    %li.registration-all__cards--card
+                      = image_tag "american_express.png"
+                    %li.registration-all__cards--card
+                      = image_tag "dinersclub.png"
+                    %li.registration-all__cards--card
+                      = image_tag "discover.png"
+
                 .registration-all__form-group
                   %div
                     %label.registration-all__form-group--label 有効期限
@@ -62,9 +79,8 @@
                   %input.input-default{:placeholder => "カード背面4桁もしくは3桁の番号"}/
                 .registration-all__form-group
                   %p.text-right
-                    %a.registration-all__a{:href => "#"}
-                      カード裏面の番号とは？
-                      %i.fas.fa-chevron-right
+                    = link_to "カード裏面の番号とは？", "/", class: "registration-all__a"
+                    %i.fas.fa-chevron-right
                 %button.registration-all__btn-red{:type => "submit"}
                   次へ進む
 

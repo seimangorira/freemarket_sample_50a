@@ -5,7 +5,7 @@
         / ヘッダー部分
         %header.registration-all__header
           %h1.registration-all__header--h1
-            %a{:href => "#"}
+            = link_to "/", class: "registration-all__header--a" do
               = image_tag "mercari2.png"
           %nav.registration-all__bar
             %ol.registration-all__bar--ol

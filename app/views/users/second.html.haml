@@ -5,7 +5,7 @@
         / ヘッダー部分
         %header.registration-all__header
           %h1.registration-all__header--h1
-            %a{:href => "#"}
+            = link_to "/", class: "registration-all__header--a" do
               = image_tag "mercari2.png"
           %nav.registration-all__bar
             %ol.registration-all__bar--ol
@@ -43,9 +43,8 @@
                   他のユーザーに公開されることはありません。
                 .registration-all__form-group
                   %p.text-right
-                    %a.registration-all__a{:href => "#"}
-                      電話番号の確認が必要な理由
-                      %i.fas.fa-chevron-right
+                    = link_to "電話番号の確認が必要な理由", "/", class: "registration-all__a"
+                    %i.fas.fa-chevron-right
 
         / フッター部分
         = render 'shared/footer'

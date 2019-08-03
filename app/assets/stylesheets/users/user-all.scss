@@ -410,4 +410,20 @@
   .input-default.half.card {
     width: calc(50% - 32px);
   }
+
+  .registration-all__cards {
+    list-style: none;
+    margin: 8px;
+    font-size: 0px;
+
+    &--card {
+      display: inline-block;
+      margin-right: 8px;
+      vertical-align: middle;
+
+      &:first-child {
+        margin: 0;
+      }
+    }
+  }
 }
