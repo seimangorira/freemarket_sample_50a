@@ -44,6 +44,7 @@ group :development, :test do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
+  gem 'capistrano-rails-console'
 end
 
 group :development do
@@ -74,3 +75,7 @@ gem 'erb2haml'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog-aws'
+gem 'devise'
+gem 'jquery-rails'
+gem "recaptcha"
+gem 'active_hash'
