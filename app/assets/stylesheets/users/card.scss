@@ -1,0 +1,80 @@
+.mainbody {
+  color: black;
+  background:rgb(245, 245, 245);
+  font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+
+  &__content {
+    float: right;
+    width: 700px;
+  }
+  
+  &__container {
+    margin: 0;
+    background:#fff
+  }
+  
+  &__chapter-head {
+    font-weight: bold;
+    font-size: 24px;
+    padding: 8px 24px;
+    border-bottom: 1px solid #f5f5f5;
+    text-align: center;
+    line-height: 1.4;
+  }
+
+  &__inner {
+    padding: 64px;
+    border-top: 1px solid #f5f5f5;
+  }
+
+  &__section {
+    display: block;
+  }
+
+  &__single-content {
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  &__sub-head {
+    display: block;
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  &__add-card {
+    padding: 24px 0;
+    border-bottom: 1px solid #eee;
+  }
+
+  &__btn-red {
+    margin-bottom: 8px;
+    background: #ea352d;
+    border: 1px solid #ea352d;
+    color: #fff;
+    display: block;
+    width: 100%;
+    line-height: 48px;
+    font-size: 14px;
+    transition: all ease-out .3s;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+
+    .far {
+      margin-right: 16px;
+    }
+  }
+
+  &__text-right {
+    &--a {
+      display: block;
+      margin-top: 40px;
+      text-align: right;
+      color: #0099e8;
+      text-decoration: none;
+    }
+  }
+}
+
+
