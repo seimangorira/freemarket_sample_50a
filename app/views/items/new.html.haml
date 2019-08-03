@@ -37,7 +37,27 @@
               %span.form-require 
                 必須
             %textarea.item-about__description--input{placeholder: "商品の説明（必須1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"}
-              
+        
+        .container__form__content.item-detail.clearfix
+          .item-detail__title.form-sub-title 商品の詳細
+          .item-detail__right-box.form-right-box
+            .form-group
+              %label.item-detail__category 
+                カテゴリー
+                %span.form-require 必須
+              .select-wrap
+                %i.fas.fa-angle-down
+                %select.select-wrap__input
+                  %option{value: ""} ---
+            .form-group
+              %label.item-detail__state 
+                商品の状態
+                %span.form-require 必須
+              .select-wrap
+                %i.fas.fa-angle-down
+                %select.select-wrap__input
+                  %option{value: ""} ---
+
 
   %footer.new-item-page__footer
     -#  TODO:フッターは部分テンプレートを使用

@@ -137,6 +137,9 @@
           max-width: 100%;
         }
       }
+      .item-detail {
+        @include flexBoxForForm;
+      }
     }
   }
 }
