@@ -1,0 +1,54 @@
+@import "./users/mixin-file";
+
+
+.new-user-top {
+  @include all-reset;
+  @include contents-reset;
+
+  :before {
+    @include all-reset;
+    box-sizing: inherit;
+    border-style: solid;
+    border-width: 0;
+    text-decoration: inherit;
+    vertical-align: inherit;
+  }
+
+  :after {
+    @include all-reset;
+    box-sizing: inherit;
+    border-style: solid;
+    border-width: 0;
+    text-decoration: inherit;
+    vertical-align: inherit;
+  }
+
+  ::selection {
+    @include all-reset;
+    color: currentColor;
+    background: #b3d4fc;
+    color: #fff;
+    text-shadow: none;
+  }
+
+  :root {
+    @include all-reset;
+    background-color: #fff;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    color: #000;
+    cursor: default;
+  }
+
+  &__container{
+    @include all-reset;
+    position: relative;
+    min-height: 100vh;
+    padding: 0 0 250px;
+    box-sizing: border-box;
+
+    @import "./users/_header.scss";
+    @import "./users/_main.scss";
+    @import "./users/_footer.scss";
+  }
+}
