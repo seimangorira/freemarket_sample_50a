@@ -16,9 +16,9 @@
                 クレジットカードを追加する
 
           .mainbody__text-right
-            = link_to "/", class: "mainbody__text-right--a"
-              
-            %i.fas.fa-chevron-right
+            = link_to "/", class: "mainbody__text-right--a" do
+              %span 支払い方法について
+              %i.fas.fa-chevron-right
 
     = render 'shared/mypage-leftside'
     .mainbody__main__side
