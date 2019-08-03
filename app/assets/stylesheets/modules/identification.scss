@@ -28,6 +28,9 @@
         }
         .text-right {
           text-align: right;
+          .fa.fa-chevron-right {
+            color: #0099e8;
+          }
           a {
             text-decoration:none;
             color: #0099e8;
@@ -63,7 +66,11 @@
           font-weight: normal;
         }
         &__wrap {
+          position: relative;
           .select-default {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
             width: 100%;
             position: relative;
             z-index: 2;
@@ -75,6 +82,14 @@
             font-size: 16px;
             line-height: 1.5;
             font-weight: normal;
+          }
+          .fa.fa-chevron-down {
+          position: absolute;
+          right: 16px;
+          top: 40%;
+          z-index: 2;
+          color: #888;
+          font-size: 16px;
           }
         }
       }
