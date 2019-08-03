@@ -64,6 +64,7 @@
           @include formSelectBox;
         }
       }
+
       .upload-images {
         width: 620px;
         padding: 40px;
@@ -113,6 +114,7 @@
           }
         }
       }
+
       .item-about {
         &__name--input {
           border: 1px solid #ccc;
@@ -137,9 +139,15 @@
           max-width: 100%;
         }
       }
+
       .item-detail {
         @include flexBoxForForm;
       }
+
+      .delivery-setting {
+        @include flexBoxForForm;
+      }
+      
     }
   }
 }
