@@ -1,75 +1,75 @@
-.ragistration-html
-  .ragistration-body
-    .ragistration-all
-      .ragistration-all__container
+.registration-html
+  .registration-body
+    .registration-all
+      .registration-all__container
         / ヘッダー部分
-        %header.ragistration-all__header
-          %h1.ragistration-all__header--h1
+        %header.registration-all__header
+          %h1.registration-all__header--h1
             %a{:href => "#"}
               = image_tag "mercari2.png"
-          %nav.ragistration-all__bar
-            %ol.ragistration-all__bar--ol
-              %li.ragistration-all__bar--through
+          %nav.registration-all__bar
+            %ol.registration-all__bar--ol
+              %li.registration-all__bar--through
                 会員情報
                 .progress-status
-              %li.ragistration-all__bar--through-through
+              %li.registration-all__bar--through-through
                 電話番号認証
                 .progress-status
-              %li.ragistration-all__bar--active
+              %li.registration-all__bar--active
                 お届け先住所入力
                 .progress-status
-              %li.ragistration-all__bar--li
+              %li.registration-all__bar--li
                 支払い方法
                 .progress-status
-              %li.ragistration-all__bar--last
+              %li.registration-all__bar--last
                 完了
                 .progress-status
         / メイン部分
-        %main.ragistration-all__main
-          %section.ragistration-all__main-container
-            %h2.ragistration-all__chapter-head 住所入力
-            %form.ragistration-all__inner{:action => "/users/credit"}
-              .ragistration-all__content
-                .ragistration-all__form-group
+        %main.registration-all__main
+          %section.registration-all__main-container
+            %h2.registration-all__chapter-head 住所入力
+            %form.registration-all__inner{:action => "/users/credit"}
+              .registration-all__content
+                .registration-all__form-group
                   %div
-                    %label.ragistration-all__form-group--label お名前(全角)
-                    %span.ragistration-all__require 必須
+                    %label.registration-all__form-group--label お名前(全角)
+                    %span.registration-all__require 必須
                   %input.input-default.harf{:placeholder => "例）山田", :type => "text"}/
                   %input.input-default.harf{:placeholder => "例）彩", :type => "text"}/
-                .ragistration-all__form-group
+                .registration-all__form-group
                   %div
-                    %label.ragistration-all__form-group--label  お名前カナ(全角)
-                    %span.ragistration-all__require 必須
+                    %label.registration-all__form-group--label  お名前カナ(全角)
+                    %span.registration-all__require 必須
                   %input.input-default.harf{:placeholder => "例）ヤマダ", :type => "text"}/
                   %input.input-default.harf{:placeholder => "例）アヤ", :type => "text"}/
-                .ragistration-all__form-group
-                  %label.ragistration-all__form-group--label{:for => "zip-code"} 郵便番号
-                  %span.ragistration-all__require 必須
+                .registration-all__form-group
+                  %label.registration-all__form-group--label{:for => "zip-code"} 郵便番号
+                  %span.registration-all__require 必須
                   %input.input-default{:placeholder => "例）123-4567", :type => "text"}/
-                .ragistration-all__form-group
-                  %label.ragistration-all__form-group--label{:for => "state"} 都道府県
-                  %span.ragistration-all__require 必須
-                  %select.ragistration-all__state.input-default
+                .registration-all__form-group
+                  %label.registration-all__form-group--label{:for => "state"} 都道府県
+                  %span.registration-all__require 必須
+                  %select.registration-all__state.input-default
                     %option{value: ""} ---
                     - Prefecture.all.each do |ele|
                       %option{value: ele.name}= ele.name
-                .ragistration-all__form-group
-                  %label.ragistration-all__form-group--label{:for => "city"} 市区町村
-                  %span.ragistration-all__require 必須
+                .registration-all__form-group
+                  %label.registration-all__form-group--label{:for => "city"} 市区町村
+                  %span.registration-all__require 必須
                   %input.input-default{:placeholder => "例）横浜市緑区", :type => "text"}/
-                .ragistration-all__form-group
-                  %label.ragistration-all__form-group--label{:for => "street-num"} 番地
-                  %span.ragistration-all__require 必須
+                .registration-all__form-group
+                  %label.registration-all__form-group--label{:for => "street-num"} 番地
+                  %span.registration-all__require 必須
                   %input.input-default{:placeholder => "例）青山1-1-1", :type => "text"}/
-                .ragistration-all__form-group
-                  %label.ragistration-all__form-group--label{:for => "buil"} 建物名
-                  %span.ragistration-all__require.gray 任意
+                .registration-all__form-group
+                  %label.registration-all__form-group--label{:for => "buil"} 建物名
+                  %span.registration-all__require.gray 任意
                   %input.input-default{:placeholder => "例）柳ビル103", :type => "text"}/
-                .ragistration-all__form-group
-                  %label.ragistration-all__form-group--label{:for => "tel"} 電話
-                  %span.ragistration-all__require.gray 任意
+                .registration-all__form-group
+                  %label.registration-all__form-group--label{:for => "tel"} 電話
+                  %span.registration-all__require.gray 任意
                   %input.input-default{:placeholder => "例）09012345678", :type => "tel"}/
-                %button.ragistration-all__btn-red{:type => "submit"}
+                %button.registration-all__btn-red{:type => "submit"}
                   次へ進む
 
         / フッター部分

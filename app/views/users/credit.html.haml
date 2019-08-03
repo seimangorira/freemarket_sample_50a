@@ -1,43 +1,43 @@
-.ragistration-html
-  .ragistration-body
-    .ragistration-all
-      .ragistration-all__container
+.registration-html
+  .registration-body
+    .registration-all
+      .registration-all__container
         / ヘッダー部分
-        %header.ragistration-all__header
-          %h1.ragistration-all__header--h1
+        %header.registration-all__header
+          %h1.registration-all__header--h1
             %a{:href => "#"}
               = image_tag "mercari2.png"
-          %nav.ragistration-all__bar
-            %ol.ragistration-all__bar--ol
-              %li.ragistration-all__bar--through
+          %nav.registration-all__bar
+            %ol.registration-all__bar--ol
+              %li.registration-all__bar--through
                 会員情報
                 .progress-status
-              %li.ragistration-all__bar--through-through
+              %li.registration-all__bar--through-through
                 電話番号認証
                 .progress-status
-              %li.ragistration-all__bar--through-through
+              %li.registration-all__bar--through-through
                 お届け先住所入力
                 .progress-status
-              %li.ragistration-all__bar--active
+              %li.registration-all__bar--active
                 支払い方法
                 .progress-status
-              %li.ragistration-all__bar--last
+              %li.registration-all__bar--last
                 完了
                 .progress-status
         / メイン部分
-        %main.ragistration-all__main
-          %section.ragistration-all__main-container
-            %h2.ragistration-all__chapter-head 支払い方法
-            %form.ragistration-all__inner{:action => "/users/complete"}
-              .ragistration-all__content
-                .ragistration-all__form-group
-                  %label.ragistration-all__form-group--label{:for => "card-num"} カード番号
-                  %span.ragistration-all__require 必須
+        %main.registration-all__main
+          %section.registration-all__main-container
+            %h2.registration-all__chapter-head 支払い方法
+            %form.registration-all__inner{:action => "/users/complete"}
+              .registration-all__content
+                .registration-all__form-group
+                  %label.registration-all__form-group--label{:for => "card-num"} カード番号
+                  %span.registration-all__require 必須
                   %input.input-default{:placeholder => "半角数字のみ", :type => "text"}/
-                .ragistration-all__form-group
+                .registration-all__form-group
                   %div
-                    %label.ragistration-all__form-group--label 有効期限
-                    %span.ragistration-all__require 必須
+                    %label.registration-all__form-group--label 有効期限
+                    %span.registration-all__require 必須
                   %select.input-default.half.card
                     %option{:value => "1"} 01
                     %option{:value => "2"} 02
@@ -56,16 +56,16 @@
                     - for i in 19..29
                       %option{:value => "#{i}"} #{i}
                   %span.year 年
-                .ragistration-all__form-group
-                  %label.ragistration-all__form-group--label{:for => "code"} セキュリティコード
-                  %span.ragistration-all__require 必須
+                .registration-all__form-group
+                  %label.registration-all__form-group--label{:for => "code"} セキュリティコード
+                  %span.registration-all__require 必須
                   %input.input-default{:placeholder => "カード背面4桁もしくは3桁の番号"}/
-                .ragistration-all__form-group
+                .registration-all__form-group
                   %p.text-right
-                    %a.ragistration-all__a{:href => "#"}
+                    %a.registration-all__a{:href => "#"}
                       カード裏面の番号とは？
                       %i.fas.fa-chevron-right
-                %button.ragistration-all__btn-red{:type => "submit"}
+                %button.registration-all__btn-red{:type => "submit"}
                   次へ進む
 
         / フッター部分
