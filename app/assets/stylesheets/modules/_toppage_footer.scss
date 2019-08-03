@@ -1,5 +1,15 @@
+body {
+  position: relative;
+  min-height: 100%;
+  background: #f5f5f5;
+  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+  font-size: 14px;
+  color: #333;
+  line-height: 1;
+}
+
 .app-banner {
-  background-image:url("/assets/images/mercari-footer.jpg");
+  background: image-url('mercari-footer.jpg');
   background-position: center;
   background-size: cover;
   margin: 0%;
@@ -54,9 +64,17 @@
 }
 
 .global-footer {
+  margin: 0%;
+  height: 450px;
   padding: 0 20px 10px 20px;
   background-color: #212121;
   color: #fff;
+  a {
+    text-decoration: none;
+    }
+  a:hover {
+    text-decoration: underline;
+  }
   .footer-head {
     color: #fff;
     font-size: 16px;
@@ -77,35 +95,49 @@
   nav {
     width: 1020px;
     margin: 0 auto;
+    padding: 0 20px 0 0;
   }
     .footer-cell {
       width: 20%;
-      padding: 0 40px 0 0;
-      width: 23%;
+      padding: 0 20px 0 0;
       display: block;
       float: left;
       margin-top: 18px;
     }
     .footer-cell.full-width {
-      margin-top: 18px;
       padding: 0 40px 0 0;
       width: 42%;
-      display: flex;
-      .inner-footer-cell:first-of-type {
-        padding: 0 10px 0 0;
+      .footer-head {
+        color: #fff;
+        font-size: 16px;
+        font-weight: 100;
       }
-      .inner-footer-cell {
+      .inner-footer-first {
+        float: left;
+        padding: 0 10px 0 0;
+        width: 40%;
+      }
+      .inner-footer-second {
         float: left;
         padding-left: 10px;
-        width: 50%;
+        width: 40%;
       }
     }
     .footer-cell.footer-nav-lang {
       width: auto;
-      margin-top: 18px;
+      margin-top: 0px;
+      padding: 0;
+      float: right;
+      h2 {
+        line-height: 1.4;
+      }
+      li {
+        display: block;
+      }
     }
   .footer-bottom {
     margin: 0px auto 20px;
+    margin-bottom: 0;
     width: 1020px;
     .footer-logo {
       display: inline-block;
@@ -120,17 +152,6 @@
     }
   }
 }
-
-body {
-  position: relative;
-  min-height: 100%;
-  background: #f5f5f5;
-  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
-  font-size: 14px;
-  color: #333;
-  line-height: 1;
-}
-
 
 
 
