@@ -11,12 +11,12 @@
 
           %section.mainbody__add-card
             .mainbody__single-content
-              = link_to"/users/addCard", class: "mainbody__btn-red" do
+              = link_to users_addCard_path, class: "mainbody__btn-red" do
                 %i.far.fa-credit-card
                 クレジットカードを追加する
 
           .mainbody__text-right
-            = link_to "/", class: "mainbody__text-right--a" do
+            = link_to root_path, class: "mainbody__text-right--a" do
               %span 支払い方法について
               %i.fas.fa-chevron-right
 
