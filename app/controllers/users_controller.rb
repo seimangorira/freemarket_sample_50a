@@ -32,4 +32,6 @@ class UsersController < ApplicationController
   def card
   end
 
+  def addCard
+  end
 end
