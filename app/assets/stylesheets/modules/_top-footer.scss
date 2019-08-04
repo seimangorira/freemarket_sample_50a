@@ -53,6 +53,10 @@
         li {
           float: left;
           margin: 0 0 0 16px;
+
+          &:hover {
+            opacity: 0.7;
+          }
         }
       }
     }
@@ -86,6 +90,9 @@
   .clearfix {
     @include clearfix;
   }
+
+
+
   &__cell {
     width: 20%;
     padding: 0 20px 0 0;
