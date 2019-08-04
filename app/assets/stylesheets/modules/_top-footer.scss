@@ -1,0 +1,166 @@
+@import "mixin";
+
+.top-banner-wrapper {
+  background: image-url('mercari-footer.jpg');
+  background-position: center;
+  background-size: cover;
+  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+  position: relative;
+  min-height: 100%;
+  .clearfix {
+    @include clearfix;
+  }
+  .banner {
+    position: relative;
+    width: 750px;
+    height: 260px;
+    margin: 0 auto;
+    color: #fff;
+    figure>img {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 300px;
+      height: 262px;
+    }
+    &__inner {
+      left: 0;
+      position: relative;
+      top: 20%;
+      h2 {
+        font-size: 24px;
+        height: 24px;
+        width: 420px;
+      }
+      p {
+        font-size: 35px;
+        margin: 10px 0 0;
+        width: 420px;
+      }
+      &__icon {
+        margin: 20px 0 0;
+        &--logo {
+          float: left;
+        }
+        ul {
+          display: block;
+          float: left;
+          margin-block-start: 1em;
+          margin-block-end: 1em;
+          padding-inline-start: 12px;
+        }
+        li {
+          float: left;
+          margin: 0 0 0 16px;
+
+          &:hover {
+            opacity: 0.7;
+          }
+        }
+      }
+    }
+  }
+}
+
+.top-footer {
+  margin: 0 auto;
+  padding: 0 20px 10px 20px;
+  background-color: #212121;
+  color: #fff;
+  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+  a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 12px;
+    line-height: 1.5em;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+  li {
+    margin: 16px 0 0;
+    opacity: 0.7;
+  }
+  nav {
+    width: 1020px;
+    margin: 0 auto;
+    padding: 0 20px 0 0;
+  }
+  .clearfix {
+    @include clearfix;
+  }
+
+
+
+  &__cell {
+    width: 20%;
+    padding: 0 20px 0 0;
+    display: block;
+    float: left;
+    margin-top: 18px;
+    &--head {
+      color: #fff;
+      font-size: 16px;
+      font-weight: 100;
+    }
+    &--social-link {
+      display: flex;
+      justify-content: start;
+      opacity: 1 !important;
+      i {
+        font-size: 30px;
+        margin: 16px 18px 0 0;
+      }
+    }
+  }
+  .full-width {
+    padding: 0;
+    width: 42%;
+    &__left {
+      float: left;
+      padding: 0 10px 0 0;
+      width: 40%;
+    }
+    &__right {
+      float: left;
+      padding-left: 10px;
+      width: 40%;
+    }
+  }
+  .footer-nation {
+    width: auto;
+    margin-top: 18px;
+    padding: 0;
+    h2 {
+      line-height: 1.4;
+    }
+    li {
+      display: block;
+    }
+  }
+  &__bottom {
+    line-height: 1.5em;
+    margin: 30px auto 20px;
+    width: 1020px;
+    &--logo {
+      display: inline-block;
+      margin-right: 10px;
+      opacity: 1;
+
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+    &--copyright {
+      display: inline-block;
+      margin: 8px 0 0;
+      text-align: center;
+      vertical-align: top;
+      width: 745px;
+    }
+  }
+}
+
+
+
