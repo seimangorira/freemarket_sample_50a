@@ -1,7 +1,6 @@
 .new-item-page
-  %header.new-item-page__header
-    -# TODO:ヘッダーは部分テンプレートを利用
-
+  .new-item-page__header
+    = render "shared/header"
   .new-item-page__main
     %section.container
       %h2.container__head
@@ -161,4 +160,15 @@
               = button_to 'もどる', root_path, method: :get, class: "btn btn-gray"
 
   %footer.new-item-page__footer
-    -#  TODO:フッターは部分テンプレートを使用
+    %nav.new-item-page__footer__nav
+      %ul.lists
+        %li.lists--list
+          = link_to "プライバシーポリシー", "/", class: "lists--list--link"
+        %li.lists--list
+          = link_to "メルカリ利用規約", "/", class: "lists--list--link"
+        %li.lists--list
+          = link_to "特定商取引に関する表記", "/", class: "lists--list--link"
+    %a.new-item-page__footer__logo{ href: "#" }
+      = image_tag "mercariLogoGray.svg", alt: "mercari", class: "new-item-footer__logo__img"
+    %p.new-item-page__footer__trademark
+      %small © 2019 Mercari
