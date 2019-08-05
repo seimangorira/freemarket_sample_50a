@@ -131,15 +131,33 @@
         min-height: 420px;
         position: relative;
         margin: 0 auto;
-        // &__photo{
-        // height: 420px;
-        // position: relative;
-        // overflow: hidden;
-        //   &__header{
-        //     position: relative;
-        //     overflow: hidden;
-        //   }
-        // }
+        &__photo{
+        height: 420px;
+        position: relative;
+        overflow: hidden;
+          &__header{
+            height: 300px;
+            position: relative;
+            overflow: hidden;
+            &__items{
+              min-height: 1px;
+              float: left;
+              user-select: none;
+              &__stage{
+                position: relative;
+                &__inner{
+                  position: relative;
+                  width: 100%;
+                  height: 0;
+                  padding: 0 0 100%;
+                  &__main-image{
+                    transition: opacity 400ms ease;
+                  }
+                }
+              }
+            }
+          }
+        }
       &__detail-table{
         float: right;
         max-width: 300px;
