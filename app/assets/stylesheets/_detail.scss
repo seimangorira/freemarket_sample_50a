@@ -1,3 +1,7 @@
+@mixin item-box{
+  margin: 40px auto 0;
+  background: #fff;
+}
 @mixin btn{
   color: #333;
   background: #f5f5f5;
@@ -47,6 +51,14 @@
   background: #aa262a;
   font-size: 18px;
 }
+@mixin item-box-name{
+  color: #0099e8;
+  text-decoration: none;
+}
+@mixin num-price-heart{
+  font-size: 16px;
+  color: #333;
+}
 
 .main{
   position: relative;
@@ -61,40 +73,42 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    background-repeat: no-repeat;
   }
   a{
     @include a;
   }
-  a:hover{
-    text-decoration: underline;
-    opacity: 0.7;
-  }
   ul{
     list-style: none;
-  }
-  &__header-form{
-    position: relative;
-    z-index: 10;
-    background: #fff;
-    min-width: 768px;
-    height: 100px;
-  }
-  &__pankuzu{
-    position: relative;
-    border-top: 1px solid #eee;
-    box-shadow: 0 3px 0 rgba(0, 0, 0, 0.16);
-    background: #fff;
-    height: 50px;
   }
   section{
     display: block;
   }
+  h3:after{
+    display: block;
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 50%;
+    height: 1.5em;
+    background: -webkit-gradient(linear, left top, right top, from(rgba(255,255,255,0)), color-stop(72%, #fff));
+    background: linear-gradient(to right, rgba(255,255,255,0), #fff 72%);
+  }
+  :root {
+    cursor: auto;
+    font: 66.66667% sans-serif;
+  }
+  .clearfix:after {
+    content: '';
+    display: block;
+    clear: both;
+  }
   &__item-box{
-    width: 700px;
+    @include item-box;
     padding: 24px 40px 40px;
-    margin: 40px auto 0;
+    width: 700px;
     height: 1995px;
-    background: #fff;
     &__item-name{
       font-size: 24px;
       text-align: center;
@@ -103,6 +117,7 @@
       height: 60px;
       width: 620px;
       background: white;
+      font-weight: bolder;
     }
     &__item-main{
       margin: 16px 0 0;
@@ -116,7 +131,15 @@
         min-height: 420px;
         position: relative;
         margin: 0 auto;
-        background: lightgray;
+        // &__photo{
+        // height: 420px;
+        // position: relative;
+        // overflow: hidden;
+        //   &__header{
+        //     position: relative;
+        //     overflow: hidden;
+        //   }
+        // }
       &__detail-table{
         float: right;
         max-width: 300px;
@@ -191,6 +214,10 @@
           .a{
             font-size: 14px;
         }
+        a:hover{
+          text-decoration: underline;
+          opacity: 0.7;
+        }
       }
     }
   }
@@ -246,6 +273,10 @@
     width: 700px;
     margin: 24px auto 0;
     height: 14px;
+    a:hover{
+      text-decoration: underline;
+      opacity: 0.7;
+    }
     &__previous{
       @include link;
       float: left;
@@ -278,6 +309,10 @@
     margin: 24px auto;
     padding: 32px 0 24px;
     background: #fff;
+    a:hover{
+      text-decoration: underline;
+      opacity: 0.7;
+    }
     &__media-icon{
       height: 52px;
       margin: 16px 0 0;
@@ -311,9 +346,107 @@
   }
   &__user-item{
     width: 700px;
-    height: 1500px;
+    height: 1540px;
     margin: 0 auto;
-    background: #fff;
+    &__user-item-box:last-of-type{
+      margin-bottom: 40px;
+    }
+    &__user-item-box{
+      width: 700px;
+      height: 738px;
+      &--name{
+        height: 30px;
+        width: 700px;
+        line-height: 1.4;
+        font-size: 22px;
+        margin: 24px 0 8px;
+        font-weight: bolder;
+        a{
+          @include item-box-name;
+        }
+        a:hover{
+          text-decoration: underline;
+          opacity: 0.7;
+        }
+      }
+      &__content{
+        width: auto;
+        margin: 0 auto;
+        height: 700px;
+        &__image-box:nth-child(3n) {
+          margin-right: 0;
+        }
+        &__image-box{
+          width: 220px;
+          height: 330px;
+          margin: 0 20px 20px 0;
+          position: relative;
+          float: left;
+          background: #fff;
+          a{
+            @include a;
+            display: block;
+            height: 220px;
+            figure{
+              height: 220px;
+              width: 220px;
+            &__photo{
+              overflow: hidden;
+              position: relative;
+              padding: 0 0 100%;
+              img{
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                z-index: 1;
+                width: 100%;
+                vertical-align: middle;
+              }
+            }
+          }
+          }
+          &__body{
+            height: 110px;
+            padding: 16px;
+            &--items-name{
+              overflow: hidden;
+              position: relative;
+              font-weight: 400;
+              height: 3em;
+              line-height: 1.5;
+              word-break: break-word;
+              white-space: normal;
+              font-size: 16px;
+              color: #333;
+            }
+            &__num{
+              display: flex;
+              -webkit-box-align: center;
+              align-items: center;
+              -webkit-box-pack: justify;
+              justify-content: space-between;
+              margin: 8px 0 0;
+              height: 17px;
+              &--price{
+                @include num-price-heart;
+                font-weight: 600;
+                width: 60px;
+                height: 17px;
+              }
+              &--heart{
+                @include num-price-heart;
+                font-weight: 400;
+                .far.fa-heart{
+                  color: #ccc;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }
 
