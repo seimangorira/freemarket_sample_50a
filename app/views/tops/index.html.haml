@@ -1,16 +1,17 @@
-= render 'shared/top-header'
-.top
-  = render partial: "slide"
-  .contents
-    .contents__main
-      ピックアップカテゴリー
-      = render partial: "top-page"
-      = render partial: "top-page"
-      = render partial: "top-page"
-      = render partial: "top-page"
-      = render partial: "top-page"
-  .icon-sell-btn
-    .icon-sell-btn__text
-      出品
-    %i.fa.fa-camera
-= render 'shared/top-footer'
+.top-all
+  = render 'shared/top-header'
+  .top
+    = render partial: "slide"
+    .contents
+      .contents__main
+        ピックアップカテゴリー
+        = render partial: "top-page"
+        = render partial: "top-page"
+        = render partial: "top-page"
+        = render partial: "top-page"
+        = render partial: "top-page"
+    .icon-sell-btn
+      .icon-sell-btn__text
+        出品
+      %i.fa.fa-camera
+  = render 'shared/top-footer'
