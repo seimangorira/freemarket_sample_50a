@@ -221,11 +221,21 @@
       }
     }
     &__item-price{
-      height: 50px;
       text-align: center;
       margin: 24px 0 0;
-      width: 620px;
       background: white;
+      &--text{
+        margin: 0 16px 0 0;
+        font-size: 50px;
+        font-weight: 600;
+      }
+      &--tax{
+        font-size: 10px;
+      }
+      &--shipping-fee{
+        display: inline-block;
+        font-size: 16px;
+      }
     }
     &__item-btn{
       height: 60px;
