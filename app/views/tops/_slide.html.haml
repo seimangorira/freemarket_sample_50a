@@ -1,7 +1,7 @@
 .slider
   %div
     %figure.slider__index
-      = image_tag("#{asset_path "/assets/index.png"}",class: "slider__index__img")
+      = image_tag "slider-index.png", class: "slider__index__img"
   %div
     %figure.slider__main
       .slider__main__content
@@ -9,11 +9,7 @@
           %h2.title スマホでかんたん<br>フリマアプリ
           %h3.leadSentence メルカリはスマホカメラですぐに出品できる<br>購入時も安心な独自システムのアプリです
           .slider__main__content__left__app
-            = image_tag("#{asset_path "/assets/app-store.svg"}",class: "slider__main__content__left__app__img")
-            = image_tag("#{asset_path "/assets/google-play.svg"}",class: "slider__main__content__left__app__img")
+            = image_tag "app-store.svg", class: "slider__main__content__left__app__img"
+            = image_tag "google-play.svg", class: "slider__main__content__left__app__img"
         .slider__main__content__right
-          = image_tag("#{asset_path "/assets/main_content.png"}",class: "slider__main__content__right__img")
-
-        
-
-        
+          = image_tag "main_content.png", class: "slider__main__content__right__img"
