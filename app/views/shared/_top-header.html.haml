@@ -4,7 +4,7 @@
       %h1
         = link_to root_path do
           = image_tag "top-logo.svg", alt: "mercari", height: "36", width: "134"
-      %form.top-header__inner__top--form{:action => "https://www.mercari.com/jp/search/"}
+      %form.top-header__inner__top--form
         %input.input-default{name: "keyword", placeholder: "何かお探しですか？", type: "search", value: ""}
         %i.fas.fa-search
     .top-header__inner__nav.clearfix
