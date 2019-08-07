@@ -2,46 +2,37 @@
   .login-page__body
     .login-page__container
       .login-page__single-container
-        %header.login-page__header
-          %h1.login-page__header--h1
-            = link_to "#", class: "login-page__header--a" do
-              -# = image_tag "malcali.png"
+        -# ヘッダー部分
+        = render "shared/header"
 
         %main.login-page__single-main
           .login-page__login-panel
             .login-page__login-no-account
               .login-page__login-no-account--p
                 アカウントをお持ちでない方はこちら
-              .login-page__login-no-account--a
+              = link_to users_first_path, class: "login-page__login-no-account--a" do
                 新規会員登録
-          .login-page__form-inner
-            %button.login-page__btn-facebook
-              Facebookでログイン
-            %button.login-page__btn-google
-              Googleでログイン
+            .new-user-top-main__container__inners{style: :"padding-bottom: 32px;"}
+              .new-user-top-main__container__inners__inner
+                %button.new-user-top-main__container__inners__inner__btn-sns{style: :"border-radius: 0;"}
+                  %i.fab.fa-facebook-square
+                  Facebookで登録する
+                %button.new-user-top-main__container__inners__inner__btn-sns-google{style: :"border-radius: 0;"}
+                  = image_tag "googleLogo.jpg"
+                  Googleで登録する
 
-        %form
-          .login-page__form-inner
-            .login-page__form-inner__group
-              %input.login-page__form-inner__group--input
+            %form
+              .login-page__form-inner
+                .login-page__form-inner__group
+                  %input{class: :"login-page__form-inner__group--input", placeholder: :"メールアドレス", type: :"email"}
 
-            .login-page__form-inner__group
-              %input.login-page__form-inner__group--input
+                .login-page__form-inner__group
+                  %input{class: :"login-page__form-inner__group--input", placeholder: :"パスワード", type: :"password"}
 
+                .login-page__form-inner__group
+                  = render "shared/recaptcha"
 
-
-              -# <div class="form-group">
-              -#   <div class="g-recaptcha login-captcha" data-sitekey="6LfZGCYTAAAAAHoK-s7Lg5OdYg5Fq4susvALmZoc">
-              -#     <div style="width: 304px; height: 78px;">
-              -#       <div>
-              -#         <iframe name="a-ruhjobdm1s2k" width="304" height="78" role="presentation" src="https://www.google.com/recaptcha/api2/anchor?ar=2&amp;k=6LfZGCYTAAAAAHoK-s7Lg5OdYg5Fq4susvALmZoc&amp;co=aHR0cHM6Ly93d3cubWVyY2FyaS5jb206NDQz&amp;hl=ja&amp;v=v1563777128698&amp;size=normal&amp;cb=y8ozk16nhfu6" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation">
-              -#         </iframe>
-              -#       </div>
-              -#       <textarea name="g-recaptcha-response" class="g-recaptcha-response" id="g-recaptcha-response" style="margin: 10px 25px; padding: 0px; border: 1px solid rgb(193, 193, 193); border-image: none; width: 250px; height: 40px; display: none;">
-              -#       </textarea>
-              -#     </div>
-              -#   </div>
-              -# </div>
-
-            %button.login-page__btn-red ログイン
-            %a パスワードをお忘れの方
+                %button.login-page__btn-red ログイン
+                = link_to "パスワードをお忘れの方", class: "login-page__login-panel--a" do
+                  パスワードをお忘れの方
+        = render "shared/footer"
