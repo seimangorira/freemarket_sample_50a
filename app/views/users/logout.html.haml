@@ -1,13 +1,13 @@
-.mainbody
-  = render 'shared/pankuzu'
-  .mainbody__main
-    .mainbody__main__contents
-      .mainbody__main__contents__content
-        .mainbody__main__contents__content__form
-          .mainbody__main__contents__content__form--btn ログアウト
-    = render 'shared/mypage-leftside'
-    .mainbody__main__side
-  -# %aside.mainbody__main__app-banner
-  -#   .mainbody__main__app-banner__pc
-  -# .mainbody__footer
-  -# -# renderする予定
+.user-logput-page
+  = render "shared/top-header"
+  .mainbody
+    = render 'shared/pankuzu'
+    .mainbody__main
+      .mainbody__main__contents
+        .mainbody__main__contents__content
+          .mainbody__main__contents__content__form
+            .mainbody__main__contents__content__form--btn ログアウト
+      = render 'shared/mypage-leftside'
+      .mainbody__main__side
+  = render "shared/top-footer"
+  = render "shared/sell-button"
