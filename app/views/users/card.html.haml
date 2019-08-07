@@ -1,0 +1,24 @@
+.mainbody
+  = render 'shared/pankuzu'
+  .mainbody__main
+    .mainbody__content
+      %section.mainbody__container
+        %h2.mainbody__chapter-head 支払い方法
+        .mainbody__inner
+          %section.mainbody__section
+            .mainbody__single-content
+              %h3.mainbody__sub-head クレジットカード一覧
+
+          %section.mainbody__add-card
+            .mainbody__single-content
+              = link_to users_addCard_path, class: "mainbody__btn-red" do
+                %i.far.fa-credit-card
+                クレジットカードを追加する
+
+          .mainbody__text-right
+            = link_to root_path, class: "mainbody__text-right--a" do
+              %span 支払い方法について
+              %i.fas.fa-chevron-right
+
+    = render 'shared/mypage-leftside'
+    .mainbody__main__side
