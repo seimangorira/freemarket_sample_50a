@@ -134,19 +134,10 @@
     }
   }
 
-  // &:first-child&__form-inner {
-  //   padding: 24px 64px 32px;
-  //   border: 0;
-  // }
-
   &__form-inner {
     padding:24px 64px 32px;
     border: 0;
     box-sizing: border-box;
-
-    // &:first-child&__group {
-    //   margin: 0;
-    // }
 
     &__group {
       margin-top: 24px;
