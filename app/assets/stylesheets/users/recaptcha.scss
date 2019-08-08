@@ -1,0 +1,19 @@
+.recaptcha-form {
+  width: 304px;
+  height: 78px;
+}
+
+.recaptcha-frame {
+  height: 78px;
+  width: 304px;
+}
+
+.g-recaptcha-response {
+  margin: 10px 25px;
+  padding: 0;
+  border: 1px solid rgb(193, 193, 193);
+  border-image: none;
+  width: 250px;
+  height: 40px;
+  display: none;
+}
