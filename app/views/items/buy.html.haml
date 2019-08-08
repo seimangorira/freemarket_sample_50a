@@ -1,4 +1,4 @@
-.buy
+.buy.new-user-top__container
   = render partial: "shared/header"
   .buy__confirmation
     .buy__confirmation__head
@@ -24,7 +24,32 @@
             ¥30,000
         .buy__confirmation__item__content__btn
           購入する
-        　
+    .buy__confirmation__user
+      .buy__confirmation__user__info
+        配送先 
+        .buy__confirmation__user__wuinfo__address
+          %p〒123-1234
+          %p大阪府 大阪市東京区　東京1-2-11
+          %p田中 太朗
+        .buy__confirmation__user__info__change
+          変更する
+          .fa.fa-angle-right
+    .buy__confirmation__credit
+      .buy__confirmation__credit__info
+        支払い方法
+        .buy__confirmation__credit__info__text
+          %p ************8001
+          %p 08/21
+        .buy__confirmation__credit__info__image
+          = image_tag "visa.png"
+        .buy__confirmation__credit__info__change
+          変更する
+          .fa.fa-angle-right
+  = render partial: "shared/footer"
+        
+      
+
+
           
         
            
