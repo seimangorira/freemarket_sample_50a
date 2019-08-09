@@ -1,7 +1,14 @@
 @import "./reset";
 @import "modules/index";
 @import "modules/users.scss";
+@import "detail";
+@import "modules/top-header";
+@import "modules/top-footer";
 @import "new_item";
 @import "modules/users";
 @import "./logoutpage";
 @import "modules/buy";
+@import "modules/top_page";
+@import "slick/slick-theme"; 
+@import "slick/slick"; 
+@import "slick/slide"; 

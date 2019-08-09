@@ -17,6 +17,10 @@ class UsersController < ApplicationController
   def complete
   end
 
+  def login
+    
+  end
+
   def logout
   end
 
@@ -29,4 +33,9 @@ class UsersController < ApplicationController
   def identification
   end
 
+  def card
+  end
+
+  def addCard
+  end
 end

@@ -1,0 +1,67 @@
+.mainbody
+  = render 'shared/pankuzu'
+  .mainbody__main
+    .mainbody__content
+      %section.mainbody__container
+        %h2.mainbody__chapter-head クレジットカード情報入力
+        %form.mainbody__inner-registration
+          .mainbody__inner-registration__single-content
+            .mainbody__form-group
+              %label.mainbody__form-group--label{for: :cardNum} カード番号
+              %span.mainbody__require 必須
+              %input.mainbody__form-group--input-default{placeholder: :半角数字のみ, type: :text}/
+
+              %ul.mainbody__cards
+                %li.mainbody__cards--card
+                  = image_tag "visa.png"
+                %li.mainbody__cards--card
+                  = image_tag "mastercard.png"
+                %li.mainbody__cards--card
+                  = image_tag "saison-card.png"
+                %li.mainbody__cards--card
+                  = image_tag "jcb.png"
+                %li.mainbody__cards--card
+                  = image_tag "american_express.png"
+                %li.mainbody__cards--card
+                  = image_tag "dinersclub.png"
+                %li.mainbody__cards--card
+                  = image_tag "discover.png"
+
+            .mainbody__form-expire
+              %div
+                %label.mainbody__form-group--label 有効期限
+                %span.mainbody__require 必須
+              .mainbody__form-expire__half
+                %select.mainbody__form-expire__half--default
+                  %option{value: :"1"} 01
+                  %option{value: :"2"} 02
+                  %option{value: :"3"} 03
+                  %option{value: :"4"} 04
+                  %option{value: :"5"} 05
+                  %option{value: :"6"} 06
+                  %option{value: :"7"} 07
+                  %option{value: :"8"} 08
+                  %option{value: :"9"} 09
+                  %option{value: :"10"} 10
+                  %option{value: :"11"} 11
+                  %option{value: :"12"} 12
+                %span.month 月
+              .mainbody__form-expire__half
+                %select.mainbody__form-expire__half--default
+                  - for i in 19..29
+                    %option{value: :"{#i}" } #{i}
+                %span.year 年
+
+            .mainbody__form-group-under
+              %label.mainbody__form-group--label{for: :code} セキュリティコード
+              %span.mainbody__require 必須
+              %input.mainbody__form-group--input-default{placeholder: :カード背面4桁もしくは3桁の番号}/
+
+            .mainbody__seqcode
+              .mainbody__seqcode-text
+                カード裏面の番号とは？
+            %button.registration-all__btn-red{type: :submit}
+              追加する
+
+    = render 'shared/mypage-leftside'
+    .mainbody__main__side
