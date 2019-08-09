@@ -54,8 +54,8 @@
           = link_to "メルカリ利用規約", "/", class: "lists--list--link"
         %li.lists--list
           = link_to "特定商取引に関する表記", "/", class: "lists--list--link"
-    %a.buy__footer__logo{ href: "#" }
-      = image_tag "mercariLogoGray.svg", alt: "mercari", class: "new-item-footer__logo__img"
+    = link_to "#", class: "buy__footer__logo" do
+      = image_tag "mercariLogoGray.svg", alt: "mercari", class: "buy__footer__logo__img"
     %p.buy__footer__trademark
       %small © 2019 Mercari
           
