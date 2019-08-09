@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get "users/third" => "users#third"
   get "users/credit" => "users#credit"
   get "users/complete" => "users#complete"
+  get "users/login" => "users#login"
   get 'users/logout' => 'users#logout'
   get 'users/profile' => 'users#profile'
   get 'users/identification' => 'users#identification'

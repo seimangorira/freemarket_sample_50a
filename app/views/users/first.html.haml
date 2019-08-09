@@ -91,13 +91,7 @@
                   %p.registration-all__content--text-gray
                     ※ 本人情報は正しく入力してください。会員登録後、修正するには
                     お時間を頂く場合があります。
-                .registration-all__content
-                  .registration-all__form-group
-                    .g-recaptcha.signup-recaptcha
-                      %div{:style => "width: 304px; height: 78px;"}
-                        %div
-                          %iframe{:frameborder => "0", :height => "78", :name => "a-mkmk6jkic1h2", :role => "presentation", :sandbox => "allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation", :scrolling => "no", :src => "https://www.google.com/recaptcha/api2/anchor?ar=1&k=6LfZGCYTAAAAAHoK-s7Lg5OdYg5Fq4susvALmZoc&co=aHR0cHM6Ly93d3cubWVyY2FyaS5jb206NDQz&hl=ja&v=v1563777128698&size=normal&cb=i3am7gn33cqe", :width => "304"}
-                          %textarea#g-recaptcha-response.g-recaptcha-response{:name => "g-recaptcha-response", :style => "margin: 10px 25px; padding: 0px; border: 1px solid rgb(193, 193, 193); border-image: none; width: 250px; height: 40px; display: none;"}
+                  = render "shared/recaptcha"
                   .registration-all__form-group
                     %p.registration-all__content--text-center
                       「次へ進む」のボタンを押すことにより、
