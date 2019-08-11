@@ -1,17 +1,38 @@
-%h2 Log in
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    %br/
-    = f.password_field :password, autocomplete: "current-password"
-  - if devise_mapping.rememberable?
-    .field
-      = f.check_box :remember_me
-      = f.label :remember_me
-  .actions
-    = f.submit "Log in"
-= render "devise/shared/links"
+.login-page
+  .login-page__body
+    .login-page__container.new-user-top-container
+      .login-page__single-container
+        -# ヘッダー部分
+        = render "shared/header"
+
+        %main.login-page__single-main
+          .login-page__login-panel
+            .login-page__login-no-account
+              .login-page__login-no-account--p
+                アカウントをお持ちでない方はこちら
+              = link_to new_user_registration_path, class: "login-page__login-no-account--a" do
+                新規会員登録
+            .new-user-top-main__container__inners{style: :"padding-bottom: 32px;"}
+              .new-user-top-main__container__inners__inner
+                %button.new-user-top-main__container__inners__inner__btn-sns{style: :"border-radius: 0;"}
+                  %i.fab.fa-facebook-square
+                  Facebookでログインする
+                %button.new-user-top-main__container__inners__inner__btn-sns-google{style: :"border-radius: 0;"}
+                  = image_tag "googleLogo.jpg"
+                  Googleでログインする
+
+            %form
+              .login-page__form-inner
+                .login-page__form-inner__group
+                  %input{class: :"login-page__form-inner__group--input", placeholder: :"メールアドレス", type: :"email"}
+
+                .login-page__form-inner__group
+                  %input{class: :"login-page__form-inner__group--input", placeholder: :"パスワード", type: :"password"}
+
+                .login-page__form-inner__group
+                  = render "shared/recaptcha"
+
+                %button.login-page__btn-red ログイン
+                = link_to "パスワードをお忘れの方", class: "login-page__login-panel--a" do
+                  パスワードをお忘れの方
+        = render "shared/footer"
