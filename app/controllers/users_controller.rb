@@ -17,6 +17,10 @@ class UsersController < ApplicationController
   def complete
   end
 
+  def login
+    
+  end
+
   def logout
   end
 

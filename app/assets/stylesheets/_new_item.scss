@@ -2,7 +2,6 @@
 @import "variables";
 
 .new-item-page {
-  padding: 0 0 220px;
   background: #f5f5f5;
   color: #333333;
   font-size: 14px;
@@ -11,12 +10,6 @@
     font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
     line-height: 1;
   }
-  // ヘッダー部のSCSS(render後削除)
-  &__header{
-    height: 128px;
-    text-align: center;
-    }
-  // 商品情報入力部のSCSS
   .container {
     background-color: #fff;
     width: 700px;
@@ -40,7 +33,7 @@
         font-weight: 600;
       }
       .form-require {
-        @include formRequire
+        @include formRequire;
       }
       .form-group {
         margin: 40px 0 0;
@@ -133,7 +126,7 @@
           font-size: 16px;
           line-height: 1.5;
           margin: 8px 0 0;
-          min-height: 104px;
+          min-height: 142px;
           padding: 10px;
           width: 100%;
           max-width: 100%;
@@ -225,6 +218,41 @@
           width: 45%;
         }
       }
+    }
+  }
+  &__footer {
+    width: 456px;
+    margin: 0 auto;
+    padding: 40px 0;
+    text-align: center;
+    &__nav {
+      .lists--list{
+        margin-left: 16px;
+        display: inline-block;
+        font-size: 12px;
+        &:first-child {
+          margin: 0;
+        }
+        &--link {
+          color: #333;
+          text-decoration: none;
+          &:hover {
+            opacity: 0.8;
+            text-decoration: underline;
+          }
+        }
+      } 
+    }
+    &__logo img{
+      width: 80px;
+      height: 65px;
+      margin: 40px auto 0;
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+    &__trademark {
+      margin: 8px 0 0;
     }
   }
 }

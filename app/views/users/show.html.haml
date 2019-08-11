@@ -1,4 +1,5 @@
 .user-my-page
+  = render 'shared/top-header'
   = render 'shared/pankuzu'
   .user-my-page__whole.clearfix
     .user-my-page__whole__migigawa
@@ -90,3 +91,5 @@
             %li.mypage-item-not-found.bold 取引中の商品がありません
 
     = render 'shared/mypage-leftside'
+  = render 'shared/top-footer'
+  = render 'shared/sell-button'

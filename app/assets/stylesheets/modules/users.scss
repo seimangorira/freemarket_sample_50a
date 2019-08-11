@@ -12,7 +12,7 @@
       &__header {
         height: 160px;
         position: relative;
-        background: url(/assets/user-bg.jpg);
+        background: image-url('user-bg.jpg');
         background-size: cover;
         padding: 20px;
         text-align: center;
@@ -225,7 +225,7 @@
           #mypage-tab-transaction-now.mypage-item-list.tab-pane.active {
             .mypage-item-not-found.bold {
               padding: 160px 0 60px;
-              background-image: url("/assets/logo-gray-icon.svg");
+              background-image: image-url("logo-gray-icon.svg");
               background-repeat:  no-repeat;
               background-position: center 40px;
               background-size: 78px 85px;
