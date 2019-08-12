@@ -79,3 +79,4 @@ gem 'devise'
 gem 'jquery-rails'
 gem "recaptcha"
 gem 'active_hash'
+gem 'ancestry'
