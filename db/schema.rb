@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_12_041510) do
+ActiveRecord::Schema.define(version: 2019_08_13_140306) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -19,4 +19,33 @@ ActiveRecord::Schema.define(version: 2019_08_12_041510) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "image"
+    t.bigint "item_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_images_on_item_id"
+  end
+
+  create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.integer "price", null: false
+    t.integer "state", null: false
+    t.text "introduction", null: false
+    t.string "brand"
+    t.integer "status", null: false
+    t.integer "size"
+    t.integer "delivery_fee", null: false
+    t.integer "delivery_method", null: false
+    t.string "city", null: false
+    t.date "delivery_days", null: false
+    t.bigint "category_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_items_on_category_id"
+    t.index ["name"], name: "index_items_on_name"
+  end
+
+  add_foreign_key "images", "items"
+  add_foreign_key "items", "categories"
 end
