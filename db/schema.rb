@@ -46,6 +46,31 @@ ActiveRecord::Schema.define(version: 2019_08_13_140306) do
     t.index ["name"], name: "index_items_on_name"
   end
 
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "nickname", null: false
+    t.string "first_name", null: false
+    t.string "first_name_kana", null: false
+    t.string "last_name", null: false
+    t.string "last_name_kana", null: false
+    t.integer "postal_cord", null: false
+    t.string "municipalities", null: false
+    t.string "address", null: false
+    t.string "building_name"
+    t.date "birthday"
+    t.text "avatar"
+    t.text "introduction"
+    t.string "email", null: false
+    t.string "password", null: false
+    t.integer "phone_number"
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
   add_foreign_key "images", "items"
   add_foreign_key "items", "categories"
 end
