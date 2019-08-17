@@ -29,8 +29,8 @@
           %section.registration-all__main-container
             %h2.registration-all__single-head 会員情報入力
             -# = form_with resource, as: resource_name, url: registration_path(resource_name) do |f|
-            = form_with(model: @users) do |f|
-              %form.registration-all__inner{:action => "/users/second"}
+            = form_with(model: @users, url: users_second_path, method: :get, local: true) do |f|
+              .registration-all__inner
                 .registration-all__content
                   .registration-all__form-group
                     %label.registration-all__form-group--label{:for => "nickname"} ニックネーム
@@ -89,14 +89,14 @@
                       .registration-all__birthday-select__select
                         %i.icon-arrow-bottom
                         %select.registration-all__birthday-select__select--default
-                          %option{:value => ""} --
+                          %option{value: ""} --
                           - for i in 01..12
-                            %option{:value => "#{i}"} #{i}
+                            %option{value: "#{i}"} #{i}
                       %span 月
                       .registration-all__birthday-select__select
                         %i.icon-arrow-bottom
                         %select.registration-all__birthday-select__select--default
-                          %option{:value => ""} --
+                          %option{value: ""} --
                       %span 日
                     %p.registration-all__content--text-gray
                       ※ 本人情報は正しく入力してください。会員登録後、修正するには
@@ -107,7 +107,7 @@
                         「次へ進む」のボタンを押すことにより、
                         = link_to "利用規約", "/", class: "registration-all__a"
                         に同意したものとみなします
-                    %button.registration-all__btn-red{:type => "submit"}
+                    %button.registration-all__btn-red{type: "submit"}
                       次へ進む
                     .registration-all__form-group
                       %p.text-right

@@ -9,4 +9,6 @@ class User < ApplicationRecord
   has_many :buyer_items, foreign_key: "buyer_id", class_name: "Item"
   has_many :saling_items, -> { where("buyer_id is NULL")}, foreign_key: "salier_id", class_name: "Item"
   has_many :sold_items, -> { where("buyer_id is NULL")}, foreign_key: "salier_id", class_name: "Item"
+
+  # validates :nickname, :first_name, :first_name_kana, :last_name, :last_name_kana, :postal_cord, :address, :email, :password, :phone_number
 end
