@@ -80,3 +80,6 @@ gem 'jquery-rails'
 gem "recaptcha"
 gem 'active_hash'
 gem 'ancestry'
+gem "omniauth-rails_csrf_protection"
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'

@@ -1,5 +1,8 @@
 class ItemsController < ApplicationController
 
+  def index
+  end
+
   def detail
     @item = Item.find(params[:id])
   end
