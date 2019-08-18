@@ -117,22 +117,27 @@
                   = @item.brand
           %tr
             %th 商品の状態
-            %td 未使用に近い
+            %td
+              = @item.status
           %tr
             %th 配送料の負担
-            %td 送料込み（出品者負担）
+            %td
+              = @item.delivery_fee
           %tr
             %th 配送の方法
-            %td ゆうパック
+            %td
+              = @item.delivery_method
           %tr
             %th 配送先の地域
             %td 
-              =link_to '大阪府', "/items/detail"
+              =link_to "#{@item.city}", "/items/detail"
           %tr
             %th 発送日の目安
-            %td 1~2日で発送
+            %td
+              = @item.delivery_days
     .main__item-box__item-price 
-      %span.main__item-box__item-price--text ¥ 26,000
+      %span.main__item-box__item-price--text
+        = "¥ #{@item.price}"
       %span.main__item-box__item-price--tax (税込)
       %span.main__item-box__item-price--shipping-fee 送料込み
     .main__item-box__item-btn 購入画面に進む
