@@ -9,11 +9,9 @@
       %section.new-user-top-main__container
         %h2.new-user-top-main__container__logo
           新規会員登録
-
-
         .new-user-top-main__container__inners
           .new-user-top-main__container__inners__inner
-            = link_to users_registration_path, class: "new-user-top-main__container__inners__inner--btn-mail" do
+            = link_to  new_user_registration_path, class: "new-user-top-main__container__inners__inner--btn-mail" do
               %i.fa.fa-envelope
               メールアドレスで登録する
             %button.new-user-top-main__container__inners__inner__btn-sns

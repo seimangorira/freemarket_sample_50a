@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users do
+    get "/sign_up" => "devise/registrations#new", as: "new_user_registration"
+  end
   root 'tops#index'
 
   get 'users/signup' => "users#signup"

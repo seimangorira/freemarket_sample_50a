@@ -1,20 +1,9 @@
 class Users::RegistrationsController < Devise::RegistrationsController
-
   def new
   end
 
-  def edit
+  def create
   end
-
-  def registration
-  end
-
-  def confirmation
-  end
-
-  def adress
-  end
-
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
