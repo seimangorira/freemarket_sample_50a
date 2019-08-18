@@ -29,7 +29,7 @@
           %section.registration-all__main-container
             %h2.registration-all__single-head 会員情報入力
             -# = form_with resource, as: resource_name, url: registration_path(resource_name) do |f|
-            = form_with(model: @users, url: users_second_path, method: :get, local: true) do |f|
+            = form_with(model: @users, url: users_confirmation_path, method: :get, local: true) do |f|
               .registration-all__inner
                 .registration-all__content
                   .registration-all__form-group

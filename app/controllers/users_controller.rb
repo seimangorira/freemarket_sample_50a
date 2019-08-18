@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+  def registration
+  end
+
   def top
   end
 

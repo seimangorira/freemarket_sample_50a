@@ -2,10 +2,10 @@ Rails.application.routes.draw do
   devise_for :users
   root 'tops#index'
 
-  get 'users/top' => "users#top"
-  get "users/first" => "users#first"
-  get "users/second" => "users#second"
-  get "users/third" => "users#third"
+  get 'users/signup' => "users#signup"
+  get "users/registration" => "users#registration"
+  get "users/confirmation" => "users#confirmation"
+  get "users/address" => "users#address"
   get "users/credit" => "users#credit"
   get "users/complete" => "users#complete"
   resources :items, only: [:new]
