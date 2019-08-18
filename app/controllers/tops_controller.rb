@@ -1,5 +1,5 @@
 class TopsController < ApplicationController
     def index
-      @items = Item.all
+      @items = Item.limit(4).order(id: "desc")
     end
 end
