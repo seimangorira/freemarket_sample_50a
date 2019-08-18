@@ -99,20 +99,22 @@
             %th カテゴリー
             %td
               = link_to "/items/detail" do
-                .main__item-box__item-main__detail-table__field__category レディース
+                .main__item-box__item-main__detail-table__field__category
+                = @category.parent.parent.name
               = link_to "/items/detail" do
                 .main__item-box__item-main__detail-table__field__category-sub
                   %i.fa.fa-chevron-right
-                  バッグ
+                  = @category.parent.name
               = link_to "/items/detail" do
                 .main__item-box__item-main__detail-table__field__category-sub-sub
                   %i.fa.fa-chevron-right
-                  ショルダーバッグ
+                  = @category.name
           %tr
             %th ブランド
             %td
               = link_to "/items/detail" do
-                .main__item-box__item-main__detail-table__field__brand コーチ
+                .main__item-box__item-main__detail-table__field__brand
+                  = @item.brand
           %tr
             %th 商品の状態
             %td 未使用に近い
