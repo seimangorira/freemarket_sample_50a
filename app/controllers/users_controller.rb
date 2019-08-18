@@ -4,6 +4,9 @@ class UsersController < ApplicationController
   #   @user = User.new(user_params)
   # end
 
+  def signup
+  end
+
   def registration
   end
 

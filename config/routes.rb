@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
-  devise_for :users do
-    get "/sign_up" => "devise/registrations#new", as: "new_user_registration"
+  devise_scope :user do
+    get "/signup/registration" => "devise/registrations#new", as: "new_user_registration" # sign_up/registrationへのカスタムパス
   end
+  devise_for :users
   root 'tops#index'
 
   get 'users/signup' => "users#signup"
