@@ -60,7 +60,7 @@
                     %span.form-require 必須
                   .select-wrap
                     %i.fas.fa-angle-down
-                    = f.select :size, [["XXS以下", "XXS以下"], ["XS(SS)", "XS(SS)"],["S","S"],["M","M"],["L","L"],["XL(LL)","XL(LL)"],["2XL(3L)","2XL(3L)"],["3XL(4L)","3XL(4L)"],["4XL(5L以上)","4XL(5L以上)"],["FREE SIZE","FREE SIZE"]], {prompt: "---"} , class:"select-wrap__input"
+                    = f.select :size, [["XXS以下", 0], ["XS(SS)", 1],["S",2],["M",3],["L", 4],["XL(LL)",5],["2XL(3L)", 6],["3XL(4L)", 7],["4XL(5L以上)", 8],["FREE SIZE", 9]], {prompt: "---"} , class:"select-wrap__input"
 
                 .form-group
                   %label.item-detail__category 
