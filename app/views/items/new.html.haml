@@ -46,7 +46,16 @@
                   %span.form-require 必須
                 .select-wrap
                   %i.fas.fa-angle-down
-                  = f.collection_select :p_category_id, Category.where("id < ?", 14), :name, :name, {prompt: "---"}, {class: "select-wrap__input"}
+                  = f.collection_select :p_category_id, @parent_categories, :name, :name, {prompt: "---"}, {class: "select-wrap__input"}
+
+                .form-group
+                  %label.item-detail__category 
+                    サイズ
+                    %span.form-require 必須
+                  .select-wrap
+                    %i.fas.fa-angle-down
+                    = f.select :size, [["XXS以下", "XXS以下"], ["XS(SS)", "XS(SS)"],["S","S"],["M","M"],["L","L"],["XL(LL)","XL(LL)"],["2XL(3L)","2XL(3L)"],["3XL(4L)","3XL(4L)"],["4XL(5L以上)","4XL(5L以上)"],["FREE SIZE","FREE SIZE"]], {prompt: "---"} , class:"select-wrap__input"
+
               .form-group
                 %label.item-detail__state 
                   商品の状態
