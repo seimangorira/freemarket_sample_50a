@@ -15,10 +15,10 @@
                 必須
             .upload-images__addition
               最大10枚までアップロードできます
-            .upload-images__container
+            = f.label :image, class: "upload-images__container" do
               -# TODO:jQueryで複数枚アップロード機能実装？(have-itemに変数でNoを設定)
               .upload-images__container__box.have-item
-                %input.upload-images__container__box--drop-file{type: "file", name: "image", style: "display: none;", multiple: true}
+                = f.file_field :image, class: "upload-images__container__box--input"
                 %pre.input.upload-images__container--text
                   ドラッグアンドドロップ
                   またはクリックしてファイルをアップロード
