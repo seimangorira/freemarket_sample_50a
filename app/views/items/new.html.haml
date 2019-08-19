@@ -46,7 +46,13 @@
                   %span.form-require 必須
                 .select-wrap
                   %i.fas.fa-angle-down
-                  = f.collection_select :p_category_id, @parent_categories, :name, :name, {prompt: "---"}, {class: "select-wrap__input"}
+                  = f.collection_select :category_id, @parent_categories, :name, :name, {prompt: "---"}, {class: "select-wrap__input"}
+                .select-wrap
+                  %i.fas.fa-angle-down
+                  = f.collection_select :category_id, @child_categories, :name, :name, {prompt: "---"}, {class: "select-wrap__input"}
+                .select-wrap
+                  %i.fas.fa-angle-down
+                  = f.collection_select :category_id, @grandchild_categories, :name, :name, {prompt: "---"}, {class: "select-wrap__input"}
 
                 .form-group
                   %label.item-detail__category 
