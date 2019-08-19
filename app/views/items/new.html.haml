@@ -114,7 +114,8 @@
                     必須
                 .select-wrap
                   %i.fas.fa-angle-down
-                  = f.select :delivery_days, [["1~2日で発送", 1], ["2~3日で発送", 2], ["4~7日で発送", 3]], {prompt: "---"}, {class: "select-wrap__input"}
+                  -# 現状、カラムの型が「date」になっているため、修正の必要あり。出品機能の実装のため、仮でDate.todayと設定。
+                  = f.select :delivery_days, [["1~2日で発送", Date.today], ["2~3日で発送", Date.today], ["4~7日で発送", Date.today]], {prompt: "---"}, {class: "select-wrap__input"}
 
           .container__form__content.selling-item.clearfix
             .selling-item__title.form-sub-title
