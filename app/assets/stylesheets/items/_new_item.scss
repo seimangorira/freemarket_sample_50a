@@ -32,6 +32,10 @@
       .form-require {
         @include formRequire;
       }
+      .form-arbitrary {
+        @include formRequire;
+        background: #ccc;
+      }
       .form-group {
         margin: 40px 0 0;
       }
