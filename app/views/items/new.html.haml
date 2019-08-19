@@ -97,10 +97,7 @@
                     必須
                 .select-wrap
                   %i.fas.fa-angle-down
-                  %select.select-wrap__input
-                    %option{value: ""} ---
-                    - Prefecture.all.each do |ele|
-                      %option{value: ele.name}= ele.name
+                  = f.collection_select :city, Prefecture.all, :id, :name, {prompt: "---"}, {class: "select-wrap__input"}
 
               .form-group
                 %label.delivery-setting__days
