@@ -98,7 +98,7 @@
                 .selling-item__price__inner-right
                   ¥
                   .selling-item__price__inner-right--input
-                    %input{placeholder: "例)  300", value: ""}
+                    = f.text_field :price, placeholder: "例)  300"
               %li.selling-item__fee.clearfix
                 %p 販売手数料(10%)
                 %p -
