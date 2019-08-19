@@ -35,7 +35,7 @@
                 商品の説明
                 %span.form-require 
                   必須
-              %textarea.item-about__description--input{placeholder: "商品の説明（必須1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"}
+              = f.text_area :introduction, class: "item-about__description--input", placeholder: "商品の説明（必須1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
           
           .container__form__content.item-detail.clearfix
             .item-detail__title.form-sub-title 商品の詳細
