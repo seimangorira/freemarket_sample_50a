@@ -29,7 +29,7 @@
                 商品名
                 %span.form-require 
                   必須
-              %input.item-about__name--input{type: "text", placeholder: "商品名（必須 40文字まで)"}
+              = f.text_field :name, class: "item-about__name--input", placeholder: "商品名（必須 40文字まで)"
             .form-group
               %label.item-about__description 
                 商品の説明
