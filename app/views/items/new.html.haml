@@ -65,10 +65,8 @@
                     必須
                 .select-wrap
                   %i.fas.fa-angle-down
-                  %select.select-wrap__input
-                    %option{value: ""} ---
-                    %option{value: "1"} 送料込み(出品者負担)
-                    %option{value: "2"} 着払い(購入者負担)
+                  = f.select :delivery_fee, [["送料込み(出品者負担)", 1], ["着払い(購入者負担)", 2]], {prompt: "---"}, {class: "select-wrap__input"}
+                  
               .form-group
                 %label.delivery-setting__region
                   発送元の地域
