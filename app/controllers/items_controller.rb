@@ -5,8 +5,8 @@ class ItemsController < ApplicationController
 
   def detail
     @item = Item.find(params[:id])
-    @user = User.find(@item.saler_id)
-    @category = Category.find(@item.category_id)
+    @user = @item.saler
+    @category = @item.category
   end
   
   def new
