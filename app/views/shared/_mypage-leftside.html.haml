@@ -1,7 +1,8 @@
 .mypage-leftside
   .mypage-leftside__list
     %li
-      %a.mypage-leftside__list__item.active{href: "/jp/mypage/"}
+      -# %a.mypage-leftside__list__item.active{href: "/jp/mypage/"}
+      = link_to "/user/#{@user.id}", class: "mypage-leftside__list__item" do
         マイページ
         %i.fa.fa-chevron-right
     %li
@@ -71,7 +72,7 @@
   %h3.mypage-nav-head 設定
   %ul.mypage-leftside__list
     %li
-      %a.mypage-leftside__list__item{href: "/jp/mypage/profile/"}
+      = link_to users_profile_path, class: "mypage-leftside__list__item" do
         プロフィール
         %i.fa.fa-chevron-right
     %li
