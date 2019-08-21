@@ -169,11 +169,11 @@
     %li.main__item-link__previous
       = link_to "/items/detail" do
         %i.fa.fa-chevron-left 
-        AUX PARADIS サボン 空瓶
+          = @randItem.name
     %li.main__item-link__next
       = link_to "/items/detail" do
-        ハーバリウム.:*:・'°☆ヘリクリサム
         %i.fa.fa-chevron-right
+          = @randItemSecond.name
   .main__media-box
     .main__media-box--text
     %ul.main__media-box__media-icon
