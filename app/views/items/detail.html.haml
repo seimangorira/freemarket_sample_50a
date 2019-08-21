@@ -190,7 +190,7 @@
     %section.main__user-item__user-item-box.clearfix
       %h2.main__user-item__user-item-box--name
         = link_to "/items/detail" do
-          ユーザー1さんのその他出品
+          = "#{@user.nickname}さんのその他出品"
       .main__user-item__user-item-box__content.clearfix
         %section.main__user-item__user-item-box__content__image-box
           = link_to "/items/detail" do
@@ -267,7 +267,7 @@
     %section.main__user-item__user-item-box.clearfix
       %h2.main__user-item__user-item-box--name
         = link_to "/items/detail" do
-          ユーザー2さんのその他出品
+          = "#{@category.name}（#{@category.parent.parent.name}）その他の商品"
       .main__user-item__user-item-box__content.clearfix
         %section.main__user-item__user-item-box__content__image-box
           = link_to "/items/detail" do
