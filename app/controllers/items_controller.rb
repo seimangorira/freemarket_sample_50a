@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   # ユーザー登録機能作成後に、コメントアウトを外す
   # before_action :authenticate_user! except: [:index, :detail]
+  before_action :set_parent_categories, only: [:new, :create, :edit, :update]
 
   def index
   end
@@ -10,7 +11,6 @@ class ItemsController < ApplicationController
   
   def new
     @item = Item.new
-    @parent_categories = Category.where(ancestry: nil)
   end
 
   def create
@@ -39,5 +39,9 @@ class ItemsController < ApplicationController
     params.require(:item).permit(
       :name, :introduction, :category_id, :size, :brand, :state, :delivery_fee, :delivery_method, :city, :delivery_days, :price, images: []
     ).merge(saler_id: User.find(1).id, status: 1)
+  end
+
+  def set_parent_categories
+    @parent_categories = Category.where(ancestry: nil)
   end
 end
