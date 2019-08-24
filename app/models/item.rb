@@ -24,4 +24,10 @@ class Item < ApplicationRecord
 
   # ActiveStorageのバリデーションは未実装
   
+  # 選択肢のenum化
+  enum size: {under_XXS: 1, XS: 2, S: 3, M: 4, L: 5, XL: 6, double_XL: 7, triple_XL: 8, over_4XL: 9, FREESIZE: 10}
+  enum state: {unused: 1, near_unused: 2, no_dirts: 3, some_dirts: 4, have_dirts: 5, bad_condition: 6}
+  enum delivery_fee: {postage_included: 1, cash_on_delivery: 2}
+  enum delivery_method: {undecided: 1, mercari: 2, post_office_mail: 3, letter_pack: 4, regular_mail: 5, yamato: 6, post_office_pack: 7, click_post: 8, post_office_packet: 9}
+  enum delivery_day: { early: 0, middle: 1, late: 2}
 end
