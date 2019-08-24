@@ -60,7 +60,7 @@
                     %span.form-require 必須
                   .select-wrap
                     %i.fas.fa-angle-down
-                    = f.select :size, [["XXS以下", 0], ["XS(SS)", 1],["S",2],["M",3],["L", 4],["XL(LL)",5],["2XL(3L)", 6],["3XL(4L)", 7],["4XL(5L以上)", 8],["FREE SIZE", 9]], {prompt: "---"} , class:"select-wrap__input"
+                    = f.select :size, Item.sizes_i18n.invert, {prompt: "---"}, {class: "select-wrap__input"}
 
                 .form-group
                   %label.item-detail__category 
@@ -75,7 +75,7 @@
                   %span.form-require 必須
                 .select-wrap
                   %i.fas.fa-angle-down
-                  = f.select :state, [["新品、未使用", 1], ["未使用に近い", 2], ["目立った傷や汚れなし", 3], ["やや傷や汚れあり", 4], ["傷や汚れあり", 5], ["全体的に状態が悪い", 6]], {prompt: "---"}, {class: "select-wrap__input"}
+                  = f.select :state, Item.states_i18n.invert, {prompt: "---"}, {class: "select-wrap__input"}
           
           .container__form__content.delivery-setting.clearfix
             .delivery-setting__title.form-sub-title 配送について
@@ -87,7 +87,7 @@
                     必須
                 .select-wrap
                   %i.fas.fa-angle-down
-                  = f.select :delivery_fee, [["送料込み(出品者負担)", 1], ["着払い(購入者負担)", 2]], {prompt: "---"}, {class: "select-wrap__input"}
+                  = f.select :delivery_fee, Item.delivery_fees_i18n.invert, {prompt: "---"}, {class: "select-wrap__input"}
               
               .form-group
                 %label.delivery-setting__burden
@@ -96,7 +96,7 @@
                     必須
                 .select-wrap
                   %i.fas.fa-angle-down
-                  = f.select :delivery_method, [["未定", 1], ["らくらくメルカリ便", 2], ["ゆうメール", 3], ["レターパック", 4], ["普通郵便(定形、定形外)", 5], ["クロネコヤマト", 6], ["ゆうパック", 7], ["クリックポスト", 8], ["ゆうパケット", 9]], {prompt: "---"}, {class: "select-wrap__input"}
+                  = f.select :delivery_method, Item.delivery_methods_i18n.invert, {prompt: "---"}, {class: "select-wrap__input"}
 
               .form-group
                 %label.delivery-setting__region
@@ -114,9 +114,8 @@
                     必須
                 .select-wrap
                   %i.fas.fa-angle-down
-                  -# 現状、カラムの型が「date」になっているため、修正の必要あり。出品機能の実装のため、仮でDate.todayと設定。
-                  = f.select :delivery_days, [["1~2日で発送", 1], ["2~3日で発送", 2], ["4~7日で発送", 3]], {prompt: "---"}, {class: "select-wrap__input"}
-
+                  = f.select :delivery_days, Item.delivery_days_i18n.invert, {prompt: "---"}, {class: "select-wrap__input"}
+                  
           .container__form__content.selling-item.clearfix
             .selling-item__title.form-sub-title
               販売価格(300〜9,999,999)
