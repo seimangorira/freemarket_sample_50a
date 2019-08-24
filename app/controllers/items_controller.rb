@@ -11,10 +11,6 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @parent_categories = Category.where(ancestry: nil)
-
-    # 以下は仮実装のため、カテゴリーフォームを動的に作成する際に変更します。
-    @child_categories = Category.where(ancestry: 1)
-    @grandchild_categories = Category.find(14).children
   end
 
   def create
@@ -27,6 +23,14 @@ class ItemsController < ApplicationController
   end
 
   def buy
+  end
+
+  def get_children_categories
+    @children_categories = Category.where(ancestry: params[:parent_id])
+  end
+
+  def get_grandchildren_categories
+    @grandchildren_categories = Category.find(params[:child_id]).children
   end
 
   private
