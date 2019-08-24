@@ -18,5 +18,10 @@ Rails.application.routes.draw do
   get "users/addCard" => "users#addCard"
   resources :users, only: [:show]
   get 'items/detail' => 'items#detail'
-  resources :items, only: [:new, :create]
+  resources :items, only: [:new, :create] do
+    collection do
+      get 'get_children_categories', defaults: { format: 'json' }
+      get 'get_grandchildren_categories', defaults: { format: 'json' }
+    end
+  end
 end
