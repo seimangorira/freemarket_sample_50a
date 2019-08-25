@@ -1,4 +1,6 @@
 class ItemsController < ApplicationController
+  # ユーザー登録機能作成後に、コメントアウトを外す
+  # before_action :authenticate_user! except: [:index, :detail]
 
   def index
   end
