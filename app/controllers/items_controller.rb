@@ -8,6 +8,7 @@ class ItemsController < ApplicationController
     @randItem = Item.where("id>=?", rand(Item.first.id..Item.last.id)).first
     @randItemSecond = Item.where("id>=?", rand(Item.first.id..Item.last.id)).first
     @user = @item.saler
+    @items = @user.saling_items.limit(6).order(created_at: "desc")
     @category = @item.category
   end
   
