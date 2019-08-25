@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  devise_scope :user do
+    get "/signup/registration" => "devise/registrations#new", as: "new_user_registration" # sign_up/registrationへのカスタムパス
+  end
   devise_for :users
   root 'tops#index'
 
