@@ -10,6 +10,7 @@ class ItemsController < ApplicationController
     @user = @item.saler
     @items = @user.saling_items.limit(6).order(created_at: "desc")
     @category = @item.category
+    @categorys = @category.items.limit(6).order(created_at: "desc")
   end
   
   def new
