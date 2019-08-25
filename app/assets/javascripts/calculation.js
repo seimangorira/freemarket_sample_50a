@@ -1,6 +1,6 @@
 $(document).on("turbolinks:load", function(){
   function feeCalculation(inputPrice){
-    var saleFee = inputPrice * 0.1;
+    var saleFee = Math.floor(inputPrice * 0.1); //Math.floorで小数点以下を切り捨て
     var saleProfit = inputPrice - saleFee;
 
     $('.sale-fee').text(`¥${saleFee}`);
