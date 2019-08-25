@@ -4,13 +4,13 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
-    @randItem = Item.where("id>=?", rand(Item.first.id..Item.last.id)).first
-    @randItemSecond = Item.where("id>=?", rand(Item.first.id..Item.last.id)).first
-    @user = @item.saler
-    @items = @user.saling_items.limit(6).order(created_at: "desc")
-    @category = @item.category
-    @categorys = @category.items.limit(6).order(created_at: "desc")
+    @detailItem = Item.find(params[:id])
+    @randItemLeft = Item.where("id>=?", rand(Item.first.id..Item.last.id)).first
+    @randItemRight = Item.where("id>=?", rand(Item.first.id..Item.last.id)).first
+    @exhibitor = @detailItem.saler
+    @oetherExhibitorItems = @exhibitor.saling_items.limit(6).order(created_at: "desc")
+    @category = @detailItem.category
+    @otherCategorysItems = @category.items.limit(6).order(created_at: "desc")
   end
   
   def new
