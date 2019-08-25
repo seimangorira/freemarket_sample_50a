@@ -1,0 +1,41 @@
+ja:
+  activerecord:
+    models:
+      item: 商品
+  enums:
+    item:
+      size:
+        under_XXS: "XXS以下"
+        XS: "XS(SS)"
+        S: "S"
+        M: "M"
+        L: "L"
+        XL: "XL(LL)"
+        double_XL: "2XL(3L)"
+        triple_XL: "3XL(4L)"
+        over_4XL: "4XL(5L以上)"
+        FREESIZE: "FREE SIZE"
+      state:
+        unused: "新品、未使用"
+        near_unused: "未使用に近い"
+        no_dirts: "目立った傷や汚れなし"
+        some_dirts: "やや傷や汚れあり"
+        have_dirts: "傷や汚れあり"
+        bad_condition: "全体的に状態が悪い"
+      delivery_fee:
+        postage_included: "送料込み(出品者負担)"
+        cash_on_delivery: "着払い(購入者負担)"
+      delivery_method:
+        undecided: "未定"
+        mercari: "らくらくメルカリ便"
+        post_office_mail: "ゆうメール"
+        letter_pack: "レターパック"
+        regular_mail: "普通郵便(定形、定形外)"
+        yamato: "クロネコヤマト"
+        post_office_pack: "ゆうパック"
+        click_post: "クリックポスト"
+        post_office_packet: "ゆうパケット"
+      delivery_day:
+        early: "1~2日で発送"
+        middle: "2~3日で発送"
+        late: "4~7日で発送"
