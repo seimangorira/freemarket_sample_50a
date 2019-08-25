@@ -78,7 +78,7 @@
                     %span.registration-all__require 必須
                     .registration-all__birthday-select
                       .registration-all__birthday-select__select
-                        %i.icon-arrow-bottom
+                        %i.fa.fa-chevron-down
                         %select.registration-all__birthday-select__select--default
                           %option{:value => ""} --
                           -i = 2019
@@ -87,14 +87,14 @@
                             -i -= 1
                       %span 年
                       .registration-all__birthday-select__select
-                        %i.icon-arrow-bottom
+                        %i.fa.fa-chevron-down
                         %select.registration-all__birthday-select__select--default
                           %option{:value => ""} --
                           - for i in 01..12
                             %option{:value => "#{i}"} #{i}
                       %span 月
                       .registration-all__birthday-select__select
-                        %i.icon-arrow-bottom
+                        %i.fa.fa-chevron-down
                         %select.registration-all__birthday-select__select--default
                           %option{:value => ""} --
                       %span 日

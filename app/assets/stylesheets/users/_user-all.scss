@@ -339,11 +339,23 @@
       position: relative;
       background: #fff;
 
+      .fa.fa-chevron-down {
+        position: absolute;
+        right: 16px;
+        top: 40%;
+        z-index: 2;
+        color: #888;
+        font-size: 16px;
+      }
+
       &:first-of-type {
         width: 76px;
       }
 
       &--default {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
         width: 100%;
         padding: 0 10px;
         position: relative;
