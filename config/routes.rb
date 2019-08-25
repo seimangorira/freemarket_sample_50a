@@ -18,4 +18,6 @@ Rails.application.routes.draw do
   get "users/addCard" => "users#addCard"
   resources :users, only: [:show]
   resources :items, only: [:new, :show]
+  get 'items/detail' => 'items#detail'
+  resources :items, only: [:new, :create]
 end

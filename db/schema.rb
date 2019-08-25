@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_18_012202) do
+ActiveRecord::Schema.define(version: 2019_08_21_121932) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -33,6 +33,21 @@ ActiveRecord::Schema.define(version: 2019_08_18_012202) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "first_name", null: false
+    t.string "first_name_kana", null: false
+    t.string "last_name", null: false
+    t.string "last_name_kana", null: false
+    t.integer "postal_cord", null: false
+    t.string "state", null: false
+    t.string "municipalities", null: false
+    t.string "house_number", null: false
+    t.string "building_name"
+    t.integer "phone_number"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.string "ancestry"
@@ -51,7 +66,7 @@ ActiveRecord::Schema.define(version: 2019_08_18_012202) do
     t.integer "delivery_fee", null: false
     t.integer "delivery_method", null: false
     t.string "city", null: false
-    t.date "delivery_days", null: false
+    t.integer "delivery_days", null: false
     t.bigint "category_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

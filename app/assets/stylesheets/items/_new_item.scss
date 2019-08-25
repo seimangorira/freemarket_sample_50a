@@ -32,6 +32,10 @@
       .form-require {
         @include formRequire;
       }
+      .form-arbitrary {
+        @include formRequire;
+        background: #ccc;
+      }
       .form-group {
         margin: 40px 0 0;
       }
@@ -81,10 +85,9 @@
             position: relative;
             transition: box-shadow ease-out .3s;
             width: 100%;
-            input {
-              border: 0;
-              outline: 0;
+            &--input {
               touch-action: manipulation;
+              display: none;
             }
             pre {
               display: block;
@@ -188,6 +191,9 @@
       }
       .confirmation-box {
         // width: 100%;
+        a {
+          text-decoration: none;
+        }
         p {
           line-height: 1.5;
         }
