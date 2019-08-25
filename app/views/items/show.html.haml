@@ -10,36 +10,10 @@
         .main__item-box__item-main__content__photo
           .main__item-box__item-main__content__photo__header
             .main__item-box__item-main__content__photo__header__items.stage{style: 'left: 0px; width: 3000px;'}
-              .main__item-box__item-main__content__photo__header__items__stage{style: 'width: 300px;'}
-                .main__item-box__item-main__content__photo__header__items__stage__inner
-                  = image_tag "https://static.mercdn.net/item/detail/orig/photos/m92654645745_1.jpg?1562400146", class: "main__item-box__item-main__content__photo__header__items__stage__inner--main-image", style: "opacity: 1;", width: "300"
-              .main__item-box__item-main__content__photo__header__items__stage{style: 'width: 300px;'}
-                .main__item-box__item-main__content__photo__header__items__stage__inner
-                  = image_tag "https://c.imgz.jp/211/12975211/12975211_8_D_215.jpg", class: "main__item-box__item-main__content__photo__header__items__stage__inner--main-image", style: "opacity: 1;", width: "300"
-              .main__item-box__item-main__content__photo__header__items__stage{style: 'width: 300px;'}
-                .main__item-box__item-main__content__photo__header__items__stage__inner
-                  = image_tag "https://static.mercdn.net/item/detail/orig/photos/m92654645745_1.jpg?1562400146", class: "main__item-box__item-main__content__photo__header__items__stage__inner--main-image", style: "opacity: 1;", width: "300"
-              .main__item-box__item-main__content__photo__header__items__stage{style: 'width: 300px;'}
-                .main__item-box__item-main__content__photo__header__items__stage__inner
-                  = image_tag "https://static.mercdn.net/item/detail/orig/photos/m92654645745_1.jpg?1562400146", class: "main__item-box__item-main__content__photo__header__items__stage__inner--main-image", style: "opacity: 1;", width: "300"
-              .main__item-box__item-main__content__photo__header__items__stage{style: 'width: 300px;'}
-                .main__item-box__item-main__content__photo__header__items__stage__inner
-                  = image_tag "https://static.mercdn.net/item/detail/orig/photos/m92654645745_1.jpg?1562400146", class: "main__item-box__item-main__content__photo__header__items__stage__inner--main-image", style: "opacity: 1;", width: "300"
-              .main__item-box__item-main__content__photo__header__items__stage{style: 'width: 300px;'}
-                .main__item-box__item-main__content__photo__header__items__stage__inner
-                  = image_tag "https://static.mercdn.net/item/detail/orig/photos/m92654645745_1.jpg?1562400146", class: "main__item-box__item-main__content__photo__header__items__stage__inner--main-image", style: "opacity: 1;", width: "300"
-              .main__item-box__item-main__content__photo__header__items__stage{style: 'width: 300px;'}
-                .main__item-box__item-main__content__photo__header__items__stage__inner
-                  = image_tag "https://static.mercdn.net/item/detail/orig/photos/m92654645745_1.jpg?1562400146", class: "main__item-box__item-main__content__photo__header__items__stage__inner--main-image", style: "opacity: 1;", width: "300"
-              .main__item-box__item-main__content__photo__header__items__stage{style: 'width: 300px;'}
-                .main__item-box__item-main__content__photo__header__items__stage__inner
-                  = image_tag "https://static.mercdn.net/item/detail/orig/photos/m92654645745_1.jpg?1562400146", class: "main__item-box__item-main__content__photo__header__items__stage__inner--main-image", style: "opacity: 1;", width: "300"
-              .main__item-box__item-main__content__photo__header__items__stage{style: 'width: 300px;'}
-                .main__item-box__item-main__content__photo__header__items__stage__inner
-                  = image_tag "https://static.mercdn.net/item/detail/orig/photos/m92654645745_1.jpg?1562400146", class: "main__item-box__item-main__content__photo__header__items__stage__inner--main-image", style: "opacity: 1;", width: "300"
-              .main__item-box__item-main__content__photo__header__items__stage{style: 'width: 300px;'}
-                .main__item-box__item-main__content__photo__header__items__stage__inner
-                  = image_tag "https://static.mercdn.net/item/detail/orig/photos/m92654645745_1.jpg?1562400146", class: "main__item-box__item-main__content__photo__header__items__stage__inner--main-image", style: "opacity: 1;", width: "300"
+              - @item.images.each do |image|
+                .main__item-box__item-main__content__photo__header__items__stage{style: 'width: 300px;'}
+                  .main__item-box__item-main__content__photo__header__items__stage__inner
+                    = image_tag image, class: "main__item-box__item-main__content__photo__header__items__stage__inner--main-image", style: "opacity: 1;", width: "300"
           .main__item-box__item-main__content__photo__image-box
             .main__item-box__item-main__content__photo__image-box__mini-image{"data-image-id": 0}
               %span
@@ -120,15 +94,15 @@
           %tr
             %th 商品の状態
             %td
-              = @item.status
+              = @item.state_i18n
           %tr
             %th 配送料の負担
             %td
-              = @item.delivery_fee
+              = @item.delivery_fee_i18n
           %tr
             %th 配送の方法
             %td
-              = @item.delivery_method
+              = @item.delivery_method_i18n
           %tr
             %th 配送先の地域
             %td 
@@ -199,18 +173,19 @@
       .main__user-item__user-item-box__content.clearfix
         - @oetherExhibitorItems.each do |item|
           %section.main__user-item__user-item-box__content__image-box
-            = link_to "#" do
-              %figure.main__user-item__user-item-box__content__image-box__photo
-                = image_tag "https://cdn.thumb.shop-list.com/res/up/shoplist/shp/__basethum200__/altrose/sd/660375-06.jpg", class: 'main__user-item__user-item-box__content__image-box__photo--item-image', width: "220", height: "220"
-              .main__user-item__user-item-box__content__image-box__body
-                %h3.main__user-item__user-item-box__content__image-box__body--items-name
-                  = item.name
-                .main__user-item__user-item-box__content__image-box__body__num
-                  .main__user-item__user-item-box__content__image-box__body__num--price 
-                    = "¥ #{item.price}"
-                  .main__user-item__user-item-box__content__image-box__body__num--heart
-                    %i.far.fa-heart
-                    %span 4
+            -
+              = link_to "#" do
+                %figure.main__user-item__user-item-box__content__image-box__photo
+                  = image_tag "https://cdn.thumb.shop-list.com/res/up/shoplist/shp/__basethum200__/altrose/sd/660375-06.jpg", class: 'main__user-item__user-item-box__content__image-box__photo--item-image', width: "220", height: "220"
+                .main__user-item__user-item-box__content__image-box__body
+                  %h3.main__user-item__user-item-box__content__image-box__body--items-name
+                    = item.name
+                  .main__user-item__user-item-box__content__image-box__body__num
+                    .main__user-item__user-item-box__content__image-box__body__num--price 
+                      = "¥ #{item.price}"
+                    .main__user-item__user-item-box__content__image-box__body__num--heart
+                      %i.far.fa-heart
+                      %span 4
 
     -# カテゴリー別のその他の出品一覧
     %section.main__user-item__user-item-box.clearfix
