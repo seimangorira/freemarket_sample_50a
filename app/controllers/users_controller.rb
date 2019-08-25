@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  def top
+  def signup
   end
 
   def first
