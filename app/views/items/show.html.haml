@@ -4,7 +4,7 @@
   -# 商品の詳細情報
   %section.main__item-box
     %h1.main__item-box__item-name 
-      = @detailItem.name
+      = @item.name
     .main__item-box__item-main.clearfix
       .main__item-box__item-main__content
         .main__item-box__item-main__content__photo
@@ -102,7 +102,7 @@
             %td
               = link_to "#" do
                 .main__item-box__item-main__detail-table__field__category
-                = @category.parent.parent.name
+                = @category.name
               = link_to "#" do
                 .main__item-box__item-main__detail-table__field__category-sub
                   %i.fa.fa-chevron-right
@@ -110,43 +110,43 @@
               = link_to "#" do
                 .main__item-box__item-main__detail-table__field__category-sub-sub
                   %i.fa.fa-chevron-right
-                  = @category.name
+                  = @category.root.name
           %tr
             %th ブランド
             %td
               = link_to "#" do
                 .main__item-box__item-main__detail-table__field__brand
-                  = @detailItem.brand
+                  = @item.brand
           %tr
             %th 商品の状態
             %td
-              = @detailItem.status
+              = @item.status
           %tr
             %th 配送料の負担
             %td
-              = @detailItem.delivery_fee
+              = @item.delivery_fee
           %tr
             %th 配送の方法
             %td
-              = @detailItem.delivery_method
+              = @item.delivery_method
           %tr
             %th 配送先の地域
             %td 
-              =link_to "#{@detailItem.city}", "#"
+              =link_to "#{@item.city}", "#"
           %tr
             %th 発送日の目安
             %td
-              = @detailItem.delivery_days
+              = @item.delivery_days
     .main__item-box__item-price 
       %span.main__item-box__item-price--text
-        = "¥ #{@detailItem.price}"
+        = "¥ #{@item.price}"
       %span.main__item-box__item-price--tax (税込)
       %span.main__item-box__item-price--shipping-fee 送料込み
     = link_to "/items/buy" do
       .main__item-box__item-btn 購入画面に進む
     .main__item-box__item-description
       %p.main__item-box__item-description--text
-        = @detailItem.introduction
+        = @item.introduction
     .main__item-box__item-icon
       .main__item-box__item-icon__left
         %button.main__item-box__item-icon__left__like 
@@ -216,7 +216,7 @@
     %section.main__user-item__user-item-box.clearfix
       %h2.main__user-item__user-item-box--name
         = link_to "#" do
-          = "#{@category.name}（#{@category.parent.parent.name}）その他の商品"
+          = "#{@category.name}（#{@category.root.name}）その他の商品"
       .main__user-item__user-item-box__content.clearfix
         - @otherCategorysItems.each do |category|
           %section.main__user-item__user-item-box__content__image-box
