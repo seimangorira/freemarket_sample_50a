@@ -80,18 +80,19 @@
                   配送料の負担
                   %span.form-require 
                     必須
-                .select-wrap
+                .select-wrap.select-delivery-burden
                   %i.fas.fa-angle-down
-                  = f.select :delivery_fee, Item.delivery_fees_i18n.invert, {prompt: "---"}, {class: "select-wrap__input"}
+                  = f.select :delivery_fee, Item.delivery_fees_i18n.invert, {prompt: "---"}, {class: "select-wrap__input", id: "delivery-fee"}
               
-              .form-group
-                %label.delivery-setting__burden
-                  配送の方法
-                  %span.form-require 
-                    必須
-                .select-wrap
-                  %i.fas.fa-angle-down
-                  = f.select :delivery_method, Item.delivery_methods_i18n.invert, {prompt: "---"}, {class: "select-wrap__input"}
+              .select_delivery_wrapper.form-group
+                .default-delivery-setting{style: "display: none;"}
+                  %label.delivery-setting__burden
+                    配送の方法
+                    %span.form-require 
+                      必須
+                  .select-wrap
+                    %i.fas.fa-angle-down
+                    = f.select :delivery_method, Item.delivery_methods_i18n.invert, {prompt: "---"}, {class: "select-wrap__input"}
 
               .form-group
                 %label.delivery-setting__region
