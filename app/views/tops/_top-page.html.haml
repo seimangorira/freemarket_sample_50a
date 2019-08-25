@@ -3,7 +3,7 @@
     レディース新着アイテム
   .contents__main__center__item
     - @items.each do|item|
-      = link_to "items/detail/#{item.id}" do
+      = link_to "items/#{item.id}" do
         .contents__main__center__item__box
           .contents__main__center__item__box__image
           .contents__main__center__item__box__text

@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
   def index
   end
 
-  def detail
+  def show
     @item = Item.find(params[:id])
     @randItem = Item.where("id>=?", rand(Item.first.id..Item.last.id)).first
     @randItemSecond = Item.where("id>=?", rand(Item.first.id..Item.last.id)).first
