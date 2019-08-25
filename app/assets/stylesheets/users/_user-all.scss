@@ -209,8 +209,9 @@
   &__main {
     @include main;
     width: 700px;
-    margin: 0 auto;
+    padding: 0 0 64px;
     background: #fff;
+    margin: 0 auto;
   }
 
   &__single-head {
