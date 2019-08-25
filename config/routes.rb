@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
   devise_scope :user do
+    get 'login', to: 'devise/sessions#new'
+    get 'signup', to: 'users#signup'
     get "/signup/registration" => "devise/registrations#new", as: "new_user_registration" # sign_up/registrationへのカスタムパス
   end
   devise_for :users
   root 'tops#index'
 
-  get 'users/signup' => "users#signup"
+
   get "users/first" => "users#first"
   get "users/second" => "users#second"
   get "users/third" => "users#third"
