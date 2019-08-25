@@ -125,10 +125,10 @@
                 .selling-item__price__inner-right
                   ¥
                   .selling-item__price__inner-right--input
-                    = f.text_field :price, placeholder: "例)  300"
+                    = f.text_field :price, placeholder: "例)  300", id: "selling-item-price"
               %li.selling-item__fee.clearfix
                 %p 販売手数料(10%)
-                %p -
+                %p.sale-fee -
               %li.selling-item__profit.clearfix
                 %p.selling-item__profit--title 販売利益
                 %p.selling-item__profit--result -
