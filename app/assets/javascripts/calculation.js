@@ -3,8 +3,8 @@ $(document).on("turbolinks:load", function(){
     var saleFee = Math.floor(inputPrice * 0.1); //Math.floorで小数点以下を切り捨て
     var saleProfit = inputPrice - saleFee;
 
-    $('.sale-fee').text(`¥${saleFee}`);
-    $('.selling-item__profit--result').text(`¥${saleProfit}`)
+    $('.sale-fee').text(`¥${saleFee.toLocaleString()}`); //.toLocaleString()で、価格をコンマ区切りで表示
+    $('.selling-item__profit--result').text(`¥${saleProfit.toLocaleString()}`)
   }
 
   $('#selling-item-price').on('keyup', function() {
