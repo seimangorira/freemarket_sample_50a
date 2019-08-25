@@ -1,5 +1,7 @@
 .main
   = render "shared/top-header"
+
+  -# 商品の詳細情報
   %section.main__item-box
     %h1.main__item-box__item-name 
       = @item.name
@@ -186,7 +188,9 @@
       %li
         = link_to "#" do
           %i.fab.fa-pinterest-square
+
   .main__user-item
+    -# 個人のその他の出品一覧
     %section.main__user-item__user-item-box.clearfix
       %h2.main__user-item__user-item-box--name
         = link_to "#" do
@@ -207,6 +211,7 @@
                     %i.far.fa-heart
                     %span 4
 
+    -# カテゴリー別のその他の出品一覧
     %section.main__user-item__user-item-box.clearfix
       %h2.main__user-item__user-item-box--name
         = link_to "#" do
