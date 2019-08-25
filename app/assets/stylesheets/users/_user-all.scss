@@ -353,6 +353,8 @@
       }
 
       &--default {
+        color: #333;
+        font-weight: normal;
         -webkit-appearance: none;
         -moz-appearance: none;
         appearance: none;
@@ -364,7 +366,7 @@
         border-radius: 4px;
         border: 1px solid #ccc;
         background: 0;
-        font-size: 16px;
+        font-size: 14px;
         line-height: 1.5;
         cursor: pointer;
       }

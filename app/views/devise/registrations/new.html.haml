@@ -91,12 +91,14 @@
                         %select.registration-all__birthday-select__select--default
                           %option{value: ""} --
                           - for i in 01..12
-                            %option{:value => "#{i}"} #{i}
+                            %option{value: "#{i}"} #{i}
                       %span 月
                       .registration-all__birthday-select__select
                         %i.fa.fa-chevron-down
                         %select.registration-all__birthday-select__select--default
                           %option{value: ""} --
+                          - for i in 01..31
+                            %option{value: "#{i}"} #{i}
                       %span 日
                     %p.registration-all__content--text-gray
                       ※ 本人情報は正しく入力してください。会員登録後、修正するには
