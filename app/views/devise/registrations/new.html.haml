@@ -28,8 +28,8 @@
         %main.registration-all__main
           %section.registration-all__main-container
           %h2.registration-all__single-head 会員情報入力
-          = form_with model: @user, url: new_user_registration_path, method: :get, local: true, class: "registration_form" do |f|
-            %form.registration-all__inner{action: "/users/second"}
+          = form_with model: @user, url: user_registration_path, method: :post, local: true, class: "registration_form" do |f|
+            %form.registration-all__inner
               .registration-all__content
                 .registration-all__form-group
                   %label.registration-all__form-group--label{for: "nickname"} ニックネーム
