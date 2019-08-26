@@ -42,8 +42,8 @@ $(document).on("turbolinks:load", function(){
       .done(function(children){
         $('#children_wrapper').remove(); //親が変更された時、子以下を削除する
         $('#grandchildren_wrapper').remove();
-        $('#size_wrapper').remove();
-        $('#brand_wrapper').remove();
+        $('.select-item-sizes').css('display', 'none');
+        $('.input-item-brands').css('display', 'none');
         var insertHTML = '';
         children.forEach(function(child){
           insertHTML += appendOption(child);
@@ -56,8 +56,8 @@ $(document).on("turbolinks:load", function(){
     } else{
       $('#children_wrapper').remove(); //親カテゴリが初期値になった時、子以下を削除する
       $('#grandchildren_wrapper').remove();
-      $('#size_wrapper').remove();
-      $('#brand_wrapper').remove();
+      $('.select-item-sizes').css('display', 'none');
+      $('.input-item-brands').css('display', 'none');
     }
   });
 
@@ -73,8 +73,8 @@ $(document).on("turbolinks:load", function(){
       })
       .done(function(grandchildren){
         $('#grandchildren_wrapper').remove();  //子が変更された時、孫以下を削除する
-        $('#size_wrapper').remove();
-        $('#brand_wrapper').remove();
+        $('.select-item-sizes').css('display', 'none');
+        $('.input-item-brands').css('display', 'none');
         var insertHTML = '';
         grandchildren.forEach(function(grandchild){
           insertHTML += appendOption(grandchild);
@@ -86,8 +86,14 @@ $(document).on("turbolinks:load", function(){
       })
     } else{
       $('#grandchildren_wrapper').remove();  //子カテゴリが初期値になった時、孫以下を削除する
-      $('#size_wrapper').remove();
-      $('#brand_wrapper').remove();
+      $('.select-item-sizes').css('display', 'none');
+      $('.input-item-brands').css('display', 'none');
     }
+  });
+
+  // 孫カテゴリ選択後にサイズ・ブランドを表示
+  $(document).on('change', '#grandchild_category', function(){
+    $('.select-item-sizes').css('display', 'block');
+    $('.input-item-brands').css('display', 'block');
   });
 });

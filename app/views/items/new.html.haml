@@ -49,7 +49,7 @@
                     %i.fas.fa-angle-down
                     = f.collection_select :category_id, @parent_categories, :id, :name, {prompt: "---"}, {class: "select-wrap__input", id: "parent_category"}
 
-                .form-group
+                .form-group.select-item-sizes{style: "display: none;"}
                   %label.item-detail__category 
                     サイズ
                     %span.form-require 必須
@@ -57,7 +57,7 @@
                     %i.fas.fa-angle-down
                     = f.select :size, Item.sizes_i18n.invert, {prompt: "---"}, {class: "select-wrap__input"}
 
-                .form-group
+                .form-group.input-item-brands{style: "display: none;"}
                   %label.item-detail__category 
                     ブランド
                     %span.form-arbitrary 任意
