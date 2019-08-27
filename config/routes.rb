@@ -8,11 +8,11 @@ Rails.application.routes.draw do
   root 'tops#index'
   resources :signup do
     collection do
-      get '/signup/registration'
-      get '/signup/sms_confirmation'
-      get '/signup/address'
-      get '' # ここで、入力の全てが終了する
-      get '/signup/complete' # 登録完了後のページ
+      get 'step1'
+      get 'step2'
+      get 'step3'
+      get 'step4' # ここで、入力の全てが終了する
+      get 'done' # 登録完了後のページ
     end
   end
   get "users/first" => "users#first"
