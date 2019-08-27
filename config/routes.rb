@@ -1,13 +1,18 @@
 Rails.application.routes.draw do
   devise_scope :user do
     get 'login', to: 'devise/sessions#new'
-    get 'signup', to: 'users#signup'
-    get "/signup/registration" => "devise/registrations#new", as: "new_user_registration" # sign_up/registrationへのカスタムパス
+    get "signup" => "signup#index", as: "signup_index"
+    get "/signup/registration" => "signup#step1", as: "step1_signup_index" # sign_up/registrationへのカスタムパス
+    get "/signup/confirmation" => "signup#step2", as: "step2_signup_index"
+    get "/signup/address" => "signup#step3", as: "step3_signup_index"
+    get "/signup/credit" => "signup#step4", as: "step4_signup_index"
+    get "/signup/complete" => "signup#done", as: "done_signup_index"
   end
   devise_for :users
   root 'tops#index'
   resources :signup do
     collection do
+      get 'index'
       get 'step1'
       get 'step2'
       get 'step3'
