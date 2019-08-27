@@ -90,8 +90,8 @@
                   = f.select :delivery_fee, Item.delivery_fees_i18n.invert, {prompt: "---"}, {class: "select-wrap__input", id: "delivery-fee"}
               
               .select_delivery_wrapper.form-group
-                .default-delivery-setting{style: "display: none;"}
-                  %label.delivery-setting__burden
+                .default-delivery-method{style: "display: none;"}
+                  %label.delivery-method__burden
                     配送の方法
                     %span.form-require 
                       必須
