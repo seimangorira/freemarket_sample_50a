@@ -1,0 +1,88 @@
+.registration-html
+  .registration-body
+    .registration-all
+      .registration-all__container
+        / ヘッダー部分
+        %header.registration-all__header
+          %h1.registration-all__header--h1
+            = link_to "/", class: "registration-all__header--a" do
+              = image_tag "mercari2.png"
+          %nav.registration-all__bar
+            %ol.registration-all__bar--ol
+              %li.registration-all__bar--through
+                会員情報
+                .progress-status
+              %li.registration-all__bar--through-through
+                電話番号認証
+                .progress-status
+              %li.registration-all__bar--through-through
+                お届け先住所入力
+                .progress-status
+              %li.registration-all__bar--active
+                支払い方法
+                .progress-status
+              %li.registration-all__bar--last
+                完了
+                .progress-status
+        / メイン部分
+        %main.registration-all__main
+          %section.registration-all__main-container
+            %h2.registration-all__chapter-head 支払い方法
+            %form.registration-all__inner{:action => "/signup/done"}
+              .registration-all__content
+                .registration-all__form-group
+                  %label.registration-all__form-group--label{:for => "card-num"} カード番号
+                  %span.registration-all__require 必須
+                  %input.input-default{:placeholder => "半角数字のみ", :type => "text"}/
+
+                  %ul.registration-all__cards
+                    %li.registration-all__cards--card
+                      = image_tag "visa.png"
+                    %li.registration-all__cards--card
+                      = image_tag "mastercard.png"
+                    %li.registration-all__cards--card
+                      = image_tag "saison-card.png"
+                    %li.registration-all__cards--card
+                      = image_tag "jcb.png"
+                    %li.registration-all__cards--card
+                      = image_tag "american_express.png"
+                    %li.registration-all__cards--card
+                      = image_tag "dinersclub.png"
+                    %li.registration-all__cards--card
+                      = image_tag "discover.png"
+
+                .registration-all__form-group
+                  %div
+                    %label.registration-all__form-group--label 有効期限
+                    %span.registration-all__require 必須
+                  %select.input-default.half.card
+                    %option{:value => "1"} 01
+                    %option{:value => "2"} 02
+                    %option{:value => "3"} 03
+                    %option{:value => "4"} 04
+                    %option{:value => "5"} 05
+                    %option{:value => "6"} 06
+                    %option{:value => "7"} 07
+                    %option{:value => "8"} 08
+                    %option{:value => "9"} 09
+                    %option{:value => "10"} 10
+                    %option{:value => "11"} 11
+                    %option{:value => "12"} 12
+                  %span.month 月
+                  %select.input-default.half.card
+                    - for i in 19..29
+                      %option{:value => "#{i}"} #{i}
+                  %span.year 年
+                .registration-all__form-group
+                  %label.registration-all__form-group--label{:for => "code"} セキュリティコード
+                  %span.registration-all__require 必須
+                  %input.input-default{:placeholder => "カード背面4桁もしくは3桁の番号"}/
+                .registration-all__form-group
+                  %p.text-right
+                    = link_to "カード裏面の番号とは？", "/", class: "registration-all__a"
+                    %i.fas.fa-chevron-right
+                %button.registration-all__btn-red{:type => "submit"}
+                  次へ進む
+
+        / フッター部分
+        = render 'shared/footer'

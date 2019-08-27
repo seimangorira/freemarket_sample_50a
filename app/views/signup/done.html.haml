@@ -1,0 +1,41 @@
+.registration-html
+  .registration-body
+    .registration-all
+      .registration-all__container
+        / ヘッダー部分
+        %header.registration-all__header
+          %h1.registration-all__header--h1
+            = link_to "/", class: "registration-all__header--a" do
+              = image_tag "mercari2.png"
+          %nav.registration-all__bar
+            %ol.registration-all__bar--ol
+              %li.registration-all__bar--through
+                会員情報
+                .progress-status
+              %li.registration-all__bar--through-through
+                電話番号認証
+                .progress-status
+              %li.registration-all__bar--through-through
+                お届け先住所入力
+                .progress-status
+              %li.registration-all__bar--through-through
+                支払い方法
+                .progress-status
+              %li.registration-all__bar--active-last
+                完了
+                .progress-status
+        / メイン部分
+        %main.registration-all__main
+          %section.registration-all__main-container
+            %h2.registration-all__chapter-head 会員登録完了
+            %form.registration-all__inner{:action => "/"}
+              .registration-all__content
+                %p.sucsess
+                  ありがとうございます。
+                  %br
+                  会員登録が完了しました。
+                %button.registration-all__btn-red{:type => "submit"}
+                  メルカリをはじめる
+
+        / フッター部分
+        = render 'shared/footer'
