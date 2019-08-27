@@ -2,7 +2,7 @@ class TopsController < ApplicationController
 
     def index
         @ladyitems = get_items(1)
-        @manitems = get_items(2)
+        @menitems = get_items(2)
         @babyitems = get_items(3)
         @interioritems = get_items(4)
     end
