@@ -4,9 +4,6 @@ class ItemsController < ApplicationController
 
   def index
   end
-
-  def detail
-  end
   
   def new
     @item = Item.new
@@ -24,6 +21,9 @@ class ItemsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def show
   end
 
   def buy
