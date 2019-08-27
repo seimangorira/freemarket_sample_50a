@@ -2,7 +2,7 @@ class SignupController < ApplicationController
   # 各アクションごとに新規インスタンスを作成します
   # 各アクションごとに、遷移元のページのデータをsessionに保管していきます
   
-  def step1
+  def index
     @user = User.new # 新規インスタンス作成
   end
   
@@ -11,16 +11,18 @@ class SignupController < ApplicationController
     session[:nickname] = user_params[:nickname]
     session[:email] = user_params[:email]
     session[:password] = user_params[:password]
-    session[:password_confirmation] = user_params[:password_confirmation]
-    @user = User.new # 新規インスタンス作成
-  end
-  
-  def step3
-    # step2で入力された値をsessionに保存
+    # session[:password_confirmation] = user_params[:password_confirmation]
     session[:last_name] = user_params[:last_name]
     session[:first_name] = user_params[:first_name]
     session[:last_name_kana] = user_params[:last_name_kana]
     session[:first_name_kana] = user_params[:first_name_kana]
+    session[:birthday] = user_params[:birthday]
+    @user = User.new # 新規インスタンス作成
+  end
+  
+  def step2
+    # step2で入力された値をsessionに保存
+    session[:phone_number] = user_params[:phone_number]
     @user = User.new # 新規インスタンス作成
   end
 
@@ -54,20 +56,20 @@ class SignupController < ApplicationController
   private
   # 許可するキーを設定します
 
-  def user_params
-    params.require(:user).permit(
-      :nickname, 
-      :first_name, 
-      :first_name_kana, 
-      :last_name, 
-      :last_name_kana, 
-      :birthday, 
-      :avatar, 
-      :introduction, 
-      :email,
-      :password,
-      :phone_number
-  )
-  end
+  # def user_params
+  #   params.require(:user).permit(
+  #     :nickname, 
+  #     :first_name, 
+  #     :first_name_kana, 
+  #     :last_name, 
+  #     :last_name_kana, 
+  #     :birthday, 
+  #     :avatar, 
+  #     :introduction, 
+  #     :email,
+  #     :password,
+  #     :phone_number
+  # )
+  # end
   
 end
