@@ -17,15 +17,21 @@
               最大10枚までアップロードできます
             .upload-images__container
               .upload-images__container--uploaded
-                .image-lists{"data-have-item": 0}
-                  %ul
+                .image-lists
+                  %ul.item-image-wrapper.first-image-lists
+                    -# %li.image-lists__list
+                    -#   .item-image-wrapper__figure
+                    -#     = image_tag "mercari_icon.png", alt: "イメージ1"
+                    -#   .item-image-wrapper__button
+                    -#     = link_to "編集", "#"
+                    -#     = link_to "削除", "#"
                 -# 6枚以上選択された際に出現するプレビュー用のラッパー
-                .image-lists.hidden-image-lists{"data-have-item": 0, style: "display: none;"} 
-                  %ul
+                .image-lists
+                  %ul.item-image-wrapper.second-image-lists
               = f.label :images, class: "upload-images__container--now-upload" do
                 -# TODO:jQueryで複数枚アップロード機能実装？(have-itemに変数でNoを設定)
-                .now-upload-wrapper{"data-have-total-item": 0}
-                  = f.file_field :images, multiple: true, class: "now-upload-wrapper--input"
+                .now-upload-wrapper
+                  = f.file_field :images, multiple: true, class: "now-upload-wrapper--input", data: {"total-items": 0}
                   %pre.input.upload-images__container--text
                     ドラッグアンドドロップ
                     またはクリックしてファイルをアップロード

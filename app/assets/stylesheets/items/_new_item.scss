@@ -84,7 +84,10 @@
                 width: 100%;
                 li:first-child {
                   margin-left: 0;
-                  }
+                }
+                li:nth-child(6) {
+                  margin-left: 0;
+                }
                 li {
                   border: 1px solid #eee;
                   display: inline-block;
