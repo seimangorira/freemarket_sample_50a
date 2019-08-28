@@ -44,6 +44,16 @@ $(document).on("turbolinks:load", function(){
     var file = e.target.files[0]  // ファイルオブジェクトを取得する
     var reader = new FileReader(); //FileReaderオブジェクトの生成
 
+    // アップロードされたファイルが画像でない場合は、エラー文を表示して処理を終了
+    // TODO: 以下のコードでは、GIFなどもアップロード可能なため、今後余裕があれば他のやり方を検討する
+    if (file.type.indexOf("image") < 0) {
+      $('.upload-images__container--error-message').append("ファイル形式はjpeg, またはpngが使用できます");
+      console.log('失敗');
+      return false;
+    } else {
+      $('.upload-images__container--error-message').text(""); // エラーメッセージが既に表示されていた場合は削除
+    }
+
     var uploadedNum = Number($(this).attr('data-total-items')); // 現在アップロードされている画像の枚数を取得し、整数に変換
     var afterUploadNum = uploadedNum + 1  
 
