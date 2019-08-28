@@ -1,10 +1,9 @@
 $(document).on("turbolinks:load", function(){
   // アップロードされた画像のプレビューを作成
   function appendItemList(num){
-    // TODO: 画像のsrcは現在仮置き。非同期処理で受け取る？
     var itemList= ` <li class="image-lists__list">
                       <div class="item-image-wrapper__figure">
-                        <img alt="イメージ1" src="/assets/mercari_icon-a5e045c514dd34e9171bdac1f50da42d19c64cba883501f8e3521a5e51b0c57b.png">
+                        <img id="preview-${num}" alt="preview-${num}">
                       </div>
                       <div class="item-image-wrapper__button">
                         <a href="#">編集</a>
@@ -41,13 +40,22 @@ $(document).on("turbolinks:load", function(){
   }
 
   // ファイルがアップロードされたときの処理
-  $('.now-upload-wrapper--input').on('change', function(){
+  $('.now-upload-wrapper--input').on('change', function(e){
+    var file = e.target.files[0]  // ファイルオブジェクトを取得する
+    var reader = new FileReader(); //FileReaderオブジェクトの生成
+
     var uploadedNum = Number($(this).attr('data-total-items')); // 現在アップロードされている画像の枚数を取得し、整数に変換
     var afterUploadNum = uploadedNum + 1  
 
-    appendItemList(afterUploadNum);  // 画像のプレビューを作成
-    changeDropBoxSizes(afterUploadNum); // ファイルボックスの大きさを変更
+    appendItemList(afterUploadNum);  // プレビュー用のHTMLを作成
+    reader.onload = (function(file){ // 上記で追加したHTMLに対し画像を設定
+      return function(e){
+        $(`#preview-${afterUploadNum}`).attr("src", e.target.result); //作成した指定のIDのimgタグにsrcを付与
+      };
+    })(file);
+    reader.readAsDataURL(file);
 
+    changeDropBoxSizes(afterUploadNum); // ファイルボックスの大きさを変更
     $(this)[0].dataset.totalItems = afterUploadNum // カスタムデータ属性の'data-total-items'を更新(1増加させる)
   });
 
