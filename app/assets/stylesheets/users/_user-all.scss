@@ -223,8 +223,8 @@
     padding: 32px;
   }
   
-  .registration-all__content {
-    padding: 40px 0 0;
+  .new_user {
+    padding: 40px 40px 64px;
   }
 
   &__chapter-head {
@@ -246,7 +246,6 @@
     margin: 0 auto;
     width: 100%;
     max-width: 343px;
-    padding: 0 0 64px;
 
     &--text {
       margin-top: 8px;
@@ -416,7 +415,7 @@
   }
 
   &__content--text-center {
-    margin-top: 8px;
+    // margin-top: 8px;
     padding: 0;
     line-height: 1.5;
     text-align: center;
