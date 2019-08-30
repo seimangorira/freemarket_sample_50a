@@ -50,6 +50,12 @@ $(document).on("turbolinks:load", function(){
   $('.now-upload-wrapper--input').on('change', function(e){
     var files = e.target.files;
     var len = files.length;
+
+    if (len > 10) {
+      $('.upload-images__container--error-message').append("アップロードできる画像は10枚までです。");
+      return false;
+    }
+
     var uploadedNum = Number($('.now-upload-wrapper').attr('data-total-items')); // 現在アップロードされている画像の枚数を取得し、整数に変換
 
     for (var i = 0; i < len; i++ ) {
