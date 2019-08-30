@@ -91,3 +91,4 @@ gem "aws-sdk-s3", require: false
 gem 'payjp'
 gem 'enum_help'
 gem 'wicked'
+gem 'omniauth'
