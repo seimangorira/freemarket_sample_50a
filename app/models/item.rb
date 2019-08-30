@@ -20,9 +20,10 @@ class Item < ApplicationRecord
     validates :city
     validates :delivery_days
     validates :category_id
+    validates :images
   end
 
-  # ActiveStorageのバリデーションは未実装
+  validate :image_validates
   
   # 選択肢のenum化
   enum size: {under_XXS: 1, XS: 2, S: 3, M: 4, L: 5, XL: 6, double_XL: 7, triple_XL: 8, over_4XL: 9, FREESIZE: 10}
@@ -30,4 +31,20 @@ class Item < ApplicationRecord
   enum delivery_fee: {postage_included: 1, cash_on_delivery: 2}
   enum delivery_method: {undecided: 1, mercari: 2, post_office_mail: 3, letter_pack: 4, regular_mail: 5, yamato: 6, post_office_pack: 7, click_post: 8, post_office_packet: 9}
   enum delivery_day: { early: 0, middle: 1, late: 2}
+
+  private
+  def image_validates
+    if images.attached?
+      if images.length > 10 
+        errors.add(:images, "画像の枚数は最大10枚までです。")
+      end
+      images.each do |image|
+        if !image.content_type.in?(%('image/jpec image/png'))
+          errors.add(:images, "ファイル形式はjpeg, またはpngが使用できます")
+        end
+      end
+    else
+      errors.add(:images, "画像が1枚以上必要です。")
+    end
+  end
 end
