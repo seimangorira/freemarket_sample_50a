@@ -18,6 +18,13 @@ $(document).on("turbolinks:load", function(){
     }
   }
 
+  function createPreview(reader, num) {
+    reader.onload = function(e){ 
+      src = e.target.result;
+      $(`#preview-${num}`).attr("src", src); //作成した指定のIDのimgタグにsrcを付与
+    };
+  }
+
   // アップロードされた画像の枚数に応じて、ファイルフィールドの大きさを変更
   function changeDropBoxSizes(num) {
     // 計算用の数値を定義。
@@ -41,32 +48,31 @@ $(document).on("turbolinks:load", function(){
 
   // ファイルがアップロードされたときの処理
   $('.now-upload-wrapper--input').on('change', function(e){
-    var file = e.target.files[0]  // ファイルオブジェクトを取得する
-    var reader = new FileReader(); //FileReaderオブジェクトの生成
+    var files = e.target.files;
+    var len = files.length;
+    var uploadedNum = Number($('.now-upload-wrapper').attr('data-total-items')); // 現在アップロードされている画像の枚数を取得し、整数に変換
 
-    // アップロードされたファイルが画像でない場合は、エラー文を表示して処理を終了
-    // TODO: 以下のコードでは、GIFなどもアップロード可能なため、今後余裕があれば他のやり方を検討する
-    if (file.type.indexOf("image") < 0) {
-      $('.upload-images__container--error-message').append("ファイル形式はjpeg, またはpngが使用できます");
-      console.log('失敗');
-      return false;
-    } else {
-      $('.upload-images__container--error-message').text(""); // エラーメッセージが既に表示されていた場合は削除
+    for (var i = 0; i < len; i++ ) {
+      var reader = new FileReader(); //FileReaderオブジェクトの生成
+      var afterUploadNum = uploadedNum + i + 1
+
+      var file = files[i]
+      // アップロードされたファイルが画像でない場合は、エラー文を表示して処理を終了
+      // TODO: GIFなどもアップロード可能な状態であり、複数枚同時選択時の表示に不具合があるため、今後余裕があれば他のやり方を検討する
+      if (file.type.indexOf("image") < 0) {
+        $('.upload-images__container--error-message').append("ファイル形式はjpeg, またはpngが使用できます");
+        return false;
+      } else {
+        $('.upload-images__container--error-message').text(""); // エラーメッセージが既に表示されていた場合は削除
+      }
+
+      appendItemList(afterUploadNum);  // プレビュー用のHTMLを作成
+      createPreview(reader, afterUploadNum); // appendItemListで作成したHTMLに対し、画像を追加
+      reader.readAsDataURL(file);
     }
 
-    var uploadedNum = Number($(this).attr('data-total-items')); // 現在アップロードされている画像の枚数を取得し、整数に変換
-    var afterUploadNum = uploadedNum + 1  
-
-    appendItemList(afterUploadNum);  // プレビュー用のHTMLを作成
-    reader.onload = (function(file){ // 上記で追加したHTMLに対し画像を設定
-      return function(e){
-        $(`#preview-${afterUploadNum}`).attr("src", e.target.result); //作成した指定のIDのimgタグにsrcを付与
-      };
-    })(file);
-    reader.readAsDataURL(file);
-
     changeDropBoxSizes(afterUploadNum); // ファイルボックスの大きさを変更
-    $(this)[0].dataset.totalItems = afterUploadNum // カスタムデータ属性の'data-total-items'を更新(1増加させる)
+    $('.now-upload-wrapper')[0].dataset.totalItems = afterUploadNum; // カスタムデータ属性の'data-total-items'を更新(追加した画像の数分増加させる)
   });
 
   // ファイルが削除されたときの処理
@@ -75,7 +81,8 @@ $(document).on("turbolinks:load", function(){
     event.preventDefault(); // aタグクリックによる画面遷移を防ぐ
     $(this).parents("li").remove(); // 親要素のliを取得して削除
 
-    var uploadedNum = Number($('.now-upload-wrapper--input').attr('data-total-items'));
+    // リストの数値。削除したものより、後のリストの番号も1ずつ減らす
+    var uploadedNum = Number($('.now-upload-wrapper').attr('data-total-items'));
     var afterDeleteNum = uploadedNum - 1
     changeDropBoxSizes(afterDeleteNum);
 
@@ -83,6 +90,6 @@ $(document).on("turbolinks:load", function(){
     if (afterDeleteNum == 9 ) {
       $('.upload-images__container--now-upload').css('display', 'inline-block');
     }
-    $('.now-upload-wrapper--input')[0].dataset.totalItems -= 1; // カスタムデータ属性の'data-total-items'を更新(1減少させる) 
+    $('.now-upload-wrapper')[0].dataset.totalItems -= 1; // カスタムデータ属性の'data-total-items'を更新(1減少させる) 
   })
 });
