@@ -1,0 +1,16 @@
+.contents__main__center
+  .contents__main__center__item
+    - items.each do |item|
+      = link_to "/item/#{item.id}/" do
+        .contents__main__center__item__box
+          .contents__main__center__item__box__image
+            = image_tag item.images[0].variant(resize: '213x220'), width:"213", height:"220", alt: "イメージ1"
+          .contents__main__center__item__box__text
+            .contents__main__center__item__box__text__product
+              = item.name
+            .contents__main__center__item__box__text__price
+              = "¥ #{item.price.to_s(:delimited)}"
+  .contents__main__center__all
+    .contents__main__center__all__item
+      .contents__main__center__all__item__box
+        = link_to 'すべての商品を見る', root_path 
