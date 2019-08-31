@@ -8,8 +8,8 @@
 |last_name|string|null: false|
 |last_name_kana|string|null: false|
 |birthday|date||
-|avatar|text|-|
-|introduction|text|-|
+|avatar|text||
+|introduction|text||
 |e-mail|string|null: false, unique: true|
 |password|string|null: false|
 |phone_number|integer|unique: true|
