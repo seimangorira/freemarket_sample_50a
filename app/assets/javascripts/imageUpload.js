@@ -56,13 +56,13 @@ $(document).on("turbolinks:load", function(){
   $(document).on('change', '.now-upload-wrapper--input:first', function(e){
     var files = e.target.files;
     var len = files.length;
+    var uploadedNum = Number($('.now-upload-wrapper').attr('data-total-items')); // 現在アップロードされている画像の枚数を取得し、整数に変換
 
-    if (len > 10) {
-      $('.upload-images__container--error-message').append("アップロードできる画像は10枚までです。");
+    // 合計11枚以上画像をアップロードしようとした際に、処理を中止
+    if ( uploadedNum + len > 10) { 
+      $('.upload-images__container--error-message').append("アップロードできる画像は10枚までです。"); 
       return false;
     }
-
-    var uploadedNum = Number($('.now-upload-wrapper').attr('data-total-items')); // 現在アップロードされている画像の枚数を取得し、整数に変換
 
     for (var i = 0; i < len; i++ ) {
       var reader = new FileReader(); //FileReaderオブジェクトの生成
