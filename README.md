@@ -92,6 +92,18 @@ extend ActiveHash::Associations::ActiveRecordExtensions
 - has_ancestry
 
 
+## Active_storage_attachmentsテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+|record_type|string|null: false|
+|record_id|references|null: false, polymorphic: true, index: false|
+|blob_id|references|null: false|
+
+### Association
+
+
 ## Commentsテーブル
 
 |Column|Type|Options|
