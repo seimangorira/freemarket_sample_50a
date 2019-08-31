@@ -49,17 +49,6 @@ extend ActiveHash::Associations::ActiveRecordExtensions
 - belongs_to_active_hash :prefecture
 
 
-## Imagesテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|image|text|null: false|
-|item_id|references|null: false, foreign_key: true|
-
-### Association
-- belongs_to :item
-
-
 ## Commentsテーブル
 
 |Column|Type|Options|
