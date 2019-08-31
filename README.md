@@ -30,25 +30,23 @@
 |price|integer|null: false|
 |state|integer|null: false|
 |introduction|text|null: false|
-|parent_category|string|null: false, index: true|
-|child_category|string|null: false, index: true|
-|grandchild_category|string|null: false, index: true|
 |brand|string||
 |status|integer|null: false|
 |size|integer||
 |delivery_fee|integer||
 |city|string|null: false|
 |delivery_days|date|null: false|
+|category_id|bigint|null: false|
 |saler_id|references|null: false, foreign_key: true|
 |buyer_id|references|null: false, foreign_key: true|
-|user_id|references|null: false, foreign_key: true|
 
 ### Association
-- belongs_to :user
 - belongs_to :saler, class_name: "User"
 - belongs_to :buyer, class_name: "User"
-- has_many :comments
-- has_many :images
+- has_many_attached :images
+- belongs_to :category
+extend ActiveHash::Associations::ActiveRecordExtensions  
+- belongs_to_active_hash :prefecture
 
 
 ## Imagesテーブル
