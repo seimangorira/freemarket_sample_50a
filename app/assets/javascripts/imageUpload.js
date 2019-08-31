@@ -83,11 +83,11 @@ $(document).on("turbolinks:load", function(){
 
   // ファイルが削除されたときの処理
   // TODO: 実際にform_withで選択されたファイルを削除する処理も追記する必要あり
+  $(document).off('click', '.delete-uploaded-image');
   $(document).on('click', '.delete-uploaded-image', function() {
     event.preventDefault(); // aタグクリックによる画面遷移を防ぐ
     $(this).parents("li").remove(); // 親要素のliを取得して削除
 
-    // リストの数値。削除したものより、後のリストの番号も1ずつ減らす
     var uploadedNum = Number($('.now-upload-wrapper').attr('data-total-items'));
     var afterDeleteNum = uploadedNum - 1
     changeDropBoxSizes(afterDeleteNum);
