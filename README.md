@@ -103,6 +103,20 @@ extend ActiveHash::Associations::ActiveRecordExtensions
 ### Association
 
 
+## Active_storage_blobsテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|key|string|null: false|
+|filename|string|null: false|
+|content_type|string||
+|metadata|text||
+|byte_size|bigint|null: false|
+|checksum|string|null: false|
+
+### Association
+
+
 ## Commentsテーブル
 
 |Column|Type|Options|
