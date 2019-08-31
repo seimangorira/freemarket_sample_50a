@@ -10,7 +10,7 @@ class Item < ApplicationRecord
 
   # 商品出品時、編集時のバリデーション
   validates :name, presence: true, length: { maximum: 40 }
-  validates :price, numericality: { only_integer: true, greater_than_or_equal: 300, less_than_or_equal_to: 9999999 }
+  validates :price, numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999 }
   validates :introduction, presence: true, length: { maximum: 1000 }
 
   with_options presence: true do
