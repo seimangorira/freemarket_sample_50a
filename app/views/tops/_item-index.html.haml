@@ -1,15 +1,15 @@
 .contents__main__center
   .contents__main__center__item
-    - @interioritems.each do |interiors|
-      = link_to "/item/#{interiors.id}/" do
+    - items.each do |item|
+      = link_to "/item/#{item.id}/" do
         .contents__main__center__item__box
           .contents__main__center__item__box__image
-            = image_tag interiors.images[0].variant(resize: '213x220'), width:"213", height:"220", alt: "イメージ1"
+            = image_tag item.images[0].variant(resize: '213x220'), width:"213", height:"220", alt: "イメージ1"
           .contents__main__center__item__box__text
             .contents__main__center__item__box__text__product
-              = interiors.name
+              = item.name
             .contents__main__center__item__box__text__price
-              = "¥ #{interiors.price.to_s(:delimited)}"
+              = "¥ #{item.price.to_s(:delimited)}"
   .contents__main__center__all
     .contents__main__center__all__item
       .contents__main__center__all__item__box

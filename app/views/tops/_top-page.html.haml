@@ -1,12 +1,12 @@
 - if @ladyitems.present?
   %h3= link_to 'レディース新着アイテム', root_path
-  = render 'ladies-item'
+  = render partial: 'item-index', locals: {items: @ladyitems}
 - if @menitems.present?
   %h3= link_to 'メンズ新着アイテム', root_path
-  = render 'mens-item'
+  = render partial: 'item-index', locals: {items: @menitems}
 - if @babyitems.present?
   %h3= link_to 'ベビー・キッズ新着一覧', root_path
-  = render 'babies-item'
+  = render partial: 'item-index', locals: {items: @babyitems}
 - if @interioritems.present?
   %h3= link_to 'インテリア・住まい・小物', root_path
-  = render 'interiors-item'
+  = render partial: 'item-index', locals: {items: @interioritems}
