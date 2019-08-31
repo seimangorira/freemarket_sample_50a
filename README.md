@@ -79,6 +79,19 @@ extend ActiveHash::Associations::ActiveRecordExtensions
 - has_ancestry
 
 
+## Sns_credentialsテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|provider|string||
+|uid|string||
+|user_id|references|foreign_key: true|
+
+### Association
+- has_many :items
+- has_ancestry
+
+
 ## Commentsテーブル
 
 |Column|Type|Options|
