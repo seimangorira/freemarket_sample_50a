@@ -37,14 +37,14 @@ class Item < ApplicationRecord
     if images.attached?
       if images.length > 10 
         errors.add(:images, "画像の枚数は最大10枚までです。")
+      elsif images.length == 0
+        errors.add(:images, "画像が1枚以上必要です。")
       end
       images.each do |image|
-        if !image.content_type.in?(%('image/jpec image/png'))
+        if !image.content_type.in?(%('image/jpeg image/png'))
           errors.add(:images, "ファイル形式はjpeg, またはpngが使用できます")
         end
       end
-    else
-      errors.add(:images, "画像が1枚以上必要です。")
     end
   end
 end
