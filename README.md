@@ -67,6 +67,18 @@ extend ActiveHash::Associations::ActiveRecordExtensions
 ### Association
 
 
+## Categoriesテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+|ancestry|string||
+
+### Association
+- has_many :items
+- has_ancestry
+
+
 ## Commentsテーブル
 
 |Column|Type|Options|
