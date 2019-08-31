@@ -7,10 +7,6 @@
 |first_name_kana|string|null: false|
 |last_name|string|null: false|
 |last_name_kana|string|null: false|
-|postal_cord|integer|null: false|
-|municipalities|string|null: false|
-|address|string|null: false|
-|building_name|string|-|
 |birthday|date||
 |avatar|text|-|
 |introduction|text|-|
@@ -19,7 +15,6 @@
 |phone_number|integer|unique: true|
 
 ### Association
-- has_many :items
 - has_many :comments
 - has_one :credit
 - has_many :buyer_items, foreign_key: "buyer_id", class_name: "Item"
