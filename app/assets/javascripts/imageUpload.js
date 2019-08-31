@@ -50,8 +50,9 @@ $(document).on("turbolinks:load", function(){
       inputWrapper.css('margin-left', '2%');
     }
   }
-
+  
   // ファイルがアップロードされたときの処理
+  $(document).off('change', '.now-upload-wrapper--input:first');
   $(document).on('change', '.now-upload-wrapper--input:first', function(e){
     var files = e.target.files;
     var len = files.length;
