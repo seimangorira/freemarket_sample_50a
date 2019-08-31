@@ -22,19 +22,6 @@
 - has_many :sold_items, -> { where("buyer_id is NULL")}, foreign_key: "salier_id", class_name: "Item"
 
 
-## Creditsテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|card_number|integer|null: false, unique: true|
-|expiration_date|date|null: false|
-|pin|integer|null: false, unique: true|
-|user_id|references|null: false, foreign_key: true|
-
-### Association
-- belongs_to :user
-
-
 ## Itemsテーブル
 
 |Column|Type|Options|
