@@ -25,6 +25,11 @@ $(document).on("turbolinks:load", function(){
     };
   }
 
+  function createNewForm(num) {
+    var newForm = `<input multiple="multiple" class="now-upload-wrapper--input upload-box-${num}" type="file" name="item[images][]" id="item_images" style="z-index: ${num}"></input>`
+    $('.now-upload-wrapper').prepend(newForm);
+  }
+
   // アップロードされた画像の枚数に応じて、ファイルフィールドの大きさを変更
   function changeDropBoxSizes(num) {
     // 計算用の数値を定義。
@@ -47,7 +52,7 @@ $(document).on("turbolinks:load", function(){
   }
 
   // ファイルがアップロードされたときの処理
-  $('.now-upload-wrapper--input').on('change', function(e){
+  $(document).on('change', '.now-upload-wrapper--input:first', function(e){
     var files = e.target.files;
     var len = files.length;
 
@@ -74,6 +79,7 @@ $(document).on("turbolinks:load", function(){
 
       appendItemList(afterUploadNum);  // プレビュー用のHTMLを作成
       createPreview(reader, afterUploadNum); // appendItemListで作成したHTMLに対し、画像を追加
+      createNewForm(afterUploadNum); // 新規フォームを作成
       reader.readAsDataURL(file);
     }
 
@@ -82,13 +88,13 @@ $(document).on("turbolinks:load", function(){
   });
 
   // ファイルが削除されたときの処理
-  // TODO: 実際にform_withで選択されたファイルを削除する処理も追記する必要あり
   $(document).off('click', '.delete-uploaded-image');
   $(document).on('click', '.delete-uploaded-image', function() {
     event.preventDefault(); // aタグクリックによる画面遷移を防ぐ
     $(this).parents("li").remove(); // 親要素のliを取得して削除
 
     var uploadedNum = Number($('.now-upload-wrapper').attr('data-total-items'));
+    $(`.upload-box-${uploadedNum}`).remove();
     var afterDeleteNum = uploadedNum - 1
     changeDropBoxSizes(afterDeleteNum);
 

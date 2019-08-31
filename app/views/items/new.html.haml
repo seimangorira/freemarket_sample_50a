@@ -22,8 +22,9 @@
                 .image-lists
                   %ul.item-image-wrapper.second-image-lists
               = f.label :images, class: "upload-images__container--now-upload" do
+                -# .upload-images__container--now-upload
                 .now-upload-wrapper{"data-total-items": 0}
-                  = f.file_field :images, multiple: true, class: "now-upload-wrapper--input"
+                  = f.file_field :images, multiple: true, class: "now-upload-wrapper--input upload-box-0"
                   %pre.input.upload-images__container--text
                     ドラッグアンドドロップ
                     またはクリックしてファイルをアップロード
