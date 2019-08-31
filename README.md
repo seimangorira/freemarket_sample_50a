@@ -88,8 +88,7 @@ extend ActiveHash::Associations::ActiveRecordExtensions
 |user_id|references|foreign_key: true|
 
 ### Association
-- has_many :items
-- has_ancestry
+- belongs_to :user
 
 
 ## Active_storage_attachmentsテーブル
