@@ -49,6 +49,24 @@ extend ActiveHash::Associations::ActiveRecordExtensions
 - belongs_to_active_hash :prefecture
 
 
+## Addressesテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|first_name|string|null: false|
+|first_name_kana|string|null: false|
+|last_name|string|null: false|
+|last_name_kana|string|null: false|
+|postal_cord|integer|null: false|
+|state|string|null: false|
+|municipalities|string|null: false|
+|house_number|string|null: false|
+|building_name|string||
+|phone_number|integer|unique: true|
+
+### Association
+
+
 ## Commentsテーブル
 
 |Column|Type|Options|
