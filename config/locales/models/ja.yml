@@ -70,7 +70,7 @@ ja:
         post_office_pack: "ゆうパック"
         click_post: "クリックポスト"
         post_office_packet: "ゆうパケット"
-      delivery_day:
+      delivery_days:
         early: "1~2日で発送"
         middle: "2~3日で発送"
         late: "4~7日で発送"
