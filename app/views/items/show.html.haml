@@ -1,89 +1,32 @@
 .main
   = render "shared/top-header"
+
+  -# 商品の詳細情報
   %section.main__item-box
-    %h1.main__item-box__item-name 極美品 オールドコーチ 0502 レザー 2way 大型ボストンバッグ D818
+    %h1.main__item-box__item-name 
+      = @item.name
     .main__item-box__item-main.clearfix
       .main__item-box__item-main__content
         .main__item-box__item-main__content__photo
           .main__item-box__item-main__content__photo__header
             .main__item-box__item-main__content__photo__header__items.stage{style: 'left: 0px; width: 3000px;'}
-              .main__item-box__item-main__content__photo__header__items__stage{style: 'width: 300px;'}
-                .main__item-box__item-main__content__photo__header__items__stage__inner
-                  = image_tag "https://static.mercdn.net/item/detail/orig/photos/m92654645745_1.jpg?1562400146", class: "main__item-box__item-main__content__photo__header__items__stage__inner--main-image", style: "opacity: 1;", width: "300"
-              .main__item-box__item-main__content__photo__header__items__stage{style: 'width: 300px;'}
-                .main__item-box__item-main__content__photo__header__items__stage__inner
-                  = image_tag "https://c.imgz.jp/211/12975211/12975211_8_D_215.jpg", class: "main__item-box__item-main__content__photo__header__items__stage__inner--main-image", style: "opacity: 1;", width: "300"
-              .main__item-box__item-main__content__photo__header__items__stage{style: 'width: 300px;'}
-                .main__item-box__item-main__content__photo__header__items__stage__inner
-                  = image_tag "https://static.mercdn.net/item/detail/orig/photos/m92654645745_1.jpg?1562400146", class: "main__item-box__item-main__content__photo__header__items__stage__inner--main-image", style: "opacity: 1;", width: "300"
-              .main__item-box__item-main__content__photo__header__items__stage{style: 'width: 300px;'}
-                .main__item-box__item-main__content__photo__header__items__stage__inner
-                  = image_tag "https://static.mercdn.net/item/detail/orig/photos/m92654645745_1.jpg?1562400146", class: "main__item-box__item-main__content__photo__header__items__stage__inner--main-image", style: "opacity: 1;", width: "300"
-              .main__item-box__item-main__content__photo__header__items__stage{style: 'width: 300px;'}
-                .main__item-box__item-main__content__photo__header__items__stage__inner
-                  = image_tag "https://static.mercdn.net/item/detail/orig/photos/m92654645745_1.jpg?1562400146", class: "main__item-box__item-main__content__photo__header__items__stage__inner--main-image", style: "opacity: 1;", width: "300"
-              .main__item-box__item-main__content__photo__header__items__stage{style: 'width: 300px;'}
-                .main__item-box__item-main__content__photo__header__items__stage__inner
-                  = image_tag "https://static.mercdn.net/item/detail/orig/photos/m92654645745_1.jpg?1562400146", class: "main__item-box__item-main__content__photo__header__items__stage__inner--main-image", style: "opacity: 1;", width: "300"
-              .main__item-box__item-main__content__photo__header__items__stage{style: 'width: 300px;'}
-                .main__item-box__item-main__content__photo__header__items__stage__inner
-                  = image_tag "https://static.mercdn.net/item/detail/orig/photos/m92654645745_1.jpg?1562400146", class: "main__item-box__item-main__content__photo__header__items__stage__inner--main-image", style: "opacity: 1;", width: "300"
-              .main__item-box__item-main__content__photo__header__items__stage{style: 'width: 300px;'}
-                .main__item-box__item-main__content__photo__header__items__stage__inner
-                  = image_tag "https://static.mercdn.net/item/detail/orig/photos/m92654645745_1.jpg?1562400146", class: "main__item-box__item-main__content__photo__header__items__stage__inner--main-image", style: "opacity: 1;", width: "300"
-              .main__item-box__item-main__content__photo__header__items__stage{style: 'width: 300px;'}
-                .main__item-box__item-main__content__photo__header__items__stage__inner
-                  = image_tag "https://static.mercdn.net/item/detail/orig/photos/m92654645745_1.jpg?1562400146", class: "main__item-box__item-main__content__photo__header__items__stage__inner--main-image", style: "opacity: 1;", width: "300"
-              .main__item-box__item-main__content__photo__header__items__stage{style: 'width: 300px;'}
-                .main__item-box__item-main__content__photo__header__items__stage__inner
-                  = image_tag "https://static.mercdn.net/item/detail/orig/photos/m92654645745_1.jpg?1562400146", class: "main__item-box__item-main__content__photo__header__items__stage__inner--main-image", style: "opacity: 1;", width: "300"
+              - @item.images.each do |image|
+                .main__item-box__item-main__content__photo__header__items__stage{style: 'width: 300px;'}
+                  .main__item-box__item-main__content__photo__header__items__stage__inner
+                    = image_tag image, class: "main__item-box__item-main__content__photo__header__items__stage__inner--main-image", style: "opacity: 1;", width: "300"
+
           .main__item-box__item-main__content__photo__image-box
-            .main__item-box__item-main__content__photo__image-box__mini-image{"data-image-id": 0}
-              %span
-              .main__item-box__item-main__content__photo__image-box__mini-image__inner
-                = image_tag "https://static.mercdn.net/item/detail/orig/photos/m92654645745_1.jpg?1562400146", class: ".main__item-box__item-main__content__photo__image-box__mini-image__inner--sub-image"
-            .main__item-box__item-main__content__photo__image-box__mini-image{"data-image-id": 1}
-              %span
-              .main__item-box__item-main__content__photo__image-box__mini-image__inner
-                = image_tag "https://c.imgz.jp/211/12975211/12975211_8_D_215.jpg", class: ".main__item-box__item-main__content__photo__image-box__mini-image__inner--sub-image"
-            .main__item-box__item-main__content__photo__image-box__mini-image{"data-image-id": 2}
-              %span
-              .main__item-box__item-main__content__photo__image-box__mini-image__inner
-                = image_tag "https://static.mercdn.net/item/detail/orig/photos/m92654645745_1.jpg?1562400146", class: ".main__item-box__item-main__content__photo__image-box__mini-image__inner--sub-image"
-            .main__item-box__item-main__content__photo__image-box__mini-image{"data-image-id": 3}
-              %span
-              .main__item-box__item-main__content__photo__image-box__mini-image__inner
-                = image_tag "https://static.mercdn.net/item/detail/orig/photos/m92654645745_1.jpg?1562400146", class: ".main__item-box__item-main__content__photo__image-box__mini-image__inner--sub-image"
-            .main__item-box__item-main__content__photo__image-box__mini-image{"data-image-id": 4}
-              %span
-              .main__item-box__item-main__content__photo__image-box__mini-image__inner
-                = image_tag "https://static.mercdn.net/item/detail/orig/photos/m92654645745_1.jpg?1562400146", class: ".main__item-box__item-main__content__photo__image-box__mini-image__inner--sub-image"
-            .main__item-box__item-main__content__photo__image-box__mini-image{"data-image-id": 5}
-              %span
-              .main__item-box__item-main__content__photo__image-box__mini-image__inner
-                = image_tag "https://static.mercdn.net/item/detail/orig/photos/m92654645745_1.jpg?1562400146", class: ".main__item-box__item-main__content__photo__image-box__mini-image__inner--sub-image"
-            .main__item-box__item-main__content__photo__image-box__mini-image{"data-image-id": 6}
-              %span
-              .main__item-box__item-main__content__photo__image-box__mini-image__inner
-                = image_tag "https://static.mercdn.net/item/detail/orig/photos/m92654645745_1.jpg?1562400146", class: ".main__item-box__item-main__content__photo__image-box__mini-image__inner--sub-image"
-            .main__item-box__item-main__content__photo__image-box__mini-image{"data-image-id": 7}
-              %span
-              .main__item-box__item-main__content__photo__image-box__mini-image__inner
-                = image_tag "https://static.mercdn.net/item/detail/orig/photos/m92654645745_1.jpg?1562400146", class: ".main__item-box__item-main__content__photo__image-box__mini-image__inner--sub-image"
-            .main__item-box__item-main__content__photo__image-box__mini-image{"data-image-id": 8}
-              %span
-              .main__item-box__item-main__content__photo__image-box__mini-image__inner
-                = image_tag "https://static.mercdn.net/item/detail/orig/photos/m92654645745_1.jpg?1562400146", class: ".main__item-box__item-main__content__photo__image-box__mini-image__inner--sub-image"
-            .main__item-box__item-main__content__photo__image-box__mini-image{"data-image-id": 9}
-              %span
-              .main__item-box__item-main__content__photo__image-box__mini-image__inner
-                = image_tag "https://static.mercdn.net/item/detail/orig/photos/m92654645745_1.jpg?1562400146", class: ".main__item-box__item-main__content__photo__image-box__mini-image__inner--sub-image"
+            - @item.images.each_with_index do |image, i|
+              .main__item-box__item-main__content__photo__image-box__mini-image{"data-image-id": i}
+                %span
+                .main__item-box__item-main__content__photo__image-box__mini-image__inner
+                  = image_tag image, class: ".main__item-box__item-main__content__photo__image-box__mini-image__inner--sub-image"
       %table.main__item-box__item-main__detail-table
         %tbody.main__item-box__item-main__detail-table__field
           %tr
             %th 出品者
             %td
-              = link_to 'ユーザー1', "/items/detail"
+              = link_to @exhibitor.nickname, "#"
               .main__item-box__item-main__detail-table__field__icons
                 .main__item-box__item-main__detail-table__field__icons--smile-icons
                   %i.fas.fa-grin-alt
@@ -97,85 +40,53 @@
           %tr
             %th カテゴリー
             %td
-              = link_to "/items/detail" do
-                .main__item-box__item-main__detail-table__field__category レディース
-              = link_to "/items/detail" do
+              = link_to "#" do
+                .main__item-box__item-main__detail-table__field__category
+                  = @category.root.name
+              = link_to "#" do
                 .main__item-box__item-main__detail-table__field__category-sub
                   %i.fa.fa-chevron-right
-                  バッグ
-              = link_to "/items/detail" do
+                    = @category.parent.name
+              = link_to "#" do
                 .main__item-box__item-main__detail-table__field__category-sub-sub
                   %i.fa.fa-chevron-right
-                  ショルダーバッグ
+                    = @category.name
           %tr
             %th ブランド
             %td
-              = link_to "/items/detail" do
-                .main__item-box__item-main__detail-table__field__brand コーチ
+              = link_to "#" do
+                .main__item-box__item-main__detail-table__field__brand
+                  = @item.brand
           %tr
             %th 商品の状態
-            %td 未使用に近い
+            %td
+              = @item.state_i18n
           %tr
             %th 配送料の負担
-            %td 送料込み（出品者負担）
+            %td 
+              = @item.delivery_fee_i18n
           %tr
             %th 配送の方法
-            %td ゆうパック
+            %td
+              = @item.delivery_method_i18n
           %tr
             %th 配送先の地域
-            %td 
-              =link_to '大阪府', "/items/detail"
+            %td
+              =link_to "#{@item.city}", "#"
           %tr
             %th 発送日の目安
-            %td 1~2日で発送
+            %td
+              = @item.delivery_days_i18n
     .main__item-box__item-price 
-      %span.main__item-box__item-price--text ¥ 26,000
+      %span.main__item-box__item-price--text
+        = "¥ #{@item.price}"
       %span.main__item-box__item-price--tax (税込)
       %span.main__item-box__item-price--shipping-fee 送料込み
-    .main__item-box__item-btn 購入画面に進む
+    = link_to "/items/buy" do
+      .main__item-box__item-btn 購入画面に進む
     .main__item-box__item-description
       %p.main__item-box__item-description--text
-        ご覧いただきありがとうございます。
-        極美品 オールドコーチ 0502 レザー 2way 大型ボストンバッグ D818の出品です♪
-        /
-        【ブランド】
-        COACH/コーチ
-        /
-        【コンディション】
-        若干の擦れはございますが全体的にかなり綺麗な状態です(*^^*)
-        詳細は画像にてご確認ください。
-        /
-        【サイズ】
-        縦横 約24cm×54cm
-        マチ 約23cm
-        持ち手 約10cm
-        ショルダー 約35cm
-        ※記載している持ち手(ショルダー)の長さは
-        バッグ上部から持ち手(ショルダー)のトップまでの長さを測っております。
-        /
-        【重さ】
-        約1638g
-        /
-        【カラー】
-        ブラウン
-        /
-        【素材】
-        レザー
-        /
-        【付属品】
-        画像のもので全てになります。
-        /
-        /
-        【梱包、配送について】
-        梱包はプチプチに包みダンボール、
-        または簡易梱包資材に入れての発送になります。
-        厳重に梱包しますので破損の心配は不要です(^^)
-        全国送料無料です。
-        /
-        ☆ご購入前にはプロフィールに目を通していただきますよう
-        お願い致します(^^)/ 
-        /
-        1.2#bag#ブランドバッグ#レディース#バッグ#カバン#ファッション#ハンドバッグ #ショルダーバッグ
+        = @item.introduction
     .main__item-box__item-icon
       .main__item-box__item-icon__left
         %button.main__item-box__item-icon__left__like 
@@ -186,7 +97,7 @@
           %i.far.fa-flag
             %span 不適切な商品の報告
       .main__item-box__item-icon__right
-        = link_to "/items/detail" do
+        = link_to "#" do
           %i.fa.fa-lock
             %span あんしん・あんぜんへの取り組み
   .main__detail-message
@@ -199,179 +110,68 @@
             %span コメントする
   %ul.main__item-link
     %li.main__item-link__previous
-      = link_to "/items/detail" do
+      = link_to "#" do
         %i.fa.fa-chevron-left 
-        AUX PARADIS サボン 空瓶
+        = @randItemLeft.name
     %li.main__item-link__next
-      = link_to "/items/detail" do
-        ハーバリウム.:*:・'°☆ヘリクリサム
+      = link_to "#" do
+        = @randItemRight.name
         %i.fa.fa-chevron-right
   .main__media-box
     .main__media-box--text
     %ul.main__media-box__media-icon
       %li
-        = link_to "/items/detail" do
+        = link_to "#" do
           %i.fab.fa-facebook-square
       %li
-        =link_to "/items/detail" do
+        =link_to "#" do
           %i.fab.fa-twitter-square
       %li
-        = link_to "/items/detail" do
+        = link_to "#" do
           %i.fab.fa-pinterest-square
   .main__user-item
+
+    -# 個人のその他の出品
     %section.main__user-item__user-item-box.clearfix
       %h2.main__user-item__user-item-box--name
-        = link_to "/items/detail" do
-          ユーザー1さんのその他出品
+        = link_to "#" do
+          = "#{@exhibitor.nickname}さんのその他の出品"
       .main__user-item__user-item-box__content.clearfix
-        %section.main__user-item__user-item-box__content__image-box
-          = link_to "/items/detail" do
-            %figure.main__user-item__user-item-box__content__image-box__photo
-              = image_tag "https://cdn.thumb.shop-list.com/res/up/shoplist/shp/__basethum200__/altrose/sd/660375-06.jpg", class: 'main__user-item__user-item-box__content__image-box__photo--item-image', width: "220", height: "220"
-            .main__user-item__user-item-box__content__image-box__body
-              %h3.main__user-item__user-item-box__content__image-box__body--items-name
-                かばんかばんかばんかばんカバンかばんかばんかばんかばんかばんかばんかばんかばんんかばん
-              .main__user-item__user-item-box__content__image-box__body__num
-                .main__user-item__user-item-box__content__image-box__body__num--price ¥ 9,000
-                .main__user-item__user-item-box__content__image-box__body__num--heart
-                  %i.far.fa-heart
-                  %span 4
-        %section.main__user-item__user-item-box__content__image-box
-          = link_to "/items/detail" do
-            %figure.main__user-item__user-item-box__content__image-box__photo
-              = image_tag "https://cdn.thumb.shop-list.com/res/up/shoplist/shp/__basethum200__/altrose/sd/660375-06.jpg", class: 'main__user-item__user-item-box__content__image-box__photo--item-image', width: "220", height: "220"
-            .main__user-item__user-item-box__content__image-box__body
-              %h3.main__user-item__user-item-box__content__image-box__body--items-name
-                かばんかばんかばんかばんカバンかばんかばんかばんかばんかばんかばんかばんかばんんかばん
-              .main__user-item__user-item-box__content__image-box__body__num
-                .main__user-item__user-item-box__content__image-box__body__num--price ¥ 9,000
-                .main__user-item__user-item-box__content__image-box__body__num--heart
-                  %i.far.fa-heart
-                  %span 4
-        %section.main__user-item__user-item-box__content__image-box
-          = link_to "/items/detail" do
-            %figure.main__user-item__user-item-box__content__image-box__photo
-              = image_tag "https://cdn.thumb.shop-list.com/res/up/shoplist/shp/__basethum200__/altrose/sd/660375-06.jpg", class: 'main__user-item__user-item-box__content__image-box__photo--item-image', width: "220", height: "220"
-            .main__user-item__user-item-box__content__image-box__body
-              %h3.main__user-item__user-item-box__content__image-box__body--items-name
-                かばんかばんかばんかばんカバンかばんかばんかばんかばんかばんかばんかばんかばんんかばん
-              .main__user-item__user-item-box__content__image-box__body__num
-                .main__user-item__user-item-box__content__image-box__body__num--price ¥ 9,000
-                .main__user-item__user-item-box__content__image-box__body__num--heart
-                  %i.far.fa-heart
-                  %span 4
-        %section.main__user-item__user-item-box__content__image-box
-          = link_to "/items/detail" do
-            %figure.main__user-item__user-item-box__content__image-box__photo
-              = image_tag "https://cdn.thumb.shop-list.com/res/up/shoplist/shp/__basethum200__/altrose/sd/660375-06.jpg", class: 'main__user-item__user-item-box__content__image-box__photo--item-image', width: "220", height: "220"
-            .main__user-item__user-item-box__content__image-box__body
-              %h3.main__user-item__user-item-box__content__image-box__body--items-name
-                かばんかばんかばんかばんカバンかばんかばんかばんかばんかばんかばんかばんかばんんかばん
-              .main__user-item__user-item-box__content__image-box__body__num
-                .main__user-item__user-item-box__content__image-box__body__num--price ¥ 9,000
-                .main__user-item__user-item-box__content__image-box__body__num--heart
-                  %i.far.fa-heart
-                  %span 4
-        %section.main__user-item__user-item-box__content__image-box
-          = link_to "/items/detail" do
-            %figure.main__user-item__user-item-box__content__image-box__photo
-              = image_tag "https://cdn.thumb.shop-list.com/res/up/shoplist/shp/__basethum200__/altrose/sd/660375-06.jpg", class: 'main__user-item__user-item-box__content__image-box__photo--item-image', width: "220", height: "220"
-            .main__user-item__user-item-box__content__image-box__body
-              %h3.main__user-item__user-item-box__content__image-box__body--items-name
-                かばんかばんかばんかばんカバンかばんかばんかばんかばんかばんかばんかばんかばんんかばん
-              .main__user-item__user-item-box__content__image-box__body__num
-                .main__user-item__user-item-box__content__image-box__body__num--price ¥ 9,000
-                .main__user-item__user-item-box__content__image-box__body__num--heart
-                  %i.far.fa-heart
-                  %span 4
-        %section.main__user-item__user-item-box__content__image-box
-          = link_to "/items/detail" do
-            %figure.main__user-item__user-item-box__content__image-box__photo
-              = image_tag "https://cdn.thumb.shop-list.com/res/up/shoplist/shp/__basethum200__/altrose/sd/660375-06.jpg", class: 'main__user-item__user-item-box__content__image-box__photo--item-image', width: "220", height: "220"
-            .main__user-item__user-item-box__content__image-box__body
-              %h3.main__user-item__user-item-box__content__image-box__body--items-name
-                かばんかばんかばんかばんカバンかばんかばんかばんかばんかばんかばんかばんかばんんかばん
-              .main__user-item__user-item-box__content__image-box__body__num
-                .main__user-item__user-item-box__content__image-box__body__num--price ¥ 9,000
-                .main__user-item__user-item-box__content__image-box__body__num--heart
-                  %i.far.fa-heart
-                  %span 4
+        - @otherExhibitorItems.each do |item|
+          %section.main__user-item__user-item-box__content__image-box
+            = link_to "#" do
+              %figure.main__user-item__user-item-box__content__image-box__photo
+                = image_tag item.images[0], class: 'main__user-item__user-item-box__content__image-box__photo--item-image', width: "220", height: "220"
+              .main__user-item__user-item-box__content__image-box__body
+                %h3.main__user-item__user-item-box__content__image-box__body--items-name
+                  = item.name
+                .main__user-item__user-item-box__content__image-box__body__num
+                  .main__user-item__user-item-box__content__image-box__body__num--price
+                    = "¥ #{item.price}"
+                  .main__user-item__user-item-box__content__image-box__body__num--heart
+                    %i.far.fa-heart
+                    %span 4
+
+    -# カテゴリー別のその他の出品
     %section.main__user-item__user-item-box.clearfix
       %h2.main__user-item__user-item-box--name
-        = link_to "/items/detail" do
-          ユーザー2さんのその他出品
+        = link_to "#" do
+          = "#{@category.name}（#{@category.parent.parent.name}）その他の商品"
       .main__user-item__user-item-box__content.clearfix
-        %section.main__user-item__user-item-box__content__image-box
-          = link_to "/items/detail" do
-            %figure.main__user-item__user-item-box__content__image-box__photo
-              = image_tag "https://item-shopping.c.yimg.jp/i/j/i-healing_ys150010062", class: 'main__user-item__user-item-box__content__image-box__photo--item-image', width: "220", height: "220"
-            .main__user-item__user-item-box__content__image-box__body
-              %h3.main__user-item__user-item-box__content__image-box__body--items-name
-                かばんかばんかばんかばんカバンかばんかばんかばんかばんかばんかばんかばんかばんんかばん
-              .main__user-item__user-item-box__content__image-box__body__num
-                .main__user-item__user-item-box__content__image-box__body__num--price ¥ 9,000
-                .main__user-item__user-item-box__content__image-box__body__num--heart
-                  %i.far.fa-heart
-                  %span 4
-        %section.main__user-item__user-item-box__content__image-box
-          = link_to "/items/detail" do
-            %figure.main__user-item__user-item-box__content__image-box__photo
-              = image_tag "https://item-shopping.c.yimg.jp/i/j/i-healing_ys150010062", class: 'main__user-item__user-item-box__content__image-box__photo--item-image', width: "220", height: "220"
-            .main__user-item__user-item-box__content__image-box__body
-              %h3.main__user-item__user-item-box__content__image-box__body--items-name
-                かばんかばんかばんかばんカバンかばんかばんかばんかばんかばんかばんかばんかばんんかばん
-              .main__user-item__user-item-box__content__image-box__body__num
-                .main__user-item__user-item-box__content__image-box__body__num--price ¥ 9,000
-                .main__user-item__user-item-box__content__image-box__body__num--heart
-                  %i.far.fa-heart
-                  %span 4
-        %section.main__user-item__user-item-box__content__image-box
-          = link_to "/items/detail" do
-            %figure.main__user-item__user-item-box__content__image-box__photo
-              = image_tag "https://item-shopping.c.yimg.jp/i/j/i-healing_ys150010062", class: 'main__user-item__user-item-box__content__image-box__photo--item-image', width: "220", height: "220"
-            .main__user-item__user-item-box__content__image-box__body
-              %h3.main__user-item__user-item-box__content__image-box__body--items-name
-                かばんかばんかばんかばんカバンかばんかばんかばんかばんかばんかばんかばんかばんんかばん
-              .main__user-item__user-item-box__content__image-box__body__num
-                .main__user-item__user-item-box__content__image-box__body__num--price ¥ 9,000
-                .main__user-item__user-item-box__content__image-box__body__num--heart
-                  %i.far.fa-heart
-                  %span 4
-        %section.main__user-item__user-item-box__content__image-box
-          = link_to "/items/detail" do
-            %figure.main__user-item__user-item-box__content__image-box__photo
-              = image_tag "https://item-shopping.c.yimg.jp/i/j/i-healing_ys150010062", class: 'main__user-item__user-item-box__content__image-box__photo--item-image', width: "220", height: "220"
-            .main__user-item__user-item-box__content__image-box__body
-              %h3.main__user-item__user-item-box__content__image-box__body--items-name
-                かばんかばんかばんかばんカバンかばんかばんかばんかばんかばんかばんかばんかばんんかばん
-              .main__user-item__user-item-box__content__image-box__body__num
-                .main__user-item__user-item-box__content__image-box__body__num--price ¥ 9,000
-                .main__user-item__user-item-box__content__image-box__body__num--heart
-                  %i.far.fa-heart
-                  %span 4
-        %section.main__user-item__user-item-box__content__image-box
-          = link_to "/items/detail" do
-            %figure.main__user-item__user-item-box__content__image-box__photo
-              = image_tag "https://item-shopping.c.yimg.jp/i/j/i-healing_ys150010062", class: 'main__user-item__user-item-box__content__image-box__photo--item-image', width: "220", height: "220"
-            .main__user-item__user-item-box__content__image-box__body
-              %h3.main__user-item__user-item-box__content__image-box__body--items-name
-                かばんかばんかばんかばんカバンかばんかばんかばんかばんかばんかばんかばんかばんんかばん
-              .main__user-item__user-item-box__content__image-box__body__num
-                .main__user-item__user-item-box__content__image-box__body__num--price ¥ 9,000
-                .main__user-item__user-item-box__content__image-box__body__num--heart
-                  %i.far.fa-heart
-                  %span 4
-        %section.main__user-item__user-item-box__content__image-box
-          = link_to "/items/detail" do
-            %figure.main__user-item__user-item-box__content__image-box__photo
-              = image_tag "https://item-shopping.c.yimg.jp/i/j/i-healing_ys150010062", class: 'main__user-item__user-item-box__content__image-box__photo--item-image', width: "220", height: "220"
-            .main__user-item__user-item-box__content__image-box__body
-              %h3.main__user-item__user-item-box__content__image-box__body--items-name
-                かばんかばんかばんかばんカバンかばんかばんかばんかばんかばんかばんかばんかばんんかばん
-              .main__user-item__user-item-box__content__image-box__body__num
-                .main__user-item__user-item-box__content__image-box__body__num--price ¥ 9,000
-                .main__user-item__user-item-box__content__image-box__body__num--heart
-                  %i.far.fa-heart
-                  %span 4
+        - @otherCategorysItems.each do |category|
+          %section.main__user-item__user-item-box__content__image-box
+            = link_to "#" do
+              %figure.main__user-item__user-item-box__content__image-box__photo
+                = image_tag category.images[0], class: 'main__user-item__user-item-box__content__image-box__photo--item-image', width: "220", height: "220"
+              .main__user-item__user-item-box__content__image-box__body
+                %h3.main__user-item__user-item-box__content__image-box__body--items-name
+                  = category.name
+                .main__user-item__user-item-box__content__image-box__body__num
+                  .main__user-item__user-item-box__content__image-box__body__num--price
+                    = "¥ #{category.price}"
+                  .main__user-item__user-item-box__content__image-box__body__num--heart
+                    %i.far.fa-heart
+                    %span 4
+
   = render 'shared/pankuzu'
   = render "shared/top-footer"

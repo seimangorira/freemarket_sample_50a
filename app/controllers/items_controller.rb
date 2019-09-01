@@ -5,6 +5,16 @@ class ItemsController < ApplicationController
 
   def index
   end
+
+  def show
+    @item = Item.find(params[:id])
+    @randItemLeft = Item.where("id>=?", rand(Item.first.id..Item.last.id)).first
+    @randItemRight = Item.where("id>=?", rand(Item.first.id..Item.last.id)).first
+    @exhibitor = @item.saler
+    @otherExhibitorItems = @exhibitor.saling_items.where.not(id: @item.id).limit(6).order(created_at: "desc")
+    @category = @item.category
+    @otherCategorysItems = @category.items.where.not(id: @item.id).limit(6).order(created_at: "desc")
+  end
   
   def new
     @item = Item.new
@@ -17,9 +27,6 @@ class ItemsController < ApplicationController
     else
       render :new
     end
-  end
-
-  def show
   end
 
   def buy

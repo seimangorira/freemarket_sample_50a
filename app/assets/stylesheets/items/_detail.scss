@@ -116,7 +116,6 @@
     @include item-box;
     padding: 24px 40px 40px;
     width: 700px;
-    height: 1995px;
     &__item-name{
       font-size: 24px;
       text-align: center;
@@ -294,13 +293,11 @@
     }
     &__item-description{
       font-size: 18px;
-      height: 1250px;
       padding: 32px 0 0;
       line-height: 1.5;
       width: 620px;
       &--text{
         white-space: pre-wrap;
-        height: 1218px;
         background: white;
       }
       }
