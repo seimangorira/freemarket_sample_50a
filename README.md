@@ -117,6 +117,15 @@ extend ActiveHash::Associations::ActiveRecordExtensions
 ### Association
 
 
+## Phonenumbersテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|phone_number|string|null: false, unique: true|
+
+### Association
+
+
 ## Commentsテーブル
 
 |Column|Type|Options|
