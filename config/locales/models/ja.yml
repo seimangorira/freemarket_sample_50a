@@ -2,6 +2,41 @@ ja:
   activerecord:
     models:
       item: 商品
+    
+    attributes:
+      item:
+        images: 画像
+    
+    errors:
+      models:
+        item:
+          attributes:
+            images:
+              blank: "画像がありません"
+            name:
+              blank: "入力してください"
+              too_long: "40文字以下で入力してください"
+            introduction:
+              blank: "入力してください"
+              too_long: "1000文字以下で入力してください"
+            category_id:
+              blank: "選択してください"
+            state:
+              blank: "選択してください"
+            delivery_fee:
+              blank: "選択してください"
+            delivery_method:
+              blank: "選択してください"
+            city:
+              blank: "選択してください"
+            delivery_days:
+              blank: "選択してください"
+            price:
+              not_a_number: "300以上9999999以下で入力してください"
+              greater_than_or_equal_to: "300以上9999999以下で入力してください"
+              less_than_or_equal_to: "300以上9999999以下で入力してください"
+            
+            
   enums:
     item:
       size:
