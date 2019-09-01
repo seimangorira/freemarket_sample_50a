@@ -6,7 +6,7 @@
       %h2.container__head
         .container__head__title 商品の情報を入力
       
-      = form_with model: @item, local: true do |f|
+      = form_with model: @item, builder: CustomFormBuilder, local: true do |f|
         .container__form
           .container__form__content.upload-images
             %label.upload-images__label
@@ -28,7 +28,8 @@
                   %pre.input.upload-images__container--text
                     ドラッグアンドドロップ
                     またはクリックしてファイルをアップロード
-              .upload-images__container--error-message
+              .upload-images__container--error-message.validate-error-message
+                %p{class: 'error'}=@item.errors.messages[:images][0]
 
           .container__form__content.item-about.clearfix
             .form-group
@@ -37,6 +38,8 @@
                 %span.form-require 
                   必須
               = f.text_field :name, class: "item-about__name--input", placeholder: "商品名（必須 40文字まで)"
+              .validate-error-message
+                %p{class: 'error'}=@item.errors.messages[:name][0]
             .form-group
               %label.item-about__description 
                 商品の説明
@@ -123,16 +126,19 @@
             .selling-item__title.form-sub-title
               販売価格(300〜9,999,999)
             %ul.selling-item__right-box.form-right-box
-              %li.form-group.selling-item__price
-                .selling-item__price__inner-left
-                  %label.selling-item__price--setting
-                    価格
-                    %span.form-require 
-                      必須
-                .selling-item__price__inner-right
-                  ¥
-                  .selling-item__price__inner-right--input
-                    = f.text_field :price, placeholder: "例)  300", id: "selling-item-price"
+              .price-wrapper
+                %li.form-group.selling-item__price
+                  .selling-item__price__inner-left
+                    %label.selling-item__price--setting
+                      価格
+                      %span.form-require 
+                        必須
+                  .selling-item__price__inner-right
+                    ¥
+                    .selling-item__price__inner-right--input
+                      = f.text_field :price, placeholder: "例)  300", id: "selling-item-price"
+                .validate-error-message.selling-item__price__error-message
+                  %p{class: 'error'}=@item.errors.messages[:price][0]
               %li.selling-item__fee.clearfix
                 %p 販売手数料(10%)
                 %p.sale-fee -
