@@ -36,7 +36,7 @@
 |delivery_fee|integer||
 |city|string|null: false|
 |delivery_days|date|null: false|
-|category_id|bigint|null: false|
+|category_id|references|null: false, foreign_key: true|
 |saler_id|references|null: false, foreign_key: true|
 |buyer_id|references|null: false, foreign_key: true|
 
