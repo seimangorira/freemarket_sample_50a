@@ -29,9 +29,6 @@ class ItemsController < ApplicationController
     end
   end
 
-  def buy
-  end
-
   def get_children_categories
     @children_categories = Category.where(ancestry: params[:parent_id])
   end
