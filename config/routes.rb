@@ -1,12 +1,20 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_scope :user do
+    get 'login', to: 'devise/sessions#new'
+    get "signup" => "devise/registrations#index", as: "signup_index"
+    get "/signup/registration" => "devise/registrations#new", as: "signup_registration"
+    get "/signup/confirmation" => "phonenumbers#new", as: "phonenumber_registration"
+    get "/signup/address/:id" => "addresses#new", as: "address_new_registration"
+    post "/signup/address/:id" => "addresses#create", as: "address_create_registration"
+    get "/signup/credit/:id" => "credits#new", as: "credit_new_registration"
+    post "/signup/credit/:id" => "credits#create", as: "credit_create_registration"
+    get "/signup/complete" => "users/registrations#complete", as: "complete_registration"
+  end
+  devise_for :users, controllers: {
+    registrations: 'users/registrations',
+    sessions: 'users/sessions'
+   }
   root 'tops#index'
-  get 'users/top' => "users#top"
-  get "users/first" => "users#first"
-  get "users/second" => "users#second"
-  get "users/third" => "users#third"
-  get "users/credit" => "users#credit"
-  get "users/complete" => "users#complete"
   resources :phonenumbers, only: [:new, :create]
   resources :items, only: [:new]
   get "items/buy" => "items#buy"
