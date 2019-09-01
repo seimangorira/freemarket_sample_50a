@@ -38,6 +38,10 @@
       }
       .form-group {
         margin: 40px 0 0;
+        .validate-error-message {
+          @include exhibit-error-message;
+          clear: both;
+        }
       }
       .form-group:first-child {
         margin: 0;
@@ -167,10 +171,7 @@
             }
           }
           &--error-message {
-            color: $exhibition-red;
-            line-height: 1.5;
-            font-size: 14px;
-            margin: 8px 0 0;
+            @include exhibit-error-message;
           }
         }
       }
@@ -211,7 +212,7 @@
       .selling-item {
         @include flexBoxForForm;
         li:first-child {
-          padding: 0 0 24px;
+          padding: 0;
           border: 0;
         }
         li {
@@ -244,6 +245,10 @@
                 width: 160px;
               }
             }
+          }
+          &__error-message {
+            @include exhibit-error-message;
+            padding-bottom: 24px;
           }
         }
         &__profit {
