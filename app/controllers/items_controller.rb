@@ -30,7 +30,9 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    
+    @selected_category = @item.category_id
+    @children_categories = Category.find(@selected_category).parent.siblings
+    @grandchildren_categories = Category.find(@selected_category).siblings
   end
 
   def update
