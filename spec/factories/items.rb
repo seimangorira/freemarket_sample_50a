@@ -11,7 +11,7 @@ FactoryBot.define do
     delivery_method {2}
     city {"大阪府"}
     delivery_days {1}
-    category_id {1}
+    category_id {3}
     saler_id {1}
   end
 end
