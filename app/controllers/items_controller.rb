@@ -10,7 +10,7 @@ class ItemsController < ApplicationController
     @randItemLeft = Item.where("id>=?", rand(Item.first.id..Item.last.id)).first
     @randItemRight = Item.where("id>=?", rand(Item.first.id..Item.last.id)).first
     @exhibitor = @item.saler
-    @oetherExhibitorItems = @exhibitor.saling_items.where.not(id: @item.id).limit(6).order(created_at: "desc")
+    @otherExhibitorItems = @exhibitor.saling_items.where.not(id: @item.id).limit(6).order(created_at: "desc")
     @category = @item.category
     @otherCategorysItems = @category.items.where.not(id: @item.id).limit(6).order(created_at: "desc")
   end
