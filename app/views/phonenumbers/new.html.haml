@@ -28,14 +28,11 @@
         %main.registration-all__main
           %section.registration-all__main-container
             %h2.registration-all__chapter-head 電話番号の確認
-            -# = form_with model: @user, url: signup_index_path, method: :post, local: true, class: "registration-all__inner" do |f|
-            -# = form_for @user, url: step3_signup_index_path, method: :get do |f|
-            = form_for @user, url: create_signup_index_path, method: :post do |f|
+            = form_with url: address_new_registration_url(current_user), local: true do |f|
               .registration-all__content
                 .registration-all__form-group
                   %label.registration-all__form-group--label 携帯電話の番号
                   = f.text_field(:phone_number, class: "input-default", placeholder: "携帯電話の番号を入力", type: "tel")
-                  -# %input.input-default{:placeholder => "携帯電話の番号を入力", :type => "tel"}/
                 %p.registration-all__content--text
                   本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して
                   認証を行います。
@@ -47,6 +44,5 @@
                   %p.text-right
                     = link_to "電話番号の確認が必要な理由", "/", class: "registration-all__a"
                     %i.fas.fa-chevron-right
-
         / フッター部分
         = render 'shared/footer'
