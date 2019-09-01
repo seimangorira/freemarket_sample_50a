@@ -1,7 +1,6 @@
 class TopsController < ApplicationController
 
     def index
-      @items = Item.limit(4).order(id: "desc")
       @ladyitems = get_items(1)
       @menitems = get_items(2)
       @babyitems = get_items(3)
