@@ -21,5 +21,5 @@ Rails.application.routes.draw do
       get 'get_grandchildren_categories', defaults: { format: 'json' }
     end
   end
-  resources :purchases, only: [:index]
+  resources :purchases, only: [:show]
 end
