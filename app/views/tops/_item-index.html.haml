@@ -1,7 +1,7 @@
 .contents__main__center
   .contents__main__center__item
     - items.each do |item|
-      = link_to "/item/#{item.id}/" do
+      = link_to "/items/#{item.id}/" do
         .contents__main__center__item__box
           .contents__main__center__item__box__image
             = image_tag item.images[0].variant(resize: '213x220'), width:"213", height:"220", alt: "イメージ1"

@@ -192,3 +192,10 @@
   height: 2px;
   background: #ccc;
 }
+
+@mixin exhibit-error-message {
+  color: $exhibition-red;
+  line-height: 1.5;
+  font-size: 14px;
+  margin: 8px 0 0;
+}
