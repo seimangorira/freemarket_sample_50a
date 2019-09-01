@@ -1,7 +1,8 @@
 .mypage-leftside
   .mypage-leftside__list
     %li
-      %a.mypage-leftside__list__item.active{href: "/jp/mypage/"}
+      = link_to user_path(1), class: "mypage-leftside__list__item" do
+      -# = link_to user_path(current_user.id), class: "mypage-leftside__list__item" do
         マイページ
         %i.fa.fa-chevron-right
     %li
@@ -71,7 +72,7 @@
   %h3.mypage-nav-head 設定
   %ul.mypage-leftside__list
     %li
-      %a.mypage-leftside__list__item{href: "/jp/mypage/profile/"}
+      = link_to users_profile_path, class: "mypage-leftside__list__item" do
         プロフィール
         %i.fa.fa-chevron-right
     %li
@@ -87,7 +88,7 @@
         メール/パスワード
         %i.fa.fa-chevron-right
     %li
-      %a.mypage-leftside__list__item{href: "/jp/mypage/identification/"}
+      = link_to users_identification_path, class: "mypage-leftside__list__item" do
         本人情報
         %i.fa.fa-chevron-right
     %li
@@ -95,6 +96,6 @@
         電話番号の確認
         %i.fa.fa-chevron-right
     %li
-      %a.mypage-leftside__list__item{href: "/jp/logout/"}
+      = link_to users_logout_path, class: "mypage-leftside__list__item" do
         ログアウト
         %i.fa.fa-chevron-right
