@@ -14,7 +14,6 @@
           .image-lists
             %ul.item-image-wrapper.second-image-lists
         = f.label :images, class: "upload-images__container--now-upload" do
-          -# .upload-images__container--now-upload
           .now-upload-wrapper{"data-total-items": 0}
             = f.file_field :images, multiple: true, class: "now-upload-wrapper--input upload-box-0"
             %pre.input.upload-images__container--text
@@ -154,8 +153,12 @@
           = link_to "加盟店規約", "#"
           に同意したことになります。
       .confirmation-box__btn
+        -# 出品ページか、編集ページかで文言を変更
         .confirmation-box__btn--exhibition
-          = f.submit "出品する", class: "confirmation-box__btn--exhibition btn btn-red"
+          - if request.path == "/items/new"
+            = f.submit "出品する", class: "confirmation-box__btn--exhibition btn btn-red"
+          - else
+            = f.submit "変更する", class: "confirmation-box__btn--exhibition btn btn-red"
         .confirmation-box__btn--back
           -# TODO:仮でroot_pathに設定。ユーザー登録機能の実装後、ユーザーマイページへリンクを書き換える必要あり
           = link_to 'もどる', root_path, class: "confirmation-box__btn--back btn btn-gray"
