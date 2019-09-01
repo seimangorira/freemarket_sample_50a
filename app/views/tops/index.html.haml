@@ -3,12 +3,8 @@
   .top
     = render partial: "slide"
     .top__contents
+      %h2.top__contents__pickup-text ピックアップカテゴリー
       .top__contents__main
-        ピックアップカテゴリー
-        = render partial: "top-page"
-        = render partial: "top-page"
-        = render partial: "top-page"
-        = render partial: "top-page"
-        = render partial: "top-page"
+        = render partial: 'top-page'
   = render 'shared/top-footer'
   = render partial: 'shared/sell-button'

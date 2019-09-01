@@ -15,13 +15,18 @@
                 必須
             .upload-images__addition
               最大10枚までアップロードできます
-            = f.label :images, class: "upload-images__container" do
-              -# TODO:jQueryで複数枚アップロード機能実装？(have-itemに変数でNoを設定)
-              .upload-images__container__box.have-item
-                = f.file_field :images, multiple: true, class: "upload-images__container__box--input"
-                %pre.input.upload-images__container--text
-                  ドラッグアンドドロップ
-                  またはクリックしてファイルをアップロード
+            .upload-images__container
+              .upload-images__container--uploaded
+                .image-lists
+                  %ul.item-image-wrapper.first-image-lists
+                .image-lists
+                  %ul.item-image-wrapper.second-image-lists
+              = f.label :images, class: "upload-images__container--now-upload" do
+                .now-upload-wrapper
+                  = f.file_field :images, multiple: true, class: "now-upload-wrapper--input", data: {"total-items": 0}
+                  %pre.input.upload-images__container--text
+                    ドラッグアンドドロップ
+                    またはクリックしてファイルをアップロード
 
           .container__form__content.item-about.clearfix
             .form-group
@@ -41,20 +46,15 @@
             .item-detail__title.form-sub-title 商品の詳細
             .item-detail__right-box.form-right-box
               .form-group
-                %label.item-detail__category 
+                %label.item-detail__category
                   カテゴリー
                   %span.form-require 必須
-                .select-wrap
-                  %i.fas.fa-angle-down
-                  = f.collection_select :category_id, @parent_categories, :name, :name, {prompt: "---"}, {class: "select-wrap__input"}
-                .select-wrap
-                  %i.fas.fa-angle-down
-                  = f.collection_select :category_id, @child_categories, :name, :name, {prompt: "---"}, {class: "select-wrap__input"}
-                .select-wrap
-                  %i.fas.fa-angle-down
-                  = f.collection_select :category_id, @grandchild_categories, :id, :name, {prompt: "---"}, {class: "select-wrap__input"}
+                .select-categories-wrapper
+                  .select-wrap
+                    %i.fas.fa-angle-down
+                    = f.collection_select :category_id, @parent_categories, :id, :name, {prompt: "---"}, {class: "select-wrap__input", id: "parent_category"}
 
-                .form-group
+                .form-group.select-item-sizes{style: "display: none;"}
                   %label.item-detail__category 
                     サイズ
                     %span.form-require 必須
@@ -62,7 +62,7 @@
                     %i.fas.fa-angle-down
                     = f.select :size, Item.sizes_i18n.invert, {prompt: "---"}, {class: "select-wrap__input"}
 
-                .form-group
+                .form-group.input-item-brands{style: "display: none;"}
                   %label.item-detail__category 
                     ブランド
                     %span.form-arbitrary 任意
@@ -85,18 +85,19 @@
                   配送料の負担
                   %span.form-require 
                     必須
-                .select-wrap
+                .select-wrap.select-delivery-burden
                   %i.fas.fa-angle-down
-                  = f.select :delivery_fee, Item.delivery_fees_i18n.invert, {prompt: "---"}, {class: "select-wrap__input"}
+                  = f.select :delivery_fee, Item.delivery_fees_i18n.invert, {prompt: "---"}, {class: "select-wrap__input", id: "delivery-fee"}
               
-              .form-group
-                %label.delivery-setting__burden
-                  配送の方法
-                  %span.form-require 
-                    必須
-                .select-wrap
-                  %i.fas.fa-angle-down
-                  = f.select :delivery_method, Item.delivery_methods_i18n.invert, {prompt: "---"}, {class: "select-wrap__input"}
+              .select_delivery_wrapper.form-group
+                .default-delivery-method{style: "display: none;"}
+                  %label.delivery-method__burden
+                    配送の方法
+                    %span.form-require 
+                      必須
+                  .select-wrap
+                    %i.fas.fa-angle-down
+                    = f.select :delivery_method, Item.delivery_methods_i18n.invert, {prompt: "---"}, {class: "select-wrap__input"}
 
               .form-group
                 %label.delivery-setting__region
@@ -129,10 +130,10 @@
                 .selling-item__price__inner-right
                   ¥
                   .selling-item__price__inner-right--input
-                    = f.text_field :price, placeholder: "例)  300"
+                    = f.text_field :price, placeholder: "例)  300", id: "selling-item-price"
               %li.selling-item__fee.clearfix
                 %p 販売手数料(10%)
-                %p -
+                %p.sale-fee -
               %li.selling-item__profit.clearfix
                 %p.selling-item__profit--title 販売利益
                 %p.selling-item__profit--result -
