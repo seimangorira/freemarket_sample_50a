@@ -28,7 +28,8 @@
         %main.registration-all__main
           %section.registration-all__main-container
           %h2.registration-all__single-head 会員情報入力
-          = form_with model: @user, url: step2_signup_index_path, method: :post, local: true, class: "registration_form" do |f|
+          -# = form_with model: @user, url: step2_signup_index_path, method: :get, local: true, class: "registration_form" do |f|
+          = form_for @user, url: step2_signup_index_path, method: :get do |f|
             %form.registration-all__inner
               .registration-all__content
                 .registration-all__form-group
@@ -47,9 +48,9 @@
                   = f.password_field(:password, class: "input-default", placeholder: "6文字以上")
                   -# %input.input-default{:placeholder => "6文字以上", :type => "password"}/
                 .registration-all__form-group
-                  %label.registration-all__form-group--label{for: "password"} パスワード（確認）
+                  %label.registration-all__form-group--label{for: "password_confirmation"} パスワード（確認）
                   %span.registration-all__require 必須
-                  = f.password_field(:password, class: "input-default", placeholder: "6文字以上")
+                  = f.password_field(:password_confirmation, class: "input-default", placeholder: "6文字以上")
                   -# %input.input-default{:placeholder => "6文字以上", :type => "password"}/
                 .registration-all__form-group
                   %h3.registration-all__sub-head 本人確認
@@ -68,12 +69,12 @@
                   %div
                     %label.registration-all__form-group--label お名前カナ(全角)
                     %span.registration-all__require 必須
-                  = f.text_field(:first_name, class: "input-default harf", placeholder: "例）ヤマダ")
+                  = f.text_field(:last_name_kana, class: "input-default harf", placeholder: "例）ヤマダ")
                   -# %input.input-default.harf{:placeholder => "例）ヤマダ", :type => "text"}/
-                  = f.text_field(:first_name, class: "input-default harf", placeholder: "例）アヤ")
+                  = f.text_field(:first_name_kana, class: "input-default harf", placeholder: "例）アヤ")
                   -# %input.input-default.harf{:placeholder => "例）アヤ", :type => "text"}/
                 .registration-all__form-group
-                  %label.registration-all__form-group--label{"for-" => "birthday"} 生年月日
+                  %label.registration-all__form-group--label{"for-": "birthday"} 生年月日
                   %span.registration-all__require 必須
                   .registration-all__birthday-select
                     .registration-all__birthday-select__select
@@ -102,7 +103,7 @@
                   %p.registration-all__content--text-gray
                     ※ 本人情報は正しく入力してください。会員登録後、修正するには
                     お時間を頂く場合があります。
-                  = render "shared/recaptcha"
+                    = render "shared/recaptcha"
                   .registration-all__form-group
                     %p.registration-all__content--text-center
                       「次へ進む」のボタンを押すことにより、
