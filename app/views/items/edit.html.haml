@@ -1,0 +1,9 @@
+.new-item-page
+  .new-item-page__header
+    = render "shared/header"
+  .new-item-page__main
+    %section.container
+      %h2.container__head
+        .container__head__title 商品の情報を入力
+      = render partial: "sell-form", locals: {item: @item}
+  = render "sell-footer"
