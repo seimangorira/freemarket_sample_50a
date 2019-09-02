@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   get 'users/identification' => 'users#identification'
   get "users/card" => "users#card"
   get "users/addCard" => "users#addCard"
-  get "users/destroy" => "users#destroy"
+  get "users/logout" => "users#logout"
   resources :users, only: [:show]
   resources :items, only: [:new, :create, :show] do
     collection do
