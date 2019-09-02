@@ -3,9 +3,7 @@ class UsersController < ApplicationController
   def login
   end
 
-  def destroy
-    # current_user.destroy
-    # redirect_to root_path
+  def logout
   end
 
   def show
