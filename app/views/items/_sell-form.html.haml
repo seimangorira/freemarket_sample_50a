@@ -11,10 +11,26 @@
         .upload-images__container--uploaded
           .image-lists
             %ul.item-image-wrapper.first-image-lists
+              - if @upper__item_images.present?
+                - @upper__item_images.each.with_index(1) do |image, index|
+                  %li.image-lists__list
+                    .item-image-wrapper__figure
+                      = image_tag image, id: "preview-#{index}", alt: "preview-#{index}"
+                    .item-image-wrapper__button
+                      = link_to "編集", "#"
+                      = link_to "削除", "#", class: "delete-uploaded-image", "data-image-id": index
           .image-lists
             %ul.item-image-wrapper.second-image-lists
+              - if @lower_item_images.present?
+                - @lower_item_images.each.with_index(5) do |image, index|
+                  %li.image-lists__list
+                    .item-image-wrapper__figure
+                      = image_tag image, id: "preview-#{index}", alt: "preview-#{index}"
+                    .item-image-wrapper__button
+                      = link_to "編集", "#"
+                      = link_to "削除", "#", class: "delete-uploaded-image", "data-image-id": index
         = f.label :images, class: "upload-images__container--now-upload" do
-          .now-upload-wrapper{"data-total-items": 0}
+          .now-upload-wrapper{"data-total-items": @item.images.length}
             = f.file_field :images, multiple: true, class: "now-upload-wrapper--input upload-box-0"
             %pre.input.upload-images__container--text
               ドラッグアンドドロップ
