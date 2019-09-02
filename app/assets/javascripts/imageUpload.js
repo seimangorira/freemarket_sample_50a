@@ -1,4 +1,8 @@
 $(document).on("turbolinks:load", function(){
+  // ページ読み込み時に、商品出品フォームのサイズを決定
+  var initialNum = Number($('.now-upload-wrapper').attr('data-total-items'));
+  changeDropBoxSizes(initialNum);
+
   // アップロードされた画像のプレビューを作成
   function appendItemList(num){
     var itemList= ` <li class="image-lists__list">
