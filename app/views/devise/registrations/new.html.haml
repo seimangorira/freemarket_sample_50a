@@ -35,22 +35,18 @@
                   %label.registration-all__form-group--label{for: "nickname"} ニックネーム
                   %span.registration-all__require 必須
                   = f.text_field(:nickname, class: "input-default", placeholder: "例）メルカリ太郎")
-                  -# %input.input-default{:placeholder => "例）メルカリ太郎", :type => "text"}
                 .registration-all__form-group
                   %label.registration-all__form-group--label{for: "email"} メールアドレス
                   %span.registration-all__require 必須
                   = f.email_field(:email, class: "input-default", placeholder: "PC・携帯どちらでも可")
-                  -# %input.input-default{:placeholder => "PC・携帯どちらでも可", :type => "email"}/
                 .registration-all__form-group
                   %label.registration-all__form-group--label{for: "password"} パスワード
                   %span.registration-all__require 必須
                   = f.password_field(:password, class: "input-default", placeholder: "6文字以上")
-                  -# %input.input-default{:placeholder => "6文字以上", :type => "password"}/
                 .registration-all__form-group
                   %label.registration-all__form-group--label{for: "password_confirmation"} パスワード（確認）
                   %span.registration-all__require 必須
                   = f.password_field(:password_confirmation, class: "input-default", placeholder: "6文字以上")
-                  -# %input.input-default{:placeholder => "6文字以上", :type => "password"}/
                 .registration-all__form-group
                   %h3.registration-all__sub-head 本人確認
                   %p.registration-all__content--text
@@ -61,17 +57,13 @@
                     %label.registration-all__form-group--label お名前(全角)
                     %span.registration-all__require 必須
                   = f.text_field(:last_name, class: "input-default harf", placeholder: "例）山田")
-                  -# %input.input-default.harf{:placeholder => "例）山田", :type => "text"}/
                   = f.text_field(:first_name, class: "input-default harf", placeholder: "例）彩")
-                  -# %input.input-default.harf{:placeholder => "例）彩", :type => "text"}/
                 .registration-all__form-group
                   %div
                     %label.registration-all__form-group--label お名前カナ(全角)
                     %span.registration-all__require 必須
                   = f.text_field(:last_name_kana, class: "input-default harf", placeholder: "例）ヤマダ")
-                  -# %input.input-default.harf{:placeholder => "例）ヤマダ", :type => "text"}/
                   = f.text_field(:first_name_kana, class: "input-default harf", placeholder: "例）アヤ")
-                  -# %input.input-default.harf{:placeholder => "例）アヤ", :type => "text"}/
                 .registration-all__form-group
                   %label.registration-all__form-group--label{"for-": "birthday"} 生年月日
                   %span.registration-all__require 必須
