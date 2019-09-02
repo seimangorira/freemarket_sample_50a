@@ -1,15 +1,21 @@
 # frozen_string_literal: true
 
 # Use this hook to configure devise mailer, warden hooks and so forth.
-# Many of these configuration options can be set straight in your model.
-require "omniauth-facebook"
+# Many of these configuration options can be set straight in your model
+
 
 Devise.setup do |config|
   config.omniauth :facebook,
                   '1061669557557216',
                   'b8aeecd5ad074edb8c99ba2e9f89b96b',
                   name: :facebook,
-                  callback_url: "https://localhost:3001/users/auth/facebook/callback"
+                  callback_url: "https://localhost:3000/users/auth/facebook/callback"
+  config.omniauth :google_oauth2,
+                  '291828259150-a2duj48dejb0miuvq2huqa5imap2bg0u.apps.googleusercontent.com',
+                  'HNb7FlR_tNjG3rsDSHOxS912',
+                  name: :google,
+                  callback_url: "https://localhost:3000/users/auth/google_oauth2/callback"
+
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.

@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users, :controllers => {
-    omniauth_callbacks: "users/omniauth_callbacks"
+    omniauth_callbacks: "users/omniauth_callbacks",
+    sessions:      'users/sessions'
   }
   root 'tops#index'
 
@@ -21,4 +22,9 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
   get 'items/detail' => 'items#detail'
   resources :items, only: [:new, :create]
+  get  '/auth/:provider/callback' => 'sessions#callback'
+  post '/auth/:provider/callback'  => 'sessions#callback'
+  get  '/auth/failure' => 'sessions#failure'
+  get  '/logout' => 'sessions#destroy'
+
 end

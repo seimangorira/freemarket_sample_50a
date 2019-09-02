@@ -21,8 +21,9 @@
                 %i.fab.fa-facebook-square
                 Facebookで登録する
             %button.new-user-top-main__container__inners__inner__btn-sns-google
-              = image_tag "googleLogo.jpg"
-              Googleで登録する
+              = link_to user_google_oauth2_omniauth_authorize_path, class: "new-user-top-main__container__inners__inner__btn-sns-google", method: :post do
+                = image_tag "googleLogo.jpg"
+                Googleで登録する
     
     -# フッター部分
     = render 'shared/footer'

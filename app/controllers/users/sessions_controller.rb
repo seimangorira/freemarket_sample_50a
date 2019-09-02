@@ -1,18 +1,25 @@
 # frozen_string_literal: true
 
 class Users::SessionsController < Devise::SessionsController
-  def create
-    auth = request.env["omniauth.auth"]
-    if auth.present?
-    unless @auth = Authorization.find_from_auth(auth)
-    @auth = Authorization.create_from_auth(auth)
-    end
-    user = @auth.user
-    redirect_back_or user
-    else
-    #もしすでに認証機能がある場合ここに自前の認証機能をいれる
-    #ない場合はこのelseブロックはいらないので削除
-    end
+  def callback
+    auth = request.env['omniauth.auth']
+ 
+    # auth情報を元にユーザをDB登録
+    # sessionにユーザIDを保持
+    binding.pry  # デバッグ用
+ 
+    redirect_to root_path
+  end
+ 
+  def destroy
+    reset_session
+    redirect_to root_path
+  end
+ 
+  def failure
+    redirect_to root_path
+  end
+end
   # before_action :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in
