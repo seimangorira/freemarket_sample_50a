@@ -30,9 +30,12 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @selected_category = @item.category_id
-    @children_categories = Category.find(@selected_category).parent.siblings
-    @grandchildren_categories = Category.find(@selected_category).siblings
+    @item_images = @item.images
+    @upper__item_images = @item_images[0..4]
+    @lower_item_images = @item_images[5..9]
+    # 選択済みカテゴリーから、子カテゴリ・孫カテゴリ値を取得
+    @children_categories = Category.find(@item.category_id).parent.siblings 
+    @grandchildren_categories = Category.find(@item.category_id).siblings
   end
 
   def update
