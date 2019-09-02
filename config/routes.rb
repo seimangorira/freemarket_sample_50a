@@ -19,11 +19,11 @@ Rails.application.routes.draw do
   resources :items, only: [:new]
   get "items/buy" => "items#buy"
   get "users/login" => "users#login"
-  get 'users/logout' => 'users#logout'
   get 'users/profile' => 'users#profile'
   get 'users/identification' => 'users#identification'
   get "users/card" => "users#card"
   get "users/addCard" => "users#addCard"
+  get "users/destroy" => "users#destroy"
   resources :users, only: [:show]
   resources :items, only: [:new, :create, :show] do
     collection do
