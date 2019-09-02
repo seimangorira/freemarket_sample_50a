@@ -3,7 +3,9 @@ class UsersController < ApplicationController
   def login
   end
 
-  def logout
+  def destroy
+    # current_user.destroy
+    # redirect_to root_path
   end
 
   def show
@@ -20,4 +22,13 @@ class UsersController < ApplicationController
 
   def addCard
   end
+
+  private
+
+  # def redirect_root
+  #   if @user.id != current_user.id
+  #     redirect_to root_path
+  #   end
+  # end
+
 end
