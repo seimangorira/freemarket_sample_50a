@@ -61,7 +61,7 @@
                 %i.fas.fa-angle-down
                 = f.collection_select :category_id, @grandchildren_categories, :id, :name, {prompt: "---"}, {class: "select-wrap__input", id: "grandchild_category"}
 
-          -# 出品ページか、編集ページかでサイズ・ブランド欄の処理を分岐
+          -# 出品ページか編集ページかで、「サイズ」・「ブランド」欄の処理を分岐
           - if request.path == "/items/new"
             .form-group.select-item-sizes{style: "display: none;"}
               %label.item-detail__category 
@@ -111,15 +111,26 @@
             %i.fas.fa-angle-down
             = f.select :delivery_fee, Item.delivery_fees_i18n.invert, {prompt: "---"}, {class: "select-wrap__input", id: "delivery-fee"}
         
+        -# 出品ページか編集ページかで「配送の方法」欄の処理を分岐
         .select_delivery_wrapper.form-group
-          .default-delivery-method{style: "display: none;"}
-            %label.delivery-method__burden
-              配送の方法
-              %span.form-require 
-                必須
-            .select-wrap
-              %i.fas.fa-angle-down
-              = f.select :delivery_method, Item.delivery_methods_i18n.invert, {prompt: "---"}, {class: "select-wrap__input"}
+          - if request.path == "/items/new"
+            .default-delivery-method{style: "display: none;"}
+              %label.delivery-method__burden
+                配送の方法
+                %span.form-require 
+                  必須
+              .select-wrap
+                %i.fas.fa-angle-down
+                = f.select :delivery_method, Item.delivery_methods_i18n.invert, {prompt: "---"}, {class: "select-wrap__input"}
+          - else
+            .default-delivery-method
+              %label.delivery-method__burden
+                配送の方法
+                %span.form-require 
+                  必須
+              .select-wrap
+                %i.fas.fa-angle-down
+                = f.select :delivery_method, Item.delivery_methods_i18n.invert, {prompt: "---"}, {class: "select-wrap__input"}
 
         .form-group
           %label.delivery-setting__region
