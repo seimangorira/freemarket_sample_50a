@@ -8,10 +8,10 @@
         .buy__confirmation__item__content__image
           = image_tag "image100.jpeg", width: "64px", height: "60px"
         %p.buy__confirmation__item__content__name
-          マフラー兼雨具
+          = @item.name
         .buy__confirmation__item__content__price
           %p.buy__confirmation__item__content__price__postageincluded
-            ¥30,000 
+            = "¥#{@item.price.to_s(:delmited)}"
             %span.buy__confirmation__item__content__price__postageincluded__text
               送料込み
         .buy__confirmation__item__content__nopoint
@@ -21,7 +21,7 @@
           .buy__confirmation__item__content__buyprice__text
             支払い金額
           .buy__confirmation__item__content__buyprice__price
-            ¥30,000
+            = "¥#{@item.price.to_s(:delmited)}"
         .buy__confirmation__item__content__btn
           購入する
     .buy__confirmation__user
@@ -29,7 +29,7 @@
         配送先 
         .buy__confirmation__user__wuinfo__address
           %p〒123-1234
-          %p大阪府 大阪市東京区　東京1-2-11
+          %p 大阪府 大阪市東京区　東京1-2-11
           %p田中 太朗
         .buy__confirmation__user__info__change
           変更する

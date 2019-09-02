@@ -82,7 +82,7 @@
         = "¥ #{@item.price}"
       %span.main__item-box__item-price--tax (税込)
       %span.main__item-box__item-price--shipping-fee 送料込み
-    = link_to "/purchases/`#{@item.id}`" do
+    = link_to "/purchases/#{@item.id}" do
       .main__item-box__item-btn 購入画面に進む
     .main__item-box__item-description
       %p.main__item-box__item-description--text
