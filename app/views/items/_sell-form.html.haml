@@ -61,20 +61,35 @@
                 %i.fas.fa-angle-down
                 = f.collection_select :category_id, @grandchildren_categories, :id, :name, {prompt: "---"}, {class: "select-wrap__input", id: "grandchild_category"}
 
-          .form-group.select-item-sizes{style: "display: none;"}
-            %label.item-detail__category 
-              サイズ
-              %span.form-require 必須
-            .select-wrap
-              %i.fas.fa-angle-down
-              = f.select :size, Item.sizes_i18n.invert, {prompt: "---"}, {class: "select-wrap__input"}
-
-          .form-group.input-item-brands{style: "display: none;"}
-            %label.item-detail__category 
-              ブランド
-              %span.form-arbitrary 任意
-            .select-wrap
-              = f.text_field :brand, class:"select-wrap__input", placeholder: "例）シャネル"
+          -# 出品ページか、編集ページかでサイズ・ブランド欄の処理を分岐
+          - if request.path == "/items/new"
+            .form-group.select-item-sizes{style: "display: none;"}
+              %label.item-detail__category 
+                サイズ
+                %span.form-require 必須
+              .select-wrap
+                %i.fas.fa-angle-down
+                = f.select :size, Item.sizes_i18n.invert, {prompt: "---"}, {class: "select-wrap__input"}
+            .form-group.input-item-brands{style: "display: none;"}
+              %label.item-detail__category 
+                ブランド
+                %span.form-arbitrary 任意
+              .select-wrap
+                = f.text_field :brand, class:"select-wrap__input", placeholder: "例）シャネル"
+          - else 
+            .form-group.select-item-sizes
+              %label.item-detail__category 
+                サイズ
+                %span.form-require 必須
+              .select-wrap
+                %i.fas.fa-angle-down
+                = f.select :size, Item.sizes_i18n.invert, {prompt: "---"}, {class: "select-wrap__input"}
+            .form-group.input-item-brands
+              %label.item-detail__category 
+                ブランド
+                %span.form-arbitrary 任意
+              .select-wrap
+                = f.text_field :brand, class:"select-wrap__input", placeholder: "例）シャネル"
 
         .form-group
           %label.item-detail__state 
