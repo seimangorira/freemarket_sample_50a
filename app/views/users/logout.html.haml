@@ -6,7 +6,9 @@
       .mainbody__main__contents
         .mainbody__main__contents__content
           .mainbody__main__contents__content__form
-            .mainbody__main__contents__content__form--btn ログアウト
+            -# .mainbody__main__contents__content__form__btn ログアウト
+            = link_to destroy_user_session_path(current_user), method: :delete, class: "mainbody__main__contents__content__form--btn" do
+              ログアウト
       = render 'shared/mypage-leftside'
       .mainbody__main__side
   = render "shared/top-footer"

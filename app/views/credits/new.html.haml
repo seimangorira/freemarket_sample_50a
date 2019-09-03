@@ -28,13 +28,13 @@
         %main.registration-all__main
           %section.registration-all__main-container
             %h2.registration-all__chapter-head 支払い方法
-            %form.registration-all__inner{:action => "/users/complete"}
+            -# = form_with url: complete_registration_path, method: :get, local: true do |f|
+            %form.registration-all__inner{:action => "/signup/complete"}
               .registration-all__content
                 .registration-all__form-group
                   %label.registration-all__form-group--label{:for => "card-num"} カード番号
                   %span.registration-all__require 必須
                   %input.input-default{:placeholder => "半角数字のみ", :type => "text"}/
-
                   %ul.registration-all__cards
                     %li.registration-all__cards--card
                       = image_tag "visa.png"
