@@ -20,4 +20,13 @@ class UsersController < ApplicationController
 
   def addCard
   end
+
+  private
+
+  # def redirect_root
+  #   if @user.id != current_user.id
+  #     redirect_to root_path
+  #   end
+  # end
+
 end
