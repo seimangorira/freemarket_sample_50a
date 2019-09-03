@@ -31,7 +31,12 @@
                       = link_to "削除", "#", class: "delete-uploaded-image", "data-image-id": index
         = f.label :images, class: "upload-images__container--now-upload" do
           .now-upload-wrapper{"data-total-items": @item.images.length}
-            = f.file_field :images, multiple: true, class: "now-upload-wrapper--input upload-box-0"
+            - if request.path == "/items/new"
+              = f.file_field :images, multiple: true, class: "now-upload-wrapper--input upload-box-0"
+            - else
+              = f.file_field :images, multiple: true, class: "now-upload-wrapper--input upload-box-0"
+              - @item_images.each.with_index(1) do |image, index|
+                = f.file_field :images, multiple: true, class: "now-upload-wrapper--input upload-box-#{index}"
             %pre.input.upload-images__container--text
               ドラッグアンドドロップ
               またはクリックしてファイルをアップロード
