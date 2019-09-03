@@ -1,46 +1,38 @@
-# ホーム
 crumb :root do
   link "メルカリ", root_path
 end
 
-# マイページ
 crumb :mypage do
   # ログイン機能が完了後、「'/users/1'」の部分を「user_path(current_user)」に変更する。
   link "マイページ", '/users/1'
   parent :root
 end
 
-# プロフィール
 crumb :profile do
   link "プロフィール", users_profile_path
   parent :mypage
 end
 
-# ログアウト
 crumb :logout do
   link "ログアウト", users_logout_path
   parent :mypage
 end
 
-# 本人情報
 crumb :identification do
   link "本人情報の登録", users_identification_path
   parent :mypage
 end
 
-# 支払い方法
 crumb :card do
   link "支払い方法", users_card_path
   parent :mypage
 end
 
-# クレジット情報
 crumb :addCard do
   link "クレジット情報入力", users_addCard_path
   parent :card
 end
 
-# アイテム
 crumb :items do |item|
   link item.name
   parent :root
