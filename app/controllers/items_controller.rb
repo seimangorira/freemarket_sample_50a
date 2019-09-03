@@ -39,6 +39,9 @@ class ItemsController < ApplicationController
   end
 
   def update
+    # ユーザー機能の登録後、「1」をcurrent_user.idに変更
+    @item.update(item_params) if @item.saler_id == 1
+    redirect_to item_path(@item)
   end
 
   def buy
