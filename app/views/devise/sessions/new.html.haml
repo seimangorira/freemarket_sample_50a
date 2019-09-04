@@ -22,12 +22,12 @@
                   Googleでログインする
 
             %form
+            = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
               .login-page__form-inner
                 .login-page__form-inner__group
-                  %input{class: :"login-page__form-inner__group--input", placeholder: :"メールアドレス", type: :"email"}
-
+                  = f.email_field :email, autofocus: true, type: "email", placeholder: "メールアドレス", class: 'login-page__form-inner__group--input'
                 .login-page__form-inner__group
-                  %input{class: :"login-page__form-inner__group--input", placeholder: :"パスワード", type: :"password"}
+                  = f.password_field :password, type: "password", placeholder: "パスワード", class: 'login-page__form-inner__group--input'
 
                 .login-page__form-inner__group
                   = render "shared/recaptcha"
