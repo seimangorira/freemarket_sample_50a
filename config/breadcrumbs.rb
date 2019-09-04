@@ -3,8 +3,7 @@ crumb :root do
 end
 
 crumb :mypage do
-  # ログイン機能が完了後、「'/users/1'」の部分を「user_path(current_user)」に変更する。
-  link "マイページ", '/users/1'
+  link "マイページ", user_path(current_user)
   parent :root
 end
 
