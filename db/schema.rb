@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_01_052929) do
+ActiveRecord::Schema.define(version: 2019_08_25_031832) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -68,18 +68,12 @@ ActiveRecord::Schema.define(version: 2019_09_01_052929) do
     t.string "city", null: false
     t.integer "delivery_days", null: false
     t.bigint "category_id", null: false
+    t.integer "seller_id", null: false
+    t.integer "buyer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "saler_id", null: false
-    t.integer "buyer_id"
     t.index ["category_id"], name: "index_items_on_category_id"
     t.index ["name"], name: "index_items_on_name"
-  end
-
-  create_table "phonenumbers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "phone_number", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "sns_credentials", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -92,21 +86,21 @@ ActiveRecord::Schema.define(version: 2019_09_01_052929) do
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "nickname", default: "", null: false
-    t.string "first_name", default: "", null: false
-    t.string "first_name_kana", default: "", null: false
-    t.string "last_name", default: "", null: false
-    t.string "last_name_kana", default: "", null: false
+    t.string "nickname", null: false
+    t.string "first_name", null: false
+    t.string "first_name_kana", null: false
+    t.string "last_name", null: false
+    t.string "last_name_kana", null: false
     t.date "birthday"
     t.text "avatar"
     t.text "introduction"
-    t.string "email", default: "", null: false
-    t.string "reset_password_token", default: ""
+    t.string "email", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "encrypted_password", default: "", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
