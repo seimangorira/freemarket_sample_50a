@@ -10,7 +10,7 @@ class ItemsController < ApplicationController
   def show
     @randItemLeft = Item.where("id>=?", rand(Item.first.id..Item.last.id)).first
     @randItemRight = Item.where("id>=?", rand(Item.first.id..Item.last.id)).first
-    @exhibitor = @item.saler
+    @exhibitor = @item.seller
     @otherExhibitorItems = @exhibitor.saling_items.where.not(id: @item.id).limit(6).order(created_at: "desc")
     @category = @item.category
     @otherCategorysItems = @category.items.where.not(id: @item.id).limit(6).order(created_at: "desc")
@@ -60,7 +60,7 @@ class ItemsController < ApplicationController
   def item_params
     params.require(:item).permit(
       :name, :introduction, :category_id, :size, :brand, :state, :delivery_fee, :delivery_method, :city, :delivery_days, :price, images: []
-    ).merge(saler_id: User.find(1).id, status: 1)
+    ).merge(seller_id: User.find(1).id, status: 1)
   end
 
   def set_parent_categories
