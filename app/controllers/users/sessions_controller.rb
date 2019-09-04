@@ -19,7 +19,7 @@ class Users::SessionsController < Devise::SessionsController
   def failure
     redirect_to root_path
   end
-end
+
   # before_action :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in
