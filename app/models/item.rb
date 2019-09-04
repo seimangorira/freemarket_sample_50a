@@ -5,7 +5,7 @@ class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions  
   belongs_to_active_hash :prefecture
 
-  belongs_to :saler, class_name: "User"
+  belongs_to :seller, class_name: "User"
   belongs_to :buyer, class_name: "User", optional: true
 
   # 商品出品時、編集時のバリデーション
