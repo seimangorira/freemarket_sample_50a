@@ -30,8 +30,8 @@
                       = link_to "編集", "#"
                       = link_to "削除", "#", class: "delete-saved-image", "data-saved-image-id": index
         = f.label :images, class: "upload-images__container--now-upload" do
-          .now-upload-wrapper{"data-total-items": @item.images.length}
-            - if request.path == "/items/new"
+          .now-upload-wrapper{"data-total-items": item.images.length}
+            - if item.id.nil?
               = f.file_field :images, multiple: true, class: "now-upload-wrapper--input upload-box-0"
             - else
               = f.file_field :images, multiple: true, class: "now-upload-wrapper--input upload-box-0"
@@ -85,7 +85,7 @@
                 = f.collection_select :category_id, @grandchildren_categories, :id, :name, {prompt: "---"}, {class: "select-wrap__input", id: "grandchild_category"}
 
           -# 出品ページか編集ページかで、「サイズ」・「ブランド」欄の処理を分岐
-          - if request.path == "/items/new"
+          - if item.id.nil?
             .form-group.select-item-sizes{style: "display: none;"}
               %label.item-detail__category 
                 サイズ
@@ -136,7 +136,7 @@
         
         -# 出品ページか編集ページかで「配送の方法」欄の処理を分岐
         .select_delivery_wrapper.form-group
-          - if request.path == "/items/new"
+          - if item.id.nil?
             .default-delivery-method{style: "display: none;"}
               %label.delivery-method__burden
                 配送の方法
@@ -215,7 +215,7 @@
       .confirmation-box__btn
         -# 出品ページか、編集ページかで文言を変更
         .confirmation-box__btn--exhibition
-          - if request.path == "/items/new"
+          - if item.id.nil?
             = f.submit "出品する", class: "confirmation-box__btn--exhibition btn btn-red"
           - else
             = f.submit "変更する", class: "confirmation-box__btn--exhibition btn btn-red"
