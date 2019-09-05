@@ -36,11 +36,8 @@
             %li
               = image_tag "ikedayuka.jpg", size: '32x32', class: "mypage_image"
             %li
-              -# 本当のlink_to
               = link_to "マイページ", "/users/#{current_user.id}", class: "top-navbar-right__mypage"
-              -# = link_to "マイページ", class: "top-navbar-right__mypage"
         - else
-          -# ログインしていないとき
           %ul
             %li
               = link_to "新規会員登録", signup_index_path, class: "top-navbar-right__registration btn-red"
