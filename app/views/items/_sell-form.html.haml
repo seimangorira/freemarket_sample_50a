@@ -15,20 +15,20 @@
                 - @upper__item_images.each.with_index(1) do |image, index|
                   %li.image-lists__list
                     .item-image-wrapper__figure
-                      = image_tag image, id: "preview-#{index}", alt: "preview-#{index}"
+                      = image_tag image, id: "saved-preview-#{index}", alt: "preview-#{index}"
                     .item-image-wrapper__button
                       = link_to "編集", "#"
-                      = link_to "削除", "#", class: "delete-uploaded-image", "data-image-id": index
+                      = link_to "削除", "#", class: "delete-saved-image", "data-saved-image-id": index
           .image-lists
             %ul.item-image-wrapper.second-image-lists
               - if @lower_item_images.present?
-                - @lower_item_images.each.with_index(5) do |image, index|
+                - @lower_item_images.each.with_index(6) do |image, index|
                   %li.image-lists__list
                     .item-image-wrapper__figure
-                      = image_tag image, id: "preview-#{index}", alt: "preview-#{index}"
+                      = image_tag image, id: "saved-preview-#{index}", alt: "preview-#{index}"
                     .item-image-wrapper__button
                       = link_to "編集", "#"
-                      = link_to "削除", "#", class: "delete-uploaded-image", "data-image-id": index
+                      = link_to "削除", "#", class: "delete-saved-image", "data-saved-image-id": index
         = f.label :images, class: "upload-images__container--now-upload" do
           .now-upload-wrapper{"data-total-items": @item.images.length}
             - if request.path == "/items/new"
@@ -36,7 +36,9 @@
             - else
               = f.file_field :images, multiple: true, class: "now-upload-wrapper--input upload-box-0"
               - @item_images.each.with_index(1) do |image, index|
-                = f.file_field :images, multiple: true, class: "now-upload-wrapper--input upload-box-#{index}"
+                = f.file_field :images, multiple: true, class: "now-upload-wrapper--input saved-image-box-#{index}"
+                .remove-item-image{style: "display: none;"}
+                  = f.check_box :image_ids, {multiple: true, class: "remove-item-image-#{index}"}, image.id, false
             %pre.input.upload-images__container--text
               ドラッグアンドドロップ
               またはクリックしてファイルをアップロード

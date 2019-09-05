@@ -40,7 +40,10 @@ class ItemsController < ApplicationController
 
   def update
     # ユーザー機能の登録後、「1」をcurrent_user.idに変更
-    @item.update(item_params) if @item.saler_id == 1
+    if @item.seller_id == 1
+      remove_item_images
+      @item.update(item_params) 
+    end
     redirect_to item_path(@item)
   end
 
@@ -59,7 +62,7 @@ class ItemsController < ApplicationController
   # salar_idは、ユーザー登録機能の完成後、current_user.idに修正
   def item_params
     params.require(:item).permit(
-      :name, :introduction, :category_id, :size, :brand, :state, :delivery_fee, :delivery_method, :city, :delivery_days, :price, images: []
+      :name, :introduction, :category_id, :size, :brand, :state, :delivery_fee, :delivery_method, :city, :delivery_days, :price, images: [], image_ids: []
     ).merge(seller_id: User.find(1).id, status: 1)
   end
 
@@ -69,5 +72,14 @@ class ItemsController < ApplicationController
 
   def set_item
     @item = Item.find(params[:id])
+  end
+
+  def remove_item_images
+    if params[:item][:image_ids].present?
+      params[:item][:image_ids].each do |image_id|
+        image = @item.images.find(image_id)
+        image.purge
+      end
+    end
   end
 end
