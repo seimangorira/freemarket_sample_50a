@@ -41,10 +41,13 @@ class ItemsController < ApplicationController
   def update
     # ユーザー機能の登録後、「1」をcurrent_user.idに変更
     if @item.seller_id == 1
-      remove_item_images
-      @item.update(item_params) 
+      if @item.update(item_params) 
+        remove_item_images
+        redirect_to item_path(@item)
+      else
+        render :edit
+      end
     end
-    redirect_to item_path(@item)
   end
 
   def buy
@@ -77,8 +80,10 @@ class ItemsController < ApplicationController
   def remove_item_images
     if params[:item][:image_ids].present?
       params[:item][:image_ids].each do |image_id|
-        image = @item.images.find(image_id)
-        image.purge
+        unless image_id == "0"
+          image = @item.images.find(image_id) 
+          image.purge
+        end
       end
     end
   end
