@@ -3,6 +3,8 @@ class ItemsController < ApplicationController
   # before_action :authenticate_user! except: [:index, :detail]
   before_action :set_parent_categories, only: [:new, :create, :edit, :update]
   before_action :set_item, only: [:show, :edit, :update]
+  before_action :set_saved_images, only: [:edit, :update]
+  before_action :set_children_and_grandchildren_categories, only: [:edit, :update]
 
   def index
   end
@@ -30,12 +32,6 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @item_images = @item.images
-    @upper__item_images = @item_images[0..4]
-    @lower_item_images = @item_images[5..9]
-    # 選択済みカテゴリーから、子カテゴリ・孫カテゴリ値を取得
-    @children_categories = Category.find(@item.category_id).parent.siblings 
-    @grandchildren_categories = Category.find(@item.category_id).siblings
   end
 
   def update
@@ -75,6 +71,18 @@ class ItemsController < ApplicationController
 
   def set_item
     @item = Item.find(params[:id])
+  end
+
+  def set_saved_images
+    @item_images = @item.images
+    @upper__item_images = @item_images[0..4]
+    @lower_item_images = @item_images[5..9]
+  end
+
+  def set_children_and_grandchildren_categories
+    # 保存済みカテゴリーから、子カテゴリ・孫カテゴリ値を取得
+    @children_categories = Category.find(@item.category_id).parent.siblings 
+    @grandchildren_categories = Category.find(@item.category_id).siblings
   end
 
   def remove_item_images
