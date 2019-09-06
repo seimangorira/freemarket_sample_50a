@@ -18,7 +18,7 @@
                       = image_tag image, id: "saved-preview-#{index}", alt: "preview-#{index}"
                     .item-image-wrapper__button
                       = link_to "編集", "#"
-                      = link_to "削除", "#", class: "delete-saved-image", "data-saved-image-id": index
+                      = link_to "削除", "#", class: "delete-saved-image", "data-saved-image-id": image.id
           .image-lists
             %ul.item-image-wrapper.second-image-lists
               - if @lower_item_images.present?
@@ -28,7 +28,7 @@
                       = image_tag image, id: "saved-preview-#{index}", alt: "preview-#{index}"
                     .item-image-wrapper__button
                       = link_to "編集", "#"
-                      = link_to "削除", "#", class: "delete-saved-image", "data-saved-image-id": index
+                      = link_to "削除", "#", class: "delete-saved-image", "data-saved-image-id": image.id
         = f.label :images, class: "upload-images__container--now-upload" do
           .now-upload-wrapper{"data-total-items": item.images.length}
             - if item.id.nil?
@@ -36,14 +36,14 @@
             - else
               = f.file_field :images, multiple: true, class: "now-upload-wrapper--input upload-box-0"
               - @item_images.each.with_index(1) do |image, index|
-                = f.file_field :images, multiple: true, class: "now-upload-wrapper--input saved-image-box-#{index}"
                 .remove-item-image{style: "display: none;"}
-                  = f.check_box :image_ids, {multiple: true, class: "remove-item-image-#{index}"}, image.id, false
+                  = f.check_box :image_ids, {multiple: true, class: "remove-item-image-#{image.id} remove-check-box", checked: false}, image.id, "0"
             %pre.input.upload-images__container--text
               ドラッグアンドドロップ
               またはクリックしてファイルをアップロード
         .upload-images__container--error-message.validate-error-message
           %p{class: 'error'}=@item.errors.messages[:images][0]
+          %p{class: 'error'}=item.errors.messages[:image_ids][0]
 
     .container__form__content.item-about.clearfix
       .form-group

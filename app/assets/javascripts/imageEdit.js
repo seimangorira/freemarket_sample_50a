@@ -24,6 +24,9 @@ $(document).on("turbolinks:load", function(){
     }
   }
   
+  // ページ読み込み時にremove-check-boxのチェックを外す（update失敗後の対応）
+  $('.remove-check-box').prop('checked', false);
+
   // 保存済みファイルを削除する際の処理
   $(document).off('click', '.delete-saved-image');
   $(document).on('click', '.delete-saved-image', function() {
@@ -32,7 +35,8 @@ $(document).on("turbolinks:load", function(){
     var imageId = $(this).data('saved-image-id');
     $(this).parents("li").css('display', 'none'); // 親要素のliを取得して削除
 
-    // 選択された画像を削除するparamsを受け取れるようにする
+    // 選択された画像のIDを取得し、paramsをControllerで受け取れるようにする
+    $(`.remove-item-image-${imageId}`).prev($("input")).val(`${imageId}`) // デフォルト値の0を変更する
     $(`.remove-item-image-${imageId}`).prop('checked', true);
 
     var uploadedNum = Number($('.now-upload-wrapper').attr('data-total-items'));
