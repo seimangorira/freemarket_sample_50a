@@ -5,6 +5,7 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update]
   before_action :set_saved_images, only: [:edit, :update]
   before_action :set_children_and_grandchildren_categories, only: [:edit, :update]
+  before_action :seller_equal_current_user?, only: [:edit, :update]
 
   def index
   end
@@ -35,13 +36,11 @@ class ItemsController < ApplicationController
   end
 
   def update
-    if @item.seller_id == current_user.id
-      if @item.update(item_params) 
-        remove_item_images
-        redirect_to item_path(@item)
-      else
-        render :edit
-      end
+    if @item.update(item_params) 
+      remove_item_images
+      redirect_to item_path(@item)
+    else
+      render :edit
     end
   end
 
@@ -93,4 +92,9 @@ class ItemsController < ApplicationController
       end
     end
   end
+
+  def seller_equal_current_user?
+    redirect_to root_path unless @item.seller_id == current_user.id
+  end
+
 end
