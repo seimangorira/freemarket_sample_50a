@@ -31,10 +31,8 @@
                       = link_to "削除", "#", class: "delete-saved-image", "data-saved-image-id": image.id
         = f.label :images, class: "upload-images__container--now-upload" do
           .now-upload-wrapper{"data-total-items": item.images.length}
-            - if item.id.nil?
-              = f.file_field :images, multiple: true, class: "now-upload-wrapper--input upload-box-0"
-            - else
-              = f.file_field :images, multiple: true, class: "now-upload-wrapper--input upload-box-0"
+            = f.file_field :images, multiple: true, class: "now-upload-wrapper--input upload-box-0"
+            - if item.id.present?
               - @item_images.each.with_index(1) do |image, index|
                 .remove-item-image{style: "display: none;"}
                   = f.check_box :image_ids, {multiple: true, class: "remove-item-image-#{image.id} remove-check-box", checked: false}, image.id, "0"
