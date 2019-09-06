@@ -35,8 +35,7 @@ class ItemsController < ApplicationController
   end
 
   def update
-    # ユーザー機能の登録後、「1」をcurrent_user.idに変更
-    if @item.seller_id == 1
+    if @item.seller_id == current_user.id
       if @item.update(item_params) 
         remove_item_images
         redirect_to item_path(@item)
@@ -58,11 +57,10 @@ class ItemsController < ApplicationController
   end
 
   private
-  # salar_idは、ユーザー登録機能の完成後、current_user.idに修正
   def item_params
     params.require(:item).permit(
       :name, :introduction, :category_id, :size, :brand, :state, :delivery_fee, :delivery_method, :city, :delivery_days, :price, images: [], image_ids: []
-    ).merge(seller_id: User.find(1).id, status: 1)
+    ).merge(seller_id: current_user.id, status: 1)
   end
 
   def set_parent_categories
