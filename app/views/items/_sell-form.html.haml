@@ -39,9 +39,9 @@
             %pre.input.upload-images__container--text
               ドラッグアンドドロップ
               またはクリックしてファイルをアップロード
-        .upload-images__container--error-message.validate-error-message
-          %p{class: 'error'}=@item.errors.messages[:images][0]
-          %p{class: 'error'}=item.errors.messages[:image_ids][0]
+      .upload-images__container--error-message.validate-error-message
+        %p.error=item.errors.messages[:images][0]
+        %p.error=item.errors.messages[:image_ids][0]
 
     .container__form__content.item-about.clearfix
       .form-group
