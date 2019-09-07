@@ -33,6 +33,7 @@ class Item < ApplicationRecord
   enum delivery_fee: {postage_included: 1, cash_on_delivery: 2}
   enum delivery_method: {undecided: 1, mercari: 2, post_office_mail: 3, letter_pack: 4, regular_mail: 5, yamato: 6, post_office_pack: 7, click_post: 8, post_office_packet: 9}
   enum delivery_days: { early: 0, middle: 1, late: 2}
+  enum status: { exhibiting: 1, stopping: 2, trading: 3, complete: 4}
 
   private
   def images_upload_validate
