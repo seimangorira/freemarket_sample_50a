@@ -1,5 +1,4 @@
 class ItemsController < ApplicationController
-  # ユーザー登録機能作成後に、コメントアウトを外す
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_parent_categories, only: [:new, :create, :edit, :update]
   before_action :set_item, only: [:show, :edit, :update]
