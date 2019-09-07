@@ -1,8 +1,7 @@
 .mypage-leftside
   .mypage-leftside__list
     %li
-      -# = link_to user_path(1), class: "mypage-leftside__list__item" do
-      -# = link_to user_path(current_user.id), class: "mypage-leftside__list__item" do
+      = link_to user_path(current_user.id), class: "mypage-leftside__list__item" do
         マイページ
         %i.fa.fa-chevron-right
     %li
