@@ -1,7 +1,4 @@
 .pankuzu
   %ul
-    %li{itemscope: "", itemtype:"http://data-vocabulary.org/Breadcrumb"}
-      =link_to "メルカリ", "https://www.mercari.com/jp/", itemprop: "url"
-      %i.fa.fa-chevron-right
-    %li{itemscope: "", itemtype: "http://data-vocabulary.org/Breadcrumb"}
-      %span{itemprop: "title"} マイページ
+    %li
+      = breadcrumbs separator: " &nbsp;&nbsp;&#62;&nbsp; "

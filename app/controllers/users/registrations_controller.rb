@@ -13,6 +13,22 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def create
   #   super
   # end
+  def new
+    super
+  end
+
+  # POST /resource
+  def create
+    # @user = User.new(user_params)
+    # if @user.save 
+    # else
+    #   render :new
+    # end
+    super
+  end
+
+  def complete
+  end
 
   # GET /resource/edit
   # def edit
@@ -58,5 +74,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # The path used after sign up for inactive accounts.
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
+  def after_sign_up_path_for(resource)
+    phonenumber_registration_path
+  end
+
+  # The path used after sign up for inactive accounts.
+  # def after_inactive_sign_up_path_for(resource)
+  #   binding.pry
+  #   phonenumber_registration_path
   # end
 end

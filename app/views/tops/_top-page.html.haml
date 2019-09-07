@@ -1,40 +1,12 @@
-.contents__main__center
-  .contents__main__center__text
-    レディース新着アイテム
-  .contents__main__center__item
-    .contents__main__center__item__box
-      .contents__main__center__item__box__image
-        = image_tag "images1.jpeg", width:"213", height:"220", alt: "イメージ1"
-      .contents__main__center__item__box__text
-        .contents__main__center__item__box__text__product
-          スカート(オオカミの仮面つき)
-        .contents__main__center__item__box__text__price
-          ¥ 30,000
-    .contents__main__center__item__box
-      .contents__main__center__item__box__image
-        = image_tag "images2.jpeg", width:"213", height:"220", alt: "イメージ2"
-      .contents__main__center__item__box__text
-        .contents__main__center__item__box__text__product
-          コート（肩パットつき）
-        .contents__main__center__item__box__text__price
-          ¥ 30,000
-    .contents__main__center__item__box
-      .contents__main__center__item__box__image
-        = image_tag "images3.jpeg", width:"213", height:"220", alt: "イメージ3"
-      .contents__main__center__item__box__text
-        .contents__main__center__item__box__text__product
-          マフラー兼雨具
-        .contents__main__center__item__box__text__price
-          ¥ 30,000
-    .contents__main__center__item__box
-      .contents__main__center__item__box__image
-        = image_tag "images4.jpeg", width:"213", height:"220", alt: "イメージ4"
-      .contents__main__center__item__box__text
-        .contents__main__center__item__box__text__product
-          ネックレス（筋トレ用）
-        .contents__main__center__item__box__text__price
-          ¥ 30,000
-  .contents__main__center__all
-    .contents__main__center__all__item
-      .contents__main__center__all__item__box
-        すべての商品を見る
+- if @ladyitems.present?
+  %h3= link_to 'レディース新着アイテム', root_path
+  = render partial: 'item-index', locals: {items: @ladyitems}
+- if @menitems.present?
+  %h3= link_to 'メンズ新着アイテム', root_path
+  = render partial: 'item-index', locals: {items: @menitems}
+- if @babyitems.present?
+  %h3= link_to 'ベビー・キッズ新着一覧', root_path
+  = render partial: 'item-index', locals: {items: @babyitems}
+- if @interioritems.present?
+  %h3= link_to 'インテリア・住まい・小物', root_path
+  = render partial: 'item-index', locals: {items: @interioritems}

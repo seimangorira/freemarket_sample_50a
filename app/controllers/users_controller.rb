@@ -1,24 +1,6 @@
 class UsersController < ApplicationController
-  def top
-  end
-
-  def first
-  end
-
-  def second
-  end
-
-  def third
-  end
-
-  def credit
-  end
-
-  def complete
-  end
 
   def login
-    
   end
 
   def logout
@@ -38,4 +20,13 @@ class UsersController < ApplicationController
 
   def addCard
   end
+
+  private
+
+  # def redirect_root
+  #   if @user.id != current_user.id
+  #     redirect_to root_path
+  #   end
+  # end
+
 end

@@ -1,0 +1,177 @@
+.main
+  = render "shared/top-header"
+
+  -# 商品の詳細情報
+  %section.main__item-box
+    %h1.main__item-box__item-name 
+      = @item.name
+    .main__item-box__item-main.clearfix
+      .main__item-box__item-main__content
+        .main__item-box__item-main__content__photo
+          .main__item-box__item-main__content__photo__header
+            .main__item-box__item-main__content__photo__header__items.stage{style: 'left: 0px; width: 3000px;'}
+              - @item.images.each do |image|
+                .main__item-box__item-main__content__photo__header__items__stage{style: 'width: 300px;'}
+                  .main__item-box__item-main__content__photo__header__items__stage__inner
+                    = image_tag image, class: "main__item-box__item-main__content__photo__header__items__stage__inner--main-image", style: "opacity: 1;", width: "300"
+
+          .main__item-box__item-main__content__photo__image-box
+            - @item.images.each_with_index do |image, i|
+              .main__item-box__item-main__content__photo__image-box__mini-image{"data-image-id": i}
+                %span
+                .main__item-box__item-main__content__photo__image-box__mini-image__inner
+                  = image_tag image, class: ".main__item-box__item-main__content__photo__image-box__mini-image__inner--sub-image"
+      %table.main__item-box__item-main__detail-table
+        %tbody.main__item-box__item-main__detail-table__field
+          %tr
+            %th 出品者
+            %td
+              = link_to @exhibitor.nickname, "#"
+              .main__item-box__item-main__detail-table__field__icons
+                .main__item-box__item-main__detail-table__field__icons--smile-icons
+                  %i.fas.fa-grin-alt
+                  %span 100
+                .main__item-box__item-main__detail-table__field__icons--smile-icons
+                  %i.fas.fa-meh
+                  %span 50
+                .main__item-box__item-main__detail-table__field__icons--smile-icons
+                  %i.fas.fa-frown
+                  %span 30
+          %tr
+            %th カテゴリー
+            %td
+              = link_to "#" do
+                .main__item-box__item-main__detail-table__field__category
+                  = @category.root.name
+              = link_to "#" do
+                .main__item-box__item-main__detail-table__field__category-sub
+                  %i.fa.fa-chevron-right
+                    = @category.parent.name
+              = link_to "#" do
+                .main__item-box__item-main__detail-table__field__category-sub-sub
+                  %i.fa.fa-chevron-right
+                    = @category.name
+          %tr
+            %th ブランド
+            %td
+              = link_to "#" do
+                .main__item-box__item-main__detail-table__field__brand
+                  = @item.brand
+          %tr
+            %th 商品の状態
+            %td
+              = @item.state_i18n
+          %tr
+            %th 配送料の負担
+            %td 
+              = @item.delivery_fee_i18n
+          %tr
+            %th 配送の方法
+            %td
+              = @item.delivery_method_i18n
+          %tr
+            %th 配送先の地域
+            %td
+              =link_to "#{@item.city}", "#"
+          %tr
+            %th 発送日の目安
+            %td
+              = @item.delivery_days_i18n
+    .main__item-box__item-price 
+      %span.main__item-box__item-price--text
+        = "¥ #{@item.price}"
+      %span.main__item-box__item-price--tax (税込)
+      %span.main__item-box__item-price--shipping-fee 送料込み
+    = link_to "/items/buy" do
+      .main__item-box__item-btn 購入画面に進む
+    .main__item-box__item-description
+      %p.main__item-box__item-description--text
+        = @item.introduction
+    .main__item-box__item-icon
+      .main__item-box__item-icon__left
+        %button.main__item-box__item-icon__left__like 
+          %i.far.fa-heart
+            %span いいね!
+            %span.main__item-box__item-icon__left__like__count 17
+        %button.main__item-box__item-icon__left__report
+          %i.far.fa-flag
+            %span 不適切な商品の報告
+      .main__item-box__item-icon__right
+        = link_to "#" do
+          %i.fa.fa-lock
+            %span あんしん・あんぜんへの取り組み
+  .main__detail-message
+    .main__detail-message__container
+      .main__detail-message__container__content
+        %form.main__detail-message__container__content__form
+          %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+          %textarea
+          %button.main__detail-message__container__content__form--btn-gray
+            %span コメントする
+  %ul.main__item-link
+    %li.main__item-link__previous
+      = link_to "#" do
+        %i.fa.fa-chevron-left 
+        = @randItemLeft.name
+    %li.main__item-link__next
+      = link_to "#" do
+        = @randItemRight.name
+        %i.fa.fa-chevron-right
+  .main__media-box
+    .main__media-box--text
+    %ul.main__media-box__media-icon
+      %li
+        = link_to "#" do
+          %i.fab.fa-facebook-square
+      %li
+        =link_to "#" do
+          %i.fab.fa-twitter-square
+      %li
+        = link_to "#" do
+          %i.fab.fa-pinterest-square
+  .main__user-item
+
+    -# 個人のその他の出品
+    %section.main__user-item__user-item-box.clearfix
+      %h2.main__user-item__user-item-box--name
+        = link_to "#" do
+          = "#{@exhibitor.nickname}さんのその他の出品"
+      .main__user-item__user-item-box__content.clearfix
+        - @otherExhibitorItems.each do |item|
+          %section.main__user-item__user-item-box__content__image-box
+            = link_to "#" do
+              %figure.main__user-item__user-item-box__content__image-box__photo
+                = image_tag item.images[0], class: 'main__user-item__user-item-box__content__image-box__photo--item-image', width: "220", height: "220"
+              .main__user-item__user-item-box__content__image-box__body
+                %h3.main__user-item__user-item-box__content__image-box__body--items-name
+                  = item.name
+                .main__user-item__user-item-box__content__image-box__body__num
+                  .main__user-item__user-item-box__content__image-box__body__num--price
+                    = "¥ #{item.price}"
+                  .main__user-item__user-item-box__content__image-box__body__num--heart
+                    %i.far.fa-heart
+                    %span 4
+
+    -# カテゴリー別のその他の出品
+    %section.main__user-item__user-item-box.clearfix
+      %h2.main__user-item__user-item-box--name
+        = link_to "#" do
+          = "#{@category.name}（#{@category.parent.parent.name}）その他の商品"
+      .main__user-item__user-item-box__content.clearfix
+        - @otherCategorysItems.each do |category|
+          %section.main__user-item__user-item-box__content__image-box
+            = link_to "#" do
+              %figure.main__user-item__user-item-box__content__image-box__photo
+                = image_tag category.images[0], class: 'main__user-item__user-item-box__content__image-box__photo--item-image', width: "220", height: "220"
+              .main__user-item__user-item-box__content__image-box__body
+                %h3.main__user-item__user-item-box__content__image-box__body--items-name
+                  = category.name
+                .main__user-item__user-item-box__content__image-box__body__num
+                  .main__user-item__user-item-box__content__image-box__body__num--price
+                    = "¥ #{category.price}"
+                  .main__user-item__user-item-box__content__image-box__body__num--heart
+                    %i.far.fa-heart
+                    %span 4
+  - breadcrumb :items, @item
+  = render 'shared/pankuzu'
+  = render "shared/top-footer"

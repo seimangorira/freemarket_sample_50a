@@ -24,10 +24,8 @@
       a:hover{
         text-decoration: underline;
       }
-      .fa.fa-chevron-right {
-        margin: 0 8px;
-        font-size: 9px;
-        color: #888;
+      span:last-child{
+        font-weight: 600;
       }
     }
   }
