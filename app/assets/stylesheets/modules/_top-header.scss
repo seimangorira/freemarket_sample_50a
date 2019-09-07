@@ -1,14 +1,15 @@
 .top-header {
+  height: 100px;
   position: relative;
   background-color: white;
   display: block;
   font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+  height: 100px;
   a {
     text-decoration: none;
   }
     &__inner{
     width: 1020px;
-    height: 100px;
     margin: 0 auto;
     padding: 8px 0 0;
     &__top {
@@ -42,6 +43,7 @@
       }
     }
     &__nav {
+      height: 36px;
       margin: 8px 0 0;
       padding: 0;
       a {
@@ -79,16 +81,51 @@
         }
       }
       .top-navbar-right {
+        &__notice {
+          height: 32px;
+          color: #333;
+          font-size: 14px;
+          padding: 0px 14px 0 0;
+        }
+        &__todolist {
+          height: 32px;
+          font-size: 14px;
+          color: #333;
+          padding: 0px 14px 0 0;
+        }
+        &__mypage {
+          height: 32px;
+          font-size: 14px;
+          color: #333;
+        }
+        img {
+          vertical-align: middle;
+          border-radius: 50%;
+          overflow: hidden;
+        }
+        a:hover {
+          color: #0099e8;
+        }
         float: right;
         font-size: 15px;
         li {
           display: inline-block;
           margin: 0 0 0 8px;
         }
+        .fa.fa-bell {
+          color: #ccc;
+        }
+        .fa.fa-check {
+          color: #ccc;
+        }
         .btn-red {
           background: $exhibition-red;
           border: 1px solid $exhibition-red;
           color: #fff;
+          padding: 0 10px;
+          line-height: 30px;
+          border-radius: 4px;
+          text-align: center;
         }
         .nav-btn {
           padding: 0 10px;
@@ -101,6 +138,14 @@
           border: 1px solid #0099e8;
           background: #fff;
           color: #0099e8;
+          -webkit-transition: all 0.5s ease;
+          -moz-transition: all 0.5s ease;
+          -o-transition: all 0.5s ease;
+          transition: all  0.5s ease;
+        }
+        .nav-btn:hover {
+          background-color: #0099e8;
+          color: white;
         }
       }
     }

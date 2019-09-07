@@ -23,8 +23,23 @@
                   %i.fas.fa-tag
                   %span ブランドから探す
       .top-navbar-right
-        %ul
-          %li
-            = link_to "新規会員登録", new_user_registration_path, class: "top-navbar-right__registration nav-btn btn-red"
-          %li
-            = link_to "ログイン", new_user_session_path, class: "top-navbar-right__login nav-btn"
+        - if user_signed_in?
+          %ul
+            %li
+              %i.fa.fa-bell
+            %li
+              .top-navbar-right__notice お知らせ
+            %li
+              %i.fa.fa-check
+            %li
+              .top-navbar-right__todolist やることリスト
+            %li
+              = image_tag "ikedayuka.jpg", size: '32x32', class: "mypage_image"
+            %li
+              = link_to "マイページ", "/users/#{current_user.id}", class: "top-navbar-right__mypage"
+        - else
+          %ul
+            %li
+              = link_to "新規会員登録", signup_index_path, class: "top-navbar-right__registration btn-red"
+            %li
+              = link_to "ログイン", new_user_session_path, class: "top-navbar-right__login nav-btn"

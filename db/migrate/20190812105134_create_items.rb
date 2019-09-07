@@ -11,8 +11,10 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.integer     :delivery_fee,    null: false   
       t.integer     :delivery_method, null: false
       t.string      :city,            null: false   
-      t.date        :delivery_days,   null: false   
+      t.integer     :delivery_days,   null: false   
       t.references  :category,        null: false, foreign_key: true
+      t.integer     :seller_id,       null: false
+      t.integer     :buyer_id
       t.timestamps
     end
   end

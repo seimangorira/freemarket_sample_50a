@@ -10,7 +10,7 @@
             .login-page__login-no-account
               .login-page__login-no-account--p
                 アカウントをお持ちでない方はこちら
-              = link_to new_user_registration_path, class: "login-page__login-no-account--a" do
+              = link_to signup_registration_path, class: "login-page__login-no-account--a" do
                 新規会員登録
             .new-user-top-main__container__inners{style: :"padding-bottom: 32px;"}
               .new-user-top-main__container__inners__inner
@@ -22,12 +22,12 @@
                   Googleでログインする
 
             %form
+            = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
               .login-page__form-inner
                 .login-page__form-inner__group
-                  %input{class: :"login-page__form-inner__group--input", placeholder: :"メールアドレス", type: :"email"}
-
+                  = f.email_field :email, autofocus: true, type: "email", placeholder: "メールアドレス", class: 'login-page__form-inner__group--input'
                 .login-page__form-inner__group
-                  %input{class: :"login-page__form-inner__group--input", placeholder: :"パスワード", type: :"password"}
+                  = f.password_field :password, type: "password", placeholder: "パスワード", class: 'login-page__form-inner__group--input'
 
                 .login-page__form-inner__group
                   = render "shared/recaptcha"
