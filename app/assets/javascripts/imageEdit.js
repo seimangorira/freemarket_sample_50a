@@ -33,7 +33,7 @@ $(document).on("turbolinks:load", function(){
     event.preventDefault(); // aタグクリックによる画面遷移を防ぐ
 
     var imageId = $(this).data('saved-image-id');
-    $(this).parents("li").css('display', 'none'); // 親要素のliを取得して削除
+    $(this).parents("li").remove(); // 親要素のliを取得して削除
 
     // 選択された画像のIDを取得し、paramsをControllerで受け取れるようにする
     $(`.remove-item-image-${imageId}`).prev($("input")).val(`${imageId}`) // デフォルト値の0を変更する
