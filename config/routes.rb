@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   get "users/card" => "users#card"
   get "users/addCard" => "users#addCard"
   get "users/logout" => "users#logout"
+  get "users/exhibiting" =>  "users#exhibiting"
   resources :users, only: [:show]
   resources :items, only: [:new, :create, :show, :edit, :update] do
     collection do
