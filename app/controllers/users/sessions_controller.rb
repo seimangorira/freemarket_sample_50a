@@ -5,8 +5,7 @@ class Users::SessionsController < Devise::SessionsController
     auth = request.env['omniauth.auth']
  
     # auth情報を元にユーザをDB登録
-    # sessionにユーザIDを保持
-    binding.pry  # デバッグ用
+    # sessionにユーザIDを保持 # デバッグ用
  
     redirect_to root_path
   end
