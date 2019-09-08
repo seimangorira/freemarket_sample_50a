@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   get "users/logout" => "users#logout"
   get "users/exhibiting" =>  "users#exhibiting"
   resources :users, only: [:show]
+  resources :details, only: [:index, :show, :destroy]
   resources :items, only: [:new, :create, :show, :edit, :update] do
     collection do
       get 'get_children_categories', defaults: { format: 'json' }
