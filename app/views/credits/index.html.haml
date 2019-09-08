@@ -11,7 +11,7 @@
             .mainbody__form-group
               %label.mainbody__form-group--label カード番号
               %span.mainbody__require 必須
-              %input.mainbody__form-group--input-default{maxlegth: :"16", name: :"number", placeholder: :半角数字のみ, type: :text}/
+              %input.mainbody__form-group--input-default.number{id: "payment_card_no", maxlegth: "16", name: "number", placeholder: "半角数字のみ", type: "text"}/
 
               %ul.mainbody__cards
                 %li.mainbody__cards--card
@@ -34,7 +34,7 @@
                 %label.mainbody__form-group--label 有効期限
                 %span.mainbody__require 必須
               .mainbody__form-expire__half
-                %select.mainbody__form-expire__half--default{name: :"exp_month"}
+                %select.mainbody__form-expire__half--default.exp_month{id: "payment_card_expire_mm", type: "text", name: "exp_month"}
                   %option{value: :"1"} 01
                   %option{value: :"2"} 02
                   %option{value: :"3"} 03
@@ -49,21 +49,29 @@
                   %option{value: :"12"} 12
                 %span.month 月
               .mainbody__form-expire__half
-                %select.mainbody__form-expire__half--default{name: :"exp_year"}
-                  - for i in 19..29
-                    %option{value: :"{#i}" } #{i}
+                %select.mainbody__form-expire__half--default.exp_year{type: "text", id: "payment_card_expire_yy", name: "exp_year"}
+                  %option{value: :"2019"} 19
+                  %option{value: :"2020"} 20
+                  %option{value: :"2021"} 21
+                  %option{value: :"2022"} 22
+                  %option{value: :"2023"} 23
+                  %option{value: :"2024"} 24
+                  %option{value: :"2025"} 25
+                  %option{value: :"2026"} 26
+                  %option{value: :"2027"} 27
+                  %option{value: :"2028"} 28
+                  %option{value: :"2029"} 29
                 %span.year 年
 
             .mainbody__form-group-under
               %label.mainbody__form-group--label セキュリティコード
               %span.mainbody__require 必須
-              %input.mainbody__form-group--input-default{maxlength: :"4", name: :"cvc", placeholder: :カード背面4桁もしくは3桁の番号, type: :"text"}/
+              %input.mainbody__form-group--input-default.cvc{id: "payment_card_security_code",maxlength: "4", name: "cvc", placeholder: "カード背面4桁もしくは3桁の番号", type: "text"}/
 
             .mainbody__seqcode
               .mainbody__seqcode-text
                 カード裏面の番号とは？
-            %button.registration-all__btn-red.submit{type: :submit}
-              追加する
+            %input.registration-all__btn-red.submit{type: :submit, id: "submit-button", value: "追加する"}
             %p#result
             %input.payjp-token{ type: "hidden", name: "payjpToken", value: "" }
 

@@ -1,22 +1,22 @@
-$(document).on("turbolinks:load", function() {
-  Payjp.setPublikKey("pk_test_9b04f8947dc68468fe3fbf43");
+$(document).on('turbolinks:load', function() {
   var form = $("#change-form");
-  var number    = document.querySelector('input[name="number"]'),
-      cvc       = document.querySelector('input[name="cvc"]'),
-      exp_month = document.querySelector('input[name="exp_month]'),
-      exp_year  = document.querySelector('input[name="exp_yaer"]');
-
-  document.querySelector(".submit").addEventListener("click", function(e) {
+  Payjp.setPublicKey('pk_test_9b04f8947dc68468fe3fbf43');
+  
+  $("#change-form").on("click", "#submit-button", function(e) {
     e.preventDefault();
+    form.find("input[type=submit]").prop("disabled", true);
     var card = {
-      number: number.value,
-      cvc: cvc.value,
-      exp_month: exp_month.value,
-      exp_yaer: exp_yaer.value
-    }
+      number: parseInt($("#payment_card_no").val()),
+        cvc: parseInt($("#payment_card_security_code").val()),
+        exp_month: parseInt($("#payment_card_expire_mm").val()),
+        exp_year: parseInt($("#payment_card_expire_yy").val())
+    };
     Payjp.createToken(card, function(s, response) {
+      console.log(s)
+      console.log(response)
       if (response.error) {
-        document.getElementById("result").innerText = "Token = " + response.id;
+        alert("error")
+        form.find('button').prop('disabled', false);
       }
       else {
         $(".number").removeAttr("name");
@@ -24,10 +24,9 @@ $(document).on("turbolinks:load", function() {
         $(".exp_month").removeAttr("name");
         $(".exp_year").removeAttr("name");
 
-        var token = response.id
-
-        form.append($('<input type="hidden" name="payjp_token" class="payjp_token" />').val(token));
-        form.get(0).submit();
+        var token = response.id;
+        $("#change-form").append($('<input type="hidden" name="payjpToken" class="payjp-token" />').val(token));
+        $("#change-form").get(0).submit();
       }
     });
   });

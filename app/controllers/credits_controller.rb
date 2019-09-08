@@ -1,14 +1,7 @@
 class CreditsController < ApplicationController
   
   def index
-    Payjp.api_key = PAYJP_SECRET_KEY
-    customer = Payjp::Costomer.create(card: params[:payjp_token])
-    @payment = Payment.new(user_id: current_user.id, card_token: params[:payjp_token])
-    if @payment.save
-      redirect_to root_path, notice: "カードの作成が完了しました"
-    else
-      redirect_to new_user_cregit_path
-    end
+
   end
 
   def new
@@ -16,12 +9,20 @@ class CreditsController < ApplicationController
   end
 
   def create
+    Payjp.api_key = ("sk_test_866d0aaf5af774de1f9dd3cb")
+    customer = Payjp::Customer.create(card: params[:payjpToken])
+    @credit = Credit.new(user_id: current_user.id, card_token: params[:payjpToken])
+    if @credit.save
+      redirect_to root_path, notice: "カードの作成が完了しました"
+    else
+      redirect_to new_user_cregit_path
+    end
     # redirect_to complete_registration_path
   end
 
-  private
-  def payment_params
-    params.require(:credit)
-  end
+  # private
+  # def credit_params
+  #   params.require(:credit)
+  # end
 
 end
