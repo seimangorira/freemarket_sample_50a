@@ -1,5 +1,7 @@
 .main
   = render "shared/top-header"
+  - breadcrumb :exhibiting_show
+  = render "shared/pankuzu"
   %section.main__item-box
     = render partial: "items/detail-main", locals: { item: @item, exhibitor: @exhibitor, category: @category }
     .main__item-box__item-description

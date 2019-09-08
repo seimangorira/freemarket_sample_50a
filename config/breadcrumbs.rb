@@ -42,6 +42,11 @@ crumb :exhibiting do
   parent :mypage
 end
 
+crumb :exhibiting_show do
+  link "出品商品画面"
+  parent :exhibiting
+end
+
 # crumb :projects do
 #   link "Projects", projects_path
 # end
