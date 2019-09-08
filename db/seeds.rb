@@ -1,3 +1,10 @@
+# テストユーザーを3人分作成
+user_id = 1
+while user_id <= 3 
+  User.create(nickname: "test#{user_id}", first_name: "てすと", first_name_kana: "ゆーざー#{user_id}", last_name: "テスト", last_name_kana: "ユーザー#{user_id}", email: "sample#{user_id}@sample", password: "123456")
+  user_id += 1
+end
+
 # 親カテゴリの作成
 categories = ['レディース','メンズ','ベビー・キッズ','インテリア・住まい・小物','本・音楽・ゲーム','おもちゃ・ホビー・グッズ','コスメ・香水・美容','家電・スマホ・カメラ','スポーツ・レジャー','ハンドメイド','チケット','自動車・オートバイ','その他']
 
