@@ -6,12 +6,12 @@
     .mainbody__content
       %section.mainbody__container
         %h2.mainbody__chapter-head クレジットカード情報入力
-        %form.mainbody__inner-registration
+        = form_tag("/users/#{current_user.id}/credits", method: :post, class: "mainbody__inner-registration", id: "change-form") do
           .mainbody__inner-registration__single-content
             .mainbody__form-group
-              %label.mainbody__form-group--label{for: :cardNum} カード番号
+              %label.mainbody__form-group--label カード番号
               %span.mainbody__require 必須
-              %input.mainbody__form-group--input-default{placeholder: :半角数字のみ, type: :text}/
+              %input.mainbody__form-group--input-default{maxlegth: :"16", name: :"number", placeholder: :半角数字のみ, type: :text}/
 
               %ul.mainbody__cards
                 %li.mainbody__cards--card
@@ -34,7 +34,7 @@
                 %label.mainbody__form-group--label 有効期限
                 %span.mainbody__require 必須
               .mainbody__form-expire__half
-                %select.mainbody__form-expire__half--default
+                %select.mainbody__form-expire__half--default{name: :"exp_month"}
                   %option{value: :"1"} 01
                   %option{value: :"2"} 02
                   %option{value: :"3"} 03
@@ -49,15 +49,15 @@
                   %option{value: :"12"} 12
                 %span.month 月
               .mainbody__form-expire__half
-                %select.mainbody__form-expire__half--default
+                %select.mainbody__form-expire__half--default{name: :"exp_year"}
                   - for i in 19..29
                     %option{value: :"{#i}" } #{i}
                 %span.year 年
 
             .mainbody__form-group-under
-              %label.mainbody__form-group--label{for: :code} セキュリティコード
+              %label.mainbody__form-group--label セキュリティコード
               %span.mainbody__require 必須
-              %input.mainbody__form-group--input-default{placeholder: :カード背面4桁もしくは3桁の番号}/
+              %input.mainbody__form-group--input-default{maxlength: :"4", name: :"cvc", placeholder: :カード背面4桁もしくは3桁の番号, type: :"text"}/
 
             .mainbody__seqcode
               .mainbody__seqcode-text
