@@ -1,5 +1,5 @@
 class ExhibitionsController < ApplicationController
-  before_action :set_item, only: [:show, :destroy]  #itemsテーブルの1つのアイテムを取得する処理。
+  before_action :set_item, only: [:show, :destroy]
 
   def index
     items = Item.where(seller_id: current_user.id).includes(:seller).order("created_at DESC")
@@ -12,7 +12,7 @@ class ExhibitionsController < ApplicationController
   end
 
   def destroy
-    @item.destroy if @item.seller_id == current_user.id  #もしseller_idと現在ログインしているユーザーidが等しければ、@itemを消す。
+    @item.destroy if @item.seller_id == current_user.id
     redirect_to root_path
   end
 
