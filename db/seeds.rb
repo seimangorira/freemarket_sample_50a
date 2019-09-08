@@ -49,3 +49,28 @@ grand_child_categories.each do |grand_child|
     child_category.children.create(name: grand_child)
   end
 end
+
+item_id = 1
+# ユーザー「test1」がレディースカテゴリのアイテムを3つ作成
+while item_id <= 3
+  test_item = Item.new(name: "test#{item_id}", price: 10000, state: 1, introduction: "test#{item_id}", status: 1, delivery_fee: 1, delivery_method: 1, city: "東京都", delivery_days: 1, category_id: 159, seller_id: 1)
+  test_item.images.attach(io: File.open('app/assets/images/mercari_icon.png'), filename: "mercari_icon.png", content_type: "image/png")
+  test_item.save
+  item_id += 1
+end
+
+# ユーザー「test2」がメンズカテゴリのアイテムを3つ作成
+while item_id <= 6
+  test_item = Item.new(name: "test#{item_id}", price: 20000, state: 1, introduction: "test#{item_id}", status: 1, delivery_fee: 1, delivery_method: 1, city: "大阪府", delivery_days: 1, category_id: 338, seller_id: 2)
+  test_item.images.attach(io: File.open('app/assets/images/mercari_icon.png'), filename: "mercari_icon.png", content_type: "image/png")
+  test_item.save
+  item_id += 1
+end
+
+# ユーザー「test3」がベビー・キッズカテゴリのアイテムを3つ作成
+while item_id <= 9
+  test_item = Item.new(name: "test#{item_id}", price: 30000, state: 1, introduction: "test#{item_id}", status: 1, delivery_fee: 1, delivery_method: 1, city: "広島県", delivery_days: 1, category_id: 468, seller_id: 3)
+  test_item.images.attach(io: File.open('app/assets/images/mercari_icon.png'), filename: "mercari_icon.png", content_type: "image/png")
+  test_item.save
+  item_id += 1
+end
