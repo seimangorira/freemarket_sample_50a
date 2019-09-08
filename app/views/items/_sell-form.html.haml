@@ -1,0 +1,222 @@
+= form_with model: item, builder: CustomFormBuilder, local: true do |f|
+  .container__form
+    .container__form__content.upload-images
+      %label.upload-images__label
+        出品画像
+        %span.form-require 
+          必須
+      .upload-images__addition
+        最大10枚までアップロードできます
+      .upload-images__container
+        .upload-images__container--uploaded
+          .image-lists
+            %ul.item-image-wrapper.first-image-lists
+              - if @upper__item_images.present?
+                - @upper__item_images.each.with_index(1) do |image, index|
+                  %li.image-lists__list
+                    .item-image-wrapper__figure
+                      = image_tag image, id: "saved-preview-#{index}", alt: "preview-#{index}"
+                    .item-image-wrapper__button
+                      = link_to "編集", "#"
+                      = link_to "削除", "#", class: "delete-saved-image", "data-saved-image-id": image.id
+          .image-lists
+            %ul.item-image-wrapper.second-image-lists
+              - if @lower_item_images.present?
+                - @lower_item_images.each.with_index(6) do |image, index|
+                  %li.image-lists__list
+                    .item-image-wrapper__figure
+                      = image_tag image, id: "saved-preview-#{index}", alt: "preview-#{index}"
+                    .item-image-wrapper__button
+                      = link_to "編集", "#"
+                      = link_to "削除", "#", class: "delete-saved-image", "data-saved-image-id": image.id
+        = f.label :images, class: "upload-images__container--now-upload" do
+          .now-upload-wrapper{"data-total-items": item.images.length}
+            = f.file_field :images, multiple: true, class: "now-upload-wrapper--input upload-box-0"
+            - if item.id.present?
+              - @item_images.each.with_index(1) do |image, index|
+                .remove-item-image{style: "display: none;"}
+                  = f.check_box :image_ids, {multiple: true, class: "remove-item-image-#{image.id} remove-check-box", checked: false}, image.id, "0"
+            %pre.input.upload-images__container--text
+              ドラッグアンドドロップ
+              またはクリックしてファイルをアップロード
+      .upload-images__container--error-message.validate-error-message
+        %p.error=item.errors.messages[:images][0]
+        %p.error=item.errors.messages[:image_ids][0]
+
+    .container__form__content.item-about.clearfix
+      .form-group
+        %label.item-about__name 
+          商品名
+          %span.form-require 
+            必須
+        = f.text_field :name, class: "item-about__name--input", placeholder: "商品名（必須 40文字まで)"
+        .validate-error-message
+          %p{class: 'error'}=@item.errors.messages[:name][0]
+      .form-group
+        %label.item-about__description 
+          商品の説明
+          %span.form-require 
+            必須
+        = f.text_area :introduction, class: "item-about__description--input", placeholder: "商品の説明（必須1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+    
+    .container__form__content.item-detail.clearfix
+      .item-detail__title.form-sub-title 商品の詳細
+      .item-detail__right-box.form-right-box
+        .form-group
+          %label.item-detail__category
+            カテゴリー
+            %span.form-require 必須
+          .select-categories-wrapper
+            - if @children_categories.nil?
+              .select-wrap
+                %i.fas.fa-angle-down
+                = f.collection_select :category_id, @parent_categories, :id, :name, {prompt: "---"}, {class: "select-wrap__input", id: "parent_category"}
+            - else 
+              .select-wrap
+                %i.fas.fa-angle-down
+                = f.collection_select :category_id, @parent_categories, :id, :name, {prompt: "---", selected: item.category.root.id}, {class: "select-wrap__input", id: "parent_category"}
+              .select-wrap.child-categories-wrapper
+                %i.fas.fa-angle-down
+                = f.collection_select :category_id, @children_categories, :id, :name, {prompt: "---", selected: item.category.parent.id}, {class: "select-wrap__input", id: "child_category"}
+              .select-wrap.grandchild-categories-wrapper
+                %i.fas.fa-angle-down
+                = f.collection_select :category_id, @grandchildren_categories, :id, :name, {prompt: "---"}, {class: "select-wrap__input", id: "grandchild_category"}
+
+          -# 出品ページか編集ページかで、「サイズ」・「ブランド」欄の処理を分岐
+          - if item.id.nil?
+            .form-group.select-item-sizes{style: "display: none;"}
+              %label.item-detail__category 
+                サイズ
+                %span.form-require 必須
+              .select-wrap
+                %i.fas.fa-angle-down
+                = f.select :size, Item.sizes_i18n.invert, {prompt: "---"}, {class: "select-wrap__input"}
+            .form-group.input-item-brands{style: "display: none;"}
+              %label.item-detail__category 
+                ブランド
+                %span.form-arbitrary 任意
+              .select-wrap
+                = f.text_field :brand, class:"select-wrap__input", placeholder: "例）シャネル"
+          - else 
+            .form-group.select-item-sizes
+              %label.item-detail__category 
+                サイズ
+                %span.form-require 必須
+              .select-wrap
+                %i.fas.fa-angle-down
+                = f.select :size, Item.sizes_i18n.invert, {prompt: "---"}, {class: "select-wrap__input"}
+            .form-group.input-item-brands
+              %label.item-detail__category 
+                ブランド
+                %span.form-arbitrary 任意
+              .select-wrap
+                = f.text_field :brand, class:"select-wrap__input", placeholder: "例）シャネル"
+
+        .form-group
+          %label.item-detail__state 
+            商品の状態
+            %span.form-require 必須
+          .select-wrap
+            %i.fas.fa-angle-down
+            = f.select :state, Item.states_i18n.invert, {prompt: "---"}, {class: "select-wrap__input"}
+    
+    .container__form__content.delivery-setting.clearfix
+      .delivery-setting__title.form-sub-title 配送について
+      .delivery-setting__rightbox.form-right-box
+        .form-group
+          %label.delivery-setting__burden
+            配送料の負担
+            %span.form-require 
+              必須
+          .select-wrap.select-delivery-burden
+            %i.fas.fa-angle-down
+            = f.select :delivery_fee, Item.delivery_fees_i18n.invert, {prompt: "---"}, {class: "select-wrap__input", id: "delivery-fee"}
+        
+        -# 出品ページか編集ページかで「配送の方法」欄の処理を分岐
+        .select_delivery_wrapper.form-group
+          - if item.id.nil?
+            .default-delivery-method{style: "display: none;"}
+              %label.delivery-method__burden
+                配送の方法
+                %span.form-require 
+                  必須
+              .select-wrap
+                %i.fas.fa-angle-down
+                = f.select :delivery_method, Item.delivery_methods_i18n.invert, {prompt: "---"}, {class: "select-wrap__input"}
+          - else
+            .default-delivery-method
+              %label.delivery-method__burden
+                配送の方法
+                %span.form-require 
+                  必須
+              .select-wrap
+                %i.fas.fa-angle-down
+                = f.select :delivery_method, Item.delivery_methods_i18n.invert, {prompt: "---"}, {class: "select-wrap__input"}
+
+        .form-group
+          %label.delivery-setting__region
+            発送元の地域
+            %span.form-require 
+              必須
+          .select-wrap
+            %i.fas.fa-angle-down
+            = f.collection_select :city, Prefecture.all, :name, :name, {prompt: "---"}, {class: "select-wrap__input"}
+
+        .form-group
+          %label.delivery-setting__days
+            発送までの日数
+            %span.form-require 
+              必須
+          .select-wrap
+            %i.fas.fa-angle-down
+            = f.select :delivery_days, Item.delivery_days_i18n.invert, {prompt: "---"}, {class: "select-wrap__input"}
+            
+    .container__form__content.selling-item.clearfix
+      .selling-item__title.form-sub-title
+        販売価格(300〜9,999,999)
+      %ul.selling-item__right-box.form-right-box
+        .price-wrapper
+          %li.form-group.selling-item__price
+            .selling-item__price__inner-left
+              %label.selling-item__price--setting
+                価格
+                %span.form-require 
+                  必須
+            .selling-item__price__inner-right
+              ¥
+              .selling-item__price__inner-right--input
+                = f.text_field :price, placeholder: "例)  300", id: "selling-item-price"
+          .validate-error-message.selling-item__price__error-message
+            %p{class: 'error'}=@item.errors.messages[:price][0]
+        %li.selling-item__fee.clearfix
+          %p 販売手数料(10%)
+          %p.sale-fee -
+        %li.selling-item__profit.clearfix
+          %p.selling-item__profit--title 販売利益
+          %p.selling-item__profit--result -
+  
+    .container__form__content.confirmation-box.clearfix
+      .confirmation-box__description
+        %p<>
+          = link_to "禁止されている出品", "#"
+          、
+          = link_to "行為", "#"
+          を必ずご確認ください。
+        %p<>
+          またブランド品でシリアルナンバー等がある場合はご記載ください。
+          = link_to "偽ブランドの販売", "#"
+          は犯罪であり処罰される可能性があります。
+        %p<> 
+          また、出品をもちまして
+          = link_to "加盟店規約", "#"
+          に同意したことになります。
+      .confirmation-box__btn
+        -# 出品ページか、編集ページかで文言を変更
+        .confirmation-box__btn--exhibition
+          - if item.id.nil?
+            = f.submit "出品する", class: "confirmation-box__btn--exhibition btn btn-red"
+          - else
+            = f.submit "変更する", class: "confirmation-box__btn--exhibition btn btn-red"
+        .confirmation-box__btn--back
+          -# TODO:仮でroot_pathに設定。ユーザー登録機能の実装後、ユーザーマイページへリンクを書き換える必要あり
+          = link_to 'もどる', root_path, class: "confirmation-box__btn--back btn btn-gray"
