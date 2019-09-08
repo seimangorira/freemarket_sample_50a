@@ -18,6 +18,14 @@ class UsersController < ApplicationController
   def card
   end
 
+  def addCard
+  end
+
+  def exhibiting
+    items = Item.where(seller_id: current_user.id).includes(:seller).order("created_at DESC")
+    @selling_items = items.where(status: 1)
+  end
+
   private
 
   # def redirect_root

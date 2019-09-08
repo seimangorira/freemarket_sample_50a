@@ -15,6 +15,8 @@ $(document).on("turbolinks:load", function(){
                                 </select>
                              </div>`;
     $('.select-categories-wrapper').append(childSelectBox);
+    $('.child-categories-wrapper').remove();
+    $('.grandchild-categories-wrapper').remove();
   }
 
   // 孫カテゴリの作成
@@ -27,6 +29,7 @@ $(document).on("turbolinks:load", function(){
                                 </select>
                              </div>`;
     $('.select-categories-wrapper').append(grandChildSelectBox);
+    $('.grandchild-categories-wrapper').remove();
   }
 
   // 親カテゴリ選択後のイベント
