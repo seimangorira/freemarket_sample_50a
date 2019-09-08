@@ -38,7 +38,7 @@ crumb :items do |item|
 end
 
 crumb :exhibiting do
-  link "出品した商品 - 出品中"
+  link "出品した商品 - 出品中", exhibitions_path
   parent :mypage
 end
 
