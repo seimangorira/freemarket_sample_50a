@@ -13,7 +13,7 @@
 
           %section.mainbody__add-card
             .mainbody__single-content
-              = link_to users_addCard_path, class: "mainbody__btn-red" do
+              = link_to "/users/#{current_user.id}/credits", method: :get, class: "mainbody__btn-red" do
                 %i.far.fa-credit-card
                 クレジットカードを追加する
 
