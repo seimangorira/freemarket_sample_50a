@@ -24,7 +24,9 @@ Rails.application.routes.draw do
   get "users/card" => "users#card"
   get "users/addCard" => "users#addCard"
   get "users/logout" => "users#logout"
-  resources :users, only: [:show]
+  resources :users, only: [:show] do
+    resources :credits
+  end
   resources :items, only: [:new, :create, :show] do
     collection do
       get 'get_children_categories', defaults: { format: 'json' }
