@@ -10,20 +10,20 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     callback_for(:google)
   end
 
-  def google
-    @user = User.find_for_google(request.env['omniauth.auth'])
+  # def google
+  #   @user = User.find_for_google(request.env['omniauth.auth'])
 
-    if @user.persisted?
-      flash[:notice] = I18n.t 'devise.omniauth_callbacks.success', kind: 'Google'
-      sign_in_and_redirect @user, event: :authentication
-    else
-      session['devise.google_data'] = request.env['omniauth.auth']
-      redirect_to new_user_registration_url
-    end
-  end
+  #   if @user.persisted?
+  #     flash[:notice] = I18n.t 'devise.omniauth_callbacks.success', kind: 'Google'
+  #     sign_in_and_redirect @user, event: :authentication
+  #   else
+  #     session['devise.google_data'] = request.env['omniauth.auth']
+  #     redirect_to new_user_registration_url
+  #   end
+  # end
 
   def callback_for(provider)
-    @user = User.find_oauth(request.env["omniauth.auth"])
+    @user = User.from_omniauth(request.env["omniauth.auth"])
     if @user.persisted?
       sign_in_and_redirect @user, event: :authentication #after_sign_in_path_forと同じパス
       set_flash_message(:notice, :success, kind: "#{provider}".capitalize) if is_navigational_format?
@@ -63,4 +63,3 @@ end
   # def after_omniauth_failure_path_for(scope)
   #   super(scope)
   # end
-end

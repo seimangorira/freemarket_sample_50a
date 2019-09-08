@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-  devise_for :users, :controllers => {
-    omniauth_callbacks: "users/omniauth_callbacks",
-    sessions:      'users/sessions'
-  }
   devise_scope :user do
     get 'login', to: 'devise/sessions#new'
     get "signup" => "devise/registrations#index", as: "signup_index"
@@ -14,7 +10,8 @@ Rails.application.routes.draw do
     post "/signup/credit/:id" => "credits#create", as: "credit_create_registration"
     get "/signup/complete" => "users/registrations#complete", as: "complete_registration"
   end
-  devise_for :users, controllers: {
+  devise_for :users, controllers: { 
+    omniauth_callbacks: "users/omniauth_callbacks",
     registrations: 'users/registrations',
     sessions: 'users/sessions'
    }
@@ -29,12 +26,11 @@ Rails.application.routes.draw do
   get "users/addCard" => "users#addCard"
   get "users/logout" => "users#logout"
   resources :users, only: [:show]
-  get 'items/detail' => 'items#detail'
-  resources :items, only: [:new, :create]
-  get  '/auth/:provider/callback' => 'sessions#callback'
-  post '/auth/:provider/callback'  => 'sessions#callback'
-  get  '/auth/failure' => 'sessions#failure'
-  get  '/logout' => 'sessions#destroy'
+  # get 'items/detail' => 'items#detail'
+  # get  '/auth/:provider/callback' => 'sessions#callback'
+  # post '/auth/:provider/callback'  => 'sessions#callback'
+  # get  '/auth/failure' => 'sessions#failure'
+  # get  '/logout' => 'sessions#destroy'
 
   resources :items, only: [:new, :create, :show] do
     collection do
@@ -42,4 +38,5 @@ Rails.application.routes.draw do
       get 'get_grandchildren_categories', defaults: { format: 'json' }
     end
   end
+  resources :purchases, only: [:show]
 end

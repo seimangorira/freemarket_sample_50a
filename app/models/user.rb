@@ -2,7 +2,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: [:facebook], omniauth_providers: %i(google)
+         :recoverable, :rememberable, :validatable
 
   has_many :comments
   has_one :credit
@@ -21,6 +21,10 @@ class User < ApplicationRecord
     if sns == nil && user == nil
       @user = User.new(
         nickname: auth.info.name,
+        first_name: "",
+        first_name_kana: "",
+        last_name: "",
+        last_name_kana: "",
         email: auth.info.email,
         password: Devise.friendly_token[0,20]
         )
