@@ -9,7 +9,6 @@
     = link_to edit_item_path(@item) do
       .main__btn-selection--edit-btn-red 商品の編集
     %p.main__btn-selection--text or
-    -# %form 出品を一旦停止するボタン。実装するのかチームと相談。
     %button= link_to 'この商品を削除する', "/exhibitions/#{@item.id}", class: "main__btn-selection--delete-btn-gray", method: :delete, data: {confirm: '削除すると二度と復活できません。本当に削除しますか？'}
   .main__detail-message
     .main__detail-message__container
