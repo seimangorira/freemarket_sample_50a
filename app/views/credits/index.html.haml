@@ -62,8 +62,10 @@
             .mainbody__seqcode
               .mainbody__seqcode-text
                 カード裏面の番号とは？
-            %button.registration-all__btn-red{type: :submit}
+            %button.registration-all__btn-red.submit{type: :submit}
               追加する
+            %p#result
+            %input.payjp-token{ type: "hidden", name: "payjpToken", value: "" }
 
     = render 'shared/mypage-leftside'
     .mainbody__main__side
