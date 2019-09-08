@@ -32,6 +32,18 @@
       font-size: 14px;
       color: black;
       text-decoration: none;
+      &:hover {
+        background-color: #fafafa;
+        .fa.fa-chevron-right {
+          color: #333;
+          top: 50%;
+          right: 16px;
+          -webkit-transform: translate(50%, 0);
+          transform: translate(50%, 0);
+          -webkit-transition: all ease-out .2s;
+          transition: all ease-out .2s;
+        }
+      }
     }
   }
   .mypage-nav-head {
