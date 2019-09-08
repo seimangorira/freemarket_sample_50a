@@ -3,85 +3,7 @@
 
   -# 商品の詳細情報
   %section.main__item-box
-    %h1.main__item-box__item-name 
-      = @item.name
-    .main__item-box__item-main.clearfix
-      .main__item-box__item-main__content
-        .main__item-box__item-main__content__photo
-          .main__item-box__item-main__content__photo__header
-            .main__item-box__item-main__content__photo__header__items.stage{style: 'left: 0px; width: 3000px;'}
-              - @item.images.each do |image|
-                .main__item-box__item-main__content__photo__header__items__stage{style: 'width: 300px;'}
-                  .main__item-box__item-main__content__photo__header__items__stage__inner
-                    = image_tag image, class: "main__item-box__item-main__content__photo__header__items__stage__inner--main-image", style: "opacity: 1;", width: "300"
-
-          .main__item-box__item-main__content__photo__image-box
-            - @item.images.each_with_index do |image, i|
-              .main__item-box__item-main__content__photo__image-box__mini-image{"data-image-id": i}
-                %span
-                .main__item-box__item-main__content__photo__image-box__mini-image__inner
-                  = image_tag image, class: ".main__item-box__item-main__content__photo__image-box__mini-image__inner--sub-image"
-      %table.main__item-box__item-main__detail-table
-        %tbody.main__item-box__item-main__detail-table__field
-          %tr
-            %th 出品者
-            %td
-              = link_to @exhibitor.nickname, "#"
-              .main__item-box__item-main__detail-table__field__icons
-                .main__item-box__item-main__detail-table__field__icons--smile-icons
-                  %i.fas.fa-grin-alt
-                  %span 100
-                .main__item-box__item-main__detail-table__field__icons--smile-icons
-                  %i.fas.fa-meh
-                  %span 50
-                .main__item-box__item-main__detail-table__field__icons--smile-icons
-                  %i.fas.fa-frown
-                  %span 30
-          %tr
-            %th カテゴリー
-            %td
-              = link_to "#" do
-                .main__item-box__item-main__detail-table__field__category
-                  = @category.root.name
-              = link_to "#" do
-                .main__item-box__item-main__detail-table__field__category-sub
-                  %i.fa.fa-chevron-right
-                    = @category.parent.name
-              = link_to "#" do
-                .main__item-box__item-main__detail-table__field__category-sub-sub
-                  %i.fa.fa-chevron-right
-                    = @category.name
-          %tr
-            %th ブランド
-            %td
-              = link_to "#" do
-                .main__item-box__item-main__detail-table__field__brand
-                  = @item.brand
-          %tr
-            %th 商品の状態
-            %td
-              = @item.state_i18n
-          %tr
-            %th 配送料の負担
-            %td 
-              = @item.delivery_fee_i18n
-          %tr
-            %th 配送の方法
-            %td
-              = @item.delivery_method_i18n
-          %tr
-            %th 配送先の地域
-            %td
-              =link_to "#{@item.city}", "#"
-          %tr
-            %th 発送日の目安
-            %td
-              = @item.delivery_days_i18n
-    .main__item-box__item-price 
-      %span.main__item-box__item-price--text
-        = "¥ #{@item.price}"
-      %span.main__item-box__item-price--tax (税込)
-      %span.main__item-box__item-price--shipping-fee 送料込み
+    = render partial: "detail-main", locals: { item: @item, exhibitor: @exhibitor, category: @category }
     = link_to "/items/buy" do
       .main__item-box__item-btn 購入画面に進む
     .main__item-box__item-description
@@ -132,25 +54,7 @@
   .main__user-item
 
     -# 個人のその他の出品
-    %section.main__user-item__user-item-box.clearfix
-      %h2.main__user-item__user-item-box--name
-        = link_to "#" do
-          = "#{@exhibitor.nickname}さんのその他の出品"
-      .main__user-item__user-item-box__content.clearfix
-        - @otherExhibitorItems.each do |item|
-          %section.main__user-item__user-item-box__content__image-box
-            = link_to "#" do
-              %figure.main__user-item__user-item-box__content__image-box__photo
-                = image_tag item.images[0], class: 'main__user-item__user-item-box__content__image-box__photo--item-image', width: "220", height: "220"
-              .main__user-item__user-item-box__content__image-box__body
-                %h3.main__user-item__user-item-box__content__image-box__body--items-name
-                  = item.name
-                .main__user-item__user-item-box__content__image-box__body__num
-                  .main__user-item__user-item-box__content__image-box__body__num--price
-                    = "¥ #{item.price}"
-                  .main__user-item__user-item-box__content__image-box__body__num--heart
-                    %i.far.fa-heart
-                    %span 4
+    = render partial: 'other-exhibitions', locals: {item: @item, exhibitor: @exhibitor, category: @category, otherExhibitorItems: @otherExhibitorItems, otherCategorysItems: @otherCategorysItems}
 
     -# カテゴリー別のその他の出品
     %section.main__user-item__user-item-box.clearfix
