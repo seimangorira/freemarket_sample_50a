@@ -212,3 +212,8 @@
   background-color: #fff;
 }
 
+@mixin birthday-chevron-down {
+  position: absolute;
+  top: 20px;
+  color: #353535;
+}
