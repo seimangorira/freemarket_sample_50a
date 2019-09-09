@@ -1,8 +1,7 @@
 class ExhibitionsController < ApplicationController
 
   def index
-    items = Item.where(seller_id: current_user.id).includes(:seller).order("created_at DESC")
-    @selling_items = items.where(status: 1)
+    @selling_items = Item.where(seller_id: current_user.id, status: 1).includes(:seller).order("created_at DESC")
   end
 
   def show
