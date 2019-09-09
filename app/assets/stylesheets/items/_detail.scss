@@ -151,9 +151,11 @@
               min-height: 1px;
               float: left;
               user-select: none;
+              width: 3000px;
               &__stage{
                 position: relative;
                 float: left;
+                width: 300px;
                 &__inner{
                   position: relative;
                   width: 100%;

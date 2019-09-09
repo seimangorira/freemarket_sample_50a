@@ -4,18 +4,18 @@
   .main__item-box__item-main__content
     .main__item-box__item-main__content__photo
       .main__item-box__item-main__content__photo__header
-        .main__item-box__item-main__content__photo__header__items.stage{style: 'left: 0px; width: 3000px;'}
+        .main__item-box__item-main__content__photo__header__items.stage
           - item.images.each do |image|
-            .main__item-box__item-main__content__photo__header__items__stage{style: 'width: 300px;'}
+            .main__item-box__item-main__content__photo__header__items__stage
               .main__item-box__item-main__content__photo__header__items__stage__inner
-                = image_tag image, class: "main__item-box__item-main__content__photo__header__items__stage__inner--main-image", style: "opacity: 1;", width: "300"
+                = image_tag image, class: "main__item-box__item-main__content__photo__header__items__stage__inner--main-image", style: "opacity: 1;", width: "300", height: "300"
 
       .main__item-box__item-main__content__photo__image-box
         - item.images.each_with_index do |image, i|
           .main__item-box__item-main__content__photo__image-box__mini-image{"data-image-id": i}
             %span
             .main__item-box__item-main__content__photo__image-box__mini-image__inner
-              = image_tag image, class: ".main__item-box__item-main__content__photo__image-box__mini-image__inner--sub-image"
+              = image_tag image, class: ".main__item-box__item-main__content__photo__image-box__mini-image__inner--sub-image", width: "60", height: "60"
   %table.main__item-box__item-main__detail-table
     %tbody.main__item-box__item-main__detail-table__field
       %tr
