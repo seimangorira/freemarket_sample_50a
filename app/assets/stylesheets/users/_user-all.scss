@@ -378,60 +378,30 @@
         margin: 8px 0 0;
 
         #user_birthday_1i.year {
-          -webkit-appearance: none;
-          -moz-appearance: none;
-          appearance: none;
-          height: 48px;
-          width: 76px;
-          margin: 0;
-          padding: 0 10px;
-          border: 1px solid #ccc;
-          background-color: #fff;
+          @include birthday-form;
         }
 
         .fa.fa-chevron-down.year {
-          position: absolute;
+          @include birthday-chevron-down;
           left: 47px;
-          top: 20px;
-          color: #353535;
         }
 
         #user_birthday_2i.month {
-          -webkit-appearance: none;
-          -moz-appearance: none;
-          appearance: none;
-          height: 48px;
-          width: 76px;
-          margin: 0;
-          padding: 0 10px;
-          border: 1px solid #ccc;
-          background-color: #fff;
+          @include birthday-form;
         }
 
         .fa.fa-chevron-down.month {
-          position: absolute;
-          left: 145px;
-          top: 20px;
-          color: #353535;
+          @include birthday-chevron-down;
+          left: 145px;;
         }
 
         #user_birthday_3i.day {
-          -webkit-appearance: none;
-          -moz-appearance: none;
-          appearance: none;
-          height: 48px;
-          width: 76px;
-          margin: 0;
-          padding: 0 10px;
-          border: 1px solid #ccc;
-          background-color: #fff;
+          @include birthday-form;
         }
 
         .fa.fa-chevron-down.day {
-          position: absolute;
+          @include birthday-chevron-down;
           left: 252px;
-          top: 20px;
-          color: #353535;
         }
 
       }
