@@ -199,3 +199,11 @@
   font-size: 14px;
   margin: 8px 0 0;
 }
+
+@mixin no-transaction-item {
+  padding: 160px 0 60px;
+  background-image: image-url("logo-gray-icon.svg");
+  background-repeat:  no-repeat;
+  background-position: center 40px;
+  background-size: 78px 85px;
+}
