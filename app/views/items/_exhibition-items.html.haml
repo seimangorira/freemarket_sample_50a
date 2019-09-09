@@ -1,0 +1,14 @@
+- otherExhibitorItems.each do |item|
+  %section.main__user-item__user-item-box__content__image-box
+    = link_to "#" do
+      %figure.main__user-item__user-item-box__content__image-box__photo
+        = image_tag item.images[0], class: 'main__user-item__user-item-box__content__image-box__photo--item-image', width: "220", height: "220"
+      .main__user-item__user-item-box__content__image-box__body
+        %h3.main__user-item__user-item-box__content__image-box__body--items-name
+          = item.name
+        .main__user-item__user-item-box__content__image-box__body__num
+          .main__user-item__user-item-box__content__image-box__body__num--price
+            = "¥ #{item.price.to_s(:delimited)}"
+          .main__user-item__user-item-box__content__image-box__body__num--heart
+            %i.far.fa-heart
+            %span 4
