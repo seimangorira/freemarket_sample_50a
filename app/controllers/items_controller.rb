@@ -47,8 +47,12 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    @item.destroy if @item.seller_id == current_user.id
-    redirect_to root_path
+    if @item.seller_id == current_user.id
+      @item.destroy 
+      redirect_to root_path
+    else
+      redirect_to exhibitions_path
+    end
   end
 
   def get_children_categories
