@@ -372,42 +372,65 @@
   &__birthday-select {
 
     &__select {
-      width: 76px;
-      display: inline-block;
-      margin-top: 8px;
-      position: relative;
-      background: #fff;
 
-      .fa.fa-chevron-down {
-        position: absolute;
-        right: 16px;
-        top: 40%;
-        z-index: 2;
-        color: #888;
-        font-size: 16px;
-      }
-
-      &:first-of-type {
-        width: 76px;
-      }
-
-      &--default {
-        color: #333;
-        font-weight: normal;
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        appearance: none;
-        width: 100%;
-        padding: 0 10px;
+      &__down {
         position: relative;
-        z-index: 2;
-        height: 48px;
-        border-radius: 4px;
-        border: 1px solid #ccc;
-        background: 0;
-        font-size: 14px;
-        line-height: 1.5;
-        cursor: pointer;
+        margin: 8px 0 0;
+
+        #user_birthday_1i.year {
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          appearance: none;
+          height: 48px;
+          width: 76px;
+          margin: 0;
+          padding: 0 10px;
+          border: 1px solid #ccc;
+          background-color: #fff;
+        }
+
+        .fa.fa-chevron-down.year {
+          position: absolute;
+          left: 47px;
+          top: 20px;
+        }
+
+        #user_birthday_2i.month {
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          appearance: none;
+          height: 48px;
+          width: 76px;
+          margin: 0;
+          padding: 0 10px;
+          border: 1px solid #ccc;
+          background-color: #fff;
+        }
+
+        .fa.fa-chevron-down.month {
+          position: absolute;
+          left: 145px;
+          top: 20px;
+        }
+
+        #user_birthday_3i.day {
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          appearance: none;
+          height: 48px;
+          width: 76px;
+          margin: 0;
+          padding: 0 10px;
+          border: 1px solid #ccc;
+          background-color: #fff;
+        }
+
+        .fa.fa-chevron-down.day {
+          position: absolute;
+          left: 252px;
+          top: 20px;
+        }
+
       }
     }
   }
