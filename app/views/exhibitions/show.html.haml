@@ -11,7 +11,7 @@
     = link_to edit_item_path(@item) do
       .main__btn-selection--edit-btn-red 商品の編集
     %p.main__btn-selection--text or
-    %button= link_to 'この商品を削除する', "/items/#{@item.id}", class: "main__btn-selection--delete-btn-gray", method: :delete, data: {confirm: '削除すると二度と復活できません。本当に削除しますか？'}
+    %button= link_to 'この商品を削除する', item_path(@item), class: "main__btn-selection--delete-btn-gray", method: :delete, data: {confirm: '削除すると二度と復活できません。本当に削除しますか？'}
   .main__detail-message
     .main__detail-message__container
       .main__detail-message__container__content
