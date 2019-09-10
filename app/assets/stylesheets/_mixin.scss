@@ -199,3 +199,21 @@
   font-size: 14px;
   margin: 8px 0 0;
 }
+
+@mixin birthday-form {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  height: 48px;
+  width: 76px;
+  margin: 0;
+  padding: 0 10px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+}
+
+@mixin birthday-chevron-down {
+  position: absolute;
+  top: 20px;
+  color: #353535;
+}
