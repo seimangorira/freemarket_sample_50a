@@ -4,7 +4,7 @@
   -# 商品の詳細情報
   %section.main__item-box
     = render partial: "detail-main", locals: { item: @item, exhibitor: @exhibitor, category: @category }
-    = link_to "/items/buy" do
+    = link_to "/purchases/#{@item.id}" do
       .main__item-box__item-btn 購入画面に進む
     .main__item-box__item-description
       %p.main__item-box__item-description--text

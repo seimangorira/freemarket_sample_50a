@@ -5,8 +5,9 @@
       購入内容の確認
     .buy__confirmation__item
       .buy__confirmation__item__content
-        .buy__confirmation__item__content__image
-          = image_tag "image100.jpeg", width: "64px", height: "60px"
+        - @item.images.each do |image|
+          .buy__confirmation__item__content__image
+            = image_tag image, width: "64px", height: "60px"
         %p.buy__confirmation__item__content__name
           = @item.name
         .buy__confirmation__item__content__price
