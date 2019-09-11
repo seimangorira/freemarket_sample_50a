@@ -12,8 +12,6 @@ $(document).on('turbolinks:load', function() {
         exp_year: parseInt($("#payment_card_expire_yy").val())
     };
     Payjp.createToken(card, function(s, response) {
-      console.log(s)
-      console.log(response)
       if (response.error) {
         alert("error")
         form.find('button').prop('disabled', false);
