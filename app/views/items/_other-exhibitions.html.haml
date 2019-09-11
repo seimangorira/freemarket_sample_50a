@@ -1,0 +1,6 @@
+%section.main__user-item__user-item-box.clearfix
+  %h2.main__user-item__user-item-box--name
+    = link_to "#" do
+      = "#{exhibitor.nickname}さんのその他の出品"
+  .main__user-item__user-item-box__content.clearfix
+    = render partial: 'exhibition-items', locals: {otherExhibitorItems: otherExhibitorItems}

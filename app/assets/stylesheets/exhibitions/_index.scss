@@ -1,0 +1,93 @@
+.mainbody{
+  color: black;
+  background:rgb(245, 245, 245);
+  font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+  &__main{
+    margin: 40px auto 0;
+    padding: 0 0 40px;
+    width: 1020px;
+    &__contents{
+      width: 700px;
+      height: 226px;
+      background-color: white;
+      float: right;
+      &__header {
+        margin: 0px;
+        background: #fff;
+        &--text{
+          padding: 0 16px;
+          background: #fafafa;
+          font-size: 16px;
+          line-height: 72px;
+          font-weight: bold;
+        }
+        ul{
+          list-style: none;
+        }
+        li{
+          height: 70px;
+          width: 33.3%;
+          display: inline-block;
+          vertical-align: top;
+        }
+        h3{
+          font-size: 18px;
+          font-weight: bold;
+        }
+        &__list{
+          width: 700px;
+          height: 70px;
+          border: 0;
+          background: #eee;
+          font-size: 0;
+          &__list-btn{
+            text-align: center;
+            &:hover{
+              background: #fff;
+            }
+          }
+        }
+      }
+      &__footer{
+        width: 700px;
+        height: 84px;
+        background: #fff;
+        &__item-list{
+          display: block;
+          height: 84px;
+          &__display{
+            height: 84px;
+            border-bottom: 1px solid #eee;
+            &__my-item-link{
+              display: block;
+              min-height: 80px;
+              color: #333;
+              text-decoration: none;
+              &--image{
+                position: absolute;
+                overflow: hidden;
+                padding: 16px;
+                height: 48px;
+                width: 48px;
+              }
+            &__item-name{
+              position: relative;
+              top: 15px;
+              margin-right: 100px;
+              margin: 0 40px 0 68px;
+              width: 500px;
+              height: 51px;
+            }
+            }
+          }
+          li:first-child{
+            border-bottom: 1px solid #eee;
+          }
+          li:last-child{
+            border: 0;
+          }
+        }
+      }
+    }
+  }
+}

@@ -372,42 +372,38 @@
   &__birthday-select {
 
     &__select {
-      width: 76px;
-      display: inline-block;
-      margin-top: 8px;
-      position: relative;
-      background: #fff;
 
-      .fa.fa-chevron-down {
-        position: absolute;
-        right: 16px;
-        top: 40%;
-        z-index: 2;
-        color: #888;
-        font-size: 16px;
-      }
-
-      &:first-of-type {
-        width: 76px;
-      }
-
-      &--default {
-        color: #333;
-        font-weight: normal;
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        appearance: none;
-        width: 100%;
-        padding: 0 10px;
+      &__down {
         position: relative;
-        z-index: 2;
-        height: 48px;
-        border-radius: 4px;
-        border: 1px solid #ccc;
-        background: 0;
-        font-size: 14px;
-        line-height: 1.5;
-        cursor: pointer;
+        margin: 8px 0 0;
+
+        #user_birthday_1i.year {
+          @include birthday-form;
+        }
+
+        .fa.fa-chevron-down.year {
+          @include birthday-chevron-down;
+          left: 47px;
+        }
+
+        #user_birthday_2i.month {
+          @include birthday-form;
+        }
+
+        .fa.fa-chevron-down.month {
+          @include birthday-chevron-down;
+          left: 145px;;
+        }
+
+        #user_birthday_3i.day {
+          @include birthday-form;
+        }
+
+        .fa.fa-chevron-down.day {
+          @include birthday-chevron-down;
+          left: 252px;
+        }
+
       }
     }
   }

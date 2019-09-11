@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_parent_categories, only: [:new, :create, :edit, :update]
-  before_action :set_item, only: [:show, :edit, :update]
+  before_action :set_item, only: [:show, :edit, :update, :destroy]
   before_action :set_saved_images, only: [:edit, :update]
   before_action :set_children_and_grandchildren_categories, only: [:edit, :update]
   before_action :seller_equal_current_user?, only: [:edit, :update]
@@ -44,6 +44,15 @@ class ItemsController < ApplicationController
   end
 
   def buy
+  end
+
+  def destroy
+    if @item.seller_id == current_user.id
+      @item.destroy 
+      redirect_to root_path
+    else
+      redirect_to exhibitions_path
+    end
   end
 
   def get_children_categories
