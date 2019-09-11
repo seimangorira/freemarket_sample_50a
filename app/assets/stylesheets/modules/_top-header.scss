@@ -67,11 +67,12 @@
           font-size: 0;
           font-size: 14px;
           font-weight: 400;
+          padding: 0 10px 0 0;
           li {
             position: relative;
             display: inline-block;
-            padding: 0 10px 0 0;
             cursor: pointer;
+            padding: 0 10px 0 0;
           }
           &--list__category, &--list__brand {
             font-weight: bold;
@@ -101,6 +102,30 @@
               text-overflow: ellipsis;
               white-space: nowrap;
               overflow: hidden;
+              padding: 0px 16px;
+            }
+            h2:hover {
+              color: white;
+              background-color: #ea352d;
+            }
+          }
+        }
+        &__brand {
+          display: none;
+          list-style: none;
+          font-size: 14px;
+          z-index: 1;
+          background-color: rgb(255, 255, 255);
+          box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+          position: absolute;
+          .brand-list {
+            line-height: 44px;
+            padding: 0;
+            width: 224px;
+            h2 {
+              display: block;
+              text-overflow: ellipsis;
+              white-space: nowrap;
               padding: 0px 16px;
             }
             h2:hover {
