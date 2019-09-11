@@ -9,7 +9,7 @@ class CreditsController < ApplicationController
   end
 
   def create
-    Payjp.api_key = EMV['PAYJP_SECRET_ACCESS_KEY']
+    Payjp.api_key = ENV["PAYJP_SECRET_ACCESS_KEY"]
     customer = Payjp::Customer.create(card: params[:payjpToken])
     @credit = Credit.new(user_id: current_user.id, card_token: params[:payjpToken])
     if @credit.save
