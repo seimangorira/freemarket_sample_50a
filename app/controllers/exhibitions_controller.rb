@@ -2,7 +2,7 @@ class ExhibitionsController < ApplicationController
   before_action :set_item, only: [:show]
 
   def index
-    @selling_items = Item.where(seller_id: current_user.id, status: Item.statuses.values.slice(0)).order("created_at DESC")
+    @selling_items = Item.includes(:images_attachments).where(seller_id: current_user.id, status: Item.statuses.values.slice(0)).order("created_at DESC")
   end
 
   def show
