@@ -24,11 +24,11 @@ Rails.application.routes.draw do
   get "users/card" => "users#card"
   get "users/addCard" => "users#addCard"
   get "users/logout" => "users#logout"
+  get "users/exhibiting" =>  "users#exhibiting"
   resources :users, only: [:show] do
-    resources :cresits, only: [:create]
+    resources :credits
   end
-  resources :exhibitions, only: [:index, :show]
-  resources :items, only: [:new, :create, :show, :edit, :update, :destroy] do
+  resources :items, only: [:new, :create, :show, :edit, :update] do
     collection do
       get 'get_children_categories', defaults: { format: 'json' }
       get 'get_grandchildren_categories', defaults: { format: 'json' }

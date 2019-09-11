@@ -68,14 +68,33 @@
                   %label.registration-all__form-group--label{"for-": "birthday"} 生年月日
                   %span.registration-all__require 必須
                   .registration-all__birthday-select
-                    .registration-all__birthday-select__select__down
-                      = raw sprintf(f.date_select(:birthday, { use_month_numbers: true, class: "select", start_year: 1950, end_year: (Time.now.year), prompt: "--", with_css_classes: true, date_separator: '%s'}), '年 ', '月 ') + '日'
-                      %i.fa.fa-chevron-down.year
-                      %i.fa.fa-chevron-down.month
-                      %i.fa.fa-chevron-down.day
+                    .registration-all__birthday-select__select
+                      %i.fa.fa-chevron-down
+                      %select.registration-all__birthday-select__select--default
+                        %option{value: ""} --
+                        -i = 2019
+                        = while i >= 1900
+                          %option{value: "#{i}"} #{i}
+                          -i -= 1
+                    %span 年
+                    .registration-all__birthday-select__select
+                      %i.fa.fa-chevron-down
+                      %select.registration-all__birthday-select__select--default
+                        %option{value: ""} --
+                        - for i in 01..12
+                          %option{value: "#{i}"} #{i}
+                    %span 月
+                    .registration-all__birthday-select__select
+                      %i.fa.fa-chevron-down
+                      %select.registration-all__birthday-select__select--default
+                        %option{value: ""} --
+                        - for i in 01..31
+                          %option{value: "#{i}"} #{i}
+                    %span 日
                   %p.registration-all__content--text-gray
                     ※ 本人情報は正しく入力してください。会員登録後、修正するには
                     お時間を頂く場合があります。
+                  = f.hidden_field :birthday, id: "birth_hidden"
                   = render "shared/recaptcha"
                   .registration-all__form-group
                     %p.registration-all__content--text-center
