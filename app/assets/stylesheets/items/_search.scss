@@ -1,0 +1,169 @@
+.search{
+  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+  font-size: 14px;
+  color: #333;
+  line-height: 1;
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+// メイン部分
+  &__main{
+    @include clearfix;
+    position: relative;
+    margin: 40px auto 0;
+    width: 1020px;
+    padding: 0 0 40px;
+
+// 右側の全体部分
+    &__right{
+      float: right;
+      width: 700px;
+      &__item-container{
+
+// 検索結果のtext部分
+        &__search-text{
+          display: inline-flex;
+          width: 700px;
+          height: 30px;
+          &--text{
+            font-size: 22px;
+            margin: 0 0 8px;
+            font-weight: 600;
+          }
+          span{
+            font-size: 18px;
+            margin: 4px 0 4px;
+          }
+        }
+
+// 1 -20件の表示部分
+        &__result-number{
+          height: 12px;
+          margin: 16px 0;
+          font-size: 12px;
+          color: #888;
+        }
+
+// 検索結果のアイテム表示部分。
+        &__items-list{
+          @include clearfix;
+          width: auto;
+          // height: 4800px;
+          margin: 0 auto;
+          &__item-box{
+            @include item-box-a;
+            @include item-child-margin;
+            position: relative;
+            float: left;
+            width: 160px;
+            height: 218px;
+            margin: 0 20px 20px 0;
+            background: #fff;
+            &__photo{
+              width: 160px;
+              height: 160px;
+              overflow: hidden;
+              position: relative;
+              padding: 0 0 100%;
+            }
+            &__body{
+              position: relative;
+              height: 58px;
+              padding: 8px 12px;
+              &--name{
+                font-size: 14px;
+                overflow: hidden;
+                position: relative;
+                font-weight: 400;
+                height: 3em;
+                line-height: 1.5;
+                word-break: break-word;
+                white-space: normal;
+                @include item-name;
+              }
+              &__num{
+                display: flex;
+                -webkit-box-align: center;
+                align-items: center;
+                -webkit-box-pack: justify;
+                justify-content: space-between;
+                margin: 8px 0 0;
+                &__price{
+                  @include item-price;
+                }
+                &__heart-icon{
+                  position: absolute;
+                  right: 12px;
+                  bottom: 10px;
+                  padding-left: 32px;
+                  background: linear-gradient(to right, rgba(255,255,255,0), #fff 24px);
+                  font-size: 16px;
+                  font-weight: 400;
+                  color: #333;
+                  @include heart-icon;
+                }
+              }
+            }
+          }
+        }
+      }
+// ページネーション部分。
+      &__item-pagenation{
+        height: 44px;
+        margin: 40px 0 0;
+        position: relative;
+        font-size: 0;
+        text-align: center;
+        &__num{
+          max-width: 220px;
+          height: 44px;
+          margin: 0 auto;
+          ul{
+            height: 44px;
+          }
+          .active{
+            color: #fff;
+            background: #ea352d;
+          }
+          &__cell-btn{
+            @include item-box-a;
+            width: 44px;
+            height: 44px;
+            display: table-cell;
+            width: 44px;
+            height: 44px;
+            border-radius: 4px;
+            background: #fff;
+            border: 1px solid #ccc;
+            font-size: 14px;
+            line-height: 42px;
+            a:hover{
+              background-color: whitesmoke;
+            }
+          }
+        }
+// ページネーションのアイコン部分
+        &__next-page{
+          width: 88px;
+          height: 44px;
+          display: block;
+          position: absolute;
+          top: 0;
+          right: 0;
+          .i{
+            position: relative;
+            top: .15em;
+          }
+        }
+      }
+    }
+    &__left{
+      float: left;
+      width: 280px;
+      height: 1315px;
+      margin: 0 40px 0 0;
+    }
+  }
+}

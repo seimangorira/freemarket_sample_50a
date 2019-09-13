@@ -217,3 +217,53 @@
   top: 20px;
   color: #353535;
 }
+
+// ここから下はitems/search.scss
+// aタグの表示を変更
+@mixin item-box-a {
+  a{
+    display: block;
+    color: #333;
+    text-decoration: none;
+  }
+}
+// アイテム一覧のmarginを場所ごとに変更。
+@mixin item-child-margin {
+  &:nth-child(4n+1){
+    margin-left: 0;
+  }
+  &:nth-child(4n){
+    margin-right: 0;
+  }
+}
+// アイテム名部分のafter
+@mixin item-name {
+  &:after{
+    width: 30%;
+    display: block;
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 1.5em;
+    background: linear-gradient(to right, rgba(255,255,255,0), #fff 72%);
+  }
+}
+// アイテムの価格表示部分
+@mixin item-price{
+  z-index: 2;
+  position: absolute;
+  top: -30px;
+  left: 0;
+  padding: 4px 12px 4px 8px;
+  border-radius: 0 16px 16px 0;
+  font-weight: 600;
+  color: #fff;
+  background-color: rgba(0,0,0,0.3);
+}
+// ハートのアイコン
+@mixin heart-icon{
+  .far.fa-heart{
+    color: #ccc;
+  }
+}

@@ -1,0 +1,98 @@
+.search
+  = render "shared/top-header"
+  .search__main.clearfix
+    -# 右側部分
+    .search__main__right
+      %section.search__main__right__item-container
+        -# 〜の検索結果部分
+        .search__main__right__item-container__search-text
+          %h2.search__main__right__item-container__search-text--text mac
+          %span の検索結果
+        -# 1 -20件表示部分
+        .search__main__right__item-container__result-number 1 - 20件表示
+        -# 検索結果のアイテム表示部分。完成後にrenderする。
+        .search__main__right__item-container__items-list.clearfix
+          %section.search__main__right__item-container__items-list__item-box
+            = link_to '#' do
+              %figure.search__main__right__item-container__items-list__item-box__photo
+              .search__main__right__item-container__items-list__item-box__body
+                %h3.search__main__right__item-container__items-list__item-box__body--name link_toで名前を取ってくる
+                .search__main__right__item-container__items-list__item-box__body__num
+                  .search__main__right__item-container__items-list__item-box__body__num__price ¥ 2,000
+                  .search__main__right__item-container__items-list__item-box__body__num__heart-icon
+                    %i.far.fa-heart
+                    %span 6
+          %section.search__main__right__item-container__items-list__item-box
+            = link_to '#' do
+              %figure.search__main__right__item-container__items-list__item-box__photo
+              .search__main__right__item-container__items-list__item-box__body
+                %h3.search__main__right__item-container__items-list__item-box__body--name link_toで名前を取ってくる
+                .search__main__right__item-container__items-list__item-box__body__num
+                  .search__main__right__item-container__items-list__item-box__body__num__price ¥ 2,000
+                  .search__main__right__item-container__items-list__item-box__body__num__heart-icon
+                    %i.far.fa-heart
+                    %span 6
+          %section.search__main__right__item-container__items-list__item-box
+            = link_to '#' do
+              %figure.search__main__right__item-container__items-list__item-box__photo
+              .search__main__right__item-container__items-list__item-box__body
+                %h3.search__main__right__item-container__items-list__item-box__body--name link_toで名前を取ってくる
+                .search__main__right__item-container__items-list__item-box__body__num
+                  .search__main__right__item-container__items-list__item-box__body__num__price ¥ 2,000
+                  .search__main__right__item-container__items-list__item-box__body__num__heart-icon
+                    %i.far.fa-heart
+                    %span 6
+          %section.search__main__right__item-container__items-list__item-box
+            = link_to '#' do
+              %figure.search__main__right__item-container__items-list__item-box__photo
+              .search__main__right__item-container__items-list__item-box__body
+                %h3.search__main__right__item-container__items-list__item-box__body--name link_toで名前を取ってくる
+                .search__main__right__item-container__items-list__item-box__body__num
+                  .search__main__right__item-container__items-list__item-box__body__num__price ¥ 2,000
+                  .search__main__right__item-container__items-list__item-box__body__num__heart-icon
+                    %i.far.fa-heart
+                    %span 6
+          %section.search__main__right__item-container__items-list__item-box
+            = link_to '#' do
+              %figure.search__main__right__item-container__items-list__item-box__photo
+              .search__main__right__item-container__items-list__item-box__body
+                %h3.search__main__right__item-container__items-list__item-box__body--name link_toで名前を取ってくる
+                .search__main__right__item-container__items-list__item-box__body__num
+                  .search__main__right__item-container__items-list__item-box__body__num__price ¥ 2,000
+                  .search__main__right__item-container__items-list__item-box__body__num__heart-icon
+                    %i.far.fa-heart
+                    %span 6
+          %section.search__main__right__item-container__items-list__item-box
+            = link_to '#' do
+              %figure.search__main__right__item-container__items-list__item-box__photo
+              .search__main__right__item-container__items-list__item-box__body
+                %h3.search__main__right__item-container__items-list__item-box__body--name link_toで名前を取ってくる
+                .search__main__right__item-container__items-list__item-box__body__num
+                  .search__main__right__item-container__items-list__item-box__body__num__price ¥ 2,000
+                  .search__main__right__item-container__items-list__item-box__body__num__heart-icon
+                    %i.far.fa-heart
+                    %span 6
+      %ul.search__main__right__item-pagenation
+        -# ページネーション部分。ここもrenderする。
+        %li.search__main__right__item-pagenation__num
+          %ul
+            %li.search__main__right__item-pagenation__num__cell-btn.active 1
+            %li.search__main__right__item-pagenation__num__cell-btn 
+              = link_to '2', '#'
+            %li.search__main__right__item-pagenation__num__cell-btn
+              = link_to '3', '#'
+            %li.search__main__right__item-pagenation__num__cell-btn
+              = link_to '4', '#'
+            %li.search__main__right__item-pagenation__num__cell-btn
+              = link_to '5', '#'
+        %li.search__main__right__item-pagenation__next-page
+          %ul
+            %li.search__main__right__item-pagenation__num__cell-btn
+              = link_to '#' do
+                %i.fa.fa-chevron-right
+            %li.search__main__right__item-pagenation__num__cell-btn
+              = link_to '#' do
+                %i.fa.fa-chevron-right
+                %i.fa.fa-chevron-right
+    -# 左側(商品検索Lv2)部分
+    .search__main__left
