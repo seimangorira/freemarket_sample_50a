@@ -1,0 +1,47 @@
+.mainbody
+  = render 'shared/top-header'
+  - breadcrumb :exhibiting
+  = render 'shared/pankuzu'
+  .mainbody__main
+    .mainbody__content
+      %section.mainbody__container.exhibiting-page
+        %h2.exhibiting-page__head 出品した商品
+        %ul.exhibiting-page__listing-tabs
+          %li.active
+            %h3 出品中
+          %li
+            %h3 取引中
+          %li
+            %h3 売却済み
+        %ul.exhibiting-page__content
+          - if @selling_items.present?
+            - @selling_items.each do |item|
+              %li.exhibiting-page__content__list
+                = link_to exhibition_path(item), class: "item-list" do
+                  .item-list__image
+                    = image_tag item.images[0].variant(resize: '48x48'), width:"48", height:"48", alt: "イメージ1"
+                  .item-list__body
+                    .item-list__body__text
+                      = item.name
+                    .item-list__body__under
+                      %span.item-list__body__under__wrapper
+                        %i.far.fa-heart.item-list__body--under__wrapper--icon 
+                        %span.item-list__body--under__wrapper--number 4
+                      %span.item-list__body__under__wrapper
+                        %i.far.fa-comment.item-list__body--under__wrapper--icon
+                        %span.item-list__body--under__wrapper--number 0
+                      .item-list__body__under--status
+                        出品中
+                  .item-list__arrow
+                    %i.fa.fa-chevron-right
+          - else
+            .exhibiting-page__content__no-item 取引中の商品がありません
+      %ul.exhibiting-page__pager
+        %li.exhibiting-page__pager__cell.prev-page
+          %i.fa.fa-chevron-left
+        %li.exhibiting-page__pager__cell.next-page
+          %i.fa.fa-chevron-right
+
+    = render 'shared/mypage-leftside'
+  = render 'shared/top-footer'
+  = render 'shared/sell-button'

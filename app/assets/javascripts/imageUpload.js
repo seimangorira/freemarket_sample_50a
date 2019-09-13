@@ -27,7 +27,8 @@ $(document).on("turbolinks:load", function(){
 
   function createNewForm(num) {
     var newForm = `<input multiple="multiple" class="now-upload-wrapper--input upload-box-${num}" type="file" name="item[images][]" id="item_images" style="z-index: ${num}"></input>`
-    $('.now-upload-wrapper').prepend(newForm);
+    var hiddenForm = `<input name="item[image_ids][]" type="hidden" value="0"></input>`
+    $('.now-upload-wrapper').prepend(newForm).prepend(hiddenForm);
   }
 
   // アップロードされた画像の枚数に応じて、ファイルフィールドの大きさを変更

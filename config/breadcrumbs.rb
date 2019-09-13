@@ -37,6 +37,16 @@ crumb :items do |item|
   parent :root
 end
 
+crumb :exhibiting do
+  link "出品した商品 - 出品中", exhibitions_path
+  parent :mypage
+end
+
+crumb :exhibiting_show do
+  link "出品商品画面"
+  parent :exhibiting
+end
+
 # crumb :projects do
 #   link "Projects", projects_path
 # end

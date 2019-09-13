@@ -26,13 +26,11 @@ Rails.application.routes.draw do
   get "users/addCard" => "users#addCard"
   get "users/logout" => "users#logout"
   resources :users, only: [:show]
-  # get 'items/detail' => 'items#detail'
-  # get  '/auth/:provider/callback' => 'sessions#callback'
-  # post '/auth/:provider/callback'  => 'sessions#callback'
-  # get  '/auth/failure' => 'sessions#failure'
-  # get  '/logout' => 'sessions#destroy'
+  
 
   resources :items, only: [:new, :create, :show] do
+  resources :exhibitions, only: [:index, :show]
+  resources :items, only: [:new, :create, :show, :edit, :update, :destroy] do
     collection do
       get 'get_children_categories', defaults: { format: 'json' }
       get 'get_grandchildren_categories', defaults: { format: 'json' }
