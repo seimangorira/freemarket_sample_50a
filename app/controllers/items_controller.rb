@@ -56,6 +56,13 @@ class ItemsController < ApplicationController
   end
 
   def search
+    if @value = params[:search]
+    # binding.pry
+    # @search = Item.where(seller_id: current_user.id)
+      @search = Item.where("name LIKE?", "%#{@value}%")
+    else
+      @search = Item.order('created_at DESC')
+    end
   end
 
   def get_children_categories
