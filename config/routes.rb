@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     get "/signup/complete" => "users/registrations#complete", as: "complete_registration"
   end
   devise_for :users, controllers: {
+    omniauth_callbacks: "users/omniauth_callbacks",
     registrations: 'users/registrations',
     sessions: 'users/sessions'
    }
