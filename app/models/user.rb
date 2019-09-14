@@ -15,9 +15,6 @@ class User < ApplicationRecord
 
   has_many :comments
   has_one :credit
-  has_many :buyed_items, foreign_key: "buyer_id", class_name: "Item"
-  has_many :saling_items, -> { where("buyer_id is NULL")}, foreign_key: "salier_id", class_name: "Item"
-  has_many :sold_items, -> { where("buyer_id is NULL")}, foreign_key: "salier_id", class_name: "Item"
   has_many :sns_credentials, dependent: :destroy
 
 
