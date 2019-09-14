@@ -18,7 +18,6 @@ Rails.application.routes.draw do
   root 'tops#index'
   resources :phonenumbers, only: [:new, :create]
   resources :items, only: [:new]
-  get "items/buy" => "items#buy"
   get "users/login" => "users#login"
   get 'users/profile' => 'users#profile'
   get 'users/identification' => 'users#identification'

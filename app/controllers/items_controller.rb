@@ -6,9 +6,6 @@ class ItemsController < ApplicationController
   before_action :set_children_and_grandchildren_categories, only: [:edit, :update]
   before_action :seller_equal_current_user?, only: [:edit, :update]
 
-  def index
-  end
-
   def show
     @randItemLeft = Item.where("id>=?", rand(Item.first.id..Item.last.id)).first
     @randItemRight = Item.where("id>=?", rand(Item.first.id..Item.last.id)).first
@@ -41,9 +38,6 @@ class ItemsController < ApplicationController
     else
       render :edit
     end
-  end
-
-  def buy
   end
 
   def destroy
