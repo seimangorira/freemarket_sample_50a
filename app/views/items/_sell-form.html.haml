@@ -70,14 +70,14 @@
             - if @children_categories.nil?
               .select-wrap
                 %i.fas.fa-angle-down
-                = f.collection_select :category_id, @parent_categories, :id, :name, {prompt: "---"}, {class: "select-wrap__input", id: "parent_category"}
+                = f.collection_select :parent_category, @parent_categories, :id, :name, {prompt: "---"}, {class: "select-wrap__input", id: "parent_category"}
             - else 
               .select-wrap
                 %i.fas.fa-angle-down
-                = f.collection_select :category_id, @parent_categories, :id, :name, {prompt: "---", selected: item.category.root.id}, {class: "select-wrap__input", id: "parent_category"}
+                = f.collection_select :parent_category, @parent_categories, :id, :name, {prompt: "---", selected: item.category.root.id}, {class: "select-wrap__input", id: "parent_category"}
               .select-wrap.child-categories-wrapper
                 %i.fas.fa-angle-down
-                = f.collection_select :category_id, @children_categories, :id, :name, {prompt: "---", selected: item.category.parent.id}, {class: "select-wrap__input", id: "child_category"}
+                = f.collection_select :child_category, @children_categories, :id, :name, {prompt: "---", selected: item.category.parent.id}, {class: "select-wrap__input", id: "child_category"}
               .select-wrap.grandchild-categories-wrapper
                 %i.fas.fa-angle-down
                 = f.collection_select :category_id, @grandchildren_categories, :id, :name, {prompt: "---"}, {class: "select-wrap__input", id: "grandchild_category"}
