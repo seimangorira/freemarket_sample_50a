@@ -6,74 +6,32 @@
       %section.search__main__right__item-container
         -# 〜の検索結果部分
         .search__main__right__item-container__search-text
-          %h2.search__main__right__item-container__search-text--text mac
-          %span の検索結果
+          - if @value.present?
+            %h2.search__main__right__item-container__search-text--text= @value
+            %span の検索結果
+          - else
+            %h2.search__main__right__item-container__search-text--text 新着商品
         -# 1 -20件表示部分
-        .search__main__right__item-container__result-number 1 - 20件表示
+        .search__main__right__item-container__result-number
+          = "1 - #{@search.length}件表示"
         -# 検索結果のアイテム表示部分。完成後にrenderする。
         .search__main__right__item-container__items-list.clearfix
-          %section.search__main__right__item-container__items-list__item-box
-            = link_to '#' do
-              %figure.search__main__right__item-container__items-list__item-box__photo
-              .search__main__right__item-container__items-list__item-box__body
-                %h3.search__main__right__item-container__items-list__item-box__body--name link_toで名前を取ってくる
-                .search__main__right__item-container__items-list__item-box__body__num
-                  .search__main__right__item-container__items-list__item-box__body__num__price ¥ 2,000
-                  .search__main__right__item-container__items-list__item-box__body__num__heart-icon
-                    %i.far.fa-heart
-                    %span 6
-          %section.search__main__right__item-container__items-list__item-box
-            = link_to '#' do
-              %figure.search__main__right__item-container__items-list__item-box__photo
-              .search__main__right__item-container__items-list__item-box__body
-                %h3.search__main__right__item-container__items-list__item-box__body--name link_toで名前を取ってくる
-                .search__main__right__item-container__items-list__item-box__body__num
-                  .search__main__right__item-container__items-list__item-box__body__num__price ¥ 2,000
-                  .search__main__right__item-container__items-list__item-box__body__num__heart-icon
-                    %i.far.fa-heart
-                    %span 6
-          %section.search__main__right__item-container__items-list__item-box
-            = link_to '#' do
-              %figure.search__main__right__item-container__items-list__item-box__photo
-              .search__main__right__item-container__items-list__item-box__body
-                %h3.search__main__right__item-container__items-list__item-box__body--name link_toで名前を取ってくる
-                .search__main__right__item-container__items-list__item-box__body__num
-                  .search__main__right__item-container__items-list__item-box__body__num__price ¥ 2,000
-                  .search__main__right__item-container__items-list__item-box__body__num__heart-icon
-                    %i.far.fa-heart
-                    %span 6
-          %section.search__main__right__item-container__items-list__item-box
-            = link_to '#' do
-              %figure.search__main__right__item-container__items-list__item-box__photo
-              .search__main__right__item-container__items-list__item-box__body
-                %h3.search__main__right__item-container__items-list__item-box__body--name link_toで名前を取ってくる
-                .search__main__right__item-container__items-list__item-box__body__num
-                  .search__main__right__item-container__items-list__item-box__body__num__price ¥ 2,000
-                  .search__main__right__item-container__items-list__item-box__body__num__heart-icon
-                    %i.far.fa-heart
-                    %span 6
-          %section.search__main__right__item-container__items-list__item-box
-            = link_to '#' do
-              %figure.search__main__right__item-container__items-list__item-box__photo
-              .search__main__right__item-container__items-list__item-box__body
-                %h3.search__main__right__item-container__items-list__item-box__body--name link_toで名前を取ってくる
-                .search__main__right__item-container__items-list__item-box__body__num
-                  .search__main__right__item-container__items-list__item-box__body__num__price ¥ 2,000
-                  .search__main__right__item-container__items-list__item-box__body__num__heart-icon
-                    %i.far.fa-heart
-                    %span 6
-          %section.search__main__right__item-container__items-list__item-box
-            = link_to '#' do
-              %figure.search__main__right__item-container__items-list__item-box__photo
-              .search__main__right__item-container__items-list__item-box__body
-                %h3.search__main__right__item-container__items-list__item-box__body--name link_toで名前を取ってくる
-                .search__main__right__item-container__items-list__item-box__body__num
-                  .search__main__right__item-container__items-list__item-box__body__num__price ¥ 2,000
-                  .search__main__right__item-container__items-list__item-box__body__num__heart-icon
-                    %i.far.fa-heart
-                    %span 6
+          - @search.each do |item|
+            %section.search__main__right__item-container__items-list__item-box
+              = link_to item_path(item) do
+                %figure.search__main__right__item-container__items-list__item-box__photo
+                  = image_tag item.images[0], width: "160", height: "160"
+                .search__main__right__item-container__items-list__item-box__body
+                  %h3.search__main__right__item-container__items-list__item-box__body--name 
+                    = item.name
+                  .search__main__right__item-container__items-list__item-box__body__num
+                    .search__main__right__item-container__items-list__item-box__body__num__price 
+                      = "¥ #{item.price.to_s(:delimited)}"
+                    .search__main__right__item-container__items-list__item-box__body__num__heart-icon
+                      %i.far.fa-heart
+                      %span 6
       %ul.search__main__right__item-pagenation
-        -# ページネーション部分。ここもrenderする。
+        -# ページネーション部分。ここもrenderする。それかgem(kaminari)入れる？
         %li.search__main__right__item-pagenation__num
           %ul
             %li.search__main__right__item-pagenation__num__cell-btn.active 1
@@ -96,3 +54,5 @@
                 %i.fa.fa-chevron-right
     -# 左側(商品検索Lv2)部分
     .search__main__left
+  = render 'shared/top-footer'
+  = render partial: 'shared/sell-button'
