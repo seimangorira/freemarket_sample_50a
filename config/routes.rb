@@ -25,7 +25,7 @@ Rails.application.routes.draw do
   get "users/addCard" => "users#addCard"
   get "users/logout" => "users#logout"
   resources :users, only: [:show] do
-    resources :cresits, only: [:create]
+    resources :credits, only: [:index, :create]
   end
   resources :exhibitions, only: [:index, :show]
   resources :items, only: [:new, :create, :show, :edit, :update, :destroy] do

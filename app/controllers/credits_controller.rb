@@ -17,12 +17,6 @@ class CreditsController < ApplicationController
     else
       redirect_to new_user_cregit_path
     end
-    # redirect_to complete_registration_path
   end
-
-  # private
-  # def credit_params
-  #   params.require(:credit)
-  # end
 
 end
