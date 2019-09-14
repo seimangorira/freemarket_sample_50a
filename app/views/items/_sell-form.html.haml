@@ -82,8 +82,8 @@
                 %i.fas.fa-angle-down
                 = f.collection_select :category_id, @grandchildren_categories, :id, :name, {prompt: "---"}, {class: "select-wrap__input", id: "grandchild_category"}
 
-          -# 出品ページか編集ページかで、「サイズ」・「ブランド」欄の処理を分岐
-          - if item.id.nil?
+          -# 出品ページにアクセスした場合、または孫カテゴリーが選択されていない場合はsizeの入力フォームを出さない
+          - if request.path_info == new_item_path || item.category_id.nil?
             .form-group.select-item-sizes{style: "display: none;"}
               %label.item-detail__category 
                 サイズ
@@ -91,12 +91,12 @@
               .select-wrap
                 %i.fas.fa-angle-down
                 = f.select :size, Item.sizes_i18n.invert, {prompt: "---"}, {class: "select-wrap__input"}
-            .form-group.input-item-brands{style: "display: none;"}
-              %label.item-detail__category 
-                ブランド
-                %span.form-arbitrary 任意
-              .select-wrap
-                = f.text_field :brand, class:"select-wrap__input", placeholder: "例）シャネル"
+              .form-group.input-item-brands{style: "display: none;"}
+                %label.item-detail__category 
+                  ブランド
+                  %span.form-arbitrary 任意
+                .select-wrap
+                  = f.text_field :brand, class:"select-wrap__input", placeholder: "例）シャネル"
           - else 
             .form-group.select-item-sizes
               %label.item-detail__category 
