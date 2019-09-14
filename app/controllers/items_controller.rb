@@ -81,7 +81,7 @@ class ItemsController < ApplicationController
 
   def set_saved_images
     @item_images = @item.images
-    @upper__item_images = @item_images[0..4]
+    @upper_item_images = @item_images[0..4]
     @lower_item_images = @item_images[5..9]
   end
 
