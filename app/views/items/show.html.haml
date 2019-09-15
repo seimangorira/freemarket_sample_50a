@@ -4,8 +4,11 @@
   -# 商品の詳細情報
   %section.main__item-box
     = render partial: "detail-main", locals: { item: @item, exhibitor: @exhibitor, category: @category }
-    = link_to purchase_path do
-      .main__item-box__item-btn 購入画面に進む
+    - if @item.status == 4
+      = link_to purchase_path do
+        .main__item-box__item-btn 購入画面に進む
+    - else
+      .main__item-box__btn-sold 売り切れました
     .main__item-box__item-description
       %p.main__item-box__item-description--text
         = @item.introduction
