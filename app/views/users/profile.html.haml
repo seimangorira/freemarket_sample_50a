@@ -12,7 +12,7 @@
           .user-profile-page__everything__profile__main__icon
             %figure
               =image_tag "//static.mercdn.net/thumb/members/634836807.jpg?1563285356", height: "60", width: "60", alt: ""
-            %input.input-default{name: "nickname", placeholder: "例)AYA☆セール中", type: "text", value: "yuk"}/
+            %input.input-default{name: "nickname", placeholder: "例)AYA☆セール中", type: "text", value: "#{current_user.nickname}"}/
           .user-profile-page__everything__profile__main__content
             %textarea.textarea-default{name: "introduction", placeholder: "例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪"}
             %input{name: "after_save_callback", type: "hidden", value: "https://www.mercari.com/jp/mypage/profile/"}/
