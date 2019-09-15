@@ -75,7 +75,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   def after_sign_up_path_for(resource)
-    phonenumber_registration_path
+    root_path
   end
 
   # The path used after sign up for inactive accounts.
