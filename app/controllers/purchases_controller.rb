@@ -7,9 +7,8 @@ class PurchasesController < ApplicationController
   end
 
   def update
-    @user = User.find(current_user.id)
-    if @user.credit.present?
-      @credit = Credit.find(@user.credit.id)
+    if current_user.credit.present?
+      @credit = current_user.credit
       Payjp.api_key = ENV['PAYJP_SECRET_ACCESS_KEY']
       Payjp::Charge.create(currency: 'jpy', amount: @item.price, customer: @credit.customer_id)
       @item.update(status: 4, buyer_id: current_user.id)
