@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_parent_categories, only: [:new, :create, :edit, :update]
-  before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :set_item, only: [:edit, :update, :destroy]
   before_action :set_saved_images, only: [:edit, :update]
   before_action :set_children_and_grandchildren_categories, only: [:edit, :update]
   before_action :seller_equal_current_user?, only: [:edit, :update]
@@ -10,12 +10,13 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @item = @item = Item.includes([:images_attachments, images_attachments: :blob]).find(params[:id])
     @randItemLeft = Item.where("id>=?", rand(Item.first.id..Item.last.id)).first
     @randItemRight = Item.where("id>=?", rand(Item.first.id..Item.last.id)).first
     @exhibitor = @item.seller
-    @otherExhibitorItems = @exhibitor.saling_items.where.not(id: @item.id).limit(6).order(created_at: "desc")
+    @otherExhibitorItems = @exhibitor.saling_items.includes([:images_attachments, images_attachments: :blob]).where.not(id: @item.id).limit(6).order(created_at: "desc")
     @category = @item.category
-    @otherCategorysItems = @category.items.where.not(id: @item.id).limit(6).order(created_at: "desc")
+    @otherCategorysItems = @category.items.includes([:images_attachments, images_attachments: :blob]).where.not(id: @item.id).limit(6).order(created_at: "desc")
   end
   
   def new
@@ -80,7 +81,7 @@ class ItemsController < ApplicationController
 
   def set_saved_images
     @item_images = @item.images
-    @upper__item_images = @item_images[0..4]
+    @upper_item_images = @item_images[0..4]
     @lower_item_images = @item_images[5..9]
   end
 
