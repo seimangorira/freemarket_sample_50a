@@ -56,12 +56,13 @@ class ItemsController < ApplicationController
   end
 
   def search
-    if @value = params[:search]
+    @value = params[:search]
+    if @value.present?
     # binding.pry
     # @search = Item.where(seller_id: current_user.id)
       @search = Item.where("name LIKE?", "%#{@value}%")
     else
-      @search = Item.order('created_at DESC')
+      @search = Item.order('id DESC')
     end
   end
 
