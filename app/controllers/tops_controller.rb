@@ -1,4 +1,5 @@
 class TopsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index]
 
     def index
       @ladyitems = get_items(1)
@@ -11,6 +12,6 @@ private
   def get_items(id)
     category = Category.find(id)
     categories = category.indirect_ids
-    items = Item.where(category_id: categories).order('id DESC').limit(4)
+    items = Item.includes([:images_attachments, images_attachments: :blob]).where(category_id: categories).order('id DESC').limit(4)
   end
 end
