@@ -110,7 +110,7 @@
           }
         }
       }
-// ページネーション部分。
+// ページネーション部分
       &__item-pagenation{
         height: 44px;
         margin: 40px 0 0;
@@ -160,11 +160,265 @@
         }
       }
     }
+// 左側(商品検索Lv2)部分
     &__left{
       float: left;
       width: 280px;
       height: 1315px;
       margin: 0 40px 0 0;
+      &__form{
+        position: relative;
+// sort(並び替えフォーム)部分
+        &__sort{
+          opacity: 1;
+          position: static;
+          width: auto;
+          top: 0;
+          left: 0;
+          z-index: 100;
+          margin: 0 auto;
+          &__group{
+            margin: 0;
+            &__select{
+              position: relative;
+              background: #fff;
+              text-align: left;
+              margin: 0;
+              .fas.fa-chevron-down{
+                position: absolute;
+                right: 16px;
+                top: 50%;
+                z-index: 2;
+                color: #888;
+                transform: translate(0, -50%);
+              }
+              &__list{
+                height: 48px;
+                padding: 0 16px;
+                border: 1px solid #ccc;
+                width: 100%;
+                position: relative;
+                z-index: 2;
+                border-radius: 4px;
+                background: 0;
+                font-size: 16px;
+                cursor: pointer;
+                -webkit-appearance: none;
+              }
+            }
+          }
+        }
+// 詳細検索部分
+        &__detail-searches{
+          height: 1227px;
+          position: static;
+          display: block;
+          padding: 17px 16px 16px 16px;
+          margin: 40px 0 0;
+          background: #fff;
+          h3{
+            font-size: 16px;
+            font-weight: 600;
+          }
+// キーワード検索部分
+          &__group-first{
+            margin: 24px 0 0;
+            height: 73px;
+            @include label-default;
+            .fas.fa-plus{
+              position: relative;
+              top: -2px;
+              color: #888;
+              font-size: 17px;
+              vertical-align: middle;
+            }
+            &__input{
+              width: 100%;
+              @include input-default;
+            }
+          }
+          &__group{
+            height: 73px;
+            margin: 40px 0 0;
+// カテゴリー検索部分
+            @include label-default;
+            .fas.fa-list{
+              position: relative;
+              top: -2px;
+              color: #888;
+              font-size: 17px;
+              vertical-align: middle;
+            }
+            &__category-form{
+              height: 48px;
+              position: relative;
+              background: #fff;
+              margin: 8px 0 0;
+              .fas.fa-chevron-down{
+                position: absolute;
+                right: 19px;
+                top: 50%;
+                z-index: 2;
+                color: #888;
+                transform: translate(0, -50%);
+              }
+              &__selection{
+                width: 248px;
+                @include select-default;
+              }
+            }
+            .fas.fa-tags{
+              position: relative;
+              top: -2px;
+              color: #888;
+              font-size: 17px;
+              vertical-align: middle;
+            }
+            &__brand-input{
+              width: 100%;
+              @include input-default;
+            }
+            .fa.fa-expand{
+              position: relative;
+              top: -2px;
+              color: #888;
+              font-size: 17px;
+              vertical-align: middle;
+            }
+            &__size-form{
+              height: 48px;
+              position: relative;
+              background: #fff;
+              margin: 8px 0 0;
+              .fas.fa-chevron-down{
+                position: absolute;
+                right: 19px;
+                top: 50%;
+                z-index: 2;
+                color: #888;
+                transform: translate(0, -50%);
+              }
+              &__size-select{
+                width: 248px;
+                @include select-default;
+              }
+            }
+          }
+          &__group-price{
+            height: 129px;
+            margin: 40px 0 0;
+            .fas.fa-coins{
+              position: relative;
+              top: -2px;
+              color: #888;
+              font-size: 17px;
+              vertical-align: middle;
+            }
+            &__price-form{
+              height: 48px;
+              position: relative;
+              background: #fff;
+              margin: 8px 0 0;
+              .fas.fa-chevron-down{
+                position: absolute;
+                right: 19px;
+                top: 50%;
+                z-index: 2;
+                color: #888;
+                transform: translate(0, -50%);
+              }
+              &__price-select{
+                width: 248px;
+                @include select-default;
+              }
+              &__price-min{
+                width: 45%;
+                @include input-default;
+              }
+            }
+          }
+          &__group-item-status{
+            margin: 40px 0 0;
+            &:last-child{
+              margin: 0;
+              position: relative;
+              bottom: 30px;
+            }
+            .fas.fa-star{
+              position: relative;
+              top: -2px;
+              color: #888;
+              font-size: 17px;
+              vertical-align: middle;
+            }
+            &__status-list{
+              margin: 1px 0 0;
+              &__checkbox{
+                margin: 25px 0 0;
+                height: 15px;
+                display: inline-block;
+                width: 47%;
+                vertical-align: middle;
+                word-break: break-word;
+                &:first-child {
+                  margin: 18px 0 0;
+                }
+                &:nth-child(even) {
+                  margin: 18px 0 0 4%;
+                }
+                .fal.fa-stop{
+                  position: relative;
+                  top: -2px;
+                  color: #888;
+                  font-size: 25px;
+                  vertical-align: middle;
+                }
+                label{
+                  display: table;
+                  position: relative;
+                  left: 20px;
+                  bottom: 22px;
+                  z-index: 2;
+                  font-size: 14px;
+                  font-weight: 400;
+                  cursor: pointer;
+                }
+              }
+            }
+          }
+          &__search-extend-btn{
+            height: 90px;
+            padding: 40px 0 0;
+            &--clear-btn-grey{
+              float: left;
+              height: 50px;
+              width: 45%;
+              background: #aaa;
+              border: 1px solid #aaa;
+              color: #fff;
+              display: block;
+              line-height: 48px;
+              font-size: 14px;
+              transition: all ease-out .3s;
+              cursor: pointer;
+              text-align: center;
+            }
+            &--complete-btn-red{
+              float: right;
+              width: 45%;
+              background: #ea352d;
+              border: 1px solid #ea352d;
+              color: #fff;
+              display: block;
+              line-height: 48px;
+              font-size: 14px;
+              transition: all ease-out .3s;
+              cursor: pointer;
+              text-align: center;
+            }
+          }
+        }
+      }
     }
   }
 }
