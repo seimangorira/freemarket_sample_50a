@@ -21,12 +21,34 @@
       color: black;
     }
     &__box{
+      position: relative;
       margin-left: 20px;
       width: 213px;
       height: 330px;
       &__image{
         width: 213px;
         height: 220px;
+      }
+      &__status-sold-out{
+        display: inline-block;
+        margin: 0;
+        border-color: #ff0211 transparent transparent;
+        border-width: 60px 60px 0 0;
+        border-style: solid;
+        position: absolute!important;
+        top: 0;
+        left: 0;
+        z-index: 1;
+
+        &__text {
+          position: absolute;
+          font-size: 14px;
+          font-weight: 600;
+          left: 3px;
+          top: -46px;
+          color: #fff;
+          transform: rotate(-45deg)
+        }
       }
       &__text{
         width: 181px;

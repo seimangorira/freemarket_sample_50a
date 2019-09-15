@@ -5,6 +5,9 @@
         .contents__main__center__item__box
           .contents__main__center__item__box__image
             = image_tag item.images[0].variant(resize: '213x220'), width:"213", height:"220", alt: "イメージ1"
+            - if item.status == "complete"
+              .contents__main__center__item__box__status-sold-out
+                %span.contents__main__center__item__box__status-sold-out__text SOLD
           .contents__main__center__item__box__text
             .contents__main__center__item__box__text__product
               = item.name
