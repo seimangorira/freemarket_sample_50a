@@ -4,25 +4,15 @@
     -# 右側部分
     .search__main__right
       %section.search__main__right__item-container
-        -# 〜の検索結果部分
         - if @value.present?
           .search__main__right__item-container__search-text
             %h2.search__main__right__item-container__search-text--text= @value
             %span の検索結果
           .search__main__right__item-container__result-number
             = "1 - #{@search.length}件表示"
-            -# - elsif @valueの値がある かつ @valueが検索にマッチしなかったら・・・
-            -#   .search__main__right__item-container__search-text
-            -#     %h2.search__main__right__item-container__search-text--text= @value
-            -#     %span の検索結果
-            -#     %p 該当する商品が見つかりません。検索条件を変えて、再度お試しください。
-              -# .search__main__right__item-container__search-text
-              -#   %h2.search__main__right__item-container__search-text--text 新着商品
         - else
           .search__main__right__item-container__search-text
             %h2.search__main__right__item-container__search-text--text 新着商品
-        -# 1 -20件表示部分
-        -# 検索結果のアイテム表示部分。完成後にrenderする。
         .search__main__right__item-container__items-list.clearfix
           - @search.each do |item|
             %section.search__main__right__item-container__items-list__item-box
@@ -39,7 +29,6 @@
                       %i.far.fa-heart
                       %span 6
       %ul.search__main__right__item-pagenation
-        -# ページネーション部分。ここもrenderする。それかgem(kaminari)入れる？
         %li.search__main__right__item-pagenation__num
           %ul
             %li.search__main__right__item-pagenation__num__cell-btn.active 1

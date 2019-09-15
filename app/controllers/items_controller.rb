@@ -59,8 +59,6 @@ class ItemsController < ApplicationController
   def search
     @value = params[:search]
     if @value.present?
-    # binding.pry
-    # @search = Item.where(seller_id: current_user.id)
       @search = Item.includes([:images_attachments, images_attachments: :blob]).where("name LIKE?", "%#{@value}%")
     else
       @search = Item.includes([:images_attachments, images_attachments: :blob]).order('id DESC')

@@ -4,17 +4,10 @@
       %h1
         = link_to root_path do
           = image_tag "top-logo.svg", alt: "mercari", height: "36", width: "134"
-        -# %form.top-header__inner__top--form
-        -#   %input.input-default{name: "keyword", placeholder: "何かお探しですか？", type: "search", value: ""}
-        -#   = link_to search_items_path do
-        -#     %i.fas.fa-search 
       = form_with url: search_items_path, local: true, method: :get, class: "top-header__inner__top--form" do |f|
         = f.text_field :search, class: "input-default", placeholder: "何かお探しですか？", type: "search", value: ""
-        -# = f.label :aaa, class: 'top-header__inner__top--form__label' do
         = f.button type: "submit", class: 'top-header__inner__top--form__label__submit' do
           %i.fas.fa-search.fa-lg
-          -# = fa_icon 'search'
-          -# = link_to search_items_path do
     .top-header__inner__nav.clearfix
       %nav.top-navbar-left
         %ul.top-navbar-left__wrapper
