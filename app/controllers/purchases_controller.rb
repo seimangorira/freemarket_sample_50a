@@ -3,7 +3,7 @@ class PurchasesController < ApplicationController
   # 商品確認ページの表示
   def show
     @item = Item.find(params[:id])
-
+    redirect_to root_path if @item.seller_id == current_user.id
   end
 
   def update

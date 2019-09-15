@@ -4,7 +4,7 @@
   -# 商品の詳細情報
   %section.main__item-box
     = render partial: "detail-main", locals: { item: @item, exhibitor: @exhibitor, category: @category }
-    - if @item.status == 4
+    - if @item.status != "complete"
       = link_to purchase_path do
         .main__item-box__item-btn 購入画面に進む
     - else
