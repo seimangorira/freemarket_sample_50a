@@ -226,8 +226,7 @@
   color: #353535;
 }
 
-// ここから下はitems/search.scss
-// aタグの表示を変更
+// items/search.scss
 @mixin item-box-a {
   a{
     display: block;
@@ -235,7 +234,7 @@
     text-decoration: none;
   }
 }
-// アイテム一覧のmarginを場所ごとに変更。
+
 @mixin item-child-margin {
   &:nth-child(4n+1){
     margin-left: 0;
@@ -244,7 +243,7 @@
     margin-right: 0;
   }
 }
-// アイテム名部分のafter
+
 @mixin item-name {
   &:after{
     width: 30%;
@@ -257,7 +256,7 @@
     background: linear-gradient(to right, rgba(255,255,255,0), #fff 72%);
   }
 }
-// アイテムの価格表示部分
+
 @mixin item-price{
   z-index: 2;
   position: absolute;
@@ -269,13 +268,13 @@
   color: #fff;
   background-color: rgba(0,0,0,0.3);
 }
-// ハートのアイコン
+
 @mixin heart-icon{
   .far.fa-heart{
     color: #ccc;
   }
 }
-// labelタグの設定
+
 @mixin label-default {
   label{
     height: 17px;
@@ -283,7 +282,7 @@
     font-weight: 600;
   }
 }
-// inputタグの設定
+
 @mixin input-default {
   margin: 8px 0 0;
   height: 48px;
@@ -296,7 +295,7 @@
   font-weight: 400;
 }
 
-// selectタグの設定
+
 @mixin select-default {
     position: relative;
     z-index: 2;
