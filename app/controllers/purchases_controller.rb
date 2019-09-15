@@ -8,10 +8,11 @@ class PurchasesController < ApplicationController
 
   def update
     @item = Item.find(params[:id])
-    @credit = Credit.find(1)
+    @user = User.find(current_user.id)
+    @credit = Credit.find(@user.credit.id)
     Payjp.api_key = ENV['PAYJP_SECRET_ACCESS_KEY']
-    Payjp::Charge.create(currency: 'jpy', amount: 1000, customer: @credit.customer_id)
-    redirect_to root_path
+    Payjp::Charge.create(currency: 'jpy', amount: @item.price, customer: @credit.customer_id)
+    redirect_to root_path, notice: "購入が完了しました"
   end
 
 end

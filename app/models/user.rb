@@ -14,7 +14,7 @@ class User < ApplicationRecord
   end
 
   has_many :comments
-  has_many :credits
+  has_one :credit
   has_many :sns_credentials, dependent: :destroy
 
 
