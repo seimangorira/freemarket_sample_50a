@@ -10,7 +10,7 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = @item = Item.includes([:images_attachments, images_attachments: :blob]).find(params[:id])
+    @item = Item.includes([:images_attachments, images_attachments: :blob]).find(params[:id])
     @randItemLeft = Item.where("id>=?", rand(Item.first.id..Item.last.id)).first
     @randItemRight = Item.where("id>=?", rand(Item.first.id..Item.last.id)).first
     @exhibitor = @item.seller
