@@ -8,7 +8,8 @@
         = link_to "#" do
           %figure
             =image_tag "//static.mercdn.net/thumb/members/634836807.jpg?1563285356", height: "60", width: "60", alt: ""
-          %h2.bold#username yuk
+          %h2.bold#username
+            = current_user.nickname
           .user-my-page__whole__migigawa__header__number
             %div#exhibit
               評価
