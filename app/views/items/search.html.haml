@@ -4,30 +4,26 @@
     -# 右側部分
     .search__main__right
       %section.search__main__right__item-container
-        - if @value.present?
+        - if @value.present? && @search.length > 0
           .search__main__right__item-container__search-text
             %h2.search__main__right__item-container__search-text--text= @value
             %span の検索結果
           .search__main__right__item-container__result-number
             = "1 - #{@search.length}件表示"
+        - elsif @search.length == 0
+          .search__main__right__item-container__search-text
+            %h2.search__main__right__item-container__search-text--text= @value
+            %span の検索結果
+          %p 該当する商品が見つかりません。検索条件を変えて、再度お試しください。
+          .search__main__right__item-container__search-text
+            %h2.search__main__right__item-container__search-text--text 新着商品
         - else
           .search__main__right__item-container__search-text
             %h2.search__main__right__item-container__search-text--text 新着商品
-        .search__main__right__item-container__items-list.clearfix
-          - @search.each do |item|
-            %section.search__main__right__item-container__items-list__item-box
-              = link_to item_path(item) do
-                %figure.search__main__right__item-container__items-list__item-box__photo
-                  = image_tag item.images[0], width: "160", height: "160"
-                .search__main__right__item-container__items-list__item-box__body
-                  %h3.search__main__right__item-container__items-list__item-box__body--name 
-                    = item.name
-                  .search__main__right__item-container__items-list__item-box__body__num
-                    .search__main__right__item-container__items-list__item-box__body__num__price 
-                      = "¥ #{item.price.to_s(:delimited)}"
-                    .search__main__right__item-container__items-list__item-box__body__num__heart-icon
-                      %i.far.fa-heart
-                      %span 6
+        - if @search.length > 0
+          = render partial: "search-items", locals: {search: @search}
+        - else @search.length == 0
+          = render partial: "search-items", locals: {search: @new_items}
       %ul.search__main__right__item-pagenation
         %li.search__main__right__item-pagenation__num
           %ul

@@ -1,0 +1,15 @@
+.search__main__right__item-container__items-list.clearfix
+  - search.each do |item|
+    %section.search__main__right__item-container__items-list__item-box
+      = link_to item_path(item) do
+        %figure.search__main__right__item-container__items-list__item-box__photo
+          = image_tag item.images[0], width: "160", height: "160"
+        .search__main__right__item-container__items-list__item-box__body
+          %h3.search__main__right__item-container__items-list__item-box__body--name 
+            = item.name
+          .search__main__right__item-container__items-list__item-box__body__num
+            .search__main__right__item-container__items-list__item-box__body__num__price 
+              = "¥ #{item.price.to_s(:delimited)}"
+            .search__main__right__item-container__items-list__item-box__body__num__heart-icon
+              %i.far.fa-heart
+              %span 6
