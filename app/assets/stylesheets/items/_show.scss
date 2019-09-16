@@ -110,8 +110,9 @@
             height: 120px;
             line-height: 0;
             display: inline-table;
-            &__mini-image:hover{
+            .active {
               opacity: 1;
+              cursor: default;
             }
             &__mini-image{
               width: 60px;
