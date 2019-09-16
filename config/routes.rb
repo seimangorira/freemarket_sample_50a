@@ -26,7 +26,7 @@ Rails.application.routes.draw do
     resources :credits, only: [:index, :create]
   end
   resources :exhibitions, only: [:index, :show]
-  resources :items, only: [:new, :create, :show, :edit, :update, :destroy] do
+  resources :items, except: [:index] do
     collection do
       get 'search'
       get 'get_children_categories', defaults: { format: 'json' }
