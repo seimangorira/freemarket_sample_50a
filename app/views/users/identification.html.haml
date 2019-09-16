@@ -30,7 +30,7 @@
           .zentai__identification__header__form-group
             %label{:for => "birthday"} 生年月日
             - if current_user.birthday.present?
-              %p= current_user.birthday
+              %p= current_user.birthday.strftime("%Y/%m/%d")
             - else
               %p 未設定
           .zentai__identification__header__form-group
