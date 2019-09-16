@@ -60,6 +60,7 @@ class ItemsController < ApplicationController
     @value = params[:search]
     if @value.present?
       @search = Item.includes([:images_attachments, images_attachments: :blob]).where("name LIKE?", "%#{@value}%")
+      @new_items = Item.includes([:images_attachments, images_attachments: :blob]).order('id DESC')
     else
       @search = Item.includes([:images_attachments, images_attachments: :blob]).order('id DESC')
     end
