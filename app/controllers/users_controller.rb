@@ -14,9 +14,6 @@ class UsersController < ApplicationController
   def card
   end
 
-  def addCard
-  end
-
   private
 
   # def redirect_root

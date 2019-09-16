@@ -20,7 +20,6 @@ Rails.application.routes.draw do
   resources :users, only: [:show] do
     resources :credits, only: [:index, :create]
     collection do
-      get 'addCard'
       get 'card'
       get 'identification'
       get 'logout'
