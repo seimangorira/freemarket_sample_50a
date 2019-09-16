@@ -4,12 +4,17 @@
     -# 右側部分
     .search__main__right
       %section.search__main__right__item-container
-        - if @value.present?
+        - if @value.present? && @search.length > 0
           .search__main__right__item-container__search-text
             %h2.search__main__right__item-container__search-text--text= @value
             %span の検索結果
           .search__main__right__item-container__result-number
             = "1 - #{@search.length}件表示"
+        - elsif @search.length == 0
+          .search__main__right__item-container__search-text
+            %h2.search__main__right__item-container__search-text--text= @value
+            %span の検索結果
+          %p 該当する商品が見つかりません。検索条件を変えて、再度お試しください。
         - else
           .search__main__right__item-container__search-text
             %h2.search__main__right__item-container__search-text--text 新着商品
