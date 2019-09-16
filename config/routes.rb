@@ -17,13 +17,15 @@ Rails.application.routes.draw do
    }
   root 'tops#index'
   resources :phonenumbers, only: [:new, :create]
-  get 'users/profile' => 'users#profile'
-  get 'users/identification' => 'users#identification'
-  get "users/card" => "users#card"
-  get "users/addCard" => "users#addCard"
-  get "users/logout" => "users#logout"
   resources :users, only: [:show] do
     resources :credits, only: [:index, :create]
+    collection do
+      get 'addCard'
+      get 'card'
+      get 'identification'
+      get 'logout'
+      get 'profile'
+    end
   end
   resources :exhibitions, only: [:index, :show]
   resources :items, except: [:index] do
