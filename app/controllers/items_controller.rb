@@ -10,7 +10,7 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = @item = Item.includes([:images_attachments, images_attachments: :blob]).find(params[:id])
+    @item = Item.includes([:images_attachments, images_attachments: :blob]).find(params[:id])
     @randItemLeft = Item.where("id>=?", rand(Item.first.id..Item.last.id)).first
     @randItemRight = Item.where("id>=?", rand(Item.first.id..Item.last.id)).first
     @exhibitor = @item.seller
@@ -53,6 +53,15 @@ class ItemsController < ApplicationController
       redirect_to root_path
     else
       redirect_to exhibitions_path
+    end
+  end
+
+  def search
+    @value = params[:search]
+    if @value.present?
+      @search = Item.includes([:images_attachments, images_attachments: :blob]).where("name LIKE?", "%#{@value}%")
+    else
+      @search = Item.includes([:images_attachments, images_attachments: :blob]).order('id DESC')
     end
   end
 

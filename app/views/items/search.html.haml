@@ -1,0 +1,172 @@
+.search
+  = render "shared/top-header"
+  .search__main.clearfix
+    -# 右側部分
+    .search__main__right
+      %section.search__main__right__item-container
+        - if @value.present?
+          .search__main__right__item-container__search-text
+            %h2.search__main__right__item-container__search-text--text= @value
+            %span の検索結果
+          .search__main__right__item-container__result-number
+            = "1 - #{@search.length}件表示"
+        - else
+          .search__main__right__item-container__search-text
+            %h2.search__main__right__item-container__search-text--text 新着商品
+        .search__main__right__item-container__items-list.clearfix
+          - @search.each do |item|
+            %section.search__main__right__item-container__items-list__item-box
+              = link_to item_path(item) do
+                %figure.search__main__right__item-container__items-list__item-box__photo
+                  = image_tag item.images[0], width: "160", height: "160"
+                .search__main__right__item-container__items-list__item-box__body
+                  %h3.search__main__right__item-container__items-list__item-box__body--name 
+                    = item.name
+                  .search__main__right__item-container__items-list__item-box__body__num
+                    .search__main__right__item-container__items-list__item-box__body__num__price 
+                      = "¥ #{item.price.to_s(:delimited)}"
+                    .search__main__right__item-container__items-list__item-box__body__num__heart-icon
+                      %i.far.fa-heart
+                      %span 6
+      %ul.search__main__right__item-pagenation
+        %li.search__main__right__item-pagenation__num
+          %ul
+            %li.search__main__right__item-pagenation__num__cell-btn.active 1
+            %li.search__main__right__item-pagenation__num__cell-btn 
+              = link_to '2', '#'
+            %li.search__main__right__item-pagenation__num__cell-btn
+              = link_to '3', '#'
+            %li.search__main__right__item-pagenation__num__cell-btn
+              = link_to '4', '#'
+            %li.search__main__right__item-pagenation__num__cell-btn
+              = link_to '5', '#'
+        %li.search__main__right__item-pagenation__next-page
+          %ul
+            %li.search__main__right__item-pagenation__num__cell-btn
+              = link_to '#' do
+                %i.fa.fa-chevron-right
+            %li.search__main__right__item-pagenation__num__cell-btn
+              = link_to '#' do
+                %i.fa.fa-chevron-right
+                %i.fa.fa-chevron-right
+    -# 左側(商品検索Lv2)部分
+    .search__main__left
+      %form.search__main__left__form
+        .search__main__left__form__sort
+          .search__main__left__form__sort__group
+            .search__main__left__form__sort__group__select
+              %i.fas.fa-chevron-down.fa-lg
+              %select.search__main__left__form__sort__group__select__list
+                %option{value: ""} 並び替え
+                %option{value: "price-asc"}価格の安い順
+                %option{value: "price-desc"}価格の高い順
+                %option{value: "created-asc"}出品の古い順
+                %option{value: "created-desc"}出品の新しい順
+                %option{value: "like-desc"}いいねの多い順
+        .search__main__left__form__detail-searches
+          %h3 詳細検索
+          .search__main__left__form__detail-searches__group-first
+            %label
+              %i.fas.fa-plus
+              %span キーワードを追加する
+              - if @value.present?
+                %input{name: "search", type: "text", placeholder: "例）値下げ", value: @value, class: "search__main__left__form__detail-searches__group-first__input"}
+              - else
+                %input{name: "search", type: "text", placeholder: "例）値下げ", value: "", class: "search__main__left__form__detail-searches__group-first__input"}
+          .search__main__left__form__detail-searches__group
+            %label
+              %i.fas.fa-list
+              %span カテゴリーを検索する
+            .search__main__left__form__detail-searches__group__category-form
+              %i.fas.fa-chevron-down.fa-lg
+              %select.search__main__left__form__detail-searches__group__category-form__selection
+                %option{value: ""}すべて
+                %option{value: "ladies"}レディース
+                %option{value: "mens"}メンズ
+                %option{value: "babies"}ベビー・キッズ
+                %option{value: "interiors"}インテリア・住まいインテリア・住まい・小物
+          .search__main__left__form__detail-searches__group
+            %label
+              %i.fas.fa-tags
+              %span ブランド名から探す 
+            %input{name: "brand", type: "text", placeholder: "例）シャネル", value: "", class: "search__main__left__form__detail-searches__group__brand-input"}
+          .search__main__left__form__detail-searches__group
+            %label
+              %i.fa.fa-expand
+              %span サイズを指定する
+            .search__main__left__form__detail-searches__group__size-form
+              %i.fas.fa-chevron-down.fa-lg
+              %select.search__main__left__form__detail-searches__group__size-form__size-select
+                %option{value: ""}すべて
+                %option{value: "clothes"}洋服のサイズ
+          .search__main__left__form__detail-searches__group-price
+            %label
+              %i.fas.fa-coins
+              %span 価格
+            .search__main__left__form__detail-searches__group-price__price-form
+              %i.fas.fa-chevron-down.fa-lg
+              %select.search__main__left__form__detail-searches__group-price__price-form__price-select
+                %option{value: ""}選択してください
+                %option{value: "300-1000"}300 ~ 1000
+              %input{name: "price", placeholder: "¥ Min", class: "search__main__left__form__detail-searches__group-price__price-form__price-min"}
+              %span ~
+              %input{name: "price", placeholder: "¥ Max", class: "search__main__left__form__detail-searches__group-price__price-form__price-min"}
+          .search__main__left__form__detail-searches__group-item-status
+            %label
+              %i.fas.fa-star
+              %span 商品の状態
+            .search__main__left__form__detail-searches__group-item-status__status-list
+              .search__main__left__form__detail-searches__group-item-status__status-list__checkbox
+                %i.fal.fa-stop
+                %label すべて
+              .search__main__left__form__detail-searches__group-item-status__status-list__checkbox
+                %i.fal.fa-stop
+                %label 新品・未使用
+              .search__main__left__form__detail-searches__group-item-status__status-list__checkbox
+                %i.fal.fa-stop
+                %label 未使用に近い
+              .search__main__left__form__detail-searches__group-item-status__status-list__checkbox
+                %i.fal.fa-stop
+                %label 目立った傷や汚れなし
+              .search__main__left__form__detail-searches__group-item-status__status-list__checkbox
+                %i.fal.fa-stop
+                %label やや傷や汚れあり
+              .search__main__left__form__detail-searches__group-item-status__status-list__checkbox
+                %i.fal.fa-stop
+                %label 傷や汚れあり
+              .search__main__left__form__detail-searches__group-item-status__status-list__checkbox
+                %i.fal.fa-stop
+                %label 全体的に状態が悪い
+          .search__main__left__form__detail-searches__group-item-status
+            %label
+              %i.fa.fa-truck-moving
+              %span 配送料の負担
+            .search__main__left__form__detail-searches__group-item-status__status-list
+              .search__main__left__form__detail-searches__group-item-status__status-list__checkbox
+                %i.fal.fa-stop
+                %label すべて
+              .search__main__left__form__detail-searches__group-item-status__status-list__checkbox
+                %i.fal.fa-stop
+                %label 着払い(購入者負担)
+              .search__main__left__form__detail-searches__group-item-status__status-list__checkbox
+                %i.fal.fa-stop
+                %label 送料込み(出品者負担)
+          .search__main__left__form__detail-searches__group-item-status
+            %label
+              %i.fas.fa-shopping-cart
+              %span 販売状況
+            .search__main__left__form__detail-searches__group-item-status__status-list
+              .search__main__left__form__detail-searches__group-item-status__status-list__checkbox
+                %i.fal.fa-stop
+                %label すべて
+              .search__main__left__form__detail-searches__group-item-status__status-list__checkbox
+                %i.fal.fa-stop
+                %label 販売中
+              .search__main__left__form__detail-searches__group-item-status__status-list__checkbox
+                %i.fal.fa-stop
+                %label 売り切れ
+          .search__main__left__form__detail-searches__search-extend-btn
+            .search__main__left__form__detail-searches__search-extend-btn--clear-btn-grey クリア
+            .search__main__left__form__detail-searches__search-extend-btn--complete-btn-red 完了
+  = render 'shared/top-footer'
+  = render partial: 'shared/sell-button'
