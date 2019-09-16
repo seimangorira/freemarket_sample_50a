@@ -28,9 +28,10 @@ Rails.application.routes.draw do
   resources :exhibitions, only: [:index, :show]
   resources :items, only: [:new, :create, :show, :edit, :update, :destroy] do
     collection do
+      get 'search'
       get 'get_children_categories', defaults: { format: 'json' }
       get 'get_grandchildren_categories', defaults: { format: 'json' }
     end
   end
-  resources :purchases, only: [:show]
+  resources :purchases, only: [:show, :update]
 end

@@ -11,8 +11,8 @@
         .upload-images__container--uploaded
           .image-lists
             %ul.item-image-wrapper.first-image-lists
-              - if @upper__item_images.present?
-                - @upper__item_images.each.with_index(1) do |image, index|
+              - if @upper_item_images.present?
+                - @upper_item_images.each.with_index(1) do |image, index|
                   %li.image-lists__list
                     .item-image-wrapper__figure
                       = image_tag image, id: "saved-preview-#{index}", alt: "preview-#{index}"

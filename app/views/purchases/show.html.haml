@@ -23,7 +23,7 @@
             支払い金額
           .buy__confirmation__item__content__buyprice__price
             = "¥#{@item.price.to_s(:delmited)}"
-        .buy__confirmation__item__content__btn
+        = link_to purchase_path(@item.id), method: :patch, class: "buy__confirmation__item__content__btn" do
           購入する
     .buy__confirmation__user
       .buy__confirmation__user__info
