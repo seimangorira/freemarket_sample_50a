@@ -11,7 +11,7 @@ class ExhibitionsController < ApplicationController
   end
 private
   def set_item
-    @item = Item.find(params[:id])
+    @item = Item.includes([:images_attachments, images_attachments: :blob]).find(params[:id])
   end
 
 end

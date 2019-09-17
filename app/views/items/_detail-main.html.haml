@@ -12,10 +12,16 @@
 
       .main__item-box__item-main__content__photo__image-box
         - item.images.each_with_index do |image, i|
-          .main__item-box__item-main__content__photo__image-box__mini-image{"data-image-id": i}
-            %span
-            .main__item-box__item-main__content__photo__image-box__mini-image__inner
-              = image_tag image, class: ".main__item-box__item-main__content__photo__image-box__mini-image__inner--sub-image", width: "60", height: "60"
+          - if i == 0
+            .main__item-box__item-main__content__photo__image-box__mini-image.active{"data-image-id": i}
+              %span
+              .main__item-box__item-main__content__photo__image-box__mini-image__inner
+                = image_tag image, class: ".main__item-box__item-main__content__photo__image-box__mini-image__inner--sub-image", width: "60", height: "60"
+          -else i > 1
+            .main__item-box__item-main__content__photo__image-box__mini-image{"data-image-id": i}
+              %span
+              .main__item-box__item-main__content__photo__image-box__mini-image__inner
+                = image_tag image, class: ".main__item-box__item-main__content__photo__image-box__mini-image__inner--sub-image", width: "60", height: "60"
   %table.main__item-box__item-main__detail-table
     %tbody.main__item-box__item-main__detail-table__field
       %tr
