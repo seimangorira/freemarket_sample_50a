@@ -6,9 +6,6 @@ class ItemsController < ApplicationController
   before_action :set_children_and_grandchildren_categories, only: [:edit, :update]
   before_action :seller_equal_current_user?, only: [:edit, :update]
 
-  def index
-  end
-
   def show
     @item = Item.includes([:images_attachments, images_attachments: :blob]).find(params[:id])
     @randItemLeft = Item.where("id>=?", rand(Item.first.id..Item.last.id)).first
@@ -44,9 +41,6 @@ class ItemsController < ApplicationController
     end
   end
 
-  def buy
-  end
-
   def destroy
     if @item.seller_id == current_user.id
       @item.destroy 
@@ -77,7 +71,7 @@ class ItemsController < ApplicationController
   private
   def item_params
     params.require(:item).permit(
-      :name, :introduction, :category_id, :size, :brand, :state, :delivery_fee, :delivery_method, :city, :delivery_days, :price, images: [], image_ids: []
+      :name, :introduction, :category_id, :size, :brand, :state, :delivery_fee, :delivery_method, :city, :delivery_days, :price, :parent_category, :child_category, images: [], image_ids: []
     ).merge(seller_id: current_user.id, status: 1)
   end
 
