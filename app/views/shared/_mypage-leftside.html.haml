@@ -71,7 +71,7 @@
   %h3.mypage-nav-head 設定
   %ul.mypage-leftside__list
     %li
-      = link_to users_profile_path, class: "mypage-leftside__list__item" do
+      = link_to profile_users_path, class: "mypage-leftside__list__item" do
         プロフィール
         %i.fa.fa-chevron-right
     %li
@@ -79,7 +79,7 @@
         発送元・お届け先住所変更
         %i.fa.fa-chevron-right
     %li
-      = link_to users_card_path, class: "mypage-leftside__list__item" do
+      = link_to card_users_path, class: "mypage-leftside__list__item" do
         支払い方法
         %i.fa.fa-chevron-right
     %li
@@ -87,7 +87,7 @@
         メール/パスワード
         %i.fa.fa-chevron-right
     %li
-      = link_to users_identification_path, class: "mypage-leftside__list__item" do
+      = link_to identification_users_path, class: "mypage-leftside__list__item" do
         本人情報
         %i.fa.fa-chevron-right
     %li
@@ -95,6 +95,6 @@
         電話番号の確認
         %i.fa.fa-chevron-right
     %li
-      = link_to users_logout_path, class: "mypage-leftside__list__item" do
+      = link_to logout_users_path, class: "mypage-leftside__list__item" do
         ログアウト
         %i.fa.fa-chevron-right
