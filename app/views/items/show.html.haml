@@ -75,7 +75,7 @@
                   = category.name
                 .main__user-item__user-item-box__content__image-box__body__num
                   .main__user-item__user-item-box__content__image-box__body__num--price
-                    = "¥ #{category.price}"
+                    = "¥ #{category.price.to_s(:delimited)}"
                   .main__user-item__user-item-box__content__image-box__body__num--heart
                     %i.far.fa-heart
                     %span 4

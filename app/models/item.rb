@@ -2,6 +2,8 @@ class Item < ApplicationRecord
   belongs_to :category
   has_many_attached :images
   attribute :image_ids
+  attribute :parent_category
+  attribute :child_category
 
   extend ActiveHash::Associations::ActiveRecordExtensions  
   belongs_to_active_hash :prefecture

@@ -5,15 +5,15 @@
         マイページ
         %i.fa.fa-chevron-right
     %li
-      %a.mypage-leftside__list__item{href: "/jp/mypage/notification/"}
+      = link_to "#", class: "mypage-leftside__list__item" do
         お知らせ
         %i.fa.fa-chevron-right
     %li
-      %a.mypage-leftside__list__item{href: "/jp/mypage/todo/"}
+      = link_to "#", class: "mypage-leftside__list__item" do
         やることリスト
         %i.fa.fa-chevron-right
     %li
-      %a.mypage-leftside__list__item{href: "/jp/mypage/like/history/"}
+      = link_to "#", class: "mypage-leftside__list__item" do
         いいね！一覧
         %i.fa.fa-chevron-right
     %li
@@ -25,76 +25,76 @@
         出品した商品 - 出品中
         %i.fa.fa-chevron-right
     %li
-      %a.mypage-leftside__list__item{href: "/jp/mypage/listings/in_progress/"}
+      = link_to "#", class: "mypage-leftside__list__item" do
         出品した商品 - 取引中
         %i.fa.fa-chevron-right
     %li
-      %a.mypage-leftside__list__item{href: "/jp/mypage/listings/completed/"}
+      = link_to "#", class: "mypage-leftside__list__item" do
         出品した商品 - 売却済み
         %i.fa.fa-chevron-right
     %li
-      %a.mypage-leftside__list__item{href: "/jp/mypage/purchase/"}
+      = link_to "#", class: "mypage-leftside__list__item" do
         購入した商品 - 取引中
         %i.fa.fa-chevron-right
     %li
-      %a.mypage-leftside__list__item{href: "/jp/mypage/purchased/"}
+      = link_to "#", class: "mypage-leftside__list__item" do
         購入した商品 - 過去の取引
         %i.fa.fa-chevron-right
     %li
-      %a.mypage-leftside__list__item{href: "/jp/mypage/news/"}
+      = link_to "#", class: "mypage-leftside__list__item" do      
         ニュース一覧
         %i.fa.fa-chevron-right
     %li
-      %a.mypage-leftside__list__item{href: "/jp/mypage/review/history/"}
+      = link_to "#", class: "mypage-leftside__list__item" do
         評価一覧
         %i.fa.fa-chevron-right
     %li
-      %a.mypage-leftside__list__item{href: "/jp/help_center/"}
+      = link_to "#", class: "mypage-leftside__list__item" do
         ガイド
         %i.fa.fa-chevron-right
     %li
-      %a.mypage-leftside__list__item{href: "/jp/mypage/support/"}
+      = link_to "#", class: "mypage-leftside__list__item" do
         お問い合わせ
         %i.fa.fa-chevron-right
 
   %h3.mypage-nav-head メルペイ
   %ul.mypage-leftside__list
     %li
-      %a.mypage-leftside__list__item{href: "/jp/mypage/sales/"}
+      = link_to "#", class: "mypage-leftside__list__item" do
         売上・振込申請
         %i.fa.fa-chevron-right
     %li
-      %a.mypage-leftside__list__item{href: "/jp/mypage/point/"}
+      = link_to "#", class: "mypage-leftside__list__item" do
         ポイント
         %i.fa.fa-chevron-right
         
   %h3.mypage-nav-head 設定
   %ul.mypage-leftside__list
     %li
-      = link_to users_profile_path, class: "mypage-leftside__list__item" do
+      = link_to profile_users_path, class: "mypage-leftside__list__item" do
         プロフィール
         %i.fa.fa-chevron-right
     %li
-      %a.mypage-leftside__list__item{href: "/jp/mypage/deliver_address/"}
+      = link_to "#", class: "mypage-leftside__list__item" do
         発送元・お届け先住所変更
         %i.fa.fa-chevron-right
     %li
-      = link_to users_card_path, class: "mypage-leftside__list__item" do
+      = link_to card_users_path, class: "mypage-leftside__list__item" do
         支払い方法
         %i.fa.fa-chevron-right
     %li
-      %a.mypage-leftside__list__item{href: "/jp/mypage/email_password/"}
+      = link_to "#", class: "mypage-leftside__list__item" do
         メール/パスワード
         %i.fa.fa-chevron-right
     %li
-      = link_to users_identification_path, class: "mypage-leftside__list__item" do
+      = link_to identification_users_path, class: "mypage-leftside__list__item" do
         本人情報
         %i.fa.fa-chevron-right
     %li
-      %a.mypage-leftside__list__item{href: "/jp/mypage/sms_confirmation/"}
+      = link_to "#", class: "mypage-leftside__list__item" do
         電話番号の確認
         %i.fa.fa-chevron-right
     %li
-      = link_to users_logout_path, class: "mypage-leftside__list__item" do
+      = link_to logout_users_path, class: "mypage-leftside__list__item" do
         ログアウト
         %i.fa.fa-chevron-right
