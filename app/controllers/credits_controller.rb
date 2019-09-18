@@ -15,7 +15,7 @@ class CreditsController < ApplicationController
     if @credit.save
       redirect_to root_path, notice: "カードの作成が完了しました"
     else
-      redirect_to new_user_cregit_path
+      render :index
     end
   end
 

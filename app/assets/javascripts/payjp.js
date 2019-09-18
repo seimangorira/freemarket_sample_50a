@@ -13,7 +13,7 @@ $(document).on('turbolinks:load', function() {
     };
     Payjp.createToken(card, function(s, response) {
       if (response.error) {
-        alert("error")
+        alert("正しい値を入力してください")
         form.find('button').prop('disabled', false);
       }
       else {
