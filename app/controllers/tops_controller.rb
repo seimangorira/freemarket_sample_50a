@@ -10,12 +10,12 @@ class TopsController < ApplicationController
     @interioritems = get_items(4)
   end
 
-  def get_children_categories
+  def get_child_categories
     # binding.pry
-    @children_categories = Category.where(ancestry: params[:parent_id]).limit(14)
+    @child_categories = Category.where(ancestry: params[:parent_id]).limit(14)
   end
 
-  def get_grandchildren_categories
+  def get_grandchild_categories
     # binding.pry
     @grandchildren_categories = Category.find(params[:child_id]).children
   end
