@@ -86,27 +86,68 @@
             }
           }
         }
-        &__category-parent {
-          display: none;
-          list-style: none;
-          line-height: 44px;
-          font-size: 14px;
-          width: 224px;
-          z-index: 2;
-          background-color: rgb(255, 255, 255);
-          box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
-          position: absolute;
-          .parent-category-list {
+        &__category {
+          &__parent {
+            // display: none;
+            background-color: rgb(255, 255, 255);
+            box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+            list-style: none;
+            font-size: 14px;
+            width: 224px;
+            z-index: 2;
+            position: absolute;
+            .parent-category-list {
+              line-height: 44px;
+              h2 {
+                display: block;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
+                padding: 0px 16px;
+              }
+              h2:hover {
+                color: white;
+                background-color: #ea352d;
+              }
+            }
+          }
+          &__children {
+            // display: none;
+            list-style: none;
+            background-color: rgb(255, 255, 255);
+            bottom: 0px;
+            top: 0px;
+            box-shadow: 1px 0 0 0 #eee inset;
+            left: 224px;
+            position: absolute;
+            width: 224px;
+            font-size: 14px;
+            .children-category-list {
+              h2 {
+                display: block;
+                padding: 8px 16px;
+              }
+              h2:hover {
+                display: block;
+                background-color: rgb(245, 245, 245);
+              }
+            }
+          }
+          &__grandchildren {
+            // display: none;
+            list-style: none;
+            background-color: rgb(255, 255, 255);
+            bottom: 0px;
+            box-shadow: 1px 0 0 0 #eee inset;
+            left: 448px;
+            position: absolute;
+            top: 0px;
+            width: 320px;
             h2 {
-              display: block;
-              text-overflow: ellipsis;
-              white-space: nowrap;
-              overflow: hidden;
-              padding: 0px 16px;
+              padding: 8px 16px;
             }
             h2:hover {
-              color: white;
-              background-color: #ea352d;
+              background-color: rgb(245, 245, 245);
             }
           }
         }
