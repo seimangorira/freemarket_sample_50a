@@ -30,7 +30,7 @@ $(document).on("turbolinks:load", function(){
     $(".children-category-list").css('display', 'none');//一旦出ている子カテゴリ消します！
     $(".grandchildren-category-list").css('display', 'none');//孫、てめえもだ！
     $.ajax({
-      url: '/tops/get_children_categories',
+      url: '/tops/get_child_categories',
       type: 'GET',
       data: { parent_id: parentCategory },
       dataType: 'json'
