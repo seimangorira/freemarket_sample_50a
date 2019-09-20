@@ -35,33 +35,17 @@
                   %h2 アディダス
                 %li.brand-list
                   %h2 ブランド一覧
-        .top-navbar-left__category-parent
-          %li.parent-category-list
-            %h2 レディース
-          %li.parent-category-list
-            %h2 メンズ
-          %li.parent-category-list
-            %h2 ベビー・キッズ
-          %li.parent-category-list
-            %h2 インテリア・住まい・小物
-          %li.parent-category-list
-            %h2 本・音楽・ゲーム
-          %li.parent-category-list
-            %h2 おもちゃ・ホビー・グッズ
-          %li.parent-category-list
-            %h2 コスメ・香水・美容
-          %li.parent-category-list
-            %h2 家電・スマホ・カメラ
-          %li.parent-category-list
-            %h2 スポーツ・レジャー
-          %li.parent-category-list
-            %h2 ハンドメイド
-          %li.parent-category-list
-            %h2 チケット
-          %li.parent-category-list
-            %h2 自動車・オートバイ
-          %li.parent-category-list
-            %h2 その他
+        .top-navbar-left__category
+          .top-navbar-left__category__parent#parent_category
+            - @parent_categories.each do |category|
+              %li.parent-category-list{"data-category-id": "#{category.id}"}
+                %h2
+                  = category.name
+            %li.parent-category-list
+              %h2 カテゴリー一覧
+            .top-navbar-left__category__children#child_category
+            .top-navbar-left__category__grandchildren#grandchild_category
+              %li.grandchildren-category-list
       .top-navbar-right
         - if user_signed_in?
           %ul
