@@ -17,8 +17,8 @@ Rails.application.routes.draw do
   root 'tops#index'
   resources :tops, only: [:index] do
     collection do
-      get 'get_children_categories', defaults: { format: 'json' }
-      get 'get_grandchildren_categories', defaults: { format: 'json' }
+      get 'get_child_categories', defaults: { format: 'json' }
+      get 'get_grandchild_categories', defaults: { format: 'json' }
     end
   end
   resources :phonenumbers, only: [:new, :create]
