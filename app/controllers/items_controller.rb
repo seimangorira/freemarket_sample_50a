@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:show]
-  before_action :set_parent_categories, only: [:new, :create, :edit, :update]
+  before_action :set_parent_categories, only: [:new, :show, :search, :create, :edit, :update]
   before_action :set_item, only: [:edit, :update, :destroy]
   before_action :set_saved_images, only: [:edit, :update]
   before_action :set_children_and_grandchildren_categories, only: [:edit, :update]
@@ -75,9 +75,9 @@ class ItemsController < ApplicationController
     ).merge(seller_id: current_user.id, status: 1)
   end
 
-  def set_parent_categories
-    @parent_categories = Category.where(ancestry: nil)
-  end
+  # def set_parent_categories
+  #   @parent_categories = Category.where(ancestry: nil)
+  # end
 
   def set_item
     @item = Item.find(params[:id])
