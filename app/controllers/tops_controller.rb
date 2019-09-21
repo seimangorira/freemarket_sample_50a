@@ -1,7 +1,7 @@
 class TopsController < ApplicationController
-  before_action :set_parent_categories
-  before_action :set_children_categories
-  before_action :set_grandchildren_categories
+  # before_action :set_parent_categories
+  before_action :set_child_categories
+  before_action :set_grandchild_categories
 
   def index
     @ladyitems = get_items(1)
@@ -11,28 +11,25 @@ class TopsController < ApplicationController
   end
 
   def get_child_categories
-    # binding.pry
     @child_categories = Category.where(ancestry: params[:parent_id]).limit(14)
   end
 
   def get_grandchild_categories
+    @grandchild_categories = Category.find(params[:child_id]).children
     # binding.pry
-    @grandchildren_categories = Category.find(params[:child_id]).children
   end
 
 private
 
-  def set_parent_categories
-    # binding.pry
-    @parent_categories = Category.where(ancestry: nil)
-  end
+  # def set_parent_categories
+  #   @parent_categories = Category.where(ancestry: nil)
+  # end
 
-  def set_children_categories
-    # binding.pry
+  def set_child_categories
     @children_categories = Category.where(ancestry: params[:parent_id])
   end
 
-  def set_grandchildren_categories
+  def set_grandchild_categories
     # @grandchildren_categories = Category.find(params[:child_id]).children
   end
 
