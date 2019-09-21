@@ -4,7 +4,6 @@
   background-color: white;
   display: block;
   font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
-  height: 100px;
   a {
     text-decoration: none;
   }
@@ -87,16 +86,18 @@
           }
         }
         &__category {
+          position: relative;
           &__parent {
-            // display: none;
+            display: none;
             background-color: rgb(255, 255, 255);
             box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
             list-style: none;
             font-size: 14px;
             width: 224px;
-            z-index: 2;
+            z-index: 1;
             position: absolute;
             .parent-category-list {
+              width: 224px;
               line-height: 44px;
               h2 {
                 display: block;
@@ -111,43 +112,51 @@
               }
             }
           }
-          &__children {
-            // display: none;
-            list-style: none;
-            background-color: rgb(255, 255, 255);
-            bottom: 0px;
-            top: 0px;
-            box-shadow: 1px 0 0 0 #eee inset;
-            left: 224px;
+          &__kodomotachi {
+            z-index: 10;
             position: absolute;
-            width: 224px;
-            font-size: 14px;
-            .children-category-list {
+            display: none;
+            background-color: rgb(255, 255, 255);
+            box-shadow: 1px 0 0 0 #eee inset;
+            &__children {
+              height: 658px;
+              background-color: rgb(255, 255, 255);
+              position: absolute;
+              list-style: none;
+              box-shadow: 1px 0 0 0 #eee inset;
+              left: 224px;
+              width: 224px;
+              font-size: 14px;
+              .children-category-list {
+                width: 224px;
+                h2 {
+                  display: block;
+                  padding: 8px 16px;
+                }
+                h2:hover {
+                  display: block;
+                  background-color: rgb(245, 245, 245);
+                }
+              }
+            }
+            &__grandchildren {
+              height: 658px;
+              display: none;
+              list-style: none;
+              background-color: rgb(255, 255, 255);
+              box-shadow: 1px 0 0 0 #eee inset;
+              left: 448px;
+              position: absolute;
+              width: 320px;
+              .grandchildren-category-list {
+                width: 320px;
+              }
               h2 {
-                display: block;
                 padding: 8px 16px;
               }
               h2:hover {
-                display: block;
                 background-color: rgb(245, 245, 245);
               }
-            }
-          }
-          &__grandchildren {
-            // display: none;
-            list-style: none;
-            background-color: rgb(255, 255, 255);
-            bottom: 0px;
-            box-shadow: 1px 0 0 0 #eee inset;
-            left: 448px;
-            position: absolute;
-            top: 0px;
-            width: 320px;
-            h2 {
-              padding: 8px 16px;
-            }
-            h2:hover {
-              background-color: rgb(245, 245, 245);
             }
           }
         }
