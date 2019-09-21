@@ -75,9 +75,9 @@ class ItemsController < ApplicationController
     ).merge(seller_id: current_user.id, status: 1)
   end
 
-  # def set_parent_categories
-  #   @parent_categories = Category.where(ancestry: nil)
-  # end
+  def set_parent_categories
+    @parent_categories = Category.where(ancestry: nil)
+  end
 
   def set_item
     @item = Item.find(params[:id])
