@@ -1,6 +1,5 @@
 class ItemsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:show]
-  before_action :set_parent_categories, only: [:new, :show, :search, :create, :edit, :update]
   before_action :set_item, only: [:edit, :update, :destroy]
   before_action :set_saved_images, only: [:edit, :update]
   before_action :set_children_and_grandchildren_categories, only: [:edit, :update]
