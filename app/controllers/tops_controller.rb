@@ -7,7 +7,6 @@ class TopsController < ApplicationController
     @menitems = get_items(2)
     @babyitems = get_items(3)
     @interioritems = get_items(4)
-    @parent_categories = Category.where(ancestry: nil)
   end
 
   def get_child_categories
