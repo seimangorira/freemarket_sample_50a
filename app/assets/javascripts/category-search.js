@@ -1,34 +1,26 @@
 $(document).on("turbolinks:load", function(){
 
-  // function buildChildHTML(child){
-  //   var html =`<a class="child_category" id="${child.id}" 
-  //               href="/category/${child.id}">${child.name}</a>`;
-  //   return html;
-  // }
-
   // カテゴリー検索
-  $('.top-navbar-left__wrapper--list__category, .top-navbar-left__category__parent').mouseover(function() {
+  $('.category-select, children-category-list, grandchildren-category-list').mouseover(function() {
     $('.top-navbar-left__category__parent').show();
   });
 
-  $('.top-navbar-left__wrapper--list__category, .top-navbar-left__category__parent').mouseleave(function(){
+  $('.category-select, children-category-list, grandchildren-category-list').mouseleave(function(){
     $('.top-navbar-left__category__parent').hide();
-  })
+    $(".top-navbar-left__category__kodomotachi").hide();
+  });
 
+  // 追加される子カテゴリーのHTML
   function buildChildHTML(child){
-    var html =`<li class="children-category-list" id="${child.id} href="/category/${child.id}">
-            <h2>${child.name}</h2></li>`;
+    var html =`<li class="children-category-list" id="${child.id}" data-child-id="${child.id}" href="/category/${child.id}"><h2>${child.name}</h2></li>`;
     return html;
   }
 
-  $(".parent-category-list").on("mouseover", function() {
-    var parentCategory = $(this).data("category-id"); //選択された親カテゴリのidを取得
-    console.log(parentCategory);
-    // $(".now-selected-red").removeClass("now-selected-red")//赤色のcssのためです
-    // $('#' + parentCategory).addClass("now-selected-red");//赤色のcssのためです
-    $(".children-category-list").show();
-    $(".children-category-list").css('display', 'none');//一旦出ている子カテゴリ消します！
-    $(".grandchildren-category-list").css('display', 'none');//孫、てめえもだ！
+  $(".parent-category-list").on("mouseover", function() {// 親カテゴリーリストにマウスをのせると…
+    $(".children-category-list").show();// 子カテゴリーが出てきます
+    $(".children-category-list").remove();// 選択した親カテゴリーが変更されると、一旦消えます
+    $(".grandchildren-category-list").remove();
+    var parentCategory = $(this).data("category-id");
     $.ajax({
       url: '/tops/get_child_categories',
       type: 'GET',
@@ -36,49 +28,45 @@ $(document).on("turbolinks:load", function(){
       dataType: 'json'
     })
     .done(function(children){
-      children.forEach(function (child) {//帰ってきた子カテゴリー（配列）
-        var html = buildChildHTML(child);//HTMLにして
-        $(".top-navbar-left__category__children").append(html);//リストに追加します
-        console.log(html);
-        // $(".children-category-list").show();
+      $(".top-navbar-left__category__kodomotachi").show();//親の値を取ってきて、子カテゴリー登場
+      children.forEach(function (child) {
+        var html = buildChildHTML(child);
+        $(".top-navbar-left__category__kodomotachi__children").append(html);
       })
     });
   });
 
-  function buildGrandChildHTML(child){
-    var html =`<a class="grand_child_category" id="${child.id}"
-               href="/category/${child.id}">${child.name}</a>`;
+  // 追加される孫カテゴリーのHTML
+  function buildGrandChildHTML(grandchild){
+    var html =`<li class="grandchildren-category-list" id="${grandchild.id}" href="/category/${grandchild.id}"><h2>${grandchild.name}</h2></li>`;
     return html;
   }
 
-  $(document).on("mouseover", ".child_category", function () {//子カテゴリーのリストは動的に追加されたHTMLのため
-    var id = this.id
-    $(".now-selected-gray").removeClass("now-selected-gray");//灰色のcssのため
-    $('#' + id).addClass("now-selected-gray");//灰色のcssのため
+  $(document).on("mouseover", ".children-category-list", function () {
+    $(".grandchildren-category-list").remove();//changeすると入れ替わる
+    var childCategory = $(this).data("child-id");
     $.ajax({
-      url: '/items/get_grandchildren_categories',
+      url: '/tops/get_grandchild_categories',
       type: 'GET',
       data: { child_id: childCategory },
       dataType: 'json'
     })
     .done(function(children) {
-      children.forEach(function (child) {
-        var html = buildGrandChildHTML(child);
-        $(".grand_children_list").append(html);
+      $(".top-navbar-left__category__kodomotachi__grandchildren").css('display', 'block');
+      children.forEach(function (grandchild) {
+        var html = buildGrandChildHTML(grandchild);
+        $(".top-navbar-left__category__kodomotachi__grandchildren").append(html);
       })
-      $(document).on("mouseover", ".child_category", function () {
-        $(".grand_child_category").remove();
-      });
-    });
+    })
   });  
 
   // ブランド検索
-  // $('.top-navbar-left__wrapper--list__brand, .top-navbar-left__brand').mouseover(function() {
-  //   $('.top-navbar-left__brand').show();
-  // });
+  $('.top-navbar-left__wrapper--list__brand, .top-navbar-left__brand').mouseover(function() {
+    $('.top-navbar-left__brand').show();
+  });
 
-  // $('.top-navbar-left__wrapper--list__brand, .top-navbar-left__brand').mouseleave(function(){
-  //   $('.top-navbar-left__brand').hide();
-  // })
+  $('.top-navbar-left__wrapper--list__brand, .top-navbar-left__brand').mouseleave(function(){
+    $('.top-navbar-left__brand').hide();
+  })
 
 });
