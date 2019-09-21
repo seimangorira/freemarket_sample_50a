@@ -8,27 +8,27 @@ crumb :mypage do
 end
 
 crumb :profile do
-  link "プロフィール", users_profile_path
+  link "プロフィール", profile_users_path
   parent :mypage
 end
 
 crumb :logout do
-  link "ログアウト", users_logout_path
+  link "ログアウト", logout_users_path
   parent :mypage
 end
 
 crumb :identification do
-  link "本人情報の登録", users_identification_path
+  link "本人情報の登録", identification_users_path
   parent :mypage
 end
 
 crumb :card do
-  link "支払い方法", users_card_path
+  link "支払い方法", card_users_path
   parent :mypage
 end
 
 crumb :addCard do
-  link "クレジット情報入力", users_addCard_path
+  link "クレジット情報入力", user_credits_path
   parent :card
 end
 

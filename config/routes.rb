@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     get "/signup/complete" => "users/registrations#complete", as: "complete_registration"
   end
   devise_for :users, controllers: {
+    omniauth_callbacks: "users/omniauth_callbacks",
     registrations: 'users/registrations',
     sessions: 'users/sessions'
    }
@@ -22,20 +23,22 @@ Rails.application.routes.draw do
     end
   end
   resources :phonenumbers, only: [:new, :create]
-  resources :items, only: [:new]
-  get "items/buy" => "items#buy"
-  get "users/login" => "users#login"
-  get 'users/profile' => 'users#profile'
-  get 'users/identification' => 'users#identification'
-  get "users/card" => "users#card"
-  get "users/addCard" => "users#addCard"
-  get "users/logout" => "users#logout"
-  resources :users, only: [:show]
-  resources :exhibitions, only: [:index, :show]
-  resources :items, only: [:new, :create, :show, :edit, :update, :destroy] do
+  resources :users, only: [:show] do
+    resources :credits, only: [:index, :create]
     collection do
+      get 'card'
+      get 'identification'
+      get 'logout'
+      get 'profile'
+    end
+  end
+  resources :exhibitions, only: [:index, :show]
+  resources :items, except: [:index] do
+    collection do
+      get 'search'
       get 'get_children_categories', defaults: { format: 'json' }
       get 'get_grandchildren_categories', defaults: { format: 'json' }
     end
   end
+  resources :purchases, only: [:show, :update]
 end

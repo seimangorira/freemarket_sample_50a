@@ -1,8 +1,4 @@
 class UsersController < ApplicationController
-
-  def login
-  end
-
   def logout
   end
 
@@ -16,9 +12,6 @@ class UsersController < ApplicationController
   end
 
   def card
-  end
-
-  def addCard
   end
 
   private

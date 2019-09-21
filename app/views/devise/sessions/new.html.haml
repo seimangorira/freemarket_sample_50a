@@ -15,11 +15,13 @@
             .new-user-top-main__container__inners{style: :"padding-bottom: 32px;"}
               .new-user-top-main__container__inners__inner
                 %button.new-user-top-main__container__inners__inner__btn-sns{style: :"border-radius: 0;"}
-                  %i.fab.fa-facebook-square
-                  Facebookでログインする
+                  = link_to user_facebook_omniauth_authorize_path, class: "new-user-top-main__container__inners__inner__btn-sns__link", method: :post do
+                    %i.fab.fa-facebook-square
+                    Facebookでログインする
                 %button.new-user-top-main__container__inners__inner__btn-sns-google{style: :"border-radius: 0;"}
-                  = image_tag "googleLogo.jpg"
-                  Googleでログインする
+                  = link_to user_google_oauth2_omniauth_authorize_path, class: "new-user-top-main__container__inners__inner__btn-sns-google__link", method: :post do
+                    = image_tag "googleLogo.jpg"
+                    Googleでログインする
 
             %form
             = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|

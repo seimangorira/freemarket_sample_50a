@@ -11,17 +11,25 @@
         .upload-images__container--uploaded
           .image-lists
             %ul.item-image-wrapper.first-image-lists
-              - if @upper__item_images.present?
-                - @upper__item_images.each.with_index(1) do |image, index|
+              - if @upper_item_images.present?
+                - @upper_item_images.each.with_index(1) do |image, index|
                   %li.image-lists__list
                     .item-image-wrapper__figure
                       = image_tag image, id: "saved-preview-#{index}", alt: "preview-#{index}"
                     .item-image-wrapper__button
                       = link_to "編集", "#"
                       = link_to "削除", "#", class: "delete-saved-image", "data-saved-image-id": image.id
+              - elsif item.images.present? # 商品出品時：バリデーションによりフォームが再表示された際にプレビューを保持
+                - item.images[0..4].each.with_index(1) do |image, index|
+                  %li.image-lists__list
+                    .item-image-wrapper__figure
+                      = image_tag image, id: "preview-#{index}", alt: "preview-#{index}"
+                    .item-image-wrapper__button
+                      = link_to "編集", "#"
+                      = link_to "削除", "#", class: "delete-uploaded-image", "data-image-id": image.id
           .image-lists
             %ul.item-image-wrapper.second-image-lists
-              - if @lower_item_images.present?
+              - if @lower_item_images.present? # 商品編集時：保存された画像をプレビューで表示
                 - @lower_item_images.each.with_index(6) do |image, index|
                   %li.image-lists__list
                     .item-image-wrapper__figure
@@ -29,13 +37,24 @@
                     .item-image-wrapper__button
                       = link_to "編集", "#"
                       = link_to "削除", "#", class: "delete-saved-image", "data-saved-image-id": image.id
+              - elsif item.images[5..9].present? # 商品出品時：バリデーションによりフォームが再表示された際にプレビューを保持
+                - item.images[5..9].each.with_index(6) do |image, index|
+                  %li.image-lists__list
+                    .item-image-wrapper__figure
+                      = image_tag image, id: "preview-#{index}", alt: "preview-#{index}"
+                    .item-image-wrapper__button
+                      = link_to "編集", "#"
+                      = link_to "削除", "#", class: "delete-uploaded-image", "data-image-id": image.id
         = f.label :images, class: "upload-images__container--now-upload" do
           .now-upload-wrapper{"data-total-items": item.images.length}
             = f.file_field :images, multiple: true, class: "now-upload-wrapper--input upload-box-0"
-            - if item.id.present?
+            - if item.id.present? # 商品編集：保存済み画像を削除するための記述
               - @item_images.each.with_index(1) do |image, index|
                 .remove-item-image{style: "display: none;"}
                   = f.check_box :image_ids, {multiple: true, class: "remove-item-image-#{image.id} remove-check-box", checked: false}, image.id, "0"
+            - elsif item.id.nil? && item.images.present?  # 商品出品時：バリデーションによりフォームが再表示された際に、アップロードされたファイルを保持
+              - item.images.each.with_index(1) do |image, index|
+                = f.hidden_field :images, value: image.signed_id, multiple: true, class: "now-upload-wrapper--input upload-box-#{index}"
             %pre.input.upload-images__container--text
               ドラッグアンドドロップ
               またはクリックしてファイルをアップロード
@@ -70,20 +89,20 @@
             - if @children_categories.nil?
               .select-wrap
                 %i.fas.fa-angle-down
-                = f.collection_select :category_id, @parent_categories, :id, :name, {prompt: "---"}, {class: "select-wrap__input", id: "parent_category"}
+                = f.collection_select :parent_category, @parent_categories, :id, :name, {prompt: "---"}, {class: "select-wrap__input", id: "parent_category"}
             - else 
               .select-wrap
                 %i.fas.fa-angle-down
-                = f.collection_select :category_id, @parent_categories, :id, :name, {prompt: "---", selected: item.category.root.id}, {class: "select-wrap__input", id: "parent_category"}
+                = f.collection_select :parent_category, @parent_categories, :id, :name, {prompt: "---", selected: item.category.root.id}, {class: "select-wrap__input", id: "parent_category"}
               .select-wrap.child-categories-wrapper
                 %i.fas.fa-angle-down
-                = f.collection_select :category_id, @children_categories, :id, :name, {prompt: "---", selected: item.category.parent.id}, {class: "select-wrap__input", id: "child_category"}
+                = f.collection_select :child_category, @children_categories, :id, :name, {prompt: "---", selected: item.category.parent.id}, {class: "select-wrap__input", id: "child_category"}
               .select-wrap.grandchild-categories-wrapper
                 %i.fas.fa-angle-down
                 = f.collection_select :category_id, @grandchildren_categories, :id, :name, {prompt: "---"}, {class: "select-wrap__input", id: "grandchild_category"}
 
-          -# 出品ページか編集ページかで、「サイズ」・「ブランド」欄の処理を分岐
-          - if item.id.nil?
+          -# 出品ページにアクセスした場合、または孫カテゴリーが選択されていない場合はsizeの入力フォームを出さない
+          - if request.path_info == new_item_path || item.category_id.nil?
             .form-group.select-item-sizes{style: "display: none;"}
               %label.item-detail__category 
                 サイズ
@@ -91,12 +110,12 @@
               .select-wrap
                 %i.fas.fa-angle-down
                 = f.select :size, Item.sizes_i18n.invert, {prompt: "---"}, {class: "select-wrap__input"}
-            .form-group.input-item-brands{style: "display: none;"}
-              %label.item-detail__category 
-                ブランド
-                %span.form-arbitrary 任意
-              .select-wrap
-                = f.text_field :brand, class:"select-wrap__input", placeholder: "例）シャネル"
+              .form-group.input-item-brands{style: "display: none;"}
+                %label.item-detail__category 
+                  ブランド
+                  %span.form-arbitrary 任意
+                .select-wrap
+                  = f.text_field :brand, class:"select-wrap__input", placeholder: "例）シャネル"
           - else 
             .form-group.select-item-sizes
               %label.item-detail__category 

@@ -5,6 +5,9 @@ Rails.application.configure do
   # every request. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.
   config.cache_classes = false
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  
+
 
   # Do not eager load code on boot.
   config.eager_load = false
@@ -58,4 +61,12 @@ Rails.application.configure do
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+
+  config.after_initialize do
+    Bullet.enable = true # Bulletプラグインを有効化
+    Bullet.alert = true # JavaScriptでの通知を設定
+    Bullet.bullet_logger = true # log/bullet.logへの出力
+    Bullet.console = true # ブラウザのコンソールログに記録
+    Bullet.rails_logger = true # Railsログに出力
+  end
 end
