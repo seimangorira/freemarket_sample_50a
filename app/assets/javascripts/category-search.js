@@ -5,10 +5,16 @@ $(document).on("turbolinks:load", function(){
     $('.top-navbar-left__category__parent').show();
   });
 
-  $('.category-select, children-category-list, grandchildren-category-list').mouseleave(function(){
+  $('.top-navbar-left__category, .top-header__inner').mouseleave(function(e){
     $('.top-navbar-left__category__parent').hide();
     $(".top-navbar-left__category__kodomotachi").hide();
   });
+
+  $(`img[alt="mercari"]`).mouseover(function() {
+    $('.top-navbar-left__category__parent').hide();
+    $(".top-navbar-left__category__kodomotachi").hide();
+  });
+  
 
   // 追加される子カテゴリーのHTML
   function buildChildHTML(child){
