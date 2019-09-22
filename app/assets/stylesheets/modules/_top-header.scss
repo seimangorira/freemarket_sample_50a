@@ -4,10 +4,15 @@
   background-color: white;
   display: block;
   font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
-  height: 100px;
   a {
     text-decoration: none;
     color: #333;
+  }
+  a:hover {
+    color: #0099e8;
+  }
+  #category-nav-parent {
+    width: 224px;
   }
     &__inner{
     width: 1020px;
@@ -79,13 +84,14 @@
           font-size: 0;
           font-size: 14px;
           font-weight: 400;
+          padding: 0 10px 0 0;
           li {
             position: relative;
             display: inline-block;
-            padding: 0 11px;
             cursor: pointer;
+            padding: 0 10px 0 0;
           }
-          &--list {
+          &--list__category, &--list__brand {
             font-weight: bold;
             position: relative;
             height: 44px;
@@ -94,6 +100,105 @@
               color: $exhibition-red;
               font-size: 12px;
               margin-right: 4px;
+            }
+          }
+        }
+        &__category {
+          position: relative;
+          &__parent {
+            display: none;
+            background-color: rgb(255, 255, 255);
+            box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+            list-style: none;
+            font-size: 14px;
+            width: 224px;
+            z-index: 1;
+            position: absolute;
+            .parent-category-list {
+              width: 224px;
+              line-height: 44px;
+              h2 {
+                display: block;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
+                padding: 0px 16px;
+              }
+              h2:hover {
+                color: white;
+                background-color: #ea352d;
+              }
+            }
+          }
+          &__kodomotachi {
+            z-index: 10;
+            position: absolute;
+            display: none;
+            background-color: rgb(255, 255, 255);
+            box-shadow: 1px 0 0 0 #eee inset;
+            &__children {
+              height: 658px;
+              background-color: rgb(255, 255, 255);
+              position: absolute;
+              list-style: none;
+              box-shadow: 1px 0 0 0 #eee inset;
+              left: 224px;
+              width: 224px;
+              font-size: 14px;
+              .children-category-list {
+                width: 224px;
+                h2 {
+                  display: block;
+                  padding: 8px 16px;
+                }
+                h2:hover {
+                  display: block;
+                  background-color: rgb(245, 245, 245);
+                }
+              }
+            }
+            &__grandchildren {
+              height: 658px;
+              display: none;
+              list-style: none;
+              background-color: rgb(255, 255, 255);
+              box-shadow: 1px 0 0 0 #eee inset;
+              left: 448px;
+              position: absolute;
+              width: 320px;
+              .grandchildren-category-list {
+                width: 320px;
+              }
+              h2 {
+                padding: 8px 16px;
+              }
+              h2:hover {
+                background-color: rgb(245, 245, 245);
+              }
+            }
+          }
+        }
+        &__brand {
+          display: none;
+          list-style: none;
+          font-size: 14px;
+          z-index: 2;
+          background-color: rgb(255, 255, 255);
+          box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+          position: absolute;
+          .brand-list {
+            line-height: 44px;
+            padding: 0;
+            width: 224px;
+            h2 {
+              display: block;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+              padding: 0px 16px;
+            }
+            h2:hover {
+              color: white;
+              background-color: #ea352d;
             }
           }
         }

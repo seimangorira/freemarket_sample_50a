@@ -1,6 +1,5 @@
 class ItemsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:show]
-  before_action :set_parent_categories, only: [:new, :create, :edit, :update]
   before_action :set_item, only: [:edit, :update, :destroy]
   before_action :set_saved_images, only: [:edit, :update]
   before_action :set_children_and_grandchildren_categories, only: [:edit, :update]
@@ -73,10 +72,6 @@ class ItemsController < ApplicationController
     params.require(:item).permit(
       :name, :introduction, :category_id, :size, :brand, :state, :delivery_fee, :delivery_method, :city, :delivery_days, :price, :parent_category, :child_category, images: [], image_ids: []
     ).merge(seller_id: current_user.id, status: 1)
-  end
-
-  def set_parent_categories
-    @parent_categories = Category.where(ancestry: nil)
   end
 
   def set_item

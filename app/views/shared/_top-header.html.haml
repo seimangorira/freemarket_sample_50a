@@ -11,18 +11,42 @@
     .top-header__inner__nav.clearfix
       %nav.top-navbar-left
         %ul.top-navbar-left__wrapper
-          %li
+          %li.category-select
             %h2
-              .top-navbar-left__wrapper--list
+              .top-navbar-left__wrapper--list__category
                 = link_to "#" do
                   %i.fas.fa-bars
                   %span カテゴリーから探す
+              .top-navbar-left__category.category-select
+                .top-navbar-left__category__parent.category-select
+                  - @parent_categories.each do |category|
+                    %li.parent-category-list{"data-category-id": "#{category.id}"}
+                      %h2
+                        = category.name
+                  %li.parent-category-list
+                    %h2 カテゴリー一覧
+                .top-navbar-left__category__kodomotachi
+                  .top-navbar-left__category__kodomotachi__children.category-select
+                  .top-navbar-left__category__kodomotachi__grandchildren.category-select
           %li
             %h2
-              .top-navbar-left__wrapper--list
+              .top-navbar-left__wrapper--list__brand
                 = link_to "#" do
                   %i.fas.fa-tag
                   %span ブランドから探す
+              .top-navbar-left__brand
+                %li.brand-list
+                  %h2 シャネル
+                %li.brand-list
+                  %h2 ナイキ
+                %li.brand-list
+                  %h2 ルイ ヴィトン
+                %li.brand-list
+                  %h2 シュプリーム
+                %li.brand-list
+                  %h2 アディダス
+                %li.brand-list
+                  %h2 ブランド一覧
       .top-navbar-right
         - if user_signed_in?
           %ul

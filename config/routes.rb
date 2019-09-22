@@ -16,6 +16,12 @@ Rails.application.routes.draw do
     sessions: 'users/sessions'
    }
   root 'tops#index'
+  resources :tops, only: [:index] do
+    collection do
+      get 'get_child_categories', defaults: { format: 'json' }
+      get 'get_grandchild_categories', defaults: { format: 'json' }
+    end
+  end
   resources :phonenumbers, only: [:new, :create]
   resources :users, only: [:show] do
     resources :credits, only: [:index, :create]
