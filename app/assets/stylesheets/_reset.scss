@@ -19,7 +19,11 @@ html{
     TODO test putting a class on HEAD.
         - Fails on FF.
 */
-body,
+body {
+    margin:0;
+    padding:0;
+    min-width: 1080px;
+}
 div,
 dl,
 dt,
